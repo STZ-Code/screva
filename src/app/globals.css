@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .triangle {
+    width: 112px;
+    height: 112px;
+    background-color: rgb(39 39 42 / 0.5);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+
+  .sm-triangle-l {
+    width: 5px;
+    height: 5px;
+    background-color: rgb(249 250 251);
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+
+  .sm-triangle-r {
+    width: 5px;
+    height: 5px;
+    background-color: #00D3F3;
+    clip-path: polygon(0 0, 0 100%, 100% 0);
+  }
+}
