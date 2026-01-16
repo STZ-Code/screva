@@ -3,6 +3,7 @@ import { UserIcon } from '@phosphor-icons/react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
+import { Logo } from '@/assets/images/logo'
 
 const tabs = [
 	{ label: 'Home', href: '/' },
@@ -78,7 +79,7 @@ export function Header() {
 			</div>
 
 			<div className="w-72 items-center justify-center flex">
-				<span>Screva</span>
+				<Logo className="w-48 text-zinc-100" />
 			</div>
 		</header>
 	)
