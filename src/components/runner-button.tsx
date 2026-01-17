@@ -119,7 +119,7 @@ export function RunnerButton({
 				/>
 				<span
 					className={clsx(
-						'w-[94px] border-b-[10px] absolute -left-6 top-8 border-l-[6px] border-l-transparent border-r-[6px] -rotate-[54deg] border-r-transparent',
+						'w-[98px] border-b-[10px] absolute -left-6 top-8 border-l-[6px] border-l-transparent border-r-[6px] -rotate-[54deg] border-r-transparent',
 						{
 							'border-b-cyan-500/80': variant === 'event',
 							'border-b-slate-700/80': variant === 'result',
@@ -129,7 +129,7 @@ export function RunnerButton({
 				<div>
 					<motion.span
 						variants={leftEnterTrapezoid}
-						transition={{ duration: 0.1, ease: 'easeIn' }}
+						transition={{ duration: 0.2, ease: 'easeIn' }}
 						className={leftTrapezoidStyles}
 					/>
 					<motion.span

@@ -1,5 +1,6 @@
 'use client'
 import { UserIcon } from '@phosphor-icons/react'
+import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -59,20 +60,13 @@ export function Header() {
 					</nav>
 
 					<div
-						className="
-							absolute bottom-0 h-[5px] bg-gray-50
-							transition-all duration-300
-
-							before:absolute before:-left-[5.8px] before:bottom-0
-							before:w-0 before:h-0
-							before:border-b-[5px] before:border-b-gray-50
-							before:border-l-[6px] before:border-l-transparent
-
-							after:absolute after:-right-[5.9px] after:top-0
-							after:w-0 after:h-0
-							after:border-t-[5px] after:border-t-gray-50
-							after:border-r-[6px] after:border-r-transparent
-						"
+						className={clsx(
+							'absolute bottom-0 h-[5px] bg-gray-50 transition-all duration-300 before:absolute before:-left-[5.8px] before:bottom-0 before:w-0 before:h-0 before:border-b-[5px] before:border-b-gray-50 before:border-l-[6px] before:border-l-transparent after:absolute after:-right-[5.9px] after:top-0 after:w-0 after:h-0 after:border-t-[5px] after:border-t-gray-50 after:border-r-[6px] after:border-r-transparent',
+							{
+								'before:opacity-0': style.width === 0,
+								'after:opacity-0': style.width === 0,
+							},
+						)}
 						style={style}
 					/>
 				</div>
