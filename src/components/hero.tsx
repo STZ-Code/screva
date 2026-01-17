@@ -16,10 +16,10 @@ export function Hero() {
 					transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					className="flex items-center justify-center flex-col"
 				>
-					<h1 className="text-center cursor-default text-7xl font-bold font-geist text-zinc-200/90 leading-tight">
+					<h1 className="text-center cursor-default text-7xl font-bold text-zinc-200/90 leading-tight">
 						Seu Tempo, Sua Meta
 					</h1>
-					<h1 className="text-center text-7xl cursor-default font-bold font-geist text-zinc-200/90 leading-tight">
+					<h1 className="text-center text-7xl cursor-default font-bold text-zinc-200/90 leading-tight">
 						Nossa <span className="italic text-cyan-400">Precisão</span>
 					</h1>
 				</motion.div>
@@ -37,7 +37,7 @@ export function Hero() {
 			<div className="flex w-full h-full z-10">
 				<div className="flex-1 overflow-hidden relative">
 					<motion.div
-						initial={{ scale: 1.2, opacity: 0.2 }}
+						initial={{ scale: 1.2, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						transition={{ duration: 1.5, ease: 'easeOut' }}
 						className="h-full w-full"
@@ -52,7 +52,7 @@ export function Hero() {
 
 				<div className="flex-1 overflow-hidden relative border-l border-zinc-800">
 					<motion.div
-						initial={{ scale: 1.2, opacity: 0.2 }}
+						initial={{ scale: 1.2, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
 						transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
 						className="h-full w-full"

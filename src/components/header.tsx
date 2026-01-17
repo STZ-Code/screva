@@ -73,7 +73,7 @@ export function Header() {
 			</div>
 
 			<div className="w-72 items-center justify-center flex">
-				<Logo className="w-48 text-zinc-100" />
+				<Logo className="w-44 text-zinc-100" />
 			</div>
 		</header>
 	)
