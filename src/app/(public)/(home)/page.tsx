@@ -1,7 +1,11 @@
+import { Hero } from '@/components/hero'
+
 export default function HomePage() {
 	return (
-		<div className="items-center flex justify-center h-full w-full">
-			<h1>STZ TEMPLATE</h1>
+		<div className="items-center flex flex-col justify-center h-full w-full overflow-auto">
+			<Hero />
+
+			<span>next section</span>
 		</div>
 	)
 }
