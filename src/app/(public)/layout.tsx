@@ -1,3 +1,4 @@
+import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 
 export default function PublicLayout({
@@ -8,7 +9,10 @@ export default function PublicLayout({
 	return (
 		<div className="flex flex-col w-full">
 			<Header />
-			{children}
+			<div className="overflow-auto">
+				{children}
+				<Footer />
+			</div>
 		</div>
 	)
 }
