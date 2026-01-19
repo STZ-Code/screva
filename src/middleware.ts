@@ -6,6 +6,10 @@ import {
 
 const publicRoutes = [
 	{ path: '/', whenAuthenticated: 'next' },
+	{ path: '/eventos', whenAuthenticated: 'next' },
+	{ path: '/resultados', whenAuthenticated: 'next' },
+	{ path: '/anunciar', whenAuthenticated: 'next' },
+	{ path: '/contato', whenAuthenticated: 'next' },
 	{ path: '/sign-in', whenAuthenticated: 'redirect' },
 	{ path: '/sign-up', whenAuthenticated: 'redirect' },
 ] as const

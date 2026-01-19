@@ -5,13 +5,18 @@ export default {
 		'./src/pages/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/components/**/*.{js,ts,jsx,tsx,mdx}',
 		'./src/app/**/*.{js,ts,jsx,tsx,mdx}',
-		'./node_modules/@stz-code/ui/dist/**/*.{js,mjs}'
+		'./node_modules/@stz-code/ui/dist/**/*.{js,mjs}',
 	],
 	theme: {
 		extend: {
 			colors: {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
+			},
+			fontFamily: {
+				bebas: ['var(--font-bebas)'],
+				geist: ['var(--font-geist)'],
+				sans: ['var(--font-geist)', 'ui-sans-serif', 'system-ui'],
 			},
 		},
 	},
