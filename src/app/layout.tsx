@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Bebas_Neue, Geist, } from 'next/font/google'
+import { Bebas_Neue, Geist } from 'next/font/google'
 import { Toaster } from 'sonner'
 
 const bebasNeue = Bebas_Neue({
@@ -32,7 +32,7 @@ export default function RootLayout({
 		<html lang="en" className={clsx(bebasNeue.variable, geist.variable)}>
 			<body
 				suppressHydrationWarning
-				className="bg-zinc-900 h-screen text-zinc-100 flex overflow-hidden max-w-screen-2xl"
+				className="bg-zinc-900 h-screen text-zinc-100 flex overflow-hidden max-w-screen-2xl antialiased"
 			>
 				<Toaster richColors />
 				{children}

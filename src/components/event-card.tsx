@@ -4,10 +4,12 @@ import { motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import exampleImg from '@/assets/examples/picos.jpg'
+import { EventStatus } from './event-status'
 
 export function EventCard() {
 	return (
 		<motion.div
+			whileTap={{ scale: 0.95 }}
 			whileHover={{
 				y: -10,
 				borderColor: '#22d3ee',
@@ -17,13 +19,15 @@ export function EventCard() {
 			transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 			className="p-5 border border-zinc-700 rounded-2xl w-[300px] bg-zinc-900/40 backdrop-blur-sm group"
 		>
-			<Link href={'#'} className="block">
-				<div className="relative overflow-hidden rounded-md">
+			<Link href={'/'} className="block">
+				<div className="relative overflow-hidden">
 					<Image
 						src={exampleImg}
 						alt="Event Image"
-						className="w-64 rounded-md object-cover transition-transform duration-500 group-hover:scale-110 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)]"
+						className="w-64 z-40 object-cover transition-transform duration-500 group-hover:scale-110 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)]"
 					/>
+
+					<EventStatus />
 				</div>
 
 				<div className="mt-3 w-full">
