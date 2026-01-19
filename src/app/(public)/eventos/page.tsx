@@ -1,3 +1,5 @@
+import { EventList } from '@/components/event-list'
+
 export default function Event() {
-	return <div>Hello world</div>
+	return <EventList title="Eventos a seguir" footerActions={'Paginação...'} />
 }
