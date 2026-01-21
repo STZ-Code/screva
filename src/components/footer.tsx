@@ -1,14 +1,11 @@
 'use client'
 
-import {
-	CaretDoubleUpIcon,
-	InstagramLogoIcon,
-	LinkedinLogoIcon,
-} from '@phosphor-icons/react'
+import { CaretDoubleUpIcon } from '@phosphor-icons/react'
 import { motion, type Variants } from 'motion/react'
 import Image from 'next/image'
 import { Logo } from '@/assets/images/logo'
 import S from '@/assets/screva-s.svg'
+import { SocialMediaLinks } from './social-media-links'
 
 export function Footer() {
 	const containerVariants: Variants = {
@@ -61,30 +58,7 @@ export function Footer() {
 						</p>
 					</div>
 
-					<div className="flex gap-4">
-						{[
-							{
-								Icon: InstagramLogoIcon,
-								href: 'https://www.instagram.com/stzcode',
-							},
-							{
-								Icon: LinkedinLogoIcon,
-								href: 'https://www.linkedin.com/company/stzcode/',
-								weight: 'fill' as const,
-							},
-						].map((social, index) => (
-							<motion.a
-								key={index}
-								href={social.href}
-								target="_blank"
-								rel="noopener"
-								whileHover={{ y: -3, color: '#22d3ee' }}
-								className="text-zinc-400 transition-colors"
-							>
-								<social.Icon size={24} weight={social.weight} />
-							</motion.a>
-						))}
-					</div>
+					<SocialMediaLinks />
 
 					<motion.a
 						href="#inicio"
