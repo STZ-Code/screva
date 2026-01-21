@@ -19,11 +19,11 @@ importers:
         specifier: ^0.0.47
         version: 0.0.47(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@stz-code/ui':
-        specifier: ^1.2.27
-        version: 1.2.27(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.2.29
+        version: 1.2.29(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
       '@stz-code/utils':
-        specifier: 1.2.5
-        version: 1.2.5
+        specifier: 1.2.7
+        version: 1.2.7
       better-auth:
         specifier: ^1.4.7
         version: 1.4.7(next@15.1.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -51,6 +51,9 @@ importers:
       sonner:
         specifier: ^2.0.7
         version: 2.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      tailwind-merge:
+        specifier: ^3.4.0
+        version: 3.4.0
       zod:
         specifier: ^4.2.1
         version: 4.2.1
@@ -1015,16 +1018,16 @@ packages:
   '@stz-code/tsconfig@0.0.7':
     resolution: {integrity: sha512-7Syh879NZEn1L3MWbSJ9hhznP7swRnZR4khWR/pxDmQKJ5rpMV0SGmNuAUChuIRJybcjYeRVh5WqcoZ9fbNDkg==, tarball: https://npm.pkg.github.com/download/@stz-code/tsconfig/0.0.7/6449622fab5497ecf7858c3c69a0ef4b8aa0e3c5}
 
-  '@stz-code/ui@1.2.27':
-    resolution: {integrity: sha512-TUVZZef4d/KWDaYv0gsvmESs/FsWk5KYwVdycgB90yr7l/7jb3OfFFv6f5zWJROW7LVvlXRLg6uKK/bgN5FjJA==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.2.27/6b010d5cc3f0725ee8ca20cd0b5be70d4d470f35}
+  '@stz-code/ui@1.2.29':
+    resolution: {integrity: sha512-mgLYZp9q58PwFA2WrgKngkSJcts+RZ5jjjr6E8EAM9BOzQF4G7OSQOaGgTf2uYI6kS40fCx10iQfIszwWU2QwA==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.2.29/8afe74ea72ac54c621a08efc8a2dc4537aae4d2c}
     peerDependencies:
       clsx: ^2.1.1
       react: 19.0.0
       react-dom: 19.0.0
       react-hook-form: ^7.62.0
 
-  '@stz-code/utils@1.2.5':
-    resolution: {integrity: sha512-pHqn9XfLs4s7UZO3hhoCxYXpUxt9cqtzwE0j7279A+Fzk5Df1iPCTcDAnmzob2OC4I30h2Zd6QatI74v/r2hAQ==, tarball: https://npm.pkg.github.com/download/@stz-code/utils/1.2.5/c1c24edc8d3a201e66a3bc84cac12aac7d7b813d}
+  '@stz-code/utils@1.2.7':
+    resolution: {integrity: sha512-JFecZx769ttHQxZhXQAzA0Do7eCyo1P1s7yXVDXkmq7T9VPfVHvtI/9ml7h5+QVhz3dMlDDEo4YcsoHgtfXz2Q==, tarball: https://npm.pkg.github.com/download/@stz-code/utils/1.2.7/937e8be0e450770b238cf9d3d05c7f6e0676fae6}
 
   '@swc/counter@0.1.3':
     resolution: {integrity: sha512-e2BR4lsJkkRlKZ/qCHPw9ZaSxc0MVUd7gtbtaB7aMvHeJVYe8sOB8DBZkP2DtISHGSku9sCK6T6cnY0CtXrOCQ==}
@@ -2900,7 +2903,7 @@ snapshots:
 
   '@stz-code/tsconfig@0.0.7': {}
 
-  '@stz-code/ui@1.2.27(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
+  '@stz-code/ui@1.2.29(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@headlessui/react': 2.2.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@phosphor-icons/react': 2.1.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -2923,7 +2926,7 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@stz-code/utils@1.2.5':
+  '@stz-code/utils@1.2.7':
     dependencies:
       date-fns: 4.1.0
       imask: 7.6.1

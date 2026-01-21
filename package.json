@@ -13,8 +13,8 @@
 	"dependencies": {
 		"@phosphor-icons/react": "^2.1.10",
 		"@studio-freight/react-lenis": "^0.0.47",
-		"@stz-code/ui": "^1.2.27",
-		"@stz-code/utils": "1.2.5",
+		"@stz-code/ui": "^1.2.29",
+		"@stz-code/utils": "1.2.7",
 		"better-auth": "^1.4.7",
 		"clsx": "^2.1.1",
 		"motion": "^12.26.2",
@@ -24,6 +24,7 @@
 		"react-dom": "^19.0.0",
 		"react-hook-form": "^7.62.0",
 		"sonner": "^2.0.7",
+		"tailwind-merge": "^3.4.0",
 		"zod": "^4.2.1"
 	},
 	"devDependencies": {
