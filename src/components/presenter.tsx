@@ -1,28 +1,31 @@
+'use client'
+import { motion } from 'motion/react'
 import Image from 'next/image'
-
-import stzLogoBlack from '@/assets/stz_black.svg'
+import signInHero from '@/assets/images/sign-in-hero.png'
 
 export function Presenter() {
 	return (
-		<div className="flex-1 bg-zinc-800 rounded-xl w-full h-full py-20 relative">
-			<div className="w-full px-16 gap-4 flex flex-col justify-between items-end text-zinc-200 h-full">
-				<div className="gap-4 flex flex-col">
-					<h2 className="text-3xl font-bold">STZCode Template</h2>
-					<span className="text-zinc-350 text-justify">
-						Este template centraliza toda a infraestrutura UI/UX da STZ. Explore
-						a biblioteca de componentes, hooks customizados e utilitários para
-						acelerar o setup inicial. Clone, adapte e remova o que não for
-						necessário para inciar qualquer tipo de projeto web.
-					</span>
-				</div>
+		<div className="flex-1 w-full h-full relative overflow-hidden hidden lg:block rounded-r-[40px]">
+			<motion.div
+				initial={{ scale: 1.15, opacity: 0 }}
+				animate={{ scale: 1, opacity: 1 }}
+				transition={{ duration: 1.5, ease: 'easeOut' }}
+				className="w-full h-full relative"
+			>
+				<Image
+					src={signInHero}
+					alt="Atleta MTB em ação"
+					fill
+					priority
+					className="object-cover transition-all duration-1000 ease-in-out"
+				/>
+			</motion.div>
 
-				<span>v1.0.0</span>
-			</div>
-
-			<Image
-				src={stzLogoBlack}
-				alt=""
-				className="size-11/12 absolute -bottom-48 -right-1/4 mt-8"
+			<motion.div
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 0.4 }}
+				transition={{ delay: 1, duration: 2 }}
+				className="absolute -bottom-20 -left-20 w-80 h-80 bg-cyan-600 rounded-full blur-[120px] z-20 pointer-events-none"
 			/>
 		</div>
 	)
