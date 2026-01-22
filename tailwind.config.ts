@@ -16,6 +16,8 @@ export default {
 			fontFamily: {
 				bebas: ['var(--font-bebas)'],
 				geist: ['var(--font-geist)'],
+				orbitron: ['var(--font-orbitron)'],
+				inter: ['var(--font-inter)'],
 				sans: ['var(--font-geist)', 'ui-sans-serif', 'system-ui'],
 			},
 		},
