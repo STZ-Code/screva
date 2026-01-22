@@ -1,15 +1,14 @@
 'use client'
 import { motion } from 'motion/react'
 import { Box } from '../box'
+import { BoxHeading } from '../box-heading'
 import { Button } from '../button'
 
 export function TicketsAction() {
 	return (
 		<Box className="gap-5">
 			<div className="flex flex-col gap-3">
-				<h3 className="text-2xl font-bebas uppercase tracking-wide text-zinc-100">
-					Ingressos
-				</h3>
+				<BoxHeading>Ingressos</BoxHeading>
 				<span className="font-bold text-sm text-zinc-400">
 					Garanta sua vaga agora!
 				</span>

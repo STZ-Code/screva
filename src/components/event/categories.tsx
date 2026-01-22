@@ -1,12 +1,11 @@
 import { Box } from '../box'
+import { BoxHeading } from '../box-heading'
 import { EventPricingTable } from './event-pricing'
 
 export function EventCategories() {
 	return (
 		<Box className="gap-5">
-			<h3 className="text-2xl font-bebas uppercase tracking-wide text-zinc-100">
-				Categorias
-			</h3>
+			<BoxHeading>Categorias</BoxHeading>
 
 			<EventPricingTable
 				categories={[
