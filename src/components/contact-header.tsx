@@ -10,7 +10,7 @@ export function ContactHeader() {
 			className="flex flex-col gap-4"
 		>
 			<h1 className="font-bebas text-6xl">Entre em contato conosco</h1>
-			<p className="font-light text-zinc-300 text-justify">
+			<p className="font-light text-zinc-400 text-justify">
 				Nossa equipe está aqui para ajudar você a superar qualquer obstáculo...
 			</p>
 		</motion.div>
