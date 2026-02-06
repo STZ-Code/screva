@@ -8,7 +8,9 @@ export function AwardInfo() {
 		<Box className="gap-5">
 			<BoxHeading>Premiação</BoxHeading>
 
-			<Image src={awardExample} alt="Detalhes da premiação do evento" />
+			<div className="flex justify-center">
+				<Image src={awardExample} alt="Detalhes da premiação do evento" />
+			</div>
 		</Box>
 	)
 }

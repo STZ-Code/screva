@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import Image from 'next/image'
-
+import Link from 'next/link'
 import HeroImg1 from '@/assets/images/screva-bg-1.png'
 import HeroImg2 from '@/assets/images/screva-bg-2.png'
 import { RunnerButton } from './runner-button'
@@ -30,8 +30,12 @@ export function Hero() {
 					transition={{ delay: 0.5, duration: 0.5 }}
 					className="flex gap-4 items-center justify-center"
 				>
-					<RunnerButton>Eventos</RunnerButton>
-					<RunnerButton variant="result">Resultados</RunnerButton>
+					<Link href={'/eventos'}>
+						<RunnerButton>Eventos</RunnerButton>
+					</Link>
+					<Link href={'/resultados'}>
+						<RunnerButton variant="result">Resultados</RunnerButton>
+					</Link>
 				</motion.div>
 			</div>
 			<div className="flex w-full h-full z-10">

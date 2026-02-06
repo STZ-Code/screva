@@ -1,3 +1,7 @@
 export default function AnnounceEventPage() {
-	return <div>Anuncie evento</div>
+	return (
+		<div className="flex items-center justify-center h-full">
+			Página em construção
+		</div>
+	)
 }
