@@ -3,6 +3,7 @@
 import { CaretDoubleUpIcon } from '@phosphor-icons/react'
 import { motion, type Variants } from 'motion/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { Logo } from '@/assets/images/logo'
 import S from '@/assets/screva-s.svg'
 import { SocialMediaLinks } from './social-media-links'
@@ -81,20 +82,24 @@ export function Footer() {
 						</span>
 						<ul className="flex flex-col gap-3 mt-4">
 							{[
-								'Home',
-								'Eventos',
-								'Resultados',
-								'Anuncie um Evento',
-								'Contato',
+								{ label: 'Home', href: '/' },
+								{ label: 'Eventos', href: '/eventos' },
+								{ label: 'Resultados', href: '/resultados' },
+								{ label: 'Anuncie um Evento', href: '/anunciar' },
+								{ label: 'Contato', href: '/contato' },
 							].map((item) => (
-								<li key={item}>
-									<motion.a
-										href={`#${item.toLowerCase().replace(/ /g, '-')}`}
-										whileHover={{ x: 5, color: '#22d3ee' }}
+								<li key={item.href}>
+									<Link
+										href={item.href}
 										className="text-zinc-400 text-sm transition-colors block"
 									>
-										{item}
-									</motion.a>
+										<motion.span
+											className="block"
+											whileHover={{ x: 5, color: '#22d3ee' }}
+										>
+											{item.label}
+										</motion.span>
+									</Link>
 								</li>
 							))}
 						</ul>
@@ -109,7 +114,7 @@ export function Footer() {
 								(item) => (
 									<li key={item}>
 										<motion.a
-											href="#"
+											href="/"
 											whileHover={{ x: 5, color: '#22d3ee' }}
 											className="text-zinc-400 text-sm transition-colors block"
 										>

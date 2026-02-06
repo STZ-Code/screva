@@ -9,7 +9,7 @@ export default function PublicLayout({
 	return (
 		<div className="flex flex-col w-full">
 			<Header />
-			<div className="overflow-auto">
+			<div className="overflow-auto h-full">
 				{children}
 				<Footer />
 			</div>

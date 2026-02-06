@@ -62,7 +62,7 @@ export function EventHero() {
 					transition={{ type: 'spring', stiffness: 100, delay: 0.8 }}
 					className="w-64 h-64 rounded-lg relative"
 				>
-					<Image src={eventImgExample} alt="Corrida de Jaboatão" fill />
+					<Image src={eventImgExample} alt="Corrida de Jaboatão" />
 				</motion.div>
 			</div>
 		</section>

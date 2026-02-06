@@ -2,14 +2,17 @@
 
 import { EnvelopeIcon, LockIcon } from '@phosphor-icons/react'
 import { FormField } from '@stz-code/ui'
+import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { authClient } from '@/lib/auth-client'
+import { Button } from './button'
 
 const signInSchema = z.object({
 	email: z.email('Digite um e-mail válido'),
+	rememberMe: z.boolean().optional().default(false),
 	password: z.string().min(7, 'No mínimo 7 caractéres'),
 })
 
@@ -39,7 +42,10 @@ export function SignInForm() {
 	}
 
 	return (
-		<form
+		<motion.form
+			initial={{ opacity: 0, y: 10 }}
+			animate={{ opacity: 1, y: 0 }}
+			transition={{ delay: 0.4 }}
 			onSubmit={handleSubmit(handleSignIn)}
 			className="flex flex-col w-full gap-4"
 		>
@@ -49,45 +55,52 @@ export function SignInForm() {
 				config={{
 					name: 'email',
 					type: 'email',
-					wrapperStyles:
-						'focus-within:ring-2 focus-within:ring-sky-500 border-2 border-zinc-500 focus-within:border-sky-500',
-					inputStyles: 'text-zinc-100',
 					placeholder: 'E-mail',
 					Icon: EnvelopeIcon,
-					iconStyles: 'group-focus-within:text-sky-500',
+					inputStyles: 'placeholder:text-zinc-500 text-zinc-300',
+					wrapperStyles:
+						'focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 border-zinc-600 h-14 rounded-lg',
+					iconStyles: 'group-focus-within:text-cyan-500 text-zinc-600',
 				}}
 			/>
 
-			<div className="w-full flex flex-col items-end gap-2">
+			<FormField
+				control={control}
+				className="w-full bg-zinc-900"
+				config={{
+					name: 'password',
+					type: 'password',
+					inputStyles: 'placeholder:text-zinc-500 text-zinc-300',
+					wrapperStyles:
+						'focus-within:ring-2 focus-within:ring-cyan-500 focus-within:border-cyan-500 border-zinc-600 h-14 rounded-lg',
+					placeholder: 'Senha',
+					Icon: LockIcon,
+					iconStyles: 'group-focus-within:text-cyan-500 text-zinc-600',
+				}}
+			/>
+
+			<div className="w-full flex justify-between items-center gap-2">
 				<FormField
 					control={control}
-					className="w-full bg-zinc-900"
 					config={{
-						name: 'password',
-						type: 'password',
-						wrapperStyles:
-							'focus-within:ring-2 focus-within:ring-sky-500 border-2 border-zinc-500 focus-within:border-sky-500',
-						inputStyles: 'text-zinc-100',
-						placeholder: 'Senha',
-						Icon: LockIcon,
-						iconStyles: 'group-focus-within:text-sky-500',
+						name: 'rememberMe',
+						type: 'checkbox-group',
+						options: [{ label: 'Lembrar de mim', name: 'rememberMe' }],
+						variant: 'minimal',
 					}}
 				/>
 
 				<Link
 					href="/forgot-password"
-					className="text-sm font-semibold text-sky-600"
+					className="text-sm font-semibold text-zinc-500 hover:text-cyan-500 transition-colors"
 				>
 					Esqueceu sua senha?
 				</Link>
 			</div>
 
-			<button
-				type="submit"
-				className="bg-sky-500 w-full rounded-md py-2 font-bold text-md"
-			>
+			<Button type="submit" className="mt-2">
 				Entrar
-			</button>
-		</form>
+			</Button>
+		</motion.form>
 	)
 }

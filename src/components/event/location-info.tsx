@@ -11,6 +11,7 @@ export function LocationInfo() {
 			<div className="w-full h-52 relative">
 				<Image src={locationExample} alt="Localização Mapa" fill />
 			</div>
+			<span className="text-xs">Imagem provisória...</span>
 		</Box>
 	)
 }
