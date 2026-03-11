@@ -1,10 +1,10 @@
 'use client'
-import { UserIcon } from '@phosphor-icons/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { Logo } from '@/assets/images/logo'
+import { AuthDropdown } from './auth-dropdown'
 
 const tabs = [
 	{ label: 'Home', href: '/' },
@@ -35,16 +35,11 @@ export function Header() {
 	return (
 		<header className="flex w-full h-28">
 			<div className="flex-1 flex after:triangle">
-				<button
-					type="button"
-					className="bg-zinc-800/50 w-28 hover:opacity-60 transition-opacity flex items-center justify-center"
-				>
-					<UserIcon size={32} className="text-gray-50" />
-				</button>
+				<AuthDropdown />
 
 				<div className="flex-1 px-16 bg-zinc-800/50 flex relative">
-					<nav className="flex-1">
-						<ul className="flex justify-evenly h-full">
+					<nav className="flex-1 flex items-center justify-center">
+						<ul className="flex justify-evenly h-full 2xl:justify-normal 2xl:gap-16">
 							{tabs.map((tab) => (
 								<li key={tab.href}>
 									<Link
