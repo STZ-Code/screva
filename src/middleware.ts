@@ -13,6 +13,9 @@ const publicRoutes = [
 	{ path: '/contato', whenAuthenticated: 'next' },
 	{ path: '/sign-in', whenAuthenticated: 'redirect' },
 	{ path: '/sign-up', whenAuthenticated: 'redirect' },
+	{ path: '/esqueci-a-senha', whenAuthenticated: 'redirect' },
+	{ path: '/esqueci-a-senha/email-enviado', whenAuthenticated: 'next' },
+	{ path: '/redefinir-senha', whenAuthenticated: 'redirect' },
 ] as const
 
 const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/sign-in'
@@ -78,6 +81,6 @@ export const config: MiddlewareConfig = {
 		 * - _next/image (image optimization files)
 		 * - favicon.ico (favicon file)
 		 */
-		'/((?!api|_next/static|_next/image|favicon.ico).*)',
+		'/((?!api|_next/static|_next/image|favicon.ico|icon|.well-known).*)',
 	],
 }

@@ -1,5 +1,5 @@
 'use client'
-import { FormField } from '@stz-code/ui'
+import { FormField } from '@stz-code/ui/form'
 import { motion } from 'motion/react'
 import { useForm } from 'react-hook-form'
 import { maskProvider } from '@/utils/mask'

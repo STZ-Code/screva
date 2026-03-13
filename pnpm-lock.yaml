@@ -12,6 +12,9 @@ importers:
 
   .:
     dependencies:
+      '@hookform/resolvers':
+        specifier: ^5.2.2
+        version: 5.2.2(react-hook-form@7.62.0(react@19.0.0))
       '@phosphor-icons/react':
         specifier: ^2.1.10
         version: 2.1.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -19,8 +22,8 @@ importers:
         specifier: ^0.0.47
         version: 0.0.47(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@stz-code/ui':
-        specifier: ^1.5.0
-        version: 1.5.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.5.2
+        version: 1.5.2(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
       '@stz-code/utils':
         specifier: 1.2.7
         version: 1.2.7
@@ -402,6 +405,11 @@ packages:
     peerDependencies:
       react: 19.0.0
       react-dom: 19.0.0
+
+  '@hookform/resolvers@5.2.2':
+    resolution: {integrity: sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA==}
+    peerDependencies:
+      react-hook-form: ^7.55.0
 
   '@img/sharp-darwin-arm64@0.33.5':
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}
@@ -1464,6 +1472,9 @@ packages:
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
 
+  '@standard-schema/utils@0.3.0':
+    resolution: {integrity: sha512-e7Mew686owMaPJVNNLs55PUvgz371nKgwsc4vxE49zsODpJEnxgxRo2y/OKrqueavXgZNMDVj3DdHFlaSAeU8g==}
+
   '@studio-freight/hamo@0.6.33':
     resolution: {integrity: sha512-U3Nvw5wDvB/jps2/ZbGL2TFL+CcZvJF/tkjL7S7ajuzDi9T5VkqCguws6tuWHttZ74Z6DfXxV1b8F1EB30AyJg==}
     deprecated: 'The ''@studio-freight/hamo'' package has been renamed to ''hamo''. Please update your dependencies: npm install hamo and visit the documentation: https://www.npmjs.com/package/hamo'
@@ -1492,8 +1503,8 @@ packages:
   '@stz-code/tsconfig@0.0.7':
     resolution: {integrity: sha512-7Syh879NZEn1L3MWbSJ9hhznP7swRnZR4khWR/pxDmQKJ5rpMV0SGmNuAUChuIRJybcjYeRVh5WqcoZ9fbNDkg==, tarball: https://npm.pkg.github.com/download/@stz-code/tsconfig/0.0.7/6449622fab5497ecf7858c3c69a0ef4b8aa0e3c5}
 
-  '@stz-code/ui@1.5.0':
-    resolution: {integrity: sha512-t4v7IbpZ5uZKTzYmedAsu99fj1uwLWHQkZqCStul8KwHEn9tppVNnBX19Rjd5zfF1b2fPFS9qoaZyWb1+IcD1Q==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.5.0/f2a8b4f284ea8cab67ad0204efa6fc4abb5ef56b}
+  '@stz-code/ui@1.5.2':
+    resolution: {integrity: sha512-UYchm+xf0QVMLlnY3uJ6NJP9FKdDDVCMpXyY2MVHXKECmclKA9dOcJLlKNPbq4/Dyfb01Njb2iZIZuy3O1TjPQ==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.5.2/3c25be25469d9ab22e037c08a3ffe3f81704553b}
     peerDependencies:
       clsx: ^2.1.1
       react: 19.0.0
@@ -2902,6 +2913,11 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
       use-sync-external-store: 1.5.0(react@19.0.0)
 
+  '@hookform/resolvers@5.2.2(react-hook-form@7.62.0(react@19.0.0))':
+    dependencies:
+      '@standard-schema/utils': 0.3.0
+      react-hook-form: 7.62.0(react@19.0.0)
+
   '@img/sharp-darwin-arm64@0.33.5':
     optionalDependencies:
       '@img/sharp-libvips-darwin-arm64': 1.0.4
@@ -3927,6 +3943,8 @@ snapshots:
 
   '@standard-schema/spec@1.0.0': {}
 
+  '@standard-schema/utils@0.3.0': {}
+
   '@studio-freight/hamo@0.6.33(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@studio-freight/tempus': 0.0.38
@@ -3980,7 +3998,7 @@ snapshots:
 
   '@stz-code/tsconfig@0.0.7': {}
 
-  '@stz-code/ui@1.5.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
+  '@stz-code/ui@1.5.2(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@base-ui/react': 1.2.0(@types/react@19.1.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@headlessui/react': 2.2.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
