@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import Link from 'next/link'
-import { ActionDivider } from './action-divider'
+import { ActionDivider } from '../action-divider'
 import { SignUpForm } from './sign-up-form'
 import { SocialSignIn } from './social-sign-in'
 

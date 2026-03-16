@@ -13,8 +13,8 @@ import { Dropdown } from '@stz-code/ui'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { Logo } from '@/assets/images/logo'
-import { Button } from './button'
-import { DropdownButton } from './dropdown-button'
+import { Button } from '../button'
+import { DropdownButton } from '../dropdown-button'
 
 const container = {
 	hidden: {},

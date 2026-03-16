@@ -6,8 +6,8 @@ import { Field, Input } from '@stz-code/ui'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
-import { ActionDivider } from './action-divider'
-import { Button } from './button'
+import { ActionDivider } from '../action-divider'
+import { Button } from '../button'
 
 const forgotPasswordSchema = z.object({
 	email: z.email('Digite um e-mail válido'),

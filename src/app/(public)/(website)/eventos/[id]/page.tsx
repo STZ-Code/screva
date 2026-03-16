@@ -1,14 +1,14 @@
-import { Countdown } from '@/components/countdown'
 import { AwardInfo } from '@/components/event/award-info'
 import { EventCategories } from '@/components/event/categories'
+import { Countdown } from '@/components/event/countdown'
 import { EventDescription } from '@/components/event/description'
 import { DocumentsInfo } from '@/components/event/documents-info'
+import { EventHero } from '@/components/event/event-hero'
 import { HelpInfo } from '@/components/event/help-info'
 import { LocationInfo } from '@/components/event/location-info'
 import { OrganizerInfo } from '@/components/event/organizer-info'
 import { TicketsAction } from '@/components/event/tickets-action'
 import { TimingTeam } from '@/components/event/timing-team'
-import { EventHero } from '@/components/event-hero'
 
 export default function Event() {
 	return (

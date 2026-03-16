@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import z from 'zod'
 import { authClient } from '@/lib/auth-client'
-import { Button } from './button'
+import { Button } from '../button'
 
 const signInSchema = z.object({
 	email: z.email('Digite um e-mail válido'),

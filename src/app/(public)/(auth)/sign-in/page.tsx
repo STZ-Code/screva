@@ -1,5 +1,5 @@
-import { Presenter } from '@/components/presenter'
-import { SignInContainer } from '@/components/sign-in-container'
+import { Presenter } from '@/components/auth/presenter'
+import { SignInContainer } from '@/components/auth/sign-in-container'
 
 export default function SignInPage() {
 	return (

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Logo } from '@/assets/images/logo'
-import { RequestForgotPasswordForm } from '@/components/request-forgot-password-form'
+import { RequestForgotPasswordForm } from '@/components/auth/request-forgot-password-form'
 
 export default function ForgotPasswordPage() {
 	return (

@@ -1,8 +1,8 @@
 import { ActionDivider } from '@/components/action-divider'
-import { ContactDetails } from '@/components/contact-details'
-import { ContactForm } from '@/components/contact-form'
-import { ContactHeader } from '@/components/contact-header'
-import { ContactHero } from '@/components/contact-hero'
+import { ContactDetails } from '@/components/contact/contact-details'
+import { ContactForm } from '@/components/contact/contact-form'
+import { ContactHeader } from '@/components/contact/contact-header'
+import { ContactHero } from '@/components/contact/contact-hero'
 import { SocialMediaLinks } from '@/components/social-media-links'
 
 export default function ContactPage() {
