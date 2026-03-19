@@ -1,7 +1,24 @@
+'use client'
+
 import { CaretDownIcon, SignOutIcon } from '@phosphor-icons/react'
 import { Avatar, Dropdown } from '@stz-code/ui'
+import { useRouter } from 'next/navigation'
+import { authClient } from '@/lib/auth-client'
 
 export function ProfileButton() {
+	const router = useRouter()
+
+	async function signOut() {
+		await authClient.signOut(
+			{},
+			{
+				onSuccess() {
+					router.push('/sign-in')
+				},
+			},
+		)
+	}
+
 	return (
 		<Dropdown.Root>
 			<Dropdown.Trigger>
@@ -19,10 +36,10 @@ export function ProfileButton() {
 			</Dropdown.Trigger>
 			<Dropdown.Content align="end">
 				<Dropdown.Item asChild>
-					<a href="/api/auth/sign-out">
+					<button type="button" onClick={signOut}>
 						<SignOutIcon className="mr-2 size-4" />
 						Sair
-					</a>
+					</button>
 				</Dropdown.Item>
 			</Dropdown.Content>
 		</Dropdown.Root>

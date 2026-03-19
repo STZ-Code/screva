@@ -23,6 +23,7 @@ const REDIRECT_WHEN_AUTHENTICATED_ROUTE = '/dashboard'
 
 export async function middleware(req: NextRequest) {
 	const { pathname } = req.nextUrl
+
 	const publicRoute = publicRoutes.find((route) => {
 		if (route.path.includes(':')) {
 			const baseRoute = route.path.split('/:')[0]
