@@ -12,6 +12,8 @@ export default {
 			colors: {
 				background: 'var(--background)',
 				foreground: 'var(--foreground)',
+				'dashboard-header': '#1F1F1F',
+				dashboard: '#161716',
 			},
 			fontFamily: {
 				bebas: ['var(--font-bebas)'],

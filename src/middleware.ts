@@ -13,6 +13,9 @@ const publicRoutes = [
 	{ path: '/contato', whenAuthenticated: 'next' },
 	{ path: '/sign-in', whenAuthenticated: 'redirect' },
 	{ path: '/sign-up', whenAuthenticated: 'redirect' },
+	{ path: '/esqueci-a-senha', whenAuthenticated: 'redirect' },
+	{ path: '/esqueci-a-senha/email-enviado', whenAuthenticated: 'next' },
+	{ path: '/redefinir-senha', whenAuthenticated: 'redirect' },
 ] as const
 
 const REDIRECT_WHEN_NOT_AUTHENTICATED_ROUTE = '/sign-in'
@@ -20,6 +23,7 @@ const REDIRECT_WHEN_AUTHENTICATED_ROUTE = '/dashboard'
 
 export async function middleware(req: NextRequest) {
 	const { pathname } = req.nextUrl
+
 	const publicRoute = publicRoutes.find((route) => {
 		if (route.path.includes(':')) {
 			const baseRoute = route.path.split('/:')[0]
@@ -78,6 +82,6 @@ export const config: MiddlewareConfig = {
 		 * - _next/image (image optimization files)
 		 * - favicon.ico (favicon file)
 		 */
-		'/((?!api|_next/static|_next/image|favicon.ico).*)',
+		'/((?!api|_next/static|_next/image|favicon.ico|icon|.well-known).*)',
 	],
 }

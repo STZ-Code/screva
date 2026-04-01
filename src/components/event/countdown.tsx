@@ -2,7 +2,7 @@
 
 import { CalendarIcon } from '@phosphor-icons/react'
 import { motion } from 'motion/react'
-import { Box } from './box'
+import { Box } from '../box'
 import { CountdownTimeUnit } from './countdown-time-unit'
 
 export function Countdown() {

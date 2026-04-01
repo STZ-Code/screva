@@ -30,10 +30,8 @@ export function Button({
 				hidden: { opacity: 0, y: 10 },
 				visible: { opacity: 1, y: 0 },
 			}}
-			// O scale agora será fluido porque não tem o "freio" do transition-all do CSS
 			whileHover={{ scale: 1.01 }}
 			whileTap={{ scale: 0.95 }}
-			// Definimos uma transição de mola para o scale ficar ainda mais responsivo
 			transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 			className={cn(baseStyles, variants[variant], className)}
 			{...props}

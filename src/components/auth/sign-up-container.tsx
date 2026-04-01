@@ -1,17 +1,17 @@
 'use client'
 import { motion } from 'motion/react'
 import Link from 'next/link'
-import { ActionDivider } from './action-divider'
-import { SignInForm } from './sign-in-form'
+import { ActionDivider } from '../action-divider'
+import { SignUpForm } from './sign-up-form'
 import { SocialSignIn } from './social-sign-in'
 
-export function SignInContainer() {
+export function SignUpContainer() {
 	return (
 		<motion.div
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="flex-1 flex justify-center"
+			className="w-2/5 flex justify-center"
 		>
 			<div className="flex flex-col w-96 gap-4">
 				<motion.div
@@ -25,22 +25,22 @@ export function SignInContainer() {
 							Acessar sua conta
 						</h1>
 						<span className="text-sm text-zinc-300">
-							Preencha seus dados para acessar sua conta.
+							Preencha seus dados para criar sua conta.
 						</span>
 					</div>
 
 					<div className="flex gap-1">
-						<span className="text-sm text-zinc-400">Ainda não tem conta?</span>
+						<span className="text-sm text-zinc-400">Já possui conta?</span>
 						<Link
-							href="/sign-up"
+							href="/sign-in"
 							className="text-sm text-cyan-500 font-medium hover:brightness-110 transition-all"
 						>
-							Cadastre-se
+							Faça login
 						</Link>
 					</div>
 				</motion.div>
 
-				<SignInForm />
+				<SignUpForm />
 
 				<motion.div
 					initial={{ opacity: 0 }}
@@ -48,7 +48,7 @@ export function SignInContainer() {
 					transition={{ delay: 0.8 }}
 					className="w-full"
 				>
-					<ActionDivider>Ou entre por</ActionDivider>
+					<ActionDivider>Ou cadastre-se com</ActionDivider>
 
 					<SocialSignIn />
 				</motion.div>
