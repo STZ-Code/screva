@@ -13,7 +13,7 @@ import { Button } from '../button'
 
 const signInSchema = z.object({
 	email: z.email('Digite um e-mail válido'),
-	rememberMe: z.array(z.string()),
+	rememberMe: z.array(z.string()).optional(),
 	password: z.string().min(7, 'No mínimo 7 caractéres'),
 })
 
@@ -101,7 +101,7 @@ export function SignInForm() {
 				</Link>
 			</div>
 
-			<Button type="submit" className="mt-2">
+			<Button type="submit" className="mt-2 py-3">
 				Entrar
 			</Button>
 		</motion.form>
