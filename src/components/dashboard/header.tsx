@@ -6,11 +6,15 @@ import {
 } from '@phosphor-icons/react'
 import { Avatar, Dropdown } from '@stz-code/ui'
 import { TabNavigator } from '@stz-code/ui/layout'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { MiniLogo } from '@/assets/images/mini-logo'
 import { Tag } from '../tag'
 import { ProfileButton } from './profile-button'
 
 export function Header() {
+	const pathname = usePathname()
+
 	return (
 		<header className="px-12 pt-8 bg-dashboard-header flex justify-between items-start">
 			<div className="flex flex-col gap-8">
@@ -23,21 +27,17 @@ export function Header() {
 						<Dropdown.Root>
 							<Dropdown.Trigger className="cursor-pointer">
 								<div className="flex w-60 items-center gap-2 rounded p-1 text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-cyan-600">
-									<>
-										<Avatar.Root className="size-7 rounded">
-											<Avatar.Image src="https://github.com/garcez17.png" />
-											<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-										</Avatar.Root>
-										<span className="text-zinc-200 truncate">
-											Gabriel Garcez
-										</span>
+									<Avatar.Root className="size-7 rounded">
+										<Avatar.Image src="https://github.com/garcez17.png" />
+										<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
+									</Avatar.Root>
+									<span className="text-zinc-200 truncate">Gabriel Garcez</span>
 
-										<Tag className="bg-zinc-700">
-											<span className="text-zinc-300 text-xs font-semibold">
-												Admin
-											</span>
-										</Tag>
-									</>
+									<Tag className="bg-zinc-700">
+										<span className="text-zinc-300 text-xs font-semibold">
+											Admin
+										</span>
+									</Tag>
 									<CaretUpDownIcon
 										className="ml-auto size-4 text-zinc-200"
 										weight="bold"
@@ -75,31 +75,35 @@ export function Header() {
 				</div>
 
 				<div className="flex relative flex-1">
-					<TabNavigator.Root active={'/dashboard'} className="h-9">
+					<TabNavigator.Root active={pathname} className="h-9">
 						<TabNavigator.Control className="gap-4">
 							<TabNavigator.Item
 								href="/dashboard"
+								as={Link}
 								className="font-semibold text-zinc-50 text-sm"
 							>
 								Visão Geral
 							</TabNavigator.Item>
 
 							<TabNavigator.Item
-								href="/dasboard/eventos"
+								href="/dashboard/eventos"
+								as={Link}
 								className="font-semibold text-zinc-400 text-sm"
 							>
 								Eventos
 							</TabNavigator.Item>
 
 							<TabNavigator.Item
-								href="/dasboard/financeiro"
+								href="/dashboard/financeiro"
+								as={Link}
 								className="font-semibold text-zinc-400 text-sm"
 							>
 								Financeiro
 							</TabNavigator.Item>
 
 							<TabNavigator.Item
-								href="/dasboard/configuracoes"
+								href="/dashboard/configuracoes"
+								as={Link}
 								className="font-semibold text-zinc-400 text-sm"
 							>
 								Configurações
