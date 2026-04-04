@@ -22,8 +22,8 @@ importers:
         specifier: ^0.0.47
         version: 0.0.47(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@stz-code/ui':
-        specifier: ^1.6.0
-        version: 1.6.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
+        specifier: ^1.7.0
+        version: 1.7.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)
       '@stz-code/utils':
         specifier: 1.2.7
         version: 1.2.7
@@ -1503,8 +1503,8 @@ packages:
   '@stz-code/tsconfig@0.0.7':
     resolution: {integrity: sha512-7Syh879NZEn1L3MWbSJ9hhznP7swRnZR4khWR/pxDmQKJ5rpMV0SGmNuAUChuIRJybcjYeRVh5WqcoZ9fbNDkg==, tarball: https://npm.pkg.github.com/download/@stz-code/tsconfig/0.0.7/6449622fab5497ecf7858c3c69a0ef4b8aa0e3c5}
 
-  '@stz-code/ui@1.6.0':
-    resolution: {integrity: sha512-GNj7BLWEZtjwKmvplJhXLMCV2DyXIDY0K2v/ZfPjKu3qO8DZjuUQ2WVNGCpRtYLdjKgqEynPmUwI/n9Y/YAN9A==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.6.0/7fdd8ee7a58bb7c6ddfdfe329ba295df1fbdafa3}
+  '@stz-code/ui@1.7.0':
+    resolution: {integrity: sha512-BqVSjiLOPCcuKf8IjhmbNws88IkYYNID2ux6llxhI53h3VXXsDJWrb0O46MkkSc76la5QocMMgnVxmaoL1NFkg==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.7.0/d3da7aeb0d985ba76d6107d29f2ef0538c240a43}
     peerDependencies:
       clsx: ^2.1.1
       react: 19.0.0
@@ -3998,7 +3998,7 @@ snapshots:
 
   '@stz-code/tsconfig@0.0.7': {}
 
-  '@stz-code/ui@1.6.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
+  '@stz-code/ui@1.7.0(@types/react-dom@19.1.9(@types/react@19.1.12))(@types/react@19.1.12)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.62.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@base-ui/react': 1.2.0(@types/react@19.1.12)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@headlessui/react': 2.2.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)

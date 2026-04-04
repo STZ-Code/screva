@@ -11,12 +11,14 @@ import {
 	Field,
 	Input,
 	Select,
+	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
+import { CreateEventSheet } from './create-event-sheet'
 
 type Event = {
 	id: string
@@ -47,6 +49,7 @@ export function EventsTable() {
 		{
 			accessorKey: 'date',
 			header: 'Data',
+			size: 48,
 			cell: (info) => {
 				return (
 					<div className="w-12">
@@ -58,28 +61,20 @@ export function EventsTable() {
 		{
 			accessorKey: 'subscribers',
 			header: 'Inscritos',
-			maxSize: 8,
-			size: 8,
+			size: 24,
 		},
 		{
 			accessorKey: 'status',
 			header: 'Status',
-			maxSize: 8,
-			size: 8,
-			// cell: (info) => {
-			// 	return (
-			// 		<div className='w-6'>
-			// 			<p>{info.row.original.status}</p>
-			// 		</div>
-			// 	)
-			// }
+			size: 32,
 		},
 		{
 			accessorKey: 'organizer',
 			header: 'Organizador',
+			size: 80,
 			cell: (info) => {
 				return (
-					<div className="flex gap-2 w-7 items-center">
+					<div className="flex gap-2 items-center">
 						<Avatar.Root className="size-10 rounded">
 							<Avatar.Image src="https://github.com/garcez17.png" />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
@@ -94,20 +89,19 @@ export function EventsTable() {
 		},
 		{
 			header: 'Ações',
+			size: 24,
 			cell: () => {
 				return (
-					<div className="w-fit">
-						<Dropdown.Root>
-							<Dropdown.Trigger>
-								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-							</Dropdown.Trigger>
-							<Dropdown.Content>
-								<Dropdown.Item>
-									<p>Editar</p>
-								</Dropdown.Item>
-							</Dropdown.Content>
-						</Dropdown.Root>
-					</div>
+					<Dropdown.Root>
+						<Dropdown.Trigger className="mx-auto">
+							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
+						</Dropdown.Trigger>
+						<Dropdown.Content>
+							<Dropdown.Item>
+								<p>Editar</p>
+							</Dropdown.Item>
+						</Dropdown.Content>
+					</Dropdown.Root>
 				)
 			},
 		},
@@ -170,41 +164,41 @@ export function EventsTable() {
 						</Input.Root>
 					</Field.Root>
 
-					<Field.Root control={control} name="status">
-						<Input.Root className="border-none p-0 w-52 shadow-md">
-							<Select.Root>
-								<Select.Control
-									className="border-zinc-800 bg-neutral-900"
-									placeholder="Todos"
-								>
+					<Field.Root name="document" control={control}>
+						<Select.Root>
+							<Select.Control>
+								<Select.Trigger className="border-zinc-800 bg-neutral-900 shadow-md">
+									<Select.Placeholder className="text-zinc-600">
+										Teste
+									</Select.Placeholder>
+
 									<Select.Portal>
 										<Select.Item value="select-1">Select 1</Select.Item>
 										<Select.Item value="select-2">Select 2</Select.Item>
 										<Select.Item value="select-3">Select 3</Select.Item>
 									</Select.Portal>
-								</Select.Control>
-							</Select.Root>
-						</Input.Root>
+								</Select.Trigger>
+							</Select.Control>
+						</Select.Root>
+						<Field.Error />
 					</Field.Root>
 				</form>
 
-				<Button
-					type="submit"
-					className="py-2 h-fit px-6 w-fit normal-case font-semibold flex gap-2"
-				>
-					<PlusIcon size={20} weight="bold" />
-					Criar evento
-				</Button>
+				<CreateEventSheet />
 			</div>
 
-			<Table.Root columns={columns} data={data}>
+			<Table.Root columns={columns} data={data} className="border-zinc-800">
 				<Table.Container>
-					<Table.Header className="text-zinc-400" />
+					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
-					<Table.Body />
+					<Table.Body>
+						<Table.Row className="border-zinc-800">
+							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+						</Table.Row>
+					</Table.Body>
 				</Table.Container>
 
-				<TablePagination.Root>
+				<TablePagination.Root className="border-zinc-800">
 					<TablePagination.Prev />
 					<TablePagination.Items
 						itemClassName="bg-zinc-50 hover:bg-zinc-200"
