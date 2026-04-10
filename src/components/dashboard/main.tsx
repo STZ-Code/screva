@@ -8,7 +8,7 @@ export function Main({
 	className?: string
 }) {
 	return (
-		<main className={cn('flex flex-col py-12 px-16 h-full', className)}>
+		<main className={cn('flex flex-col py-12 px-16', className)}>
 			{children}
 		</main>
 	)

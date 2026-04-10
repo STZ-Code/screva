@@ -1,3 +1,5 @@
+import { cn } from '@/utils/utils'
+
 export function KpiRoot({ children }: { children: React.ReactNode }) {
 	return (
 		<div className="flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-zinc-900/50 shadow-md">
@@ -6,9 +8,20 @@ export function KpiRoot({ children }: { children: React.ReactNode }) {
 	)
 }
 
-export function KpiValue({ children }: { children: React.ReactNode }) {
+export function KpiValue({
+	children,
+	className,
+}: {
+	children: React.ReactNode
+	className?: string
+}) {
 	return (
-		<span className="text-4xl font-bebas uppercase tracking-wide text-zinc-100">
+		<span
+			className={cn(
+				'text-4xl font-bebas uppercase tracking-wide text-zinc-100',
+				className,
+			)}
+		>
 			{children}
 		</span>
 	)
