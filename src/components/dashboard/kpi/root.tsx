@@ -1,6 +1,6 @@
 export function KpiRoot({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-neutral-900 shadow-md">
+		<div className="flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-zinc-900/50 shadow-md">
 			{children}
 		</div>
 	)

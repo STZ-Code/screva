@@ -27,7 +27,7 @@ export default function DashboardPage() {
 
 			<AdminMetrics />
 
-			<section className='flex gap-8'>
+			<section className="flex gap-8 h-full">
 				<LastInscriptions />
 
 				<EventList />

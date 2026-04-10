@@ -4,7 +4,7 @@ import { Chart } from '@stz-code/ui/layout'
 const chartConfig = {
 	mobile: {
 		label: 'Mobile',
-		color: '#0dc516',
+		color: '#22c55e',
 	},
 	desktop: {
 		label: 'Desktop',
