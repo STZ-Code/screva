@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import locationExample from '@/assets/examples/location-example.png'
+'use client'
+import { Maps } from '@stz-code/ui/layout'
 import { Box } from '../box'
 import { BoxHeading } from '../box-heading'
 
@@ -9,9 +9,10 @@ export function LocationInfo() {
 			<BoxHeading>Localização</BoxHeading>
 
 			<div className="w-full h-52 relative">
-				<Image src={locationExample} alt="Localização Mapa" fill />
+				<Maps.Root className="h-full rounded-md">
+					<Maps.Marker lat={-9.3892} lng={-40.5087} />
+				</Maps.Root>
 			</div>
-			<span className="text-xs">Imagem provisória...</span>
 		</Box>
 	)
 }

@@ -16,7 +16,7 @@ export function KpiValue({ children }: { children: React.ReactNode }) {
 
 export function KpiLabel({ children }: { children: React.ReactNode }) {
 	return (
-		<span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-bold">
+		<span className="text-[10px] uppercase tracking-[0.1em] text-zinc-400 font-bold">
 			{children}
 		</span>
 	)

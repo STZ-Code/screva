@@ -94,6 +94,14 @@ export function Header() {
 							</TabNavigator.Item>
 
 							<TabNavigator.Item
+								href="/dashboard/organizadores"
+								as={Link}
+								className="font-semibold text-zinc-400 text-sm"
+							>
+								Organizadores
+							</TabNavigator.Item>
+
+							<TabNavigator.Item
 								href="/dashboard/financeiro"
 								as={Link}
 								className="font-semibold text-zinc-400 text-sm"
