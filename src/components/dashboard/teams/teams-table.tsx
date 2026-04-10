@@ -18,19 +18,18 @@ import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { formatDate } from '@/utils/format-date'
-import { CreateEventSheet } from './create-event-sheet'
+import { CreateTeamSheet } from './create-team-sheet'
 
 type Event = {
 	id: string
 	name: string
-	city: string
-	status: 'pending' | 'processing' | 'success' | 'failed'
-	date: Date
-	subscribers: number
-	organizer: string
+	description: string
+	status: 'active' | 'inactive'
+	lastEvent: Date
+	eventsCount: number
 }
 
-export function EventsTable() {
+export function TeamsTable() {
 	const { control } = useForm()
 
 	const columns: STZColumnDef<Event>[] = [
@@ -49,7 +48,7 @@ export function EventsTable() {
 								{info.row.original.name}
 							</p>
 							<p className="text-zinc-500 text-sm line-clamp-1">
-								{info.row.original.city}
+								{info.row.original.description}
 							</p>
 						</div>
 					</div>
@@ -57,11 +56,16 @@ export function EventsTable() {
 			},
 		},
 		{
-			accessorKey: 'date',
-			header: 'Data',
-			size: 48,
+			accessorKey: 'eventsCount',
+			header: 'Eventos atendidos',
+			size: 24,
+		},
+		{
+			accessorKey: 'lastEvent',
+			header: 'Última atividade',
+			size: 24,
 			cell: (info) => {
-				const rawDate = info.row.original.date
+				const rawDate = info.row.original.lastEvent
 
 				const formattedDate = formatDate(rawDate)
 
@@ -71,11 +75,6 @@ export function EventsTable() {
 					</div>
 				)
 			},
-		},
-		{
-			accessorKey: 'subscribers',
-			header: 'Inscritos',
-			size: 24,
 		},
 		{
 			accessorKey: 'status',
@@ -89,29 +88,10 @@ export function EventsTable() {
 						className="text-emerald-500"
 					/>
 					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
+						Ativo
 					</StatusTag.Label>
 				</StatusTag.Root>
 			),
-		},
-		{
-			accessorKey: 'organizer',
-			header: 'Organizador',
-			size: 80,
-			cell: (info) => {
-				return (
-					<div className="flex gap-2 items-center">
-						<Avatar.Root className="size-10 rounded">
-							<Avatar.Image src="https://github.com/garcez17.png" />
-							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-						</Avatar.Root>
-						<div className="flex flex-col">
-							<p className="text-zinc-300">{info.row.original.organizer}</p>
-							<p className="text-zinc-500">johndoe@mail.com</p>
-						</div>
-					</div>
-				)
-			},
 		},
 		{
 			header: 'Ações',
@@ -136,39 +116,35 @@ export function EventsTable() {
 	const data: Event[] = [
 		{
 			id: '728ed52f',
-			name: 'Evento 1',
-			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 3, 10),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			name: 'Equipe 1',
+			status: 'active',
+			lastEvent: new Date(2026, 3, 10),
+			eventsCount: 100,
+			description: 'Equipe de cronometragem de Picos',
 		},
 		{
 			id: '728e322f',
-			name: 'Evento 2',
-			city: 'Juazeiro/BA',
-			status: 'pending',
-			date: new Date(2026, 5, 20),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			name: 'Equipe 2',
+			status: 'active',
+			lastEvent: new Date(2026, 3, 10),
+			eventsCount: 45,
+			description: 'Equipe de Petrolina',
 		},
 		{
 			id: '7285452f',
-			name: 'Evento 3',
-			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 8, 15),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			name: 'Equipe 3',
+			status: 'active',
+			lastEvent: new Date(2026, 3, 10),
+			eventsCount: 6,
+			description: 'Equipe de cronometragem de Salgueiro',
 		},
 		{
 			id: '728egrew2f',
-			name: 'Evento 4',
-			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 11, 31),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			name: 'Equipe 4',
+			status: 'inactive',
+			lastEvent: new Date(2026, 3, 10),
+			eventsCount: 3,
+			description: 'Equipe de organização de Garanhuns',
 		},
 	]
 
@@ -210,7 +186,7 @@ export function EventsTable() {
 					</Field.Root>
 				</form>
 
-				<CreateEventSheet />
+				<CreateTeamSheet />
 			</div>
 
 			<Table.Root columns={columns} data={data} className="border-zinc-800">
