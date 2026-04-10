@@ -1,7 +1,7 @@
 'use client'
 
 import { Field, Select } from '@stz-code/ui'
-import { ArrowUpRight } from 'phosphor-react'
+import { ArrowDownLeft, ArrowUpRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
@@ -61,7 +61,7 @@ export function AdminMetrics() {
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Eventos Ativos</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
-							<StatusTag.Icon icon={ArrowUpRight} className="text-red-300" />
+							<StatusTag.Icon icon={ArrowDownLeft} className="text-red-300" />
 							<StatusTag.Label className="text-red-300 text-xs">
 								5.45%
 							</StatusTag.Label>
@@ -92,7 +92,7 @@ export function AdminMetrics() {
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Taxa de Conversão</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
-							<StatusTag.Icon icon={ArrowUpRight} className="text-red-300" />
+							<StatusTag.Icon icon={ArrowDownLeft} className="text-red-300" />
 							<StatusTag.Label className="text-red-300 text-xs">
 								9.12%
 							</StatusTag.Label>
