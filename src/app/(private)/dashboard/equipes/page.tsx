@@ -4,7 +4,7 @@ import { TeamsTable } from '@/components/dashboard/teams/teams-table'
 
 export default function TeamsPage() {
 	return (
-		<Main className="gap-8">
+		<Main className="gap-8 h-full">
 			<Heading.Root>
 				<Heading.Title>Equipes</Heading.Title>
 				<Heading.Description>

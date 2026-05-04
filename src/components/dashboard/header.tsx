@@ -118,7 +118,7 @@ export function Header() {
 							</TabNavigator.Item>
 
 							<TabNavigator.Item
-								href="/dashboard/configuracoes"
+								href="/dashboard/configuracoes/perfil"
 								as={Link}
 								className="font-semibold text-zinc-400 text-sm"
 							>

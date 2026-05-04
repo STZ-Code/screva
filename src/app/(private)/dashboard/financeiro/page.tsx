@@ -10,7 +10,7 @@ import { Main } from '@/components/dashboard/main'
 
 export default function FinancePage() {
 	return (
-		<Main className="gap-10">
+		<Main className="gap-10 h-fit">
 			<Heading.Root>
 				<Heading.Title>Financeiro</Heading.Title>
 				<Heading.Description>
