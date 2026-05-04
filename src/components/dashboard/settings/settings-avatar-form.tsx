@@ -1,5 +1,5 @@
 'use client'
-import { Avatar, Field, FileUpload } from '@stz-code/ui'
+import { Field, FileUpload } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import { FormSection } from '@/components/form-section'
 import { SettingsFormSection } from './settings-form-section'

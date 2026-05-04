@@ -19,24 +19,24 @@ export default function SettingsLayout({
 			<div className="flex gap-8">
 				<NavSettings.Root>
 					<NavSettings.Item
-						href={'/configuracoes/perfil'}
+						href={'/dashboard/configuracoes/perfil'}
 						className="text-zinc-50 bg-zinc-600/40 hover:bg-zinc-600/50"
 					>
 						Perfil
 					</NavSettings.Item>
-					<NavSettings.Item href={'/configuracoes/perfil'}>
+					<NavSettings.Item href={'/dashboard/configuracoes/seguranca'}>
 						Segurança
 					</NavSettings.Item>
-					<NavSettings.Item href={'/configuracoes/perfil'}>
+					<NavSettings.Item href={'/dashboard/configuracoes/notificacoes'}>
 						Notificações
 					</NavSettings.Item>
-					<NavSettings.Item href={'/configuracoes/perfil'}>
+					<NavSettings.Item href={'/dashboard/configuracoes/preferencias'}>
 						Preferências
 					</NavSettings.Item>
-					<NavSettings.Item href={'/configuracoes/perfil'}>
+					<NavSettings.Item href={'/dashboard/configuracoes/privacidade'}>
 						Privacidade
 					</NavSettings.Item>
-					<NavSettings.Item href={'/configuracoes/perfil'}>
+					<NavSettings.Item href={'/dashboard/configuracoes/ajuda'}>
 						Ajuda
 					</NavSettings.Item>
 				</NavSettings.Root>
