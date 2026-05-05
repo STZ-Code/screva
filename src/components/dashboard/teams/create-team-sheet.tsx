@@ -1,24 +1,17 @@
 'use client'
 
-import { PlusIcon } from '@phosphor-icons/react'
 import { Sheet } from '@stz-code/ui'
-import { useForm } from 'react-hook-form'
-import { Button } from '@/components/button'
+import type { ReactNode } from 'react'
 
-export function CreateTeamSheet() {
-	const { control } = useForm()
+type CreateTeamSheetProps = {
+	children: ReactNode
+}
 
+export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 	return (
 		<Sheet.Root>
-			<Sheet.Trigger asChild>
-				<Button
-					type="submit"
-					className="py-2 outline-none h-fit px-6 w-fit normal-case font-semibold flex gap-2"
-				>
-					<PlusIcon size={20} weight="bold" />
-					Criar equipe
-				</Button>
-			</Sheet.Trigger>
+			{children}
+
 			<Sheet.Content className="w-2/5 bg-neutral-900 border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar nova equipe</Sheet.Title>

@@ -3,6 +3,7 @@ import {
 	CheckCircleIcon,
 	DotsThreeIcon,
 	MagnifyingGlassIcon,
+	PlusIcon,
 } from '@phosphor-icons/react'
 import {
 	Avatar,
@@ -10,12 +11,14 @@ import {
 	Field,
 	Input,
 	Select,
+	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
+import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { formatDate } from '@/utils/format-date'
 import { CreateTeamSheet } from './create-team-sheet'
@@ -186,7 +189,17 @@ export function TeamsTable() {
 					</Field.Root>
 				</form>
 
-				<CreateTeamSheet />
+				<CreateTeamSheet>
+					<Sheet.Trigger asChild>
+						<Button
+							type="submit"
+							className="py-2 outline-none h-fit px-6 w-fit normal-case font-semibold flex gap-2"
+						>
+							<PlusIcon size={20} weight="bold" />
+							Criar equipe
+						</Button>
+					</Sheet.Trigger>
+				</CreateTeamSheet>
 			</div>
 
 			<Table.Root columns={columns} data={data} className="border-zinc-800">
