@@ -8,12 +8,16 @@ import { Avatar, Dropdown, Sheet } from '@stz-code/ui'
 import { TabNavigator } from '@stz-code/ui/layout'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import type { ReactNode } from 'react'
 import { MiniLogo } from '@/assets/images/mini-logo'
 import { Tag } from '../tag'
-import { ProfileButton } from './profile-button'
 import { CreateTeamSheet } from './teams/create-team-sheet'
 
-export function Header() {
+type HeaderProps = {
+	children: ReactNode
+}
+
+export function Header({ children }: HeaderProps) {
 	const pathname = usePathname()
 
 	return (
@@ -207,7 +211,7 @@ export function Header() {
 				</div>
 			</div>
 
-			<ProfileButton />
+			{children}
 		</header>
 	)
 }

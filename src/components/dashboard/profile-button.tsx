@@ -1,27 +1,25 @@
 'use client'
 
-import { CaretDownIcon, SignOutIcon } from '@phosphor-icons/react'
-import { Avatar, Dropdown } from '@stz-code/ui'
-import { useRouter } from 'next/navigation'
-import { authClient } from '@/lib/auth-client'
+import { CaretDownIcon } from '@phosphor-icons/react'
+import { Avatar } from '@stz-code/ui'
+import { AuthDropdown } from '../auth/auth-dropdown'
 
-export function ProfileButton() {
-	const router = useRouter()
+type ProfileButtonProps = {
+	isAuthenticated?: boolean
+	user:
+		| {
+				name: string
+				avatarUrl: string | null
+				email: string
+				role: string
+		  }
+		| undefined
+}
 
-	async function signOut() {
-		await authClient.signOut(
-			{},
-			{
-				onSuccess() {
-					router.push('/sign-in')
-				},
-			},
-		)
-	}
-
+export function ProfileButton({ user, isAuthenticated }: ProfileButtonProps) {
 	return (
-		<Dropdown.Root>
-			<Dropdown.Trigger>
+		<AuthDropdown.Root>
+			<AuthDropdown.Trigger type="button">
 				<div className="flex items-center gap-3 outline-none">
 					<div className="flex flex-col items-end">
 						<span className="text-sm font-medium">Gabriel Garcez</span>
@@ -33,15 +31,15 @@ export function ProfileButton() {
 					</Avatar.Root>
 					<CaretDownIcon className="size-4 text-zinc-400" />
 				</div>
-			</Dropdown.Trigger>
-			<Dropdown.Content align="end">
-				<Dropdown.Item asChild>
-					<button type="button" onClick={signOut}>
-						<SignOutIcon className="mr-2 size-4" />
-						Sair
-					</button>
-				</Dropdown.Item>
-			</Dropdown.Content>
-		</Dropdown.Root>
+			</AuthDropdown.Trigger>
+
+			<AuthDropdown.Content isAuthenticated={isAuthenticated}>
+				{isAuthenticated && user ? (
+					<AuthDropdown.Authenticated user={user} />
+				) : (
+					<AuthDropdown.Unauthenticated />
+				)}
+			</AuthDropdown.Content>
+		</AuthDropdown.Root>
 	)
 }

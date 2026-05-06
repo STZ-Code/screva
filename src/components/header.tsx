@@ -3,16 +3,20 @@
 import { TabNavigator } from '@stz-code/ui/layout'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import type { ReactNode } from 'react'
 import { Logo } from '@/assets/images/logo'
-import { AuthDropdown } from './auth/auth-dropdown'
 
-export function Header() {
+type HeaderProps = {
+	children: ReactNode
+}
+
+export function Header({ children }: HeaderProps) {
 	const pathname = usePathname()
 
 	return (
 		<header className="flex w-full h-28">
 			<div className="flex-1 flex after:triangle">
-				<AuthDropdown />
+				{children}
 
 				<div className="flex-1 px-16 bg-zinc-800/50 flex relative justify-center">
 					<TabNavigator.Root active={pathname} className="h-full w-fit">
