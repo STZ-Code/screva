@@ -98,7 +98,7 @@ export function RunnerButton({
 			initial="initial"
 			whileTap="tap"
 			className={clsx(
-				'bg-cyan-400 w-80 py-4 text-zinc-100 rounded-sm text-4xl font-bebas relative overflow-hidden transition-colors',
+				'bg-cyan-400 w-80 py-4 text-zinc-100 rounded-sm text-4xl font-bebas relative overflow-hidden transition-colors cursor-pointer',
 				{
 					'bg-cyan-400': variant === 'event',
 					'bg-slate-600': variant === 'result',
