@@ -15,7 +15,7 @@ export function SocialSignIn() {
 				variants={buttonVariant}
 				whileHover="hover"
 				whileTap="tap"
-				className="flex-1 rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md text-zinc-300 flex items-center justify-center py-3 gap-3 hover:border-zinc-500"
+				className="flex-1 rounded-xl border border-white/8 bg-zinc-900/40 backdrop-blur-md text-zinc-300 flex items-center justify-center py-3 gap-3 hover:border-zinc-500"
 			>
 				<GoogleLogoIcon size={24} />
 				Google
@@ -25,7 +25,7 @@ export function SocialSignIn() {
 				variants={buttonVariant}
 				whileHover="hover"
 				whileTap="tap"
-				className="flex-1 rounded-xl border border-white/[0.08] bg-zinc-900/40 backdrop-blur-md text-zinc-300 flex items-center justify-center py-3 gap-3 hover:border-zinc-500"
+				className="flex-1 rounded-xl border border-white/8 bg-zinc-900/40 backdrop-blur-md text-zinc-300 flex items-center justify-center py-3 gap-3 hover:border-zinc-500"
 			>
 				<InstagramLogoIcon size={24} />
 				Instagram

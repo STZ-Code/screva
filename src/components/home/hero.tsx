@@ -49,7 +49,7 @@ export function Hero() {
 						<Image
 							src={HeroImg1}
 							alt="Bike"
-							className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+							className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700"
 						/>
 					</motion.div>
 				</div>
@@ -64,7 +64,7 @@ export function Hero() {
 						<Image
 							src={HeroImg2}
 							alt="Runner"
-							className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+							className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700"
 						/>
 					</motion.div>
 				</div>

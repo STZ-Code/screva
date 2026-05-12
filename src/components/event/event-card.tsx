@@ -19,7 +19,7 @@ export function EventCard() {
 			}}
 			transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 			className={cn(
-				'p-5 border border-white/[0.08] rounded-2xl w-[300px]',
+				'p-5 border border-white/8 rounded-2xl w-[300px]',
 				'bg-zinc-900/40 backdrop-blur-md group will-change-transform shadow-2xl shadow-black/40',
 			)}
 		>
@@ -28,7 +28,7 @@ export function EventCard() {
 					<Image
 						src={exampleImg}
 						alt="Event Image"
-						className="w-full z-40 object-cover transition-transform duration-500 group-hover:scale-110 [mask-image:linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)]"
+						className="w-full z-40 object-cover transition-transform duration-500 group-hover:scale-110 mask-[linear-gradient(to_bottom,transparent_0%,black_20%,black_80%,transparent_100%)]"
 					/>
 
 					<EventStatus />

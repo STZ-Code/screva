@@ -43,7 +43,7 @@ export function EventPricingTable({ categories }: EventPricingTableProps) {
 								visible: { opacity: 1, x: 0 },
 							}}
 							key={category.id}
-							className="group border-b border-zinc-800 hover:bg-white/[0.02] transition-colors"
+							className="group border-b border-zinc-800 hover:bg-white/2 transition-colors"
 						>
 							<td className="py-2 px-2">
 								<h3 className="flex gap-2 text-lg font-bold uppercase tracking-wide text-zinc-100 transition-colors group-hover:text-cyan-400">

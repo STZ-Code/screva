@@ -27,7 +27,7 @@ export function Header({ children }: HeaderProps) {
 					<MiniLogo className="size-8 mr-4" />
 
 					<div className="flex gap-2">
-						<LineVerticalIcon className="size-8 rotate-[24deg] text-zinc-600" />
+						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
 
 						<Dropdown.Root>
 							<Dropdown.Trigger className="cursor-pointer">

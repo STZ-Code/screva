@@ -8,6 +8,7 @@ const publicRoutes = [
 	{ path: '/', whenAuthenticated: 'next' },
 	{ path: '/eventos', whenAuthenticated: 'next' },
 	{ path: '/eventos/:id', whenAuthenticated: 'next' },
+	{ path: '/eventos/:id/ingressos', whenAuthenticated: 'next' },
 	{ path: '/resultados', whenAuthenticated: 'next' },
 	{ path: '/anunciar', whenAuthenticated: 'next' },
 	{ path: '/contato', whenAuthenticated: 'next' },

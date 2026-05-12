@@ -52,7 +52,7 @@ export default async function PublicLayout({
 				</AuthDropdown.Root>
 			</Header>
 
-			<div className="overflow-auto h-full">
+			<div className="mt-28">
 				{children}
 				<Footer />
 			</div>

@@ -1,5 +1,6 @@
 'use client'
 import { motion } from 'motion/react'
+import Link from 'next/link'
 import { Box } from '../box'
 import { BoxHeading } from '../box-heading'
 import { Button } from '../button'
@@ -27,7 +28,9 @@ export function TicketsAction() {
 				</strong>
 			</motion.div>
 
-			<Button variant="primary">Fazer Inscrição</Button>
+			<Link href={'/eventos/evento-1/ingressos'}>
+				<Button variant="primary">Fazer Inscrição</Button>
+			</Link>
 		</Box>
 	)
 }

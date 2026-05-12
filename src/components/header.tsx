@@ -14,7 +14,7 @@ export function Header({ children }: HeaderProps) {
 	const pathname = usePathname()
 
 	return (
-		<header className="flex w-full h-28">
+		<header className="flex w-full h-28 fixed bg-neutral-900 z-40">
 			<div className="flex-1 flex after:triangle">
 				{children}
 
@@ -61,7 +61,7 @@ export function Header({ children }: HeaderProps) {
 								Contato
 							</TabNavigator.Item>
 						</TabNavigator.Control>
-						<TabNavigator.Bar className="bg-zinc-50 before:absolute before:-left-[5.8px] before:bottom-0 before:w-0 before:h-0 before:border-b-[5px] before:border-b-gray-50 before:border-l-[6px] before:border-l-transparent after:absolute after:-right-[5.9px] after:top-0 after:w-0 after:h-0 after:border-t-[5px] after:border-t-gray-50 after:border-r-[6px] after:border-r-transparent" />
+						<TabNavigator.Bar className="bg-zinc-50 before:absolute before:left-[-5.8px] before:bottom-0 before:w-0 before:h-0 before:border-b-[5px] before:border-b-gray-50 before:border-l-[6px] before:border-l-transparent after:absolute after:right-[-5.9px] after:top-0 after:w-0 after:h-0 after:border-t-[5px] after:border-t-gray-50 after:border-r-[6px] after:border-r-transparent" />
 					</TabNavigator.Root>
 				</div>
 			</div>
