@@ -1,37 +1,21 @@
-import { AdminMetrics } from '@/components/dashboard/admin/admin-metrics'
-import { EventList } from '@/components/dashboard/admin/event-list'
-import { LastInscriptions } from '@/components/dashboard/admin/last-inscriptions'
-import { Heading } from '@/components/dashboard/heading'
-import { Main } from '@/components/dashboard/main'
+import { AdminOverview } from '@/components/dashboard/admin/admin-overview'
+import { CustomerOverview } from '@/components/dashboard/customer/customer-overview'
+import { getCurrentUser } from '@/lib/get-current-user'
 
-export default function DashboardPage() {
-	// async function signOut() {
-	// 	await authClient.signOut(
-	// 		{},
-	// 		{
-	// 			onSuccess() {
-	// 				router.push('/sign-in')
-	// 			},
-	// 		},
-	// 	)
-	// }
+export default async function DashboardPage() {
+	const user = await getCurrentUser()
 
-	return (
-		<Main className="gap-8">
-			<Heading.Root>
-				<Heading.Title>Visão Geral</Heading.Title>
-				<Heading.Description>
-					Confira as métricas e a performance da plataforma em tempo real.
-				</Heading.Description>
-			</Heading.Root>
+	if (!user) return <p>Loading...</p>
 
-			<AdminMetrics />
+	const { role } = user
 
-			<section className="flex gap-8 h-full">
-				<LastInscriptions />
+	switch (role) {
+		case 'CUSTOMER':
+			return <CustomerOverview />
+		case 'ADMIN':
+			return <AdminOverview />
 
-				<EventList />
-			</section>
-		</Main>
-	)
+		default:
+			return <p>Role not found</p>
+	}
 }

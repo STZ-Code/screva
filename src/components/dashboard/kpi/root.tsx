@@ -1,8 +1,19 @@
 import { cn } from '@/utils/utils'
 
-export function KpiRoot({ children }: { children: React.ReactNode }) {
+export function KpiRoot({
+	children,
+	className,
+}: {
+	children: React.ReactNode
+	className?: string
+}) {
 	return (
-		<div className="flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-zinc-900/50 shadow-md">
+		<div
+			className={cn(
+				'flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-zinc-900/50 shadow-md',
+				className,
+			)}
+		>
 			{children}
 		</div>
 	)
@@ -27,17 +38,39 @@ export function KpiValue({
 	)
 }
 
-export function KpiLabel({ children }: { children: React.ReactNode }) {
+export function KpiLabel({
+	children,
+	className,
+}: {
+	children: React.ReactNode
+	className?: string
+}) {
 	return (
-		<span className="text-[10px] uppercase tracking-widest text-zinc-400 font-bold">
+		<span
+			className={cn(
+				'text-[10px] uppercase tracking-widest text-zinc-400 font-bold',
+				className,
+			)}
+		>
 			{children}
 		</span>
 	)
 }
 
-export function KpiIndicator({ children }: { children: React.ReactNode }) {
+export function KpiIndicator({
+	children,
+	className,
+}: {
+	children: React.ReactNode
+	className?: string
+}) {
 	return (
-		<span className="text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-bold">
+		<span
+			className={cn(
+				'text-[10px] uppercase tracking-[0.2em] text-zinc-400 font-bold',
+				className,
+			)}
+		>
 			{children}
 		</span>
 	)

@@ -1,38 +1,19 @@
-import { headers } from 'next/headers'
 import { Footer } from '@/components/dashboard/footer'
 import { Header } from '@/components/dashboard/header'
-import { ProfileButton } from '@/components/dashboard/profile-button'
-import { authClient } from '@/lib/auth-client'
-
-type UserData = {
-	name: string
-	email: string
-	emailVerified: boolean
-	id: string
-	avatarUrl: string | null
-	role: 'ADMIN' | 'CUSTOMER'
-}
+import { getCurrentUser } from '@/lib/get-current-user'
 
 export default async function PrivateLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const state = await authClient.getSession({
-		fetchOptions: {
-			headers: await headers(),
-		},
-	})
+	const user = await getCurrentUser()
 
-	const isAuthenticated = !!state.data?.session && !!state.data?.user
-
-	const user = state.data?.user as UserData | undefined
+	if (!user) return <p>Loading...</p>
 
 	return (
 		<div className="flex flex-col w-full bg-dashboard overflow-auto">
-			<Header>
-				<ProfileButton user={user} isAuthenticated={isAuthenticated} />
-			</Header>
+			<Header user={user} />
 			{children}
 			<Footer />
 		</div>
