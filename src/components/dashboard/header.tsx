@@ -63,38 +63,38 @@ const NAVIGATOR_ITEMS: NavItem[] = [
 	},
 ]
 
-const EVENT_ITEMS: NavItem[] = [
+const EVENT_ITEMS = (slug: string): NavItem[] => [
 	{
 		label: 'Visão Geral',
-		href: '/dashboard',
+		href: `/dashboard/ev/${slug}`,
 	},
 	{
 		label: 'Inscrições',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/inscricoes`,
 	},
 	{
 		label: 'Categorias',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/categorias`,
 	},
 	{
 		label: 'Kits',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/kits`,
 	},
 	{
 		label: 'Financeiro',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/financeiro`,
 	},
 	{
 		label: 'Marketing',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/marketing`,
 	},
 	{
 		label: 'Anexos',
-		href: '/dashboard/eventos/',
+		href: `/dashboard/ev/${slug}/anexos`,
 	},
 	{
-		label: 'Configurações',
-		href: '/dashboard/configuracoes/perfil',
+		label: 'Confirgurações',
+		href: `/dashboard/ev/${slug}/configuracoes`,
 	},
 ]
 
@@ -103,15 +103,20 @@ export function Header({ user }: HeaderProps) {
 
 	const role = user.role
 
-	const isEventPage = pathname.startsWith('/dashboard/evento/')
+	const slug = pathname.split('/')[3]
 
-	const items = isEventPage ? EVENT_ITEMS : NAVIGATOR_ITEMS
+	const isEventPage = pathname.startsWith('/dashboard/ev/')
+	const isTeamPage = pathname.startsWith('/dashboard/eq/')
+
+	const items = isEventPage ? EVENT_ITEMS(slug) : NAVIGATOR_ITEMS
 
 	const navItems = items.filter((item) => {
 		if (!item.roles) return true
 
 		return item.roles.includes(role)
 	})
+
+	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
 
 	return (
 		<header className="px-12 pt-8 bg-dashboard-header flex justify-between items-start">
@@ -123,7 +128,7 @@ export function Header({ user }: HeaderProps) {
 						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
 
 						<ProfileDropdown user={user} />
-						{role !== 'CUSTOMER' && <EventsDropdown />}
+						{showEventsDropdown && <EventsDropdown />}
 					</div>
 				</div>
 

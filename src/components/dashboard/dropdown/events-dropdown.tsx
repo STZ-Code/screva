@@ -19,31 +19,19 @@ export function EventsDropdown() {
 
 			<Dropdown.Content
 				align="end"
-				alignOffset={-8}
+				alignOffset={-128}
 				sideOffset={12}
 				className="bg-zinc-900 w-64 border-zinc-700"
 			>
 				<Dropdown.Group>
-					<Dropdown.Label>Contas</Dropdown.Label>
-
-					<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
-						<Avatar.Root className="size-6 rounded">
-							<Avatar.Image src="https://github.com/garcez17.png" />
-							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-						</Avatar.Root>
-						<span className="line-clamp-1">Gabriel Garcez</span>
-					</Dropdown.Item>
-				</Dropdown.Group>
-
-				<Dropdown.Group>
-					<Dropdown.Label>Equipes</Dropdown.Label>
+					<Dropdown.Label>Eventos</Dropdown.Label>
 
 					<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
 						<Avatar.Root className="size-6 rounded">
 							<Avatar.Image src="https://github.com/diego3g.png" />
 							<Avatar.Fallback>Pro Race</Avatar.Fallback>
 						</Avatar.Root>
-						<span className="line-clamp-1">Pro Race Organizações</span>
+						<span className="line-clamp-1">Picos Pro Race</span>
 					</Dropdown.Item>
 				</Dropdown.Group>
 
@@ -56,7 +44,7 @@ export function EventsDropdown() {
 					<CreateTeamSheet>
 						<Sheet.Trigger className="outline-none px-2 py-2 w-full text-sm hover:bg-zinc-600 transition-colors normal-case font-semibold flex gap-2 line-clamp-1">
 							<PlusCircleIcon className="size-5 mr-2" />
-							Criar nova equipe
+							Anunciar novo evento
 						</Sheet.Trigger>
 					</CreateTeamSheet>
 				</Dropdown.Item>

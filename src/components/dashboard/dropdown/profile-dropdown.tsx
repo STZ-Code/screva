@@ -44,12 +44,12 @@ export function ProfileDropdown({ user }: ProfileDropdownProps) {
 
 			<Dropdown.Content
 				align="end"
-				alignOffset={-8}
+				alignOffset={-32}
 				sideOffset={12}
-				className="bg-zinc-900 w-64 border-zinc-700"
+				className="bg-zinc-900 w-56 border-zinc-700"
 			>
 				<Dropdown.Group>
-					<Dropdown.Label>Contas</Dropdown.Label>
+					<Dropdown.Label>Conta</Dropdown.Label>
 
 					<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
 						<Avatar.Root className="size-6 rounded">
