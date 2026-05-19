@@ -93,7 +93,7 @@ const EVENT_ITEMS = (slug: string): NavItem[] => [
 		href: `/dashboard/ev/${slug}/anexos`,
 	},
 	{
-		label: 'Confirgurações',
+		label: 'Configurações',
 		href: `/dashboard/ev/${slug}/configuracoes`,
 	},
 ]
