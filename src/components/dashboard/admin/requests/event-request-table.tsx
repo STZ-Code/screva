@@ -2,10 +2,12 @@
 
 import {
 	CalendarDotsIcon,
+	FilePdfIcon,
 	MapPinIcon,
 	PersonSimpleRunIcon,
 	TimerIcon,
 	UsersIcon,
+	WhatsappLogoIcon,
 } from '@phosphor-icons/react'
 import {
 	Avatar,
@@ -258,7 +260,7 @@ export function EventRequestTable() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-8">
-											<div className="flex gap-2">
+											<div className="flex gap-4">
 												<CalendarDotsIcon size={32} />
 
 												<div>
@@ -270,7 +272,7 @@ export function EventRequestTable() {
 													</p>
 												</div>
 											</div>
-											<div className="flex gap-2">
+											<div className="flex gap-4">
 												<UsersIcon size={32} />
 
 												<div>
@@ -284,7 +286,7 @@ export function EventRequestTable() {
 											</div>
 										</div>
 										<div className="flex flex-col gap-8">
-											<div className="flex gap-2">
+											<div className="flex gap-4">
 												<PersonSimpleRunIcon size={32} />
 
 												<div>
@@ -296,7 +298,7 @@ export function EventRequestTable() {
 													</p>
 												</div>
 											</div>
-											<div className="flex gap-2">
+											<div className="flex gap-4">
 												<TimerIcon size={32} />
 
 												<div>
@@ -319,69 +321,71 @@ export function EventRequestTable() {
 									</p>
 								</div>
 							</Accordion.Trigger>
-							<Accordion.Content className="border-t px-4 py-4 text-sm text-zinc-700">
-								{/* <div className="space-y-2">
-									<p className="truncate">
-										<strong>Email:</strong> {row.original.email}
-									</p>
-									<p>
-										<strong>Amount:</strong> R$ {row.original.amount}
-									</p>
-									<p>
-										<strong>Method:</strong> {row.original.paymentMethod}
-									</p>
-								</div> */}
-								<div className="flex flex-col gap-8">
-									<div className="flex flex-col gap-2">
-										<div className="flex items-center justify-between">
-											<h4 className="text-zinc-200 font-semibold">Produtos</h4>
-											<strong className="text-zinc-200 font-semibold">
-												Quantidade
-											</strong>
-										</div>
-
-										<div className="flex items-center justify-between">
-											<span className="text-zinc-400 font-semibold">
-												02KM - CAMINHADA
-											</span>
-											<p className="text-zinc-400 font-semibold">3</p>
-										</div>
-										<div className="flex items-center justify-between">
-											<span className="text-zinc-400 font-semibold">
-												04KM - CAMINHADA
-											</span>
-											<p className="text-zinc-400 font-semibold">1</p>
-										</div>
-										<div className="flex items-center justify-between">
-											<span className="text-zinc-400 font-semibold">
-												10KM - RUN
-											</span>
-											<p className="text-zinc-400 font-semibold">4</p>
-										</div>
-										<ActionDivider />
+							<Accordion.Content className="border-t px-4 py-6 text-sm border-zinc-700 bg-dashboard-header flex flex-col gap-5">
+								<div className="flex w-full gap-6">
+									<div className="flex-1 border border-zinc-700 p-6 flex flex-col gap-2.5">
+										<span className="font-bold text-zinc-50 text-xl">
+											Detalhes do evento
+										</span>
+										<p className="text-lg text-zinc-400 font-semibold">
+											Evento para corredores amadores e profissionais, com
+											categorias de 5, 10 e 15 Km. Terá corridas de bicicletas
+											com categorias de 10, 15 e 25 Km.
+										</p>
 									</div>
-
-									<div className="flex flex-col gap-2">
-										<div className="flex items-center justify-between">
-											<h4 className="text-zinc-200 font-semibold">Extras</h4>
-											<strong className="text-zinc-200 font-semibold">
-												Quantidade
-											</strong>
+									<div className="border border-zinc-700 p-6 flex flex-col gap-2.5">
+										<span className="text-xl font-bold text-zinc-50">
+											Anexos
+										</span>
+										<div className="flex flex-col gap-3">
+											<button
+												type="button"
+												className="flex items-center gap-1 underline hover:text-cyan-600 cursor-pointer transition-colors"
+											>
+												<FilePdfIcon size={24} className="text-cyan-600" />
+												PAR-Q CIRCUITO SESC.pdf
+											</button>
+											<button
+												type="button"
+												className="flex items-center gap-1 underline hover:text-cyan-600 cursor-pointer transition-colors"
+											>
+												<FilePdfIcon size={24} className="text-cyan-600" />
+												AUTORIZAÇÃO DE PARTICIPAÇÃO.pdf
+											</button>
+											<button
+												type="button"
+												className="flex items-center gap-1 underline hover:text-cyan-600 cursor-pointer transition-colors"
+											>
+												<FilePdfIcon size={24} className="text-cyan-600" />
+												TERMO DE RESPONSABILIDADE.pdf
+											</button>
 										</div>
-
-										<div className="flex items-center justify-between">
-											<span className="text-zinc-400 font-semibold">
-												Gravação de Medalha
-											</span>
-											<p className="text-zinc-400 font-semibold">1</p>
-										</div>
-
-										<ActionDivider />
 									</div>
+								</div>
 
-									<div className="flex items-center justify-between">
-										<span className="text-zinc-400 font-semibold">Total</span>
-										<p className="text-zinc-400 font-semibold">R$ R$ 338,00</p>
+								<div className="flex justify-between">
+									<button
+										type="button"
+										className="border-2 font-semibold border-sky-500 text-sky-500 hover:bg-sky-900/30 cursor-pointer transition-colors py-3 px-4 flex items-center gap-3"
+									>
+										<WhatsappLogoIcon size={24} />
+										Contato com o organizador
+									</button>
+
+									<div className="flex gap-4">
+										<button
+											type="button"
+											className="border-2 font-semibold border-zinc-300 hover:text-red-400 hover:bg-red-900/30 hover:border-red-500 transition-colors h-full px-4 cursor-pointer"
+										>
+											Rejeitar solicitação
+										</button>
+
+										<button
+											type="button"
+											className="h-full font-semibold px-8 cursor-pointer bg-cyan-600"
+										>
+											Confirmar evento
+										</button>
 									</div>
 								</div>
 							</Accordion.Content>
