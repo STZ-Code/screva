@@ -1,12 +1,13 @@
 'use client'
 import { motion } from 'motion/react'
+import Link from 'next/link'
 import { Box } from '../box'
 import { BoxHeading } from '../box-heading'
 import { Button } from '../button'
 
 export function TicketsAction() {
 	return (
-		<Box className="gap-5">
+		<Box className="gap-5 rounded-none lg:rounded-2xl">
 			<div className="flex flex-col gap-3">
 				<BoxHeading>Ingressos</BoxHeading>
 				<span className="font-bold text-sm text-zinc-400">
@@ -27,7 +28,9 @@ export function TicketsAction() {
 				</strong>
 			</motion.div>
 
-			<Button variant="primary">Fazer Inscrição</Button>
+			<Link href={'/eventos/evento-1/ingressos'}>
+				<Button variant="primary">Fazer Inscrição</Button>
+			</Link>
 		</Box>
 	)
 }

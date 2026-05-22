@@ -4,9 +4,9 @@ import { SignUpContainer } from '@/components/auth/sign-up-container'
 export default function SignInPage() {
 	return (
 		<div className="items-center flex h-full w-full gap-6">
-			<SignUpContainer />
+			<Presenter type="sign-up" />
 
-			<Presenter />
+			<SignUpContainer />
 		</div>
 	)
 }

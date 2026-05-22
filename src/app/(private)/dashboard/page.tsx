@@ -1,34 +1,21 @@
-'use client'
-import { SignOutIcon } from '@phosphor-icons/react'
-import { useRouter } from 'next/navigation'
-import { authClient } from '@/lib/auth-client'
+import { AdminOverview } from '@/components/dashboard/admin/admin-overview'
+import { CustomerOverview } from '@/components/dashboard/customer/customer-overview'
+import { getCurrentUser } from '@/lib/get-current-user'
 
-export default function DashboardPage() {
-	const router = useRouter()
+export default async function DashboardPage() {
+	const user = await getCurrentUser()
 
-	async function signOut() {
-		await authClient.signOut(
-			{},
-			{
-				onSuccess() {
-					router.push('/sign-in')
-				},
-			},
-		)
+	if (!user) return <p>Loading...</p>
+
+	const { role } = user
+
+	switch (role) {
+		case 'CUSTOMER':
+			return <CustomerOverview />
+		case 'ADMIN':
+			return <AdminOverview />
+
+		default:
+			return <p>Role not found</p>
 	}
-
-	return (
-		<div className="items-center flex justify-center h-full w-full flex-col gap-8">
-			<h1>Dashboard</h1>
-
-			<button
-				type="button"
-				onClick={signOut}
-				className="flex gap-2 items-center bg-zinc-800 rounded-full px-4 py-2 hover:bg-zinc-700 transition-colors"
-			>
-				<SignOutIcon size={24} className="text-zinc-300" />
-				Logout
-			</button>
-		</div>
-	)
 }

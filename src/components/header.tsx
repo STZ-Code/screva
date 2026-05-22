@@ -3,18 +3,21 @@
 import { TabNavigator } from '@stz-code/ui/layout'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import type { ReactNode } from 'react'
 import { Logo } from '@/assets/images/logo'
-import { AuthDropdown } from './auth/auth-dropdown'
 
-export function Header() {
+type HeaderProps = {
+	children: ReactNode
+}
+
+export function Header({ children }: HeaderProps) {
 	const pathname = usePathname()
 
 	return (
-		<header className="flex w-full h-28">
+		<header className="flex w-full h-28 fixed bg-neutral-900 z-40 items-center justify-start">
 			<div className="flex-1 flex after:triangle">
-				<AuthDropdown />
-
-				<div className="flex-1 px-16 bg-zinc-800/50 flex relative justify-center">
+				{children}
+				<div className="flex-1 px-16 bg-zinc-800/50 lg:flex relative justify-center hidden">
 					<TabNavigator.Root active={pathname} className="h-full w-fit">
 						<TabNavigator.Control className="flex justify-evenly h-full 2xl:justify-normal gap-16">
 							<TabNavigator.Item
@@ -57,14 +60,13 @@ export function Header() {
 								Contato
 							</TabNavigator.Item>
 						</TabNavigator.Control>
-						<TabNavigator.Bar className="bg-zinc-50 before:absolute before:-left-[5.8px] before:bottom-0 before:w-0 before:h-0 before:border-b-[5px] before:border-b-gray-50 before:border-l-[6px] before:border-l-transparent after:absolute after:-right-[5.9px] after:top-0 after:w-0 after:h-0 after:border-t-[5px] after:border-t-gray-50 after:border-r-[6px] after:border-r-transparent" />
+						<TabNavigator.Bar className="bg-zinc-50 before:absolute before:left-[-5.8px] before:bottom-0 before:w-0 before:h-0 before:border-b-[5px] before:border-b-gray-50 before:border-l-[6px] before:border-l-transparent after:absolute after:right-[-5.9px] after:top-0 after:w-0 after:h-0 after:border-t-[5px] after:border-t-gray-50 after:border-r-[6px] after:border-r-transparent" />
 					</TabNavigator.Root>
 				</div>
 			</div>
-
-			<div className="w-72 items-center justify-center flex">
-				<Logo className="w-44 text-zinc-100" />
-			</div>
+			<Link href={'/'} className="w-full lg:w-72">
+				<Logo className="w-36 h-fit lg:w-44 text-zinc-100 ml-4" />
+			</Link>
 		</header>
 	)
 }

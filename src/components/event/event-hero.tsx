@@ -19,16 +19,16 @@ export function EventHero() {
 					alt="Background Evento"
 					fill
 					priority
-					className="object-cover z-0"
+					className="object-cover z-0 hidden lg:block"
 				/>
 			</motion.div>
 
-			<div className="z-10 px-28 flex items-center justify-between flex-1">
+			<div className="z-10 lg:px-28 flex flex-col-reverse lg:flex-row items-center justify-between flex-1">
 				<motion.div
 					initial={{ opacity: 0, x: -50 }}
 					animate={{ opacity: 1, x: 0 }}
 					transition={{ duration: 0.8, delay: 0.5 }}
-					className="flex flex-col gap-4"
+					className="flex flex-col gap-4 p-8"
 				>
 					<h1 className="text-zinc-100 font-semibold text-2xl">
 						CIRCUITO SESC - ETAPA JABOATÃO DOS GUARARAPES
@@ -60,9 +60,9 @@ export function EventHero() {
 					initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
 					animate={{ opacity: 1, scale: 1, rotate: 0 }}
 					transition={{ type: 'spring', stiffness: 100, delay: 0.8 }}
-					className="w-64 h-64 rounded-lg relative"
+					className="relative w-full aspect-square lg:w-64 rounded-lg overflow-hidden"
 				>
-					<Image src={eventImgExample} alt="Corrida de Jaboatão" />
+					<Image src={eventImgExample} alt="Corrida de Jaboatão" fill />
 				</motion.div>
 			</div>
 		</section>

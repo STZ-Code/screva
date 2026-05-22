@@ -1,14 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
 
-@layer utilities {
-  .triangle {
-    width: 112px;
-    height: 112px;
-    background-color: rgb(39 39 42 / 0.5);
-    clip-path: polygon(0 0, 0 100%, 100% 0);
-  }
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility triangle {
+  width: 112px;
+  height: 112px;
+  background-color: rgb(39 39 42 / 0.5);
+  clip-path: polygon(0 0, 0 100%, 100% 0);
 }
 
 ::-webkit-scrollbar {

@@ -8,6 +8,7 @@ const publicRoutes = [
 	{ path: '/', whenAuthenticated: 'next' },
 	{ path: '/eventos', whenAuthenticated: 'next' },
 	{ path: '/eventos/:id', whenAuthenticated: 'next' },
+	{ path: '/eventos/:id/ingressos', whenAuthenticated: 'next' },
 	{ path: '/resultados', whenAuthenticated: 'next' },
 	{ path: '/anunciar', whenAuthenticated: 'next' },
 	{ path: '/contato', whenAuthenticated: 'next' },
@@ -49,7 +50,7 @@ export async function middleware(req: NextRequest) {
 	if (sessionToken && publicRoute?.whenAuthenticated === 'redirect') {
 		try {
 			const res = await fetch(
-				`${process.env.NEXT_PUBLIC_API_URL}/auth/session`,
+				`${process.env.NEXT_PUBLIC_API_URL}/api/auth/get-session`,
 				{
 					method: 'GET',
 					headers: {

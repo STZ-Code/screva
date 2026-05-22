@@ -1,16 +1,123 @@
 'use client'
-import {
-	CaretUpDownIcon,
-	LineVerticalIcon,
-	PlusCircleIcon,
-} from '@phosphor-icons/react'
-import { Avatar, Dropdown } from '@stz-code/ui'
+import { LineVerticalIcon } from '@phosphor-icons/react'
 import { TabNavigator } from '@stz-code/ui/layout'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { MiniLogo } from '@/assets/images/mini-logo'
-import { Tag } from '../tag'
+import type { Role, User } from '@/lib/get-current-user'
+import { cn } from '@/utils/utils'
+import { EventsDropdown } from './dropdown/events-dropdown'
+import { ProfileDropdown } from './dropdown/profile-dropdown'
 import { ProfileButton } from './profile-button'
 
-export function Header() {
+type HeaderProps = {
+	user: User
+}
+
+type NavItem = {
+	label: string
+	href: string
+	roles?: Role[]
+}
+
+const NAVIGATOR_ITEMS: NavItem[] = [
+	{
+		label: 'Visão Geral',
+		href: '/dashboard',
+		roles: ['ADMIN', 'CUSTOMER'],
+	},
+	{
+		label: 'Eventos',
+		href: '/dashboard/eventos',
+		roles: ['ADMIN'],
+	},
+	{
+		label: 'Equipes',
+		href: '/dashboard/equipes',
+		roles: ['ADMIN'],
+	},
+	{
+		label: 'Financeiro',
+		href: '/dashboard/financeiro',
+		roles: ['ADMIN'],
+	},
+	{
+		label: 'Solicitações',
+		href: '/dashboard/solicitacoes',
+		roles: ['ADMIN'],
+	},
+	{
+		label: 'Inscrições',
+		href: '/dashboard/inscricoes',
+		roles: ['CUSTOMER'],
+	},
+	{
+		label: 'Histórico',
+		href: '/dashboard/historico',
+		roles: ['CUSTOMER'],
+	},
+	{
+		label: 'Configurações',
+		href: '/dashboard/configuracoes/perfil',
+		roles: ['ADMIN', 'CUSTOMER'],
+	},
+]
+
+const EVENT_ITEMS = (slug: string): NavItem[] => [
+	{
+		label: 'Visão Geral',
+		href: `/dashboard/ev/${slug}`,
+	},
+	{
+		label: 'Inscrições',
+		href: `/dashboard/ev/${slug}/inscricoes`,
+	},
+	{
+		label: 'Categorias',
+		href: `/dashboard/ev/${slug}/categorias`,
+	},
+	{
+		label: 'Kits',
+		href: `/dashboard/ev/${slug}/kits`,
+	},
+	{
+		label: 'Financeiro',
+		href: `/dashboard/ev/${slug}/financeiro`,
+	},
+	{
+		label: 'Marketing',
+		href: `/dashboard/ev/${slug}/marketing`,
+	},
+	{
+		label: 'Anexos',
+		href: `/dashboard/ev/${slug}/anexos`,
+	},
+	{
+		label: 'Configurações',
+		href: `/dashboard/ev/${slug}/configuracoes`,
+	},
+]
+
+export function Header({ user }: HeaderProps) {
+	const pathname = usePathname()
+
+	const role = user.role
+
+	const slug = pathname.split('/')[3]
+
+	const isEventPage = pathname.startsWith('/dashboard/ev/')
+	const isTeamPage = pathname.startsWith('/dashboard/eq/')
+
+	const items = isEventPage ? EVENT_ITEMS(slug) : NAVIGATOR_ITEMS
+
+	const navItems = items.filter((item) => {
+		if (!item.roles) return true
+
+		return item.roles.includes(role)
+	})
+
+	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
+
 	return (
 		<header className="px-12 pt-8 bg-dashboard-header flex justify-between items-start">
 			<div className="flex flex-col gap-8">
@@ -18,99 +125,35 @@ export function Header() {
 					<MiniLogo className="size-8 mr-4" />
 
 					<div className="flex gap-2">
-						<LineVerticalIcon className="size-8 rotate-[24deg] text-zinc-600" />
+						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
 
-						<Dropdown.Root>
-							<Dropdown.Trigger className="cursor-pointer">
-								<div className="flex w-60 items-center gap-2 rounded p-1 text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-cyan-600">
-									<>
-										<Avatar.Root className="size-7 rounded">
-											<Avatar.Image src="https://github.com/garcez17.png" />
-											<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-										</Avatar.Root>
-										<span className="text-zinc-200 truncate">
-											Gabriel Garcez
-										</span>
-
-										<Tag className="bg-zinc-700">
-											<span className="text-zinc-300 text-xs font-semibold">
-												Admin
-											</span>
-										</Tag>
-									</>
-									<CaretUpDownIcon
-										className="ml-auto size-4 text-zinc-200"
-										weight="bold"
-									/>
-								</div>
-							</Dropdown.Trigger>
-
-							<Dropdown.Content
-								align="end"
-								alignOffset={-8}
-								sideOffset={12}
-								className="bg-zinc-900 w-64 border-zinc-700"
-							>
-								<Dropdown.Group>
-									<Dropdown.Label>Contas</Dropdown.Label>
-
-									<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
-										<Avatar.Root className="size-6 rounded">
-											<Avatar.Image src="https://github.com/garcez17.png" />
-											<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-										</Avatar.Root>
-										<span className="line-clamp-1">Gabriel Garcez</span>
-									</Dropdown.Item>
-								</Dropdown.Group>
-
-								<Dropdown.Separator className="text-zinc-300 bg-zinc-700" />
-
-								<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
-									<PlusCircleIcon className="size-5 mr-2" />
-									<span className="line-clamp-1">Criar nova equipe</span>
-								</Dropdown.Item>
-							</Dropdown.Content>
-						</Dropdown.Root>
+						<ProfileDropdown user={user} />
+						{showEventsDropdown && <EventsDropdown />}
 					</div>
 				</div>
 
 				<div className="flex relative flex-1">
-					<TabNavigator.Root active={'/dashboard'} className="h-9">
+					<TabNavigator.Root active={pathname} className="h-9">
 						<TabNavigator.Control className="gap-4">
-							<TabNavigator.Item
-								href="/dashboard"
-								className="font-semibold text-zinc-50 text-sm"
-							>
-								Visão Geral
-							</TabNavigator.Item>
-
-							<TabNavigator.Item
-								href="/dasboard/eventos"
-								className="font-semibold text-zinc-400 text-sm"
-							>
-								Eventos
-							</TabNavigator.Item>
-
-							<TabNavigator.Item
-								href="/dasboard/financeiro"
-								className="font-semibold text-zinc-400 text-sm"
-							>
-								Financeiro
-							</TabNavigator.Item>
-
-							<TabNavigator.Item
-								href="/dasboard/configuracoes"
-								className="font-semibold text-zinc-400 text-sm"
-							>
-								Configurações
-							</TabNavigator.Item>
+							{navItems.map((item) => (
+								<TabNavigator.Item
+									key={item.href}
+									href={item.href}
+									as={Link}
+									className={cn('font-semibold text-zinc-400 text-sm', {
+										'text-zinc-50': pathname === item.href,
+									})}
+								>
+									{item.label}
+								</TabNavigator.Item>
+							))}
 						</TabNavigator.Control>
 						<TabNavigator.Bar className="bg-cyan-500 h-[3px]" />
 					</TabNavigator.Root>
 				</div>
 			</div>
 
-			<ProfileButton />
+			<ProfileButton user={user} isAuthenticated={!!user} />
 		</header>
 	)
 }

@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import Link from 'next/link'
+import { Logo } from '@/assets/images/logo'
 import { ActionDivider } from '../action-divider'
 import { SignUpForm } from './sign-up-form'
 import { SocialSignIn } from './social-sign-in'
@@ -11,7 +12,7 @@ export function SignUpContainer() {
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="w-2/5 flex justify-center"
+			className="lg:w-2/5 flex flex-col gap-12 justify-center items-center px-6"
 		>
 			<div className="flex flex-col w-96 gap-4">
 				<motion.div
@@ -22,7 +23,7 @@ export function SignUpContainer() {
 				>
 					<div className="flex flex-col gap-2">
 						<h1 className="text-zinc-200 text-4xl font-bebas tracking-tight">
-							Acessar sua conta
+							Crie sua conta
 						</h1>
 						<span className="text-sm text-zinc-300">
 							Preencha seus dados para criar sua conta.
@@ -53,6 +54,10 @@ export function SignUpContainer() {
 					<SocialSignIn />
 				</motion.div>
 			</div>
+
+			<Link href={'/'}>
+				<Logo className="w-36 h-fit lg:w-44 text-zinc-100 ml-4" />
+			</Link>
 		</motion.div>
 	)
 }

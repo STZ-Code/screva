@@ -8,6 +8,8 @@ type TagProps = {
 
 export function Tag({ children, className }: TagProps) {
 	return (
-		<div className={cn('px-2 py-[2px] rounded', className)}>{children}</div>
+		<div className={cn('px-2 py-[2px] rounded w-fit', className)}>
+			{children}
+		</div>
 	)
 }
