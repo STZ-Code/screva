@@ -5,14 +5,14 @@ import { KitPickupDetails } from '@/components/dashboard/events/kits/kit-pickup-
 import { Heading } from '@/components/dashboard/heading'
 import { Main } from '@/components/dashboard/main'
 
-export default function KitPage({
+export default async function KitPage({
 	params,
 }: {
-	params: {
+	params: Promise<{
 		slug: string
-	}
+	}>
 }) {
-	const slug = params.slug
+	const { slug } = await params
 
 	return (
 		<Main className="gap-8">
