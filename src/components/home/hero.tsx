@@ -4,12 +4,15 @@ import Image from 'next/image'
 import Link from 'next/link'
 import HeroImg1 from '@/assets/images/screva-bg-1.png'
 import HeroImg2 from '@/assets/images/screva-bg-2-v2.png'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { RunnerButton } from './runner-button'
 
 export function Hero() {
+	const isDesktop = useBreakpoint('lg')
+
 	return (
 		<section className="flex w-full relative h-[720px] lg:h-fit">
-			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-6 z-20">
+			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-10 lg:gap-6 z-20">
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -17,7 +20,7 @@ export function Hero() {
 					className="flex items-center justify-center flex-col"
 				>
 					<h1 className="text-center cursor-default text-4xl lg:text-7xl font-bold text-zinc-200/90 leading-tight">
-						Seu Tempo, Sua Meta
+						Seu Tempo, {!isDesktop && <br />} Sua Meta
 					</h1>
 					<h1 className="text-center text-4xl lg:text-7xl cursor-default font-bold text-zinc-200/90 leading-tight">
 						Nossa <span className="italic text-cyan-400">Precisão</span>

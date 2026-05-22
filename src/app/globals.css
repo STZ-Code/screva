@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @utility triangle {
   width: 112px;
   height: 112px;

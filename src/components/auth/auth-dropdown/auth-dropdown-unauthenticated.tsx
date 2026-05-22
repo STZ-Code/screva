@@ -26,7 +26,7 @@ export function AuthDropdownUnauthenticated() {
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="bg-zinc-800 flex flex-col p-6 gap-6 rounded-b-2xl"
+			className="bg-zinc-800 flex flex-col lg:py-10 py-12 px-20 gap-8 lg:gap-6 lg:rounded-b-2xl"
 		>
 			<motion.div variants={item} className="flex flex-col items-center gap-2">
 				<Logo className="w-28" />

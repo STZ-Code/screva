@@ -37,7 +37,7 @@ export default async function PublicLayout({
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}
 						transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-						className="bg-zinc-800/50 w-28 hover:opacity-60 transition-opacity flex items-center justify-center outline-none"
+						className="bg-zinc-800/50 w-28 hover:opacity-60 transition-opacity flex items-center justify-center outline-none cursor-pointer"
 					>
 						<AuthDropdown.PublicTrigger />
 					</AuthDropdown.Trigger>

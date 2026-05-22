@@ -7,7 +7,7 @@ import { Button } from '../button'
 
 export function TicketsAction() {
 	return (
-		<Box className="gap-5">
+		<Box className="gap-5 rounded-none lg:rounded-2xl">
 			<div className="flex flex-col gap-3">
 				<BoxHeading>Ingressos</BoxHeading>
 				<span className="font-bold text-sm text-zinc-400">

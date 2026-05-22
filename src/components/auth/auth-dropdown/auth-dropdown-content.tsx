@@ -1,12 +1,12 @@
 'use client'
 
 import {
-	BinocularsIcon,
-	ChatIcon,
 	HeadsetIcon,
 	ListBulletsIcon,
 	LockIcon,
 	MegaphoneSimpleIcon,
+	PersonSimpleRunIcon,
+	RankingIcon,
 	SignOutIcon,
 	UserIcon,
 } from '@phosphor-icons/react'
@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import type { ReactNode } from 'react'
 import { DropdownButton } from '@/components/dropdown-button'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { authClient } from '@/lib/auth-client'
 
 type AuthDropdownContentProps = {
@@ -54,8 +55,14 @@ export function AuthDropdownContent({
 		)
 	}
 
+	const isDesktop = useBreakpoint('lg')
+
 	return (
-		<Dropdown.Content asChild className="p-0 border-none outline-none">
+		<Dropdown.Content
+			asChild
+			className="p-0 border-none outline-none rounded-none lg:rounded-md w-screen lg:w-fit h-[calc(100vh-6rem)] lg:h-fit"
+			sideOffset={isDesktop ? 0 : -8}
+		>
 			<motion.div
 				initial={{ opacity: 0, scale: 0.96, y: -8 }}
 				animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -69,14 +76,14 @@ export function AuthDropdownContent({
 					variants={container}
 					initial="hidden"
 					animate="visible"
-					className="p-6"
+					className="py-6 px-4 flex flex-col gap-3"
 				>
-					<Dropdown.Group>
+					<Dropdown.Group className="gap-3 flex flex-col">
 						{isAuthenticated && (
 							<motion.div variants={item}>
 								<Link href={'/dashboard'}>
-									<DropdownButton>
-										<UserIcon className="size-5 mr-2" />
+									<DropdownButton className="cursor-pointer">
+										<UserIcon className="size-8 lg:size-7 mr-2" />
 										Perfil
 									</DropdownButton>
 								</Link>
@@ -84,23 +91,34 @@ export function AuthDropdownContent({
 						)}
 
 						<motion.div variants={item}>
-							<DropdownButton>
-								<BinocularsIcon className="size-5 mr-2" />
-								Explorar Eventos
-							</DropdownButton>
+							<Link href={'/eventos'}>
+								<DropdownButton className="cursor-pointer">
+									<PersonSimpleRunIcon className="size-8 lg:size-7 mr-2" />
+									Eventos
+								</DropdownButton>
+							</Link>
 						</motion.div>
 
 						<motion.div variants={item}>
-							<DropdownButton>
-								<MegaphoneSimpleIcon className="size-5 mr-2" />
+							<Link href={'/resultados'}>
+								<DropdownButton className="cursor-pointer">
+									<RankingIcon className="size-8 lg:size-7 mr-2" />
+									Resultados
+								</DropdownButton>
+							</Link>
+						</motion.div>
+
+						<motion.div variants={item}>
+							<DropdownButton className="cursor-pointer">
+								<MegaphoneSimpleIcon className="size-8 lg:size-7 mr-2" />
 								Anunciar Eventos
 							</DropdownButton>
 						</motion.div>
 
 						{isAuthenticated && (
 							<motion.div variants={item}>
-								<DropdownButton onClick={signOut}>
-									<SignOutIcon className="size-5 mr-2" />
+								<DropdownButton onClick={signOut} className="cursor-pointer">
+									<SignOutIcon className="size-8 lg:size-7 mr-2" />
 									Sair
 								</DropdownButton>
 							</motion.div>
@@ -112,34 +130,29 @@ export function AuthDropdownContent({
 						animate={{ scaleX: 1 }}
 						transition={{ duration: 0.2 }}
 					>
-						<Dropdown.Separator className="bg-zinc-700" />
+						<Dropdown.Separator className="bg-zinc-800" />
 					</motion.div>
 
-					<Dropdown.Group>
-						<motion.div variants={item}>
-							<DropdownButton>
-								<ChatIcon className="size-5 mr-2" />
-								Central de Ajuda
-							</DropdownButton>
-						</motion.div>
+					<Dropdown.Group className="gap-3 flex flex-col">
+						<Link href={'/contato'}>
+							<motion.div variants={item}>
+								<DropdownButton>
+									<HeadsetIcon className="size-8 lg:size-7 mr-2" />
+									Contato
+								</DropdownButton>
+							</motion.div>
+						</Link>
 
 						<motion.div variants={item}>
 							<DropdownButton>
-								<HeadsetIcon className="size-5 mr-2" />
-								Contato
-							</DropdownButton>
-						</motion.div>
-
-						<motion.div variants={item}>
-							<DropdownButton>
-								<ListBulletsIcon className="size-5 mr-2" />
+								<ListBulletsIcon className="size-8 lg:size-7 mr-2" />
 								Termos de Uso
 							</DropdownButton>
 						</motion.div>
 
 						<motion.div variants={item}>
 							<DropdownButton>
-								<LockIcon className="size-5 mr-2" />
+								<LockIcon className="size-8 lg:size-7 mr-2" />
 								Política de Privacidade
 							</DropdownButton>
 						</motion.div>

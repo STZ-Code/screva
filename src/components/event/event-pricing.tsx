@@ -46,7 +46,7 @@ export function EventPricingTable({ categories }: EventPricingTableProps) {
 							className="group border-b border-zinc-800 hover:bg-white/2 transition-colors"
 						>
 							<td className="py-2 px-2">
-								<h3 className="flex gap-2 text-lg font-bold uppercase tracking-wide text-zinc-100 transition-colors group-hover:text-cyan-400">
+								<h3 className="flex gap-2 text-base lg:text-lg font-bold uppercase tracking-wide text-zinc-100 transition-colors group-hover:text-cyan-400">
 									{category.name}
 									<CategoryBadge type={category.badge} />
 								</h3>

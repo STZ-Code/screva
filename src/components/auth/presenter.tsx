@@ -2,8 +2,14 @@
 import { motion } from 'motion/react'
 import Image from 'next/image'
 import signInHero from '@/assets/images/sign-in-hero.png'
+import signUpHero from '@/assets/images/sign-up-hero.png'
+import { cn } from '@/utils/utils'
 
-export function Presenter() {
+type PresenterProps = {
+	type: 'sign-in' | 'sign-up'
+}
+
+export function Presenter({ type }: PresenterProps) {
 	return (
 		<div className="flex-1 w-full h-full relative overflow-hidden hidden lg:block rounded-r-[40px]">
 			<motion.div
@@ -13,11 +19,11 @@ export function Presenter() {
 				className="w-full h-full relative"
 			>
 				<Image
-					src={signInHero}
-					alt="Atleta MTB em ação"
+					src={type === 'sign-in' ? signInHero : signUpHero}
+					alt="Atleta em ação"
 					fill
 					priority
-					className="object-cover transition-all duration-1000 ease-in-out"
+					className={cn('transition-all duration-1000 ease-in-out')}
 				/>
 			</motion.div>
 

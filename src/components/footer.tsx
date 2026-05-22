@@ -34,7 +34,7 @@ export function Footer() {
 				whileInView={{ opacity: 0.4, scale: 1, rotate: 12 }}
 				transition={{ duration: 1.5, ease: 'easeOut' }}
 				viewport={{ once: true }}
-				className="absolute right-56 -top-28 z-10 pointer-events-none"
+				className="absolute right-16 lg:right-56 -top-28 z-10 pointer-events-none"
 			>
 				<Image src={S} alt="S do Screva" className="opacity-40" />
 			</motion.div>

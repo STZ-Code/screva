@@ -22,7 +22,7 @@ const listVariants = {
 
 export function OrganizerInfo() {
 	return (
-		<Box className="gap-4">
+		<Box className="gap-4 rounded-none lg:rounded-2xl">
 			<BoxHeading>Organizador</BoxHeading>
 
 			<div className="flex gap-2 items-center">

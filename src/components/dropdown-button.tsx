@@ -18,7 +18,8 @@ export function DropdownButton({
 				type="button"
 				{...props}
 				className={cn(
-					'text-zinc-100 flex gap-2 items-center w-full p-2 rounded-sm transition-colors hover:bg-zinc-600',
+					'text-zinc-100 flex gap-2 items-center w-full p-2 rounded-sm transition-colors hover:bg-zinc-600 font-medium text-lg',
+					className,
 				)}
 			>
 				{children}

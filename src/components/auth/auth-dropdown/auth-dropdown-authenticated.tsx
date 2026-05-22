@@ -34,7 +34,7 @@ export function AuthDropdownAuthenticated({
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="bg-zinc-800 flex flex-col p-6 gap-6 rounded-b-2xl"
+			className="bg-zinc-800 flex flex-col lg:py-10 py-12 gap-6 lg:rounded-b-2xl"
 		>
 			<div className="flex flex-col gap-3 items-center">
 				<motion.div
@@ -51,13 +51,13 @@ export function AuthDropdownAuthenticated({
 
 					<strong className="text-zinc-100 font-semibold">{user.name}</strong>
 
-					<span className="text-zinc-50 text-xs">{user.email}</span>
+					<span className="text-zinc-300 text-sm lg:text-xs">{user.email}</span>
 
-					<Tag className="bg-zinc-700">
+					{/* <Tag className="bg-zinc-700">
 						<span className="text-zinc-200 text-xs font-semibold">
 							{user.role}
 						</span>
-					</Tag>
+					</Tag> */}
 				</motion.div>
 			</div>
 		</motion.div>

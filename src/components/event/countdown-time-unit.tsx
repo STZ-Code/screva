@@ -13,7 +13,7 @@ export function CountdownTimeUnit({
 				key={value}
 				initial={{ y: 10, opacity: 0 }}
 				animate={{ y: 0, opacity: 1 }}
-				className="font-orbitron text-5xl text-zinc-100 font-bold"
+				className="font-orbitron text-3xl lg:text-5xl text-zinc-100 font-bold"
 			>
 				{value}
 			</motion.span>

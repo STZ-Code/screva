@@ -14,10 +14,9 @@ export function Header({ children }: HeaderProps) {
 	const pathname = usePathname()
 
 	return (
-		<header className="flex w-full h-28 fixed bg-neutral-900 z-40">
+		<header className="flex w-full h-28 fixed bg-neutral-900 z-40 items-center justify-start">
 			<div className="flex-1 flex after:triangle">
 				{children}
-
 				<div className="flex-1 px-16 bg-zinc-800/50 lg:flex relative justify-center hidden">
 					<TabNavigator.Root active={pathname} className="h-full w-fit">
 						<TabNavigator.Control className="flex justify-evenly h-full 2xl:justify-normal gap-16">
@@ -65,10 +64,9 @@ export function Header({ children }: HeaderProps) {
 					</TabNavigator.Root>
 				</div>
 			</div>
-
-			<div className="w-72 items-center justify-center flex">
-				<Logo className="w-36 lg:w-44 text-zinc-100" />
-			</div>
+			<Link href={'/'} className="w-full lg:w-72">
+				<Logo className="w-36 h-fit lg:w-44 text-zinc-100 ml-4" />
+			</Link>
 		</header>
 	)
 }
