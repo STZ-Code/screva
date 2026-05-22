@@ -7,11 +7,11 @@ import { Main } from '@/components/dashboard/main'
 
 export default function KitPage({
 	params,
-}: Readonly<{
+}: {
 	params: {
 		slug: string
 	}
-}>) {
+}) {
 	const slug = params.slug
 
 	return (
