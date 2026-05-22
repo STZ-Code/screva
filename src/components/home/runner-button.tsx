@@ -98,7 +98,7 @@ export function RunnerButton({
 			initial="initial"
 			whileTap="tap"
 			className={clsx(
-				'bg-cyan-400 w-80 py-4 text-zinc-100 rounded-sm text-4xl font-bebas relative overflow-hidden transition-colors cursor-pointer',
+				'bg-cyan-400 w-72 lg:w-80 py-4 text-zinc-100 rounded-sm text-4xl font-bebas relative overflow-hidden transition-colors cursor-pointer',
 				{
 					'bg-cyan-400': variant === 'event',
 					'bg-slate-600': variant === 'result',
@@ -143,7 +143,7 @@ export function RunnerButton({
 			<div>
 				<span
 					className={clsx(
-						'absolute bottom-0 right-0 border-b-72 border-b-cyan-500/80 border-l-36 border-l-transparent border-r-0 border-r-transparent w-20',
+						'absolute bottom-0 right-0 border-b-72 border-b-cyan-500/80 border-l-36 border-l-transparent border-r-0 border-r-transparent w-16 lg:w-20',
 						{
 							'border-b-cyan-500/80': variant === 'event',
 							'border-b-slate-700/80': variant === 'result',
@@ -152,7 +152,7 @@ export function RunnerButton({
 				/>
 				<span
 					className={clsx(
-						'w-[94px] border-b-12 absolute right-7 top-8 border-l-[6px] border-l-transparent border-r-[6px] rotate-[-64deg] border-r-transparent',
+						'w-[94px] border-b-12 absolute right-3 lg:right-7 top-8 border-l-[6px] border-l-transparent border-r-[6px] rotate-[-64deg] border-r-transparent',
 						{
 							'border-b-cyan-500/80': variant === 'event',
 							'border-b-slate-700/80': variant === 'result',
@@ -161,7 +161,7 @@ export function RunnerButton({
 				/>
 				<span
 					className={clsx(
-						'w-[64px] border-b-[6px] absolute right-12 top-4 border-l-[6px] border-l-transparent border-r-[6px] rotate-116 border-r-transparent',
+						'w-[64px] border-b-[6px] absolute right-8 lg:right-12 top-4 border-l-[6px] border-l-transparent border-r-[6px] rotate-116 border-r-transparent',
 						{
 							'border-b-cyan-500/80': variant === 'event',
 							'border-b-slate-700/80': variant === 'result',

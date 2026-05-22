@@ -44,7 +44,7 @@ export function Footer() {
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, margin: '-50px' }}
-				className="py-12 px-28 flex justify-between flex-col gap-12 md:flex-row md:gap-0 relative z-20"
+				className="py-12 px-12 lg:px-28 flex justify-between flex-col gap-12 md:flex-row md:gap-0 relative z-20"
 			>
 				<motion.div
 					variants={itemVariants}
@@ -75,7 +75,7 @@ export function Footer() {
 					</motion.a>
 				</motion.div>
 
-				<div className="md:w-1/2 flex flex-col sm:flex-row gap-16 md:justify-end">
+				<div className="hidden lg:flex md:w-1/2 flex-col sm:flex-row gap-16 md:justify-end">
 					<motion.nav variants={itemVariants}>
 						<span className="text-zinc-100 font-bold uppercase tracking-widest text-xs">
 							Navegação

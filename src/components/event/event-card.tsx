@@ -19,7 +19,7 @@ export function EventCard() {
 			}}
 			transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 			className={cn(
-				'p-5 border border-white/8 rounded-2xl w-[300px]',
+				'p-5 border border-white/8 rounded-2xl w-full lg:w-[300px]',
 				'bg-zinc-900/40 backdrop-blur-md group will-change-transform shadow-2xl shadow-black/40',
 			)}
 		>
