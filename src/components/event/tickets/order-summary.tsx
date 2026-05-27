@@ -5,7 +5,7 @@ import { Button } from '@/components/button'
 
 export function OrderSummary() {
 	return (
-		<section className="flex-1 px-14 py-10 flex flex-col gap-8">
+		<section className="hidden flex-1 px-14 py-10 lg:flex flex-col gap-8">
 			<h3 className="text-zinc-100 font-semibold text-4xl">Pedido</h3>
 
 			<div>

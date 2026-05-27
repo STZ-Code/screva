@@ -8,11 +8,11 @@ export function TicketsStep2() {
 	return (
 		<div className="flex flex-col gap-6 h-fit">
 			<div className="flex flex-col gap-3">
-				<h2 className="text-zinc-100 font-semibold text-xl">
+				<h2 className="text-zinc-100 font-semibold text-2xl lg:text-xl">
 					Seus Dados para a Corrida
 				</h2>
 
-				<span className="text-sm text-zinc-400">
+				<span className="text-base lg:text-sm text-zinc-400">
 					Preencha as informações de cada atleta para garantir que a sua
 					inscrição esteja completa.
 				</span>
@@ -49,6 +49,19 @@ export function TicketsStep2() {
 							<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
 								<Input.Control
 									placeholder="Nome do atleta"
+									className="placeholder:text-zinc-500 text-zinc-200"
+								/>
+							</Input.Root>
+							<Field.Error />
+						</Field.Root>
+
+						<Field.Root name="email" control={methods.control}>
+							<Field.Label required className="text-zinc-400 font-normal">
+								E-mail
+							</Field.Label>
+							<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
+								<Input.Control
+									placeholder="E-mail do atleta"
 									className="placeholder:text-zinc-500 text-zinc-200"
 								/>
 							</Input.Root>
@@ -145,6 +158,19 @@ export function TicketsStep2() {
 							<Field.Error />
 						</Field.Root>
 
+						<Field.Root name="email" control={methods.control}>
+							<Field.Label required className="text-zinc-400 font-normal">
+								E-mail
+							</Field.Label>
+							<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
+								<Input.Control
+									placeholder="E-mail do atleta"
+									className="placeholder:text-zinc-500 text-zinc-200"
+								/>
+							</Input.Root>
+							<Field.Error />
+						</Field.Root>
+
 						<div className="flex gap-4">
 							<Field.Root
 								name="description"
@@ -229,6 +255,19 @@ export function TicketsStep2() {
 							<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
 								<Input.Control
 									placeholder="Nome do atleta"
+									className="placeholder:text-zinc-500 text-zinc-200"
+								/>
+							</Input.Root>
+							<Field.Error />
+						</Field.Root>
+
+						<Field.Root name="email" control={methods.control}>
+							<Field.Label required className="text-zinc-400 font-normal">
+								E-mail
+							</Field.Label>
+							<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
+								<Input.Control
+									placeholder="E-mail do atleta"
 									className="placeholder:text-zinc-500 text-zinc-200"
 								/>
 							</Input.Root>
