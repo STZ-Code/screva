@@ -22,8 +22,8 @@ importers:
         specifier: ^0.0.47
         version: 0.0.47(immer@11.1.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@stz-code/ui':
-        specifier: ^1.12.1
-        version: 1.12.1(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)
+        specifier: ^1.12.2
+        version: 1.12.2(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)
       '@stz-code/utils':
         specifier: 1.2.7
         version: 1.2.7
@@ -1604,8 +1604,8 @@ packages:
   '@stz-code/tsconfig@0.0.7':
     resolution: {integrity: sha512-7Syh879NZEn1L3MWbSJ9hhznP7swRnZR4khWR/pxDmQKJ5rpMV0SGmNuAUChuIRJybcjYeRVh5WqcoZ9fbNDkg==, tarball: https://npm.pkg.github.com/download/@stz-code/tsconfig/0.0.7/6449622fab5497ecf7858c3c69a0ef4b8aa0e3c5}
 
-  '@stz-code/ui@1.12.1':
-    resolution: {integrity: sha512-wQtAzYQMKH25BkrLl/M/jyLUPHuWpr4iPlK5RX+fCxHOklGgJ86KWspxFyHMmRnjYx3+01OaPuQm0P4mFQXmZQ==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.12.1/c6f2b6b176bd46bc007fa7764ec6c9b872dee87b}
+  '@stz-code/ui@1.12.2':
+    resolution: {integrity: sha512-nwAxGYLoX5hOu1+VMp8PldAAs0ugS/GCLSE1qntVsoheWWeJB7EHf/fRR39kp7pF+7URxN02jeUZPV4mkgJMUA==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.12.2/1dbf820678692e7b1a4cd9db7edbd44b97b13a65}
     peerDependencies:
       clsx: ^2.1.1
       react: 19.0.0
@@ -4173,7 +4173,7 @@ snapshots:
 
   '@stz-code/tsconfig@0.0.7': {}
 
-  '@stz-code/ui@1.12.1(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)':
+  '@stz-code/ui@1.12.2(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.4.1(@date-fns/tz@1.4.1)(@types/react@19.2.14)(date-fns@4.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@headlessui/react': 2.2.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)

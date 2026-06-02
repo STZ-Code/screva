@@ -1,6 +1,7 @@
 'use client'
 
-import { MultiStepProvider, type Step } from '@/context/multistep-context'
+import { MultiStepProvider } from '@/context/multistep-context'
+import type { MultiStepDefinition } from '@/context/multistep-types'
 import { MultiStepIndicator } from '../multi-step-indicator'
 import { OrderSummary } from '../order-summary'
 import { OrderSummaryTrigger } from '../order-summary-trigger'
@@ -9,7 +10,7 @@ import { TicketsStep1 } from './step-1'
 import { TicketsStep2 } from './step-2'
 import { TicketsStep3 } from './step-3'
 
-const steps: Step[] = [
+const steps: MultiStepDefinition[] = [
 	{
 		id: 'tickets',
 		component: TicketsStep1,
@@ -28,7 +29,7 @@ export function CheckoutContent() {
 	return (
 		<MultiStepProvider steps={steps}>
 			<div className="flex h-fit">
-				<div className="flex-1 bg-zinc-800/40 w-fit px-6 lg:pl-28 py-6 lg:py-10 lg:pr-14">
+				<div className="flex-1 bg-zinc-800/40 w-fit px-6 lg:pl-28 py-6 lg:py-10 lg:pr-28">
 					<MultiStepIndicator />
 
 					<div className="py-6 h-fit">

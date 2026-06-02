@@ -23,19 +23,21 @@ const steps = [
 ]
 
 export function MultiStepIndicator() {
-	const { currentStepIndex, goTo } = useMultiStepForm()
+	const { currentStepIndex, goTo, isLastStep } = useMultiStepForm()
 	const desktop = useBreakpoint('md')
 
 	const progress = (currentStepIndex / (steps.length - 1)) * 100
 
+	const progressWidth = isLastStep ? '14' : desktop ? '8' : '20'
+
 	return (
 		<div className="relative rounded-md border border-zinc-700 bg-neutral-900 px-4 py-6">
-			<div className="absolute left-[calc(16.666%-4px)] right-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] md:right-[calc(8.666%-4px)] top-11 h-[2px] bg-zinc-700" />
+			<div className="absolute left-[calc(16.666%-4px)] right-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] md:right-[calc(8.666%-4px)] top-11 h-0.5 bg-zinc-700" />
 
 			<div
-				className="absolute left-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] top-11 h-[2px] bg-cyan-600 transition-all duration-300"
+				className="absolute left-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] top-11 h-0.5 bg-cyan-600 transition-all duration-300"
 				style={{
-					width: `calc(${progress}% - ${desktop ? '16' : '20'}.666%)`,
+					width: `calc(${progress}% - ${progressWidth}.666%)`,
 				}}
 			/>
 

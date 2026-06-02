@@ -1,9 +1,11 @@
+'use client'
+
 import { useMultiStepForm } from '@/hooks/use-multistep-form'
 
 export function CheckoutRenderer() {
-	const multistep = useMultiStepForm()
+	const { currentStep } = useMultiStepForm()
 
-	const Component = multistep.currentStep.component
+	const Component = currentStep.component
 
 	return <Component />
 }

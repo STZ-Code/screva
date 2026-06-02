@@ -15,7 +15,7 @@ export function Button({
 	...props
 }: ButtonProps) {
 	const baseStyles =
-		'rounded-lg py-4 w-full font-bold uppercase tracking-wide transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center'
+		'rounded-lg py-4 w-full font-bold uppercase tracking-wide transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center cursor-pointer'
 
 	const variants = {
 		primary:

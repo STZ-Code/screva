@@ -1,6 +1,6 @@
 import type { ComponentType } from 'react'
 
-import type { DefaultValues, FieldValues, UseFormReturn } from 'react-hook-form'
+import type { FieldValues } from 'react-hook-form'
 
 export type MultiStepId = string
 
@@ -10,16 +10,10 @@ export type MultiStepDefinition<TValues extends FieldValues = FieldValues> = {
 	component: ComponentType
 
 	fields?: (keyof TValues)[]
-
-	includeInFinalPayload?: boolean
-
-	mode?: 'default' | 'isolated'
 }
 
 export type MultiStepContextValue<TValues extends FieldValues = FieldValues> = {
 	steps: MultiStepDefinition<TValues>[]
-
-	form: UseFormReturn<TValues>
 
 	currentStepIndex: number
 
@@ -29,11 +23,15 @@ export type MultiStepContextValue<TValues extends FieldValues = FieldValues> = {
 
 	isLastStep: boolean
 
-	next(): void
+	accumulatedValues: Partial<TValues>
+
+	next(values?: Partial<TValues>): void
 
 	prev(): void
 
 	goTo(step: MultiStepId): void
 
-	ensureDefaultValues(defaultValues: DefaultValues<TValues>): void
+	registerStepSubmitFn(id: MultiStepId, fn: () => void | Promise<void>): void
+
+	executeStepSubmitFn(id: MultiStepId): Promise<void>
 }

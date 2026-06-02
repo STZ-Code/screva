@@ -18,19 +18,19 @@ export default async function PublicLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	const state = await authClient.getSession({
-		fetchOptions: {
-			headers: await headers(),
-		},
-	})
+	// const state = await authClient.getSession({
+	// 	fetchOptions: {
+	// 		headers: await headers(),
+	// 	},
+	// })
 
-	const isAuthenticated = !!state.data?.session && !!state.data?.user
+	// const isAuthenticated = !!state.data?.session && !!state.data?.user
 
-	const user = state.data?.user as UserData | undefined
+	// const user = state.data?.user as UserData | undefined
 
-	// const isAuthenticated = false
+	const isAuthenticated = false
 
-	// const user = undefined
+	const user = undefined
 
 	return (
 		<div className="flex flex-col w-full">
