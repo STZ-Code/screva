@@ -1,77 +1,75 @@
 'use client'
 import {
+	CalendarBlankIcon,
 	MapPinIcon,
-	PencilSimpleIcon,
-	PersonSimpleBikeIcon,
 	ShareNetworkIcon,
+	UsersIcon,
 } from '@phosphor-icons/react'
 import { Avatar } from '@stz-code/ui'
-import { Tag } from '@/components/tag'
+import Image from 'next/image'
+import exampleImg from '@/assets/examples/banner-example.jpg'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 export function CustomerHeader() {
+	const desktop = useBreakpoint('lg')
+
 	return (
-		<aside className="flex flex-col bg-neutral-800 w-96 h-fit rounded-md border border-zinc-500 items-center">
-			<div className="bg-neutral-900 w-full p-3 rounded-t-xl relative h-32 flex justify-end">
-				<Avatar.Root className="size-40 rounded-4xl absolute top-16 left-1/2 -translate-x-1/2">
+		<section className="flex flex-col w-full h-fit lg:border-l lg:border-r border-zinc-700 items-center">
+			<div className="w-full h-48 relative">
+				<Image
+					src={exampleImg.src}
+					alt="Customer header"
+					width={1400}
+					height={200}
+					className="w-full h-full object-cover"
+				/>
+
+				<button
+					type="button"
+					className="text-zinc-100 bg-cyan-600 rounded-md py-2 lg:px-4 px-2 font-bold h-fit absolute top-2 right-2 flex items-center gap-2 cursor-pointer hover:bg-cyan-700 transition-colors"
+				>
+					{desktop && 'Compartilhar'}
+
+					<ShareNetworkIcon size={16} />
+				</button>
+			</div>
+
+			<div className="relative w-full border-b border-zinc-700 flex lg:px-16 px-8">
+				<Avatar.Root className="lg:size-40 size-32 rounded-full border-4 text-zinc-200 absolute lg:bottom-14 bottom-52">
 					<Avatar.Image src="https://github.com/garcez17.png" />
 					<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 				</Avatar.Root>
 
-				<div className="flex gap-2">
-					<button
-						type="button"
-						className="text-zinc-100 bg-zinc-600 rounded p-2 h-fit"
-					>
-						<PencilSimpleIcon size={16} />
-					</button>
-					<button
-						type="button"
-						className="text-zinc-100 bg-cyan-600 rounded p-2 h-fit"
-					>
-						<ShareNetworkIcon size={16} />
-					</button>
-				</div>
-			</div>
+				<div className="lg:ml-48 lg:mt-0 mt-12 py-6 flex flex-col gap-4">
+					<h1 className="text-3xl font-bold text-zinc-200">Lucas Martins</h1>
 
-			<div className="mt-32 h-fit w-full">
-				<div className="flexp-10 h-full rounded w-full justify-between">
-					<div className="flex flex-col gap-4 items-center pb-12">
-						<h2 className="text-cyan-400 text-xl font-bold">Gabriel Garcez</h2>
+					<span className="text-zinc-400">
+						Corredor de rua apaixonado por evolução e superação
+					</span>
 
-						<div className="flex flex-col gap-2 items-center">
-							<span className="text-sm text-zinc-300 flex gap-2 items-center">
-								<MapPinIcon size={20} weight="fill" />
-								Juazeiro - BA
+					<div className="flex lg:gap-6 gap-2 text-zinc-300 divide-x divide-zinc-700">
+						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-row lg:flex-none flex-1 flex-col">
+							<MapPinIcon size={20} />
+							<span className="text-zinc-400 text-sm text-center lg:text-left">
+								São Paulo - SP
 							</span>
-							<span className="text-sm text-zinc-300">26 anos</span>
 						</div>
-
-						<div className="flex flex-wrap justify-center gap-3 max-w-48">
-							<Tag className="bg-zinc-600 flex items-center gap-2">
-								<PersonSimpleBikeIcon size={16} />
-								MTB
-							</Tag>
-
-							<Tag className="bg-zinc-600 flex items-center gap-2">
-								<PersonSimpleBikeIcon size={16} />
-								Runner
-							</Tag>
-
-							<Tag className="bg-zinc-600 flex items-center gap-2">
-								<PersonSimpleBikeIcon size={16} />
-								Triatleta
-							</Tag>
+						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-none flex-1 lg:flex-row flex-col">
+							<UsersIcon size={20} />
+							<span className="text-zinc-400 text-sm text-center lg:text-left">
+								28 anos
+							</span>
 						</div>
-					</div>
-
-					<div className="border-t border-t-zinc-500 py-4 w-full flex items-center justify-center">
-						<span className="text-sm font-light text-zinc-400">
-							Membro desde 07/02/2026
-						</span>
+						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-none flex-1 lg:flex-row flex-col">
+							<CalendarBlankIcon size={20} />
+							<span className="text-zinc-400 text-sm text-center lg:text-left">
+								Membro desde Jan/2026
+							</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</aside>
+		</section>
 	)
 }
 

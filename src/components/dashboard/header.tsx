@@ -4,6 +4,7 @@ import { TabNavigator } from '@stz-code/ui/layout'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { MiniLogo } from '@/assets/images/mini-logo'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import type { Role, User } from '@/lib/get-current-user'
 import { cn } from '@/utils/utils'
 import { EventsDropdown } from './dropdown/events-dropdown'
@@ -100,6 +101,7 @@ const EVENT_ITEMS = (slug: string): NavItem[] => [
 
 export function Header({ user }: HeaderProps) {
 	const pathname = usePathname()
+	const desktop = useBreakpoint('lg')
 
 	const role = user.role
 
@@ -119,8 +121,8 @@ export function Header({ user }: HeaderProps) {
 	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
 
 	return (
-		<header className="px-12 pt-8 bg-dashboard-header flex justify-between items-start">
-			<div className="flex flex-col gap-8">
+		<header className="lg:px-12 px-6 lg:pt-8 pt-6 bg-dashboard-header flex justify-between lg:items-start items-center">
+			<div className="flex flex-col gap-8 w-full">
 				<div className="flex">
 					<MiniLogo className="size-8 mr-4" />
 
@@ -132,15 +134,15 @@ export function Header({ user }: HeaderProps) {
 					</div>
 				</div>
 
-				<div className="flex relative flex-1">
-					<TabNavigator.Root active={pathname} className="h-9">
+				<div className="flex relative flex-1 overflow-x-auto scrollbar-none">
+					<TabNavigator.Root active={pathname} className="h-9 min-w-max">
 						<TabNavigator.Control className="gap-4">
 							{navItems.map((item) => (
 								<TabNavigator.Item
 									key={item.href}
 									href={item.href}
 									as={Link}
-									className={cn('font-semibold text-zinc-400 text-sm', {
+									className={cn('font-semibold text-zinc-400 text-sm w-fit', {
 										'text-zinc-50': pathname === item.href,
 									})}
 								>
@@ -148,12 +150,12 @@ export function Header({ user }: HeaderProps) {
 								</TabNavigator.Item>
 							))}
 						</TabNavigator.Control>
-						<TabNavigator.Bar className="bg-cyan-500 h-[3px]" />
+						<TabNavigator.Bar className="bg-cyan-500 h-0.75" />
 					</TabNavigator.Root>
 				</div>
 			</div>
 
-			<ProfileButton user={user} isAuthenticated={!!user} />
+			{desktop && <ProfileButton user={user} isAuthenticated={!!user} />}
 		</header>
 	)
 }
