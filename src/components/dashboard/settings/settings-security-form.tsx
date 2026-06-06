@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { FormSection } from '@/components/form-section'
 import { SettingsFormSection } from './settings-form-section'
 
-export function SettingsSafetyForm() {
+export function SettingsSecurityForm() {
 	const { control } = useForm()
 
 	return (
@@ -36,7 +36,7 @@ export function SettingsSafetyForm() {
 						/>
 					</Input.Root>
 				</Field.Root>
-				<div className="flex gap-3 w-full">
+				<div className="flex gap-3 w-full lg:flex-row flex-col">
 					<Field.Root control={control} name="password" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Nova senha

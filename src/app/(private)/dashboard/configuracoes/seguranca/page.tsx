@@ -1,9 +1,10 @@
-import { SettingsSafetyForm } from '@/components/dashboard/settings/settings-safety-form'
+import { Main } from '@/components/dashboard/main'
+import { SettingsSecurityForm } from '@/components/dashboard/settings/settings-security-form'
 
 export default function SettingsSafetyPage() {
 	return (
-		<div className="flex flex-col gap-8 w-full">
-			<SettingsSafetyForm />
-		</div>
+		<Main className="flex flex-col gap-8 py-0 px-0 w-full">
+			<SettingsSecurityForm />
+		</Main>
 	)
 }

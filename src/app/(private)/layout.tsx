@@ -12,7 +12,7 @@ export default async function PrivateLayout({
 	if (!user) return <p>Loading...</p>
 
 	return (
-		<div className="flex flex-col w-full bg-dashboard overflow-auto">
+		<div className="flex flex-col w-full min-h-screen bg-dashboard overflow-auto">
 			<Header user={user} />
 			{children}
 			<Footer />

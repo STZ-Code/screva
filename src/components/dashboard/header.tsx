@@ -120,6 +120,18 @@ export function Header({ user }: HeaderProps) {
 
 	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
 
+	const isItemActive = (href: string) => {
+		if (href === '/dashboard') {
+			return pathname === '/dashboard'
+		}
+
+		if (href === '/dashboard/configuracoes/perfil') {
+			return pathname.startsWith('/dashboard/configuracoes')
+		}
+
+		return pathname.startsWith(href)
+	}
+
 	return (
 		<header className="lg:px-12 px-6 lg:pt-8 pt-6 bg-dashboard-header flex justify-between lg:items-start items-center">
 			<div className="flex flex-col gap-8 w-full">
@@ -143,7 +155,7 @@ export function Header({ user }: HeaderProps) {
 									href={item.href}
 									as={Link}
 									className={cn('font-semibold text-zinc-400 text-sm w-fit', {
-										'text-zinc-50': pathname === item.href,
+										'text-zinc-50': isItemActive(item.href),
 									})}
 								>
 									{item.label}

@@ -20,7 +20,7 @@ export function SettingsNotificationsForm() {
 				</FormSection.Header>
 
 				<div className="flex gap-3 w-full">
-					<span>Criar os toggles no template</span>
+					<span>==EM BREVE==</span>
 				</div>
 			</SettingsFormSection.Content>
 
