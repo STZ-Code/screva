@@ -34,7 +34,7 @@ export function CustomerHeader() {
 				</button>
 			</div>
 
-			<div className="relative w-full border-b border-zinc-700 flex lg:px-16 px-8">
+			<div className="relative w-full border-b border-zinc-700 flex lg:px-16 px-6">
 				<Avatar.Root className="lg:size-40 size-32 rounded-full border-4 text-zinc-200 absolute lg:bottom-14 bottom-52">
 					<Avatar.Image src="https://github.com/garcez17.png" />
 					<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
