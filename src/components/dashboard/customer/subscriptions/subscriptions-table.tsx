@@ -13,7 +13,6 @@ import {
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
-import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
@@ -29,7 +28,6 @@ type Event = {
 }
 
 export function SubscriptionsTable() {
-	const { control } = useForm()
 	const desktop = useBreakpoint('lg')
 
 	const columns: STZColumnDef<Event>[] = [

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
-
+@import "tw-animate-css";
 
 html {
   -webkit-font-smoothing: antialiased;
