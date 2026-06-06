@@ -76,15 +76,17 @@ export function EventList() {
 					Próximos eventos
 				</h2>
 
-				<Table.Root columns={columns} data={data} className="border-none">
-					<Table.Container>
-						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
+				<Table.Root columns={columns} data={data}>
+					<Table.Container className="border-none">
+						<Table.Content>
+							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
-						<Table.Body>
-							<Table.Row className="border-zinc-800">
-								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-							</Table.Row>
-						</Table.Body>
+							<Table.Body>
+								<Table.Row className="border-zinc-800">
+									<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+								</Table.Row>
+							</Table.Body>
+						</Table.Content>
 					</Table.Container>
 				</Table.Root>
 			</Box>

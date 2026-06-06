@@ -172,25 +172,26 @@ export function EventsPerformanceTable() {
 				</h2>
 			</div>
 
-			<Table.Root columns={columns} data={data} className="border-zinc-800">
-				<Table.Container>
-					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
+			<Table.Root columns={columns} data={data}>
+				<Table.Container className="border-zinc-800">
+					<Table.Content>
+						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
-					<Table.Body>
-						<Table.Row className="border-zinc-800">
-							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-						</Table.Row>
-					</Table.Body>
+						<Table.Body>
+							<Table.Row className="border-zinc-800">
+								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+							</Table.Row>
+						</Table.Body>
+					</Table.Content>
+					<TablePagination.Root className="border-zinc-800">
+						<TablePagination.Prev />
+						<TablePagination.Items
+							itemClassName="bg-zinc-50 hover:bg-zinc-200"
+							activeClassName="bg-zinc-200 text-cyan-600"
+						/>
+						<TablePagination.Next />
+					</TablePagination.Root>
 				</Table.Container>
-
-				<TablePagination.Root className="border-zinc-800">
-					<TablePagination.Prev />
-					<TablePagination.Items
-						itemClassName="bg-zinc-50 hover:bg-zinc-200"
-						activeClassName="bg-zinc-200 text-cyan-600"
-					/>
-					<TablePagination.Next />
-				</TablePagination.Root>
 			</Table.Root>
 		</div>
 	)

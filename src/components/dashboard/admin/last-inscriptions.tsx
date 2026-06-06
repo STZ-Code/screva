@@ -23,9 +23,11 @@ export function LastInscriptions() {
 							<Avatar.Image src="https://github.com/garcez17.png" />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div className='flex-1'>
+						<div className="flex-1">
 							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">{info.row.original.event}</p>
+							<p className="text-zinc-500 text-sm line-clamp-1">
+								{info.row.original.event}
+							</p>
 						</div>
 					</div>
 				)
@@ -37,10 +39,16 @@ export function LastInscriptions() {
 			size: 24,
 			cell: (info) => (
 				<StatusTag.Root>
-					<StatusTag.Icon icon={CheckCircle} weight='fill' className='text-emerald-500' />
-					<StatusTag.Label className='text-zinc-200 text-xs'>Confirmado</StatusTag.Label>
+					<StatusTag.Icon
+						icon={CheckCircle}
+						weight="fill"
+						className="text-emerald-500"
+					/>
+					<StatusTag.Label className="text-zinc-200 text-xs">
+						Confirmado
+					</StatusTag.Label>
 				</StatusTag.Root>
-			)
+			),
 		},
 	]
 
@@ -84,15 +92,17 @@ export function LastInscriptions() {
 					Últimas inscrições
 				</h2>
 
-				<Table.Root columns={columns} data={data} className="border-none">
-					<Table.Container>
-						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800 px-0" />
+				<Table.Root columns={columns} data={data}>
+					<Table.Container className="border-none">
+						<Table.Content>
+							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800 px-0" />
 
-						<Table.Body>
-							<Table.Row className="border-zinc-800">
-								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-							</Table.Row>
-						</Table.Body>
+							<Table.Body>
+								<Table.Row className="border-zinc-800">
+									<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+								</Table.Row>
+							</Table.Body>
+						</Table.Content>
 					</Table.Container>
 				</Table.Root>
 			</Box>
