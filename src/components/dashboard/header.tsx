@@ -136,7 +136,9 @@ export function Header({ user }: HeaderProps) {
 		<header className="lg:px-12 px-6 lg:pt-8 pt-6 bg-dashboard-header flex justify-between lg:items-start items-center">
 			<div className="flex flex-col gap-8 w-full">
 				<div className="flex">
-					<MiniLogo className="size-8 mr-4" />
+					<Link href={'/'} className="cursor-pointer">
+						<MiniLogo className="size-8 mr-4" />
+					</Link>
 
 					<div className="flex gap-2">
 						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
