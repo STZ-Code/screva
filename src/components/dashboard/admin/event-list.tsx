@@ -4,6 +4,7 @@ import { CaretRight, CheckCircle } from 'phosphor-react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Inscription = {
 	id: string
@@ -13,11 +14,13 @@ type Inscription = {
 }
 
 export function EventList() {
+	const desktop = useBreakpoint('lg')
+
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
-			size: 48,
+			size: desktop ? 48 : 28,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full">
@@ -25,9 +28,9 @@ export function EventList() {
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div>
-							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+						<div className="min-w-0">
+							<p className="text-zinc-200 truncate">{info.row.original.name}</p>
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.city}
 							</p>
 						</div>
@@ -70,7 +73,7 @@ export function EventList() {
 	]
 
 	return (
-		<div className="w-1/4 h-full flex flex-col">
+		<div className="lg:w-1/4 h-full flex flex-col">
 			<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1">
 				<h2 className="text-2xl text-zinc-100 font-semibold">
 					Próximos eventos

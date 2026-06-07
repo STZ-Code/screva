@@ -17,7 +17,7 @@ export function Box({ children, className, animate = true }: BoxProps) {
 			viewport={{ once: true, margin: '-50px' }}
 			transition={{ duration: 0.5, ease: 'easeOut' }}
 			className={cn(
-				'p-8 border border-white/5 bg-zinc-900/50 backdrop-blur-sm rounded-2xl flex flex-col',
+				'p-8 border border-white/5 bg-neutral-900 backdrop-blur-sm rounded flex flex-col',
 				className,
 			)}
 		>

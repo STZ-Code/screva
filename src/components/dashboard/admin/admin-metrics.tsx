@@ -1,5 +1,6 @@
 'use client'
 
+import { CaretDownIcon, PersonSimpleRunIcon } from '@phosphor-icons/react'
 import { Field, Select } from '@stz-code/ui'
 import { ArrowDownLeft, ArrowUpRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
@@ -22,9 +23,12 @@ export function AdminMetrics() {
 				>
 					<Select.Root>
 						<Select.Control>
-							<Select.Trigger className="border-none p-0 pr-9">
+							<Select.Trigger className="border-none p-0">
 								<Select.Placeholder className="font-medium text-xs text-zinc-400">
-									Últimas 24 horas
+									<div className="flex gap-2 items-center">
+										Últimas 24 horas
+										<CaretDownIcon size={16} />
+									</div>
 								</Select.Placeholder>
 
 								<Select.Portal>
@@ -39,8 +43,8 @@ export function AdminMetrics() {
 				</Field.Root>
 			</div>
 
-			<div className="grid grid-cols-4 gap-4">
-				<Kpi.Root>
+			<div className="flex gap-4 flex-wrap">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Volume Transacionado</Kpi.Label>
 
@@ -54,10 +58,16 @@ export function AdminMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">30</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 4.200,00</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Eventos Ativos</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -67,11 +77,16 @@ export function AdminMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">30</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>15 Eventos</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -84,11 +99,16 @@ export function AdminMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">30</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>741 Inscrições</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Taxa de Conversão</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -98,18 +118,24 @@ export function AdminMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">30</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>2.45%</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
 			</div>
 
 			<div>
-				<Box className="h-[420px] bg-neutral-900 rounded-b-none border-zinc-800">
+				<Box className="lg:h-105 bg-neutral-900 rounded rounded-b-none border-zinc-800">
 					<AdminChart />
 				</Box>
 
-				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-					<span className="text-zinc-300 text-sm">
+				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between lg:gap-0 gap-8">
+					<span className="text-zinc-300 lg:text-sm text-xs flex-1">
 						Acompanhe o crescimento da base de usuários e o valor médio de cada
 						inscrição ao longo do tempo.
 					</span>

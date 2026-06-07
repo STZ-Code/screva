@@ -3,6 +3,7 @@ import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
 import { CaretRight, CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Inscription = {
 	id: string
@@ -12,20 +13,24 @@ type Inscription = {
 }
 
 export function LastInscriptions() {
+	const desktop = useBreakpoint('lg')
+
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Atleta',
+			size: desktop ? 140 : 28,
 			cell: (info) => {
 				return (
-					<div className="flex gap-4 items-center">
+					<div className="flex gap-4 items-center w-full">
 						<Avatar.Root className="size-9 rounded-full">
 							<Avatar.Image src="https://github.com/garcez17.png" />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div className="flex-1">
-							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+
+						<div className="min-w-0">
+							<p className="text-zinc-200 truncate">{info.row.original.name}</p>
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.event}
 							</p>
 						</div>
