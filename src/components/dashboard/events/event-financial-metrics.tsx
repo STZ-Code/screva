@@ -40,7 +40,7 @@ export function EventFinancialMetrics() {
 				</Field.Root>
 			</div>
 
-			<div className="grid grid-cols-4 gap-4">
+			<div className="flex gap-4 flex-wrap">
 				<Kpi.Root>
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Volume Transacionado</Kpi.Label>

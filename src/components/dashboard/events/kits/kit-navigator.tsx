@@ -14,39 +14,39 @@ export function KitNavigator({ slug }: KitNavigatorProps) {
 	const pathname = usePathname()
 
 	return (
-		<div className="flex relative flex-1 border-b border-zinc-600 justify-between">
+		<div className="flex lg:flex-row flex-col lg:gap-0 gap-6 relative flex-1 lg:border-b border-zinc-600 justify-between">
 			<TabNavigator.Root active={pathname} className="self-end">
 				<TabNavigator.Control className="gap-4">
 					<TabNavigator.Item
 						href={`/dashboard/ev/${slug}/kits`}
 						as={Link}
 						className={cn(
-							'font-medium text-zinc-400 text-xl px-4 flex items-center gap-3 pb-4',
+							'font-medium text-zinc-400 lg:text-xl text-sm px-4 flex items-center gap-3 pb-4',
 							{
 								'text-zinc-50': pathname === `/dashboard/ev/${slug}/kits`,
 							},
 						)}
 					>
-						<GearIcon size={24} />
+						<GearIcon className="lg:size-6 size-8" />
 						Configurações de Entrega
 					</TabNavigator.Item>
 					<TabNavigator.Item
 						href={'/entrega'}
 						as={Link}
 						className={cn(
-							'font-medium text-zinc-400 text-xl px-4 flex items-center gap-3 pb-4',
+							'font-medium text-zinc-400 flex-1 lg:text-xl text-sm px-4 flex items-center gap-3 pb-4',
 							{
 								'text-zinc-50':
 									pathname === `/dashboard/ev/${slug}/configuracoes/perfil`,
 							},
 						)}
 					>
-						<PackageIcon size={24} />
+						<PackageIcon className="lg:size-6 size-8" />
 						Entrega de kits
 						<Tag className="bg-cyan-600 text-zinc-100 text-base">440</Tag>
 					</TabNavigator.Item>
 				</TabNavigator.Control>
-				<TabNavigator.Bar className="bg-cyan-500 h-[3px]" />
+				<TabNavigator.Bar className="bg-cyan-500 h-0.75" />
 			</TabNavigator.Root>
 
 			<button

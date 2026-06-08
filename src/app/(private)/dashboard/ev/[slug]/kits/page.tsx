@@ -15,7 +15,7 @@ export default async function KitPage({
 	const { slug } = await params
 
 	return (
-		<Main className="gap-8">
+		<Main className="lg:gap-8 gap-4">
 			<Heading.Root className="flex-row justify-between">
 				<Heading.Title>Gerenciamento de kits</Heading.Title>
 			</Heading.Root>
@@ -24,7 +24,7 @@ export default async function KitPage({
 
 			<KitDeliveryMetrics />
 
-			<div className="flex w-full gap-4">
+			<div className="flex w-full gap-4 lg:flex-row flex-col">
 				<KitPickupDetails />
 
 				<KitDeliveryMapLocation />
