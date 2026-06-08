@@ -121,12 +121,19 @@ export function Header({ user }: HeaderProps) {
 	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
 
 	const isItemActive = (href: string) => {
+		// Dashboard principal
 		if (href === '/dashboard') {
 			return pathname === '/dashboard'
 		}
 
+		// Configurações globais
 		if (href === '/dashboard/configuracoes/perfil') {
 			return pathname.startsWith('/dashboard/configuracoes')
+		}
+
+		// Visão Geral do evento
+		if (isEventPage && href === `/dashboard/ev/${slug}`) {
+			return pathname === href
 		}
 
 		return pathname.startsWith(href)

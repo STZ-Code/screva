@@ -25,7 +25,6 @@ import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTeamSheet } from '../teams/create-team-sheet'
-import { CreateEventSheet } from './create-event-sheet'
 
 type Event = {
 	id: string
@@ -47,8 +46,8 @@ export function RegistrationsTable() {
 			size: desktop ? 140 : 48,
 			cell: (info) => {
 				return (
-					<div className="flex gap-4 items-center w-full pl-3">
-						<Avatar.Root className="size-9 rounded-full">
+					<div className="flex gap-4 items-center w-full pl-3 lg:py-0 py-2">
+						<Avatar.Root className="size-9 rounded-full hidden lg:block">
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
 						</Avatar.Root>
