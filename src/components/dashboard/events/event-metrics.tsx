@@ -185,7 +185,7 @@ export function EventMetrics() {
 			<div className="flex gap-8">
 				<div className="flex-1">
 					<div>
-						<Box className="h-[420px] bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
+						<Box className="h-105 bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
 							<EventOverviewChart />
 						</Box>
 
