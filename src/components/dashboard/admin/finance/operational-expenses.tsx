@@ -1,8 +1,7 @@
 'use client'
 import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
-import { CaretRight, CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
-import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Inscription = {
 	id: string
@@ -12,10 +11,13 @@ type Inscription = {
 }
 
 export function OperationalExpenses() {
+	const desktop = useBreakpoint('lg')
+
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
-			header: 'Atleta',
+			header: '',
+			size: desktop ? 200 : 40,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center">
@@ -23,9 +25,9 @@ export function OperationalExpenses() {
 							<Avatar.Image src="https://github.com/garcez17.png" />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div className="flex-1">
-							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+						<div className="flex-1 min-w-0">
+							<p className="text-zinc-200 truncate">{info.row.original.name}</p>
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.event}
 							</p>
 						</div>
@@ -35,20 +37,9 @@ export function OperationalExpenses() {
 		},
 		{
 			accessorKey: 'status',
-			header: 'Status do pagamento',
+			header: '',
 			size: 24,
-			cell: (info) => (
-				<StatusTag.Root>
-					<StatusTag.Icon
-						icon={CheckCircle}
-						weight="fill"
-						className="text-emerald-500"
-					/>
-					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
-					</StatusTag.Label>
-				</StatusTag.Root>
-			),
+			cell: (info) => <p className="font-semibold text-lg">R$ 1.400,00</p>,
 		},
 	]
 
@@ -87,16 +78,14 @@ export function OperationalExpenses() {
 
 	return (
 		<div className="flex-1 h-full flex flex-col">
-			<Box className="border-zinc-800 gap-3 p-6 flex-1">
-				<h2 className="text-2xl text-zinc-100 font-semibold">
+			<Box className="border-zinc-800 gap-3 lg:p-6 p-4 flex-1">
+				<h2 className="lg:text-2xl text-xl text-zinc-100 font-semibold">
 					Despesas Operacionais
 				</h2>
 
 				<Table.Root columns={columns} data={data}>
 					<Table.Container className="border-none">
 						<Table.Content>
-							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800 px-0" />
-
 							<Table.Body>
 								<Table.Row className="border-zinc-800">
 									<Table.Fallback>Sem resultados encontrados</Table.Fallback>

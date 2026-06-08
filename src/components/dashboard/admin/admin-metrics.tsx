@@ -130,7 +130,7 @@ export function AdminMetrics() {
 			</div>
 
 			<div>
-				<Box className="lg:h-105 bg-neutral-900 rounded rounded-b-none border-zinc-800">
+				<Box className="lg:h-105 p-4 bg-neutral-900 rounded rounded-b-none border-zinc-800">
 					<AdminChart />
 				</Box>
 

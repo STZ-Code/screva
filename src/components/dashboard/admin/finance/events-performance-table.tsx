@@ -1,34 +1,28 @@
 'use client'
-import { CheckCircleIcon, DotsThreeIcon } from '@phosphor-icons/react'
-import {
-	Avatar,
-	Dropdown,
-	type STZColumnDef,
-	Table,
-	TablePagination,
-} from '@stz-code/ui'
+import { Avatar, type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
-import { StatusTag } from '@/components/status-tag'
-import { formatDate } from '@/utils/format-date'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Event = {
 	id: string
 	name: string
 	city: string
-	status: 'pending' | 'processing' | 'success' | 'failed'
-	date: Date
-	subscribers: number
-	organizer: string
+	revenue: string
+	refunds: string
+	contestations: string
+	percentage_contastations: string
 }
 
 export function EventsPerformanceTable() {
+	const desktop = useBreakpoint('lg')
 	const { control } = useForm()
 
 	const columns: STZColumnDef<Event>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
+			size: desktop ? 200 : 80,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full pl-3">
@@ -49,79 +43,24 @@ export function EventsPerformanceTable() {
 			},
 		},
 		{
-			accessorKey: 'date',
-			header: 'Data',
-			size: 48,
-			cell: (info) => {
-				const rawDate = info.row.original.date
-
-				const formattedDate = formatDate(rawDate)
-
-				return (
-					<div>
-						<p>{formattedDate}</p>
-					</div>
-				)
-			},
+			accessorKey: 'revenue',
+			header: 'Receita',
+			size: 40,
 		},
 		{
-			accessorKey: 'subscribers',
-			header: 'Inscritos',
-			size: 24,
+			accessorKey: 'refunds',
+			header: 'Reembolsos',
+			size: 40,
 		},
 		{
-			accessorKey: 'status',
-			header: 'Status',
-			size: 32,
-			cell: (info) => (
-				<StatusTag.Root>
-					<StatusTag.Icon
-						icon={CheckCircleIcon}
-						weight="fill"
-						className="text-emerald-500"
-					/>
-					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
-					</StatusTag.Label>
-				</StatusTag.Root>
-			),
+			accessorKey: 'contestations',
+			header: 'Contestações',
+			size: 40,
 		},
 		{
-			accessorKey: 'organizer',
-			header: 'Organizador',
-			size: 80,
-			cell: (info) => {
-				return (
-					<div className="flex gap-2 items-center">
-						<Avatar.Root className="size-10 rounded">
-							<Avatar.Image src="https://github.com/garcez17.png" />
-							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-						</Avatar.Root>
-						<div className="flex flex-col">
-							<p className="text-zinc-300">{info.row.original.organizer}</p>
-							<p className="text-zinc-500">johndoe@mail.com</p>
-						</div>
-					</div>
-				)
-			},
-		},
-		{
-			header: 'Ações',
-			size: 24,
-			cell: () => {
-				return (
-					<Dropdown.Root>
-						<Dropdown.Trigger>
-							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-						</Dropdown.Trigger>
-						<Dropdown.Content align="start">
-							<Dropdown.Item>
-								<p>Editar</p>
-							</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
-				)
-			},
+			accessorKey: 'percentage_contastations',
+			header: 'Contestação (%)',
+			size: 40,
 		},
 	]
 
@@ -130,37 +69,37 @@ export function EventsPerformanceTable() {
 			id: '728ed52f',
 			name: 'Evento 1',
 			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 3, 10),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			revenue: 'R$ 4.210,45',
+			refunds: '3',
+			contestations: '3',
+			percentage_contastations: '2%',
 		},
 		{
 			id: '728e322f',
 			name: 'Evento 2',
 			city: 'Juazeiro/BA',
-			status: 'pending',
-			date: new Date(2026, 5, 20),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			revenue: 'R$ 2.450,45',
+			refunds: '1',
+			contestations: '1',
+			percentage_contastations: '2%',
 		},
 		{
 			id: '7285452f',
 			name: 'Evento 3',
 			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 8, 15),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			revenue: 'R$ 8.920,45',
+			refunds: '0',
+			contestations: '0',
+			percentage_contastations: '0%',
 		},
 		{
 			id: '728egrew2f',
 			name: 'Evento 4',
 			city: 'Petrolina/PE',
-			status: 'pending',
-			date: new Date(2026, 11, 31),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			revenue: 'R$ 640,45',
+			refunds: '5',
+			contestations: '8',
+			percentage_contastations: '3%',
 		},
 	]
 
@@ -172,8 +111,18 @@ export function EventsPerformanceTable() {
 				</h2>
 			</div>
 
-			<Table.Root columns={columns} data={data}>
-				<Table.Container className="border-zinc-800">
+			<Table.Root
+				columns={columns}
+				data={data}
+				config={{
+					columnVisibility: {
+						percentage_contastations: desktop,
+						contestations: desktop,
+						refunds: desktop,
+					},
+				}}
+			>
+				<Table.Container className="border-zinc-800 bg-neutral-900">
 					<Table.Content>
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
@@ -184,12 +133,12 @@ export function EventsPerformanceTable() {
 						</Table.Body>
 					</Table.Content>
 					<TablePagination.Root className="border-zinc-800">
-						<TablePagination.Prev />
+						<TablePagination.Prev className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 						<TablePagination.Items
-							itemClassName="bg-zinc-50 hover:bg-zinc-200"
-							activeClassName="bg-zinc-200 text-cyan-600"
+							itemClassName="bg-zinc-600 hover:bg-zinc-700 cursor-pointer"
+							activeClassName="bg-cyan-600 text-zinc-200 hover:bg-cyan-700 cursor-pointer"
 						/>
-						<TablePagination.Next />
+						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
 			</Table.Root>

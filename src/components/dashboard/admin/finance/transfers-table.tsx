@@ -1,22 +1,15 @@
 'use client'
-import {
-	CheckCircleIcon,
-	DotsThreeIcon,
-	MagnifyingGlassIcon,
-} from '@phosphor-icons/react'
+import { CheckCircleIcon, DotsThreeIcon } from '@phosphor-icons/react'
 import {
 	Avatar,
 	Dropdown,
-	Field,
-	Input,
-	Select,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
-import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTransferSheet } from './create-transfer-sheet'
 
@@ -26,12 +19,12 @@ type Event = {
 	city: string
 	status: 'pending' | 'processing' | 'success' | 'failed'
 	date: Date
-	subscribers: number
+	passOn: string
 	organizer: string
 }
 
 export function TransfersTable() {
-	const { control } = useForm()
+	const desktop = useBreakpoint('lg')
 
 	const columns: STZColumnDef<Event>[] = [
 		{
@@ -57,6 +50,25 @@ export function TransfersTable() {
 			},
 		},
 		{
+			accessorKey: 'organizer',
+			header: 'Organização',
+			size: 60,
+			cell: (info) => {
+				return (
+					<div className="flex gap-2 items-center">
+						<Avatar.Root className="size-10 rounded">
+							<Avatar.Image src="https://github.com/garcez17.png" />
+							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
+						</Avatar.Root>
+						<div className="flex flex-col">
+							<p className="text-zinc-300">{info.row.original.organizer}</p>
+							<p className="text-zinc-500">johndoe@mail.com</p>
+						</div>
+					</div>
+				)
+			},
+		},
+		{
 			accessorKey: 'date',
 			header: 'Data',
 			size: 48,
@@ -73,9 +85,9 @@ export function TransfersTable() {
 			},
 		},
 		{
-			accessorKey: 'subscribers',
-			header: 'Inscritos',
-			size: 24,
+			accessorKey: 'passOn',
+			header: desktop ? 'Valor de repasse' : 'Valor',
+			size: 32,
 		},
 		{
 			accessorKey: 'status',
@@ -95,39 +107,25 @@ export function TransfersTable() {
 			),
 		},
 		{
-			accessorKey: 'organizer',
-			header: 'Organizador',
-			size: 80,
-			cell: (info) => {
-				return (
-					<div className="flex gap-2 items-center">
-						<Avatar.Root className="size-10 rounded">
-							<Avatar.Image src="https://github.com/garcez17.png" />
-							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-						</Avatar.Root>
-						<div className="flex flex-col">
-							<p className="text-zinc-300">{info.row.original.organizer}</p>
-							<p className="text-zinc-500">johndoe@mail.com</p>
-						</div>
-					</div>
-				)
-			},
-		},
-		{
-			header: 'Ações',
+			id: 'actions',
+			header: () => (
+				<div className="lg:text-left text-center w-full">Ações</div>
+			),
 			size: 24,
 			cell: () => {
 				return (
-					<Dropdown.Root>
-						<Dropdown.Trigger>
-							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-						</Dropdown.Trigger>
-						<Dropdown.Content align="start">
-							<Dropdown.Item>
-								<p>Editar</p>
-							</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
+					<div className="w-full flex items-center lg:justify-start justify-center">
+						<Dropdown.Root>
+							<Dropdown.Trigger className="self-center">
+								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
+							</Dropdown.Trigger>
+							<Dropdown.Content align="start">
+								<Dropdown.Item>
+									<p>Editar</p>
+								</Dropdown.Item>
+							</Dropdown.Content>
+						</Dropdown.Root>
+					</div>
 				)
 			},
 		},
@@ -140,7 +138,7 @@ export function TransfersTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 3, 10),
-			subscribers: 100,
+			passOn: 'R$ 1.400,25',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -149,7 +147,7 @@ export function TransfersTable() {
 			city: 'Juazeiro/BA',
 			status: 'pending',
 			date: new Date(2026, 5, 20),
-			subscribers: 100,
+			passOn: 'R$ 1.400,25',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -158,7 +156,7 @@ export function TransfersTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 8, 15),
-			subscribers: 100,
+			passOn: 'R$ 1.400,25',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -167,7 +165,7 @@ export function TransfersTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 11, 31),
-			subscribers: 100,
+			passOn: 'R$ 1.400,25',
 			organizer: 'Organizador 1',
 		},
 	]
@@ -180,8 +178,18 @@ export function TransfersTable() {
 				<CreateTransferSheet />
 			</div>
 
-			<Table.Root columns={columns} data={data}>
-				<Table.Container className="border-zinc-800">
+			<Table.Root
+				columns={columns}
+				data={data}
+				config={{
+					columnVisibility: {
+						name: desktop,
+						date: desktop,
+						status: desktop,
+					},
+				}}
+			>
+				<Table.Container className="border-zinc-800 bg-neutral-900">
 					<Table.Content>
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
@@ -193,12 +201,12 @@ export function TransfersTable() {
 					</Table.Content>
 
 					<TablePagination.Root className="border-zinc-800">
-						<TablePagination.Prev />
+						<TablePagination.Prev className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 						<TablePagination.Items
-							itemClassName="bg-zinc-50 hover:bg-zinc-200"
-							activeClassName="bg-zinc-200 text-cyan-600"
+							itemClassName="bg-zinc-600 hover:bg-zinc-700 cursor-pointer"
+							activeClassName="bg-cyan-600 text-zinc-200 hover:bg-cyan-700 cursor-pointer"
 						/>
-						<TablePagination.Next />
+						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
 			</Table.Root>

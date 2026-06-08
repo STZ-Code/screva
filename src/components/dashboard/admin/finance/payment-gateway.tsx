@@ -4,6 +4,7 @@ import { CaretRight, CheckCircle } from 'phosphor-react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Inscription = {
 	id: string
@@ -13,11 +14,13 @@ type Inscription = {
 }
 
 export function PaymentGateway() {
+	const desktop = useBreakpoint('lg')
+
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
-			header: 'Evento',
-			size: 48,
+			header: '',
+			size: desktop ? 80 : 64,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full">
@@ -25,9 +28,9 @@ export function PaymentGateway() {
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div>
-							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+						<div className="min-w-0">
+							<p className="text-zinc-200 truncate">{info.row.original.name}</p>
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.city}
 							</p>
 						</div>
@@ -47,7 +50,7 @@ export function PaymentGateway() {
 						className="text-emerald-500 size-4"
 					/>
 					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
+						Ativo
 					</StatusTag.Label>
 				</StatusTag.Root>
 			),
@@ -70,17 +73,15 @@ export function PaymentGateway() {
 	]
 
 	return (
-		<div className="w-1/4 h-full flex flex-col">
-			<Box className="border-zinc-800 gap-3 p-6 flex-1">
-				<h2 className="text-2xl text-zinc-100 font-semibold">
+		<div className="lg:w-1/4 h-full flex flex-col">
+			<Box className="border-zinc-800 lg:p-6 p-4 gap-3 flex-1">
+				<h2 className="lg:text-2xl text-lg text-zinc-100 font-semibold">
 					Gateway de pagamento
 				</h2>
 
 				<Table.Root columns={columns} data={data}>
 					<Table.Container className="border-none">
 						<Table.Content>
-							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
-
 							<Table.Body>
 								<Table.Row className="border-zinc-800">
 									<Table.Fallback>Sem resultados encontrados</Table.Fallback>

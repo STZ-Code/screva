@@ -5,9 +5,9 @@ import { Kpi } from '../../kpi'
 
 export function RiskIndicators() {
 	return (
-		<div className="flex flex-col w-2/5">
+		<div className="flex flex-col lg:w-2/5 gap-3">
 			<div className="grid grid-cols-2 gap-4">
-				<Kpi.Root>
+				<Kpi.Root className="rounded">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Contestações pendentes</Kpi.Label>
 
@@ -24,7 +24,7 @@ export function RiskIndicators() {
 
 					<Kpi.Value className="text-3xl">10 contestações</Kpi.Value>
 				</Kpi.Root>
-				<Kpi.Root>
+				<Kpi.Root className="rounded">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Contestações confirmadas</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -38,7 +38,7 @@ export function RiskIndicators() {
 					<Kpi.Value className="text-3xl">21 pagamentos</Kpi.Value>
 				</Kpi.Root>
 
-				<Kpi.Root>
+				<Kpi.Root className="rounded">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Reembolsos solicitados</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -55,7 +55,7 @@ export function RiskIndicators() {
 					<Kpi.Value className="text-3xl">4 reembolsos</Kpi.Value>
 				</Kpi.Root>
 
-				<Kpi.Root>
+				<Kpi.Root className="rounded">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Taxa de Contestação (%)</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">

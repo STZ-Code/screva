@@ -10,7 +10,7 @@ export function KpiRoot({
 	return (
 		<div
 			className={cn(
-				'flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-zinc-900/50 shadow-md',
+				'flex flex-col gap-4 border border-zinc-800 rounded-2xl p-4 bg-neutral-900 shadow-md',
 				className,
 			)}
 		>
