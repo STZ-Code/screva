@@ -47,7 +47,7 @@ export function EventsTable() {
 							<p className="text-zinc-200 font-medium">
 								{info.row.original.name}
 							</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.city}
 							</p>
 						</div>
