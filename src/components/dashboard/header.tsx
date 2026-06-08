@@ -143,8 +143,10 @@ export function Header({ user }: HeaderProps) {
 					<div className="flex gap-2">
 						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
 
-						<ProfileDropdown user={user} />
-						{showEventsDropdown && <EventsDropdown />}
+						<div className="flex gap-2 lg:flex-row flex-col items-center">
+							<ProfileDropdown user={user} />
+							{showEventsDropdown && <EventsDropdown />}
+						</div>
 					</div>
 				</div>
 

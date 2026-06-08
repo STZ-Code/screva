@@ -2,21 +2,20 @@
 import {
 	CheckCircleIcon,
 	DotsThreeIcon,
+	FunnelIcon,
 	MagnifyingGlassIcon,
 } from '@phosphor-icons/react'
 import {
 	Avatar,
 	Dropdown,
 	Field,
-	Input,
-	Select,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
-import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateEventSheet } from './create-event-sheet'
 
@@ -26,17 +25,17 @@ type Event = {
 	city: string
 	status: 'pending' | 'processing' | 'success' | 'failed'
 	date: Date
-	subscribers: number
+	subscribers: string
 	organizer: string
 }
 
 export function EventsTable() {
-	const { control } = useForm()
-
+	const desktop = useBreakpoint('lg')
 	const columns: STZColumnDef<Event>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
+			size: desktop ? 140 : 48,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full pl-3">
@@ -59,7 +58,7 @@ export function EventsTable() {
 		{
 			accessorKey: 'date',
 			header: 'Data',
-			size: 48,
+			size: desktop ? 48 : 36,
 			cell: (info) => {
 				const rawDate = info.row.original.date
 
@@ -74,8 +73,15 @@ export function EventsTable() {
 		},
 		{
 			accessorKey: 'subscribers',
-			header: 'Inscritos',
+			header: () => (
+				<div className="lg:text-left text-center w-full">Inscritos</div>
+			),
 			size: 24,
+			cell: (info) => (
+				<div className="lg:text-left text-center w-full">
+					{info.row.original.subscribers}
+				</div>
+			),
 		},
 		{
 			accessorKey: 'status',
@@ -114,20 +120,25 @@ export function EventsTable() {
 			},
 		},
 		{
-			header: 'Ações',
+			id: 'actions',
+			header: () => (
+				<div className="lg:text-left text-center w-full">Ações</div>
+			),
 			size: 24,
 			cell: () => {
 				return (
-					<Dropdown.Root>
-						<Dropdown.Trigger>
-							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-						</Dropdown.Trigger>
-						<Dropdown.Content align="start">
-							<Dropdown.Item>
-								<p>Editar</p>
-							</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
+					<div className="w-full flex items-center lg:justify-start justify-center">
+						<Dropdown.Root>
+							<Dropdown.Trigger className="self-center">
+								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
+							</Dropdown.Trigger>
+							<Dropdown.Content align="start">
+								<Dropdown.Item>
+									<p>Editar</p>
+								</Dropdown.Item>
+							</Dropdown.Content>
+						</Dropdown.Root>
+					</div>
 				)
 			},
 		},
@@ -140,7 +151,7 @@ export function EventsTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 3, 10),
-			subscribers: 100,
+			subscribers: '100',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -149,7 +160,7 @@ export function EventsTable() {
 			city: 'Juazeiro/BA',
 			status: 'pending',
 			date: new Date(2026, 5, 20),
-			subscribers: 100,
+			subscribers: '100',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -158,7 +169,7 @@ export function EventsTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 8, 15),
-			subscribers: 100,
+			subscribers: '100',
 			organizer: 'Organizador 1',
 		},
 		{
@@ -167,54 +178,57 @@ export function EventsTable() {
 			city: 'Petrolina/PE',
 			status: 'pending',
 			date: new Date(2026, 11, 31),
-			subscribers: 100,
+			subscribers: '100',
 			organizer: 'Organizador 1',
 		},
 	]
 
 	return (
-		<div className="flex flex-col gap-8">
-			<div className="flex justify-between">
-				<form className="flex items-center gap-5">
-					<Field.Root control={control} name="q">
-						<Input.Root className="py-2 border-zinc-800 focus-within:ring-2 focus-within:ring-cyan-500 bg-neutral-900 shadow-md">
+		<div className="flex flex-col">
+			<Table.Root
+				columns={columns}
+				data={data}
+				hideFilters={['name']}
+				config={{
+					columnVisibility: {
+						status: desktop,
+						organizer: desktop,
+						date: desktop,
+					},
+				}}
+			>
+				<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+					<div className="flex gap-2 w-full">
+						<Table.FilterInput id="name" className="flex-1">
 							<Field.Icon
 								icon={MagnifyingGlassIcon}
 								className="text-zinc-600 group-focus-within:text-cyan-500"
 							/>
-							<Input.Control
-								placeholder="Buscar evento"
-								type="text"
-								className="placeholder:text-zinc-600 text-zinc-400"
-							/>
-						</Input.Root>
-					</Field.Root>
+						</Table.FilterInput>
 
-					<Field.Root name="document" control={control}>
-						<Select.Root>
-							<Select.Control>
-								<Select.Trigger className="border-zinc-800 bg-neutral-900 shadow-md">
-									<Select.Placeholder className="text-zinc-600">
-										Teste
-									</Select.Placeholder>
+						<Table.FilterDropdown>
+							<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+								<FunnelIcon size={24} className="text-zinc-500" />
+							</Table.FilterDropdownTrigger>
+							<Table.FilterDropdownContent>
+								<Table.FilterDropdownItem id="subscribers">
+									Inscritos
+								</Table.FilterDropdownItem>
+								<Table.FilterDropdownItem id="status">
+									Status
+								</Table.FilterDropdownItem>
+							</Table.FilterDropdownContent>
+						</Table.FilterDropdown>
+					</div>
 
-									<Select.Portal>
-										<Select.Item value="select-1">Select 1</Select.Item>
-										<Select.Item value="select-2">Select 2</Select.Item>
-										<Select.Item value="select-3">Select 3</Select.Item>
-									</Select.Portal>
-								</Select.Trigger>
-							</Select.Control>
-						</Select.Root>
-						<Field.Error />
-					</Field.Root>
-				</form>
+					<CreateEventSheet />
+				</div>
 
-				<CreateEventSheet />
-			</div>
+				<Table.Filters>
+					<Table.ClearFilters>Limpar Filtros</Table.ClearFilters>
+				</Table.Filters>
 
-			<Table.Root columns={columns} data={data}>
-				<Table.Container className="border-zinc-800">
+				<Table.Container className="border-zinc-800 mt-2 bg-neutral-900">
 					<Table.Content>
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
@@ -226,12 +240,12 @@ export function EventsTable() {
 					</Table.Content>
 
 					<TablePagination.Root className="border-zinc-800">
-						<TablePagination.Prev />
+						<TablePagination.Prev className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 						<TablePagination.Items
-							itemClassName="bg-zinc-50 hover:bg-zinc-200"
-							activeClassName="bg-zinc-200 text-cyan-600"
+							itemClassName="bg-zinc-600 hover:bg-zinc-700 cursor-pointer"
+							activeClassName="bg-cyan-600 text-zinc-200 hover:bg-cyan-700 cursor-pointer"
 						/>
-						<TablePagination.Next />
+						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
 			</Table.Root>

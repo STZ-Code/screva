@@ -57,7 +57,7 @@ export function CreateEventSheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit px-6 w-fit normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit lg:w-56 w-full px-6 normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Criar evento
