@@ -1,47 +1,29 @@
 'use client'
 
-import {
-	CheckCircleIcon,
-	DotsThreeIcon,
-	FunnelIcon,
-	MagnifyingGlassIcon,
-	PlusIcon,
-} from '@phosphor-icons/react'
+import { FunnelIcon, MagnifyingGlassIcon } from '@phosphor-icons/react'
 import {
 	Avatar,
-	Dropdown,
 	Field,
-	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
-import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
-import { Button } from '@/components/button'
-import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
-import { formatDate } from '@/utils/format-date'
-import { CreateTeamSheet } from '../teams/create-team-sheet'
 
 type Event = {
 	id: string
 	name: string
-	team: string
-	status: 'pending' | 'processing' | 'success' | 'failed'
-	date: Date
-	category: string
+	source: string
 }
 
-export function RegistrationsTable() {
-	const { control } = useForm()
+export function UserOriginsTable() {
 	const desktop = useBreakpoint('lg')
 
 	const columns: STZColumnDef<Event>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Nome',
-			size: desktop ? 140 : 48,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full pl-3 lg:py-0 py-2">
@@ -59,70 +41,9 @@ export function RegistrationsTable() {
 			},
 		},
 		{
-			accessorKey: 'category',
-			header: 'Categoria',
-			size: 24,
-		},
-		{
-			accessorKey: 'team',
-			header: 'Equipe',
-			size: 24,
-		},
-		{
-			accessorKey: 'status',
-			header: 'Status',
-			size: 32,
-			cell: (info) => (
-				<StatusTag.Root>
-					<StatusTag.Icon
-						icon={CheckCircleIcon}
-						weight="fill"
-						className="text-emerald-500"
-					/>
-					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
-					</StatusTag.Label>
-				</StatusTag.Root>
-			),
-		},
-		{
-			accessorKey: 'date',
-			header: 'Data',
-			size: 48,
-			cell: (info) => {
-				const rawDate = info.row.original.date
-
-				const formattedDate = formatDate(rawDate)
-
-				return (
-					<div>
-						<p>{formattedDate}</p>
-					</div>
-				)
-			},
-		},
-		{
-			id: 'actions',
-			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
-			),
-			size: 24,
-			cell: () => {
-				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
-						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
-								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
-								<Dropdown.Item>
-									<p>Editar</p>
-								</Dropdown.Item>
-							</Dropdown.Content>
-						</Dropdown.Root>
-					</div>
-				)
-			},
+			accessorKey: 'source',
+			header: 'Origem',
+			size: desktop ? 16 : 56,
 		},
 	]
 
@@ -130,42 +51,27 @@ export function RegistrationsTable() {
 		{
 			id: '728ed52f',
 			name: 'Gabriel Santos Garcez',
-			team: 'Equipe Teste',
-			status: 'pending',
-			date: new Date(2026, 3, 10),
-			category: '5KM',
+			source: 'Instagram',
 		},
 		{
 			id: '728e322f',
 			name: 'Vinicius Lemos de Carvalho',
-			team: 'Equipe Teste',
-			status: 'pending',
-			date: new Date(2026, 5, 20),
-			category: '5KM',
+			source: 'Twitter/X',
 		},
 		{
 			id: '7285452f',
 			name: 'Lucas Alberto Anjos',
-			team: 'Equipe Teste',
-			status: 'pending',
-			date: new Date(2026, 8, 15),
-			category: '5KM',
+			source: 'Whatsapp',
 		},
 		{
 			id: '728egrew2f',
 			name: 'Joel de Oliveira Sá',
-			team: 'Equipe Teste',
-			status: 'pending',
-			date: new Date(2026, 11, 31),
-			category: '5KM',
+			source: 'Link direto',
 		},
 		{
 			id: '728egrew24134f',
 			name: 'Alexandre Macedo Nascimento',
-			team: 'Equipe Teste',
-			status: 'pending',
-			date: new Date(2026, 11, 31),
-			category: '5KM',
+			source: 'Instagram',
 		},
 	]
 
@@ -175,11 +81,7 @@ export function RegistrationsTable() {
 			data={data}
 			hideFilters={['name']}
 			config={{
-				columnVisibility: {
-					team: desktop,
-					date: desktop,
-					category: desktop,
-				},
+				columnVisibility: {},
 			}}
 		>
 			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
@@ -205,18 +107,6 @@ export function RegistrationsTable() {
 						</Table.FilterDropdownContent>
 					</Table.FilterDropdown>
 				</div>
-
-				<CreateTeamSheet>
-					<Sheet.Trigger asChild>
-						<Button
-							type="submit"
-							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
-						>
-							<PlusIcon size={20} weight="bold" />
-							Fazer inscrição
-						</Button>
-					</Sheet.Trigger>
-				</CreateTeamSheet>
 			</div>
 
 			<Table.Filters>

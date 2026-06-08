@@ -26,16 +26,14 @@ import { CreateTeamSheet } from '../../teams/create-team-sheet'
 type Event = {
 	id: string
 	name: string
-	coupon: string
 	type: string
-	amount: string
-	net_amount: string
-	taxes: string
+	value: string
+	uses: string
 	status: 'pending' | 'processing' | 'success' | 'failed'
 	date: Date
 }
 
-export function StatementsTable() {
+export function CouponsTable() {
 	const { control } = useForm()
 	const desktop = useBreakpoint('lg')
 
@@ -43,11 +41,11 @@ export function StatementsTable() {
 		{
 			accessorKey: 'name',
 			header: 'Nome',
-			size: desktop ? 140 : 48,
+			size: desktop ? 130 : 36,
 			cell: (info) => {
 				return (
-					<div className="min-w-0 py-2">
-						<p className="text-zinc-200 font-medium truncate">
+					<div className="min-w-0 py-2 px-6">
+						<p className="text-cyan-500 font-medium truncate">
 							{info.row.original.name}
 						</p>
 					</div>
@@ -55,8 +53,18 @@ export function StatementsTable() {
 			},
 		},
 		{
+			accessorKey: 'type',
+			header: 'Tipo',
+			size: 24,
+		},
+		{
+			accessorKey: 'value',
+			header: 'Valor',
+			size: 24,
+		},
+		{
 			accessorKey: 'date',
-			header: 'Data',
+			header: 'Validade',
 			size: 32,
 			cell: (info) => {
 				const rawDate = info.row.original.date
@@ -71,35 +79,10 @@ export function StatementsTable() {
 			},
 		},
 		{
-			accessorKey: 'coupon',
-			header: 'Cupom',
+			accessorKey: 'uses',
+			header: 'Uso',
 			size: 24,
-		},
-		{
-			accessorKey: 'type',
-			header: 'Tipo',
-			size: 24,
-		},
-		{
-			accessorKey: 'amount',
-			header: 'Bruto',
-			size: 24,
-		},
-		{
-			accessorKey: 'taxes',
-			header: 'Taxa',
-			size: 24,
-			cell: (info) => (
-				<p className="text-orange-300">{info.row.original.taxes}</p>
-			),
-		},
-		{
-			accessorKey: 'net_amount',
-			header: 'Líquido',
-			size: 24,
-			cell: (info) => (
-				<p className="text-green-300">{info.row.original.net_amount}</p>
-			),
+			cell: (info) => <p>{info.row.original.uses}/200</p>,
 		},
 		{
 			accessorKey: 'status',
@@ -113,7 +96,7 @@ export function StatementsTable() {
 						className="text-emerald-500"
 					/>
 					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
+						Ativo
 					</StatusTag.Label>
 				</StatusTag.Root>
 			),
@@ -146,58 +129,48 @@ export function StatementsTable() {
 	const data: Event[] = [
 		{
 			id: '728ed52f',
-			name: 'Gabriel Santos Garcez',
-			coupon: 'Não',
+			name: 'PICOS1O',
 			status: 'pending',
 			date: new Date(2026, 3, 10),
-			type: 'Inscrição',
-			amount: 'R$ 120,00',
-			net_amount: 'R$ 110,00',
-			taxes: 'R$ 10,00',
+			type: '%',
+			uses: '10',
+			value: '15%',
 		},
 		{
 			id: '728e322f',
-			name: 'Vinicius Lemos de Carvalho',
-			coupon: 'PICOS20',
+			name: '30REAIS',
 			status: 'pending',
 			date: new Date(2026, 5, 20),
-			type: 'Inscrição',
-			amount: 'R$ 120,00',
-			net_amount: 'R$ 110,00',
-			taxes: 'R$ 10,00',
+			type: 'R$',
+			uses: '0',
+			value: 'R$ 30,00',
 		},
 		{
 			id: '7285452f',
-			name: 'Lucas Alberto Anjos',
-			coupon: 'PICOS20',
+			name: 'PICOS15',
 			status: 'pending',
 			date: new Date(2026, 8, 15),
-			type: 'Inscrição',
-			amount: 'R$ 120,00',
-			net_amount: 'R$ 110,00',
-			taxes: 'R$ 10,00',
+			type: '%',
+			uses: '10',
+			value: '15%',
 		},
 		{
 			id: '728egrew2f',
-			name: 'Joel de Oliveira Sá',
-			coupon: 'Não',
+			name: 'PICOSPRORACE',
 			status: 'pending',
 			date: new Date(2026, 11, 31),
-			type: 'Inscrição',
-			amount: 'R$ 120,00',
-			net_amount: 'R$ 110,00',
-			taxes: 'R$ 10,00',
+			type: '%',
+			uses: '10',
+			value: '15%',
 		},
 		{
 			id: '728egrew24134f',
-			name: 'Alexandre Macedo Nascimento',
-			coupon: 'Não',
+			name: 'PRORACE',
 			status: 'pending',
 			date: new Date(2026, 11, 31),
-			type: 'Inscrição',
-			amount: 'R$ 120,00',
-			net_amount: 'R$ 80,00',
-			taxes: 'R$ 10,00',
+			type: 'R$',
+			uses: '120',
+			value: 'R$ 20,00',
 		},
 	]
 
@@ -208,11 +181,8 @@ export function StatementsTable() {
 			hideFilters={['name']}
 			config={{
 				columnVisibility: {
-					taxes: desktop,
-					amount: desktop,
 					date: desktop,
 					type: desktop,
-					coupon: desktop,
 					status: desktop,
 				},
 			}}
@@ -241,32 +211,17 @@ export function StatementsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<div className="flex items-center gap-2 lg:w-fit w-full lg:flex-row flex-row-reverse">
-					<Dropdown.Root>
-						<Dropdown.Trigger className="px-3.5 border border-zinc-300 rounded">
-							<Dropdown.Label className="flex items-center gap-3 cursor-pointer hover:bg-zinc-300/10 transition-colors">
-								<DownloadSimpleIcon size={26} />
-								<p className="hidden lg:block">Exportar</p>
-							</Dropdown.Label>
-						</Dropdown.Trigger>
-						<Dropdown.Content align="end">
-							<Dropdown.Item>PDF</Dropdown.Item>
-							<Dropdown.Item>CSV</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
-
-					<CreateTeamSheet>
-						<Sheet.Trigger asChild>
-							<Button
-								type="submit"
-								className="py-2 outline-none h-fit px-6 lg:w-56 flex-1 w-full normal-case font-semibold flex gap-2"
-							>
-								<PlusIcon size={20} weight="bold" />
-								Novo lançamento
-							</Button>
-						</Sheet.Trigger>
-					</CreateTeamSheet>
-				</div>
+				<CreateTeamSheet>
+					<Sheet.Trigger asChild>
+						<Button
+							type="submit"
+							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+						>
+							<PlusIcon size={20} weight="bold" />
+							Criar cupom
+						</Button>
+					</Sheet.Trigger>
+				</CreateTeamSheet>
 			</div>
 
 			<Table.Filters>
