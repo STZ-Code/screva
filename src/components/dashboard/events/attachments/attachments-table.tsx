@@ -30,6 +30,7 @@ export function AttachmentsTable() {
 		{
 			accessorKey: 'name',
 			header: 'Nome',
+			size: desktop ? 360 : 48,
 			cell: (info) => {
 				return (
 					<div className="min-w-0 py-2 px-6">
@@ -45,7 +46,7 @@ export function AttachmentsTable() {
 			header: () => (
 				<div className="lg:text-left text-center w-full">Ações</div>
 			),
-			size: 24,
+			size: 16,
 			cell: () => {
 				return (
 					<div className="w-full flex items-center lg:justify-start justify-center">
