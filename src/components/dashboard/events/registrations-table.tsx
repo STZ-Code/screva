@@ -3,7 +3,9 @@
 import {
 	CheckCircleIcon,
 	DotsThreeIcon,
+	FunnelIcon,
 	MagnifyingGlassIcon,
+	PlusIcon,
 } from '@phosphor-icons/react'
 import {
 	Avatar,
@@ -11,46 +13,48 @@ import {
 	Field,
 	Input,
 	Select,
+	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
+import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
+import { CreateTeamSheet } from '../teams/create-team-sheet'
 import { CreateEventSheet } from './create-event-sheet'
 
 type Event = {
 	id: string
 	name: string
-	city: string
+	team: string
 	status: 'pending' | 'processing' | 'success' | 'failed'
 	date: Date
-	subscribers: number
-	organizer: string
+	category: string
 }
 
 export function RegistrationsTable() {
 	const { control } = useForm()
+	const desktop = useBreakpoint('lg')
 
 	const columns: STZColumnDef<Event>[] = [
 		{
 			accessorKey: 'name',
-			header: 'Evento',
+			header: 'Nome',
+			size: desktop ? 140 : 48,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full pl-3">
-						<Avatar.Root className="size-9 rounded">
+						<Avatar.Root className="size-9 rounded-full">
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
 						</Avatar.Root>
-						<div>
-							<p className="text-zinc-200 font-medium">
+						<div className="min-w-0">
+							<p className="text-zinc-200 font-medium truncate">
 								{info.row.original.name}
-							</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
-								{info.row.original.city}
 							</p>
 						</div>
 					</div>
@@ -58,24 +62,13 @@ export function RegistrationsTable() {
 			},
 		},
 		{
-			accessorKey: 'date',
-			header: 'Data',
-			size: 48,
-			cell: (info) => {
-				const rawDate = info.row.original.date
-
-				const formattedDate = formatDate(rawDate)
-
-				return (
-					<div>
-						<p>{formattedDate}</p>
-					</div>
-				)
-			},
+			accessorKey: 'category',
+			header: 'Categoria',
+			size: 24,
 		},
 		{
-			accessorKey: 'subscribers',
-			header: 'Inscritos',
+			accessorKey: 'team',
+			header: 'Equipe',
 			size: 24,
 		},
 		{
@@ -96,39 +89,41 @@ export function RegistrationsTable() {
 			),
 		},
 		{
-			accessorKey: 'organizer',
-			header: 'Organizador',
-			size: 80,
+			accessorKey: 'date',
+			header: 'Data',
+			size: 48,
 			cell: (info) => {
+				const rawDate = info.row.original.date
+
+				const formattedDate = formatDate(rawDate)
+
 				return (
-					<div className="flex gap-2 items-center">
-						<Avatar.Root className="size-10 rounded">
-							<Avatar.Image src="https://github.com/garcez17.png" />
-							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
-						</Avatar.Root>
-						<div className="flex flex-col">
-							<p className="text-zinc-300">{info.row.original.organizer}</p>
-							<p className="text-zinc-500">johndoe@mail.com</p>
-						</div>
+					<div>
+						<p>{formattedDate}</p>
 					</div>
 				)
 			},
 		},
 		{
-			header: 'Ações',
+			id: 'actions',
+			header: () => (
+				<div className="lg:text-left text-center w-full">Ações</div>
+			),
 			size: 24,
 			cell: () => {
 				return (
-					<Dropdown.Root>
-						<Dropdown.Trigger>
-							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-						</Dropdown.Trigger>
-						<Dropdown.Content align="start">
-							<Dropdown.Item>
-								<p>Editar</p>
-							</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
+					<div className="w-full flex items-center lg:justify-start justify-center">
+						<Dropdown.Root>
+							<Dropdown.Trigger className="self-center">
+								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
+							</Dropdown.Trigger>
+							<Dropdown.Content align="start">
+								<Dropdown.Item>
+									<p>Editar</p>
+								</Dropdown.Item>
+							</Dropdown.Content>
+						</Dropdown.Root>
+					</div>
 				)
 			},
 		},
@@ -137,105 +132,120 @@ export function RegistrationsTable() {
 	const data: Event[] = [
 		{
 			id: '728ed52f',
-			name: 'Evento 1',
-			city: 'Petrolina/PE',
+			name: 'Gabriel Santos Garcez',
+			team: 'Equipe Teste',
 			status: 'pending',
 			date: new Date(2026, 3, 10),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			category: '5KM',
 		},
 		{
 			id: '728e322f',
-			name: 'Evento 2',
-			city: 'Juazeiro/BA',
+			name: 'Vinicius Lemos de Carvalho',
+			team: 'Equipe Teste',
 			status: 'pending',
 			date: new Date(2026, 5, 20),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			category: '5KM',
 		},
 		{
 			id: '7285452f',
-			name: 'Evento 3',
-			city: 'Petrolina/PE',
+			name: 'Lucas Alberto Anjos',
+			team: 'Equipe Teste',
 			status: 'pending',
 			date: new Date(2026, 8, 15),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			category: '5KM',
 		},
 		{
 			id: '728egrew2f',
-			name: 'Evento 4',
-			city: 'Petrolina/PE',
+			name: 'Joel de Oliveira Sá',
+			team: 'Equipe Teste',
 			status: 'pending',
 			date: new Date(2026, 11, 31),
-			subscribers: 100,
-			organizer: 'Organizador 1',
+			category: '5KM',
+		},
+		{
+			id: '728egrew24134f',
+			name: 'Alexandre Macedo Nascimento',
+			team: 'Equipe Teste',
+			status: 'pending',
+			date: new Date(2026, 11, 31),
+			category: '5KM',
 		},
 	]
 
 	return (
-		<div className="flex flex-col gap-8">
-			<div className="flex justify-between">
-				<form className="flex items-center gap-5">
-					<Field.Root control={control} name="q">
-						<Input.Root className="py-2 border-zinc-800 focus-within:ring-2 focus-within:ring-cyan-500 bg-neutral-900 shadow-md">
-							<Field.Icon
-								icon={MagnifyingGlassIcon}
-								className="text-zinc-600 group-focus-within:text-cyan-500"
-							/>
-							<Input.Control
-								placeholder="Buscar evento"
-								type="text"
-								className="placeholder:text-zinc-600 text-zinc-400"
-							/>
-						</Input.Root>
-					</Field.Root>
+		<Table.Root
+			columns={columns}
+			data={data}
+			hideFilters={['name']}
+			config={{
+				columnVisibility: {
+					team: desktop,
+					date: desktop,
+					category: desktop,
+				},
+			}}
+		>
+			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+				<div className="flex gap-2 w-full">
+					<Table.FilterInput id="name" className="flex-1">
+						<Field.Icon
+							icon={MagnifyingGlassIcon}
+							className="text-zinc-600 group-focus-within:text-cyan-500"
+						/>
+					</Table.FilterInput>
 
-					<Field.Root name="document" control={control}>
-						<Select.Root>
-							<Select.Control>
-								<Select.Trigger className="border-zinc-800 bg-neutral-900 shadow-md">
-									<Select.Placeholder className="text-zinc-600">
-										Teste
-									</Select.Placeholder>
+					<Table.FilterDropdown>
+						<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+							<FunnelIcon size={24} className="text-zinc-500" />
+						</Table.FilterDropdownTrigger>
+						<Table.FilterDropdownContent>
+							<Table.FilterDropdownItem id="subscribers">
+								Inscritos
+							</Table.FilterDropdownItem>
+							<Table.FilterDropdownItem id="status">
+								Status
+							</Table.FilterDropdownItem>
+						</Table.FilterDropdownContent>
+					</Table.FilterDropdown>
+				</div>
 
-									<Select.Portal>
-										<Select.Item value="select-1">Select 1</Select.Item>
-										<Select.Item value="select-2">Select 2</Select.Item>
-										<Select.Item value="select-3">Select 3</Select.Item>
-									</Select.Portal>
-								</Select.Trigger>
-							</Select.Control>
-						</Select.Root>
-						<Field.Error />
-					</Field.Root>
-				</form>
-
-				<CreateEventSheet />
+				<CreateTeamSheet>
+					<Sheet.Trigger asChild>
+						<Button
+							type="submit"
+							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+						>
+							<PlusIcon size={20} weight="bold" />
+							Fazer inscrição
+						</Button>
+					</Sheet.Trigger>
+				</CreateTeamSheet>
 			</div>
 
-			<Table.Root columns={columns} data={data}>
-				<Table.Container className="border-zinc-800">
-					<Table.Content>
-						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
+			<Table.Filters>
+				<Table.ClearFilters>Limpar Filtros</Table.ClearFilters>
+			</Table.Filters>
 
-						<Table.Body>
-							<Table.Row className="border-zinc-800">
-								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-							</Table.Row>
-						</Table.Body>
-					</Table.Content>
+			<Table.Container className="border-zinc-800 bg-neutral-900 mt-3">
+				<Table.Content>
+					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
-					<TablePagination.Root className="border-zinc-800">
-						<TablePagination.Prev />
-						<TablePagination.Items
-							itemClassName="bg-zinc-50 hover:bg-zinc-200"
-							activeClassName="bg-zinc-200 text-cyan-600"
-						/>
-						<TablePagination.Next />
-					</TablePagination.Root>
-				</Table.Container>
-			</Table.Root>
-		</div>
+					<Table.Body>
+						<Table.Row className="border-zinc-800">
+							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+						</Table.Row>
+					</Table.Body>
+				</Table.Content>
+
+				<TablePagination.Root className="border-zinc-800">
+					<TablePagination.Prev className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
+					<TablePagination.Items
+						itemClassName="bg-zinc-600 hover:bg-zinc-700 cursor-pointer"
+						activeClassName="bg-cyan-600 text-zinc-200 hover:bg-cyan-700 cursor-pointer"
+					/>
+					<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
+				</TablePagination.Root>
+			</Table.Container>
+		</Table.Root>
 	)
 }
