@@ -1,5 +1,5 @@
 import { EventFinancialMetrics } from '@/components/dashboard/events/event-financial-metrics'
-import { RegistrationsTable } from '@/components/dashboard/events/registrations-table'
+import { StatementsTable } from '@/components/dashboard/events/financial/statements-table'
 import { Heading } from '@/components/dashboard/heading'
 import { Main } from '@/components/dashboard/main'
 
@@ -15,8 +15,9 @@ export default function RegistrationsPage() {
 
 			<EventFinancialMetrics />
 
-			<section>
-				<RegistrationsTable />
+			<section className="flex flex-col">
+				<h2 className="text-2xl font-semibold mb-4">Extrato Financeiro</h2>
+				<StatementsTable />
 			</section>
 		</Main>
 	)

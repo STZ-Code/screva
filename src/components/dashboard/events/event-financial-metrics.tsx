@@ -1,5 +1,6 @@
 'use client'
 
+import { CaretDownIcon, PersonSimpleRunIcon } from '@phosphor-icons/react'
 import { Field, Select } from '@stz-code/ui'
 import { ArrowDownLeft, ArrowUpRight } from 'phosphor-react'
 import { useForm } from 'react-hook-form'
@@ -7,7 +8,6 @@ import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
 import { AdminChart } from '../admin/admin-chart'
 import { Kpi } from '../kpi'
-// import { AdminChart } from './admin-chart'
 
 export function EventFinancialMetrics() {
 	const { control } = useForm()
@@ -25,7 +25,10 @@ export function EventFinancialMetrics() {
 						<Select.Control>
 							<Select.Trigger className="border-none p-0 pr-9">
 								<Select.Placeholder className="font-medium text-xs text-zinc-400">
-									Últimas 24 horas
+									<div className="flex gap-2 items-center">
+										Últimas 24 horas
+										<CaretDownIcon size={16} />
+									</div>
 								</Select.Placeholder>
 
 								<Select.Portal>
@@ -41,9 +44,9 @@ export function EventFinancialMetrics() {
 			</div>
 
 			<div className="flex gap-4 flex-wrap">
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
-						<Kpi.Label>Volume Transacionado</Kpi.Label>
+						<Kpi.Label>Receita Bruta</Kpi.Label>
 
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
 							<StatusTag.Icon
@@ -55,12 +58,20 @@ export function EventFinancialMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="lg:text-5xl text-xl">
+								R$ 456.200,00
+							</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 4.200,00</Kpi.Value>
+						<PersonSimpleRunIcon className="text-cyan-600 lg:size-16 size-10" />
+					</div>
 				</Kpi.Root>
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
-						<Kpi.Label>Eventos Ativos</Kpi.Label>
+						<Kpi.Label>Disponível para Repasse</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
 							<StatusTag.Icon icon={ArrowDownLeft} className="text-red-300" />
 							<StatusTag.Label className="text-red-300 text-xs">
@@ -68,13 +79,20 @@ export function EventFinancialMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="lg:text-5xl text-xl">
+								R$ 40.200,00
+							</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>15 Eventos</Kpi.Value>
+						<PersonSimpleRunIcon className="text-cyan-600 lg:size-16 size-10" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
-						<Kpi.Label>Receita da Plataforma</Kpi.Label>
+						<Kpi.Label>Já repassado</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
 							<StatusTag.Icon
 								icon={ArrowUpRight}
@@ -85,13 +103,18 @@ export function EventFinancialMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="lg:text-5xl text-xl">R$ 1.200,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>741 Inscrições</Kpi.Value>
+						<PersonSimpleRunIcon className="text-cyan-600 lg:size-16 size-10" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
-						<Kpi.Label>Taxa de Conversão</Kpi.Label>
+						<Kpi.Label>Saldo em taxas</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
 							<StatusTag.Icon icon={ArrowDownLeft} className="text-red-300" />
 							<StatusTag.Label className="text-red-300 text-xs">
@@ -99,27 +122,20 @@ export function EventFinancialMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="lg:text-5xl text-xl">R$ 420,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>2.45%</Kpi.Value>
+						<PersonSimpleRunIcon className="text-cyan-600 lg:size-16 size-10" />
+					</div>
 				</Kpi.Root>
 			</div>
 
-			<div>
-				<Box className="h-[420px] bg-neutral-900 rounded-b-none border-zinc-800">
-					<AdminChart />
-				</Box>
-
-				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-					<span className="text-zinc-300 text-sm">
-						Acompanhe o crescimento da base de usuários e o valor médio de cada
-						inscrição ao longo do tempo.
-					</span>
-
-					<button type="button" className="text-cyan-600 text-sm">
-						Ver mais detalhes
-					</button>
-				</div>
-			</div>
+			<Box className="lg:h-105 bg-neutral-900 rounded-b-none p-4 border-zinc-800">
+				<AdminChart />
+			</Box>
 		</section>
 	)
 }
