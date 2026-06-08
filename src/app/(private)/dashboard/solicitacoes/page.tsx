@@ -4,8 +4,8 @@ import { Main } from '@/components/dashboard/main'
 
 export default function HistoryTicketsPage() {
 	return (
-		<Main className="gap-8">
-			<Heading.Root>
+		<Main className="gap-8 px-0">
+			<Heading.Root className="px-6">
 				<Heading.Title>Solicitações de eventos</Heading.Title>
 				<Heading.Description>
 					Acompanhe aqui as solicitações de eventos
