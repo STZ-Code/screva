@@ -21,7 +21,7 @@ import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
-import { CreateTeamSheet } from '../../teams/create-team-sheet'
+import { CreateFinancialReleaseSheet } from './create-financial-release-sheet'
 
 type Event = {
 	id: string
@@ -255,7 +255,7 @@ export function StatementsTable() {
 						</Dropdown.Content>
 					</Dropdown.Root>
 
-					<CreateTeamSheet>
+					<CreateFinancialReleaseSheet>
 						<Sheet.Trigger asChild>
 							<Button
 								type="submit"
@@ -265,7 +265,7 @@ export function StatementsTable() {
 								Novo lançamento
 							</Button>
 						</Sheet.Trigger>
-					</CreateTeamSheet>
+					</CreateFinancialReleaseSheet>
 				</div>
 			</div>
 

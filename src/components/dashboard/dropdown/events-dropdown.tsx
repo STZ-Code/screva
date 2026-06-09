@@ -1,6 +1,8 @@
 'use client'
 import { CaretUpDownIcon, PlusCircleIcon } from '@phosphor-icons/react'
 import { Avatar, Dropdown, Sheet } from '@stz-code/ui'
+import exampleImg from '@/assets/examples/picos.jpg'
+import { CreateEventRequestSheet } from '../admin/events/create-event-request-sheet'
 import { CreateTeamSheet } from '../teams/create-team-sheet'
 
 export function EventsDropdown() {
@@ -18,8 +20,7 @@ export function EventsDropdown() {
 			</Dropdown.Trigger>
 
 			<Dropdown.Content
-				align="end"
-				alignOffset={-128}
+				align="start"
 				sideOffset={12}
 				className="bg-zinc-900 w-64 border-zinc-700"
 			>
@@ -28,7 +29,7 @@ export function EventsDropdown() {
 
 					<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
 						<Avatar.Root className="size-6 rounded">
-							<Avatar.Image src="https://github.com/diego3g.png" />
+							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Pro Race</Avatar.Fallback>
 						</Avatar.Root>
 						<span className="line-clamp-1">Picos Pro Race</span>
@@ -41,12 +42,12 @@ export function EventsDropdown() {
 					className="hover:bg-zinc-600 transition-colors cursor-pointer outline-none rounded"
 					asChild
 				>
-					<CreateTeamSheet>
-						<Sheet.Trigger className="outline-none px-2 py-2 w-full text-sm hover:bg-zinc-600 transition-colors normal-case font-semibold flex gap-2 line-clamp-1">
+					<CreateEventRequestSheet>
+						<Sheet.Trigger className="outline-none cursor-pointer px-2 py-2 w-full text-sm hover:bg-zinc-600 transition-colors normal-case font-semibold flex gap-2 line-clamp-1">
 							<PlusCircleIcon className="size-5 mr-2" />
 							Anunciar novo evento
 						</Sheet.Trigger>
-					</CreateTeamSheet>
+					</CreateEventRequestSheet>
 				</Dropdown.Item>
 			</Dropdown.Content>
 		</Dropdown.Root>

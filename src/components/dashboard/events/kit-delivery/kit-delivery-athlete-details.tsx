@@ -9,9 +9,11 @@ import {
 	TShirtIcon,
 	UserIcon,
 } from '@phosphor-icons/react'
-import { Avatar, Field, Input } from '@stz-code/ui'
+import { Avatar, Field, Input, Sheet } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
+import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
+import { UpdateAthleteDetailsSheet } from './update-athlete-details-sheet'
 
 function AthleteDetailsEmpty() {
 	return (
@@ -188,13 +190,17 @@ function AthleteDetails() {
 						Entregar kit
 					</button>
 
-					<button
-						className="w-full cursor-pointer hover:bg-zinc-100/10 transition-colors text-zinc-400 font-semibold border border-zinc-700 rounded flex py-2 items-center justify-center gap-2"
-						type="button"
-					>
-						<PencilSimpleIcon className="size-6" />
-						Editar informações
-					</button>
+					<UpdateAthleteDetailsSheet>
+						<Sheet.Trigger asChild>
+							<Button
+								type="submit"
+								className="w-full bg-transparent shadow-none cursor-pointer hover:bg-zinc-100/10 transition-colors text-zinc-400 font-semibold border border-zinc-700 rounded flex py-2 items-center justify-center gap-2 capitalize"
+							>
+								<PencilSimpleIcon className="size-6" />
+								Editar informações
+							</Button>
+						</Sheet.Trigger>
+					</UpdateAthleteDetailsSheet>
 				</div>
 
 				<div className="flex items-center gap-2.5 text-zinc-400">

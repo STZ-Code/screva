@@ -1,10 +1,13 @@
 'use client'
 import { GearIcon, PackageIcon, PencilSimpleIcon } from '@phosphor-icons/react'
+import { Sheet } from '@stz-code/ui'
 import { TabNavigator } from '@stz-code/ui/layout'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { Button } from '@/components/button'
 import { Tag } from '@/components/tag'
 import { cn } from '@/utils/utils'
+import { UpdateKitDeliveryInfoSheet } from './update-kit-delivery-info-sheet'
 
 type KitNavigatorProps = {
 	slug: string
@@ -51,13 +54,17 @@ export function KitNavigator({ slug }: KitNavigatorProps) {
 			</TabNavigator.Root>
 
 			{isConfigPage && (
-				<button
-					type="button"
-					className="bg-cyan-600 h-fit mb-2 flex items-center gap-2 px-4 py-2 rounded font-semibold"
-				>
-					<PencilSimpleIcon size={16} weight="bold" />
-					Editar informações
-				</button>
+				<UpdateKitDeliveryInfoSheet>
+					<Sheet.Trigger asChild>
+						<Button
+							type="submit"
+							className="bg-cyan-600 h-fit mb-2 flex items-center gap-2 px-4 py-2 rounded font-semibold w-fit capitalize"
+						>
+							<PencilSimpleIcon size={20} weight="bold" />
+							Editar informações
+						</Button>
+					</Sheet.Trigger>
+				</UpdateKitDeliveryInfoSheet>
 			)}
 		</div>
 	)

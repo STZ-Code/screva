@@ -22,6 +22,7 @@ import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTeamSheet } from '../../teams/create-team-sheet'
+import { CreateCouponSheet } from './create-coupon-sheet'
 
 type Event = {
 	id: string
@@ -211,7 +212,7 @@ export function CouponsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<CreateTeamSheet>
+				<CreateCouponSheet>
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
@@ -221,7 +222,7 @@ export function CouponsTable() {
 							Criar cupom
 						</Button>
 					</Sheet.Trigger>
-				</CreateTeamSheet>
+				</CreateCouponSheet>
 			</div>
 
 			<Table.Filters>

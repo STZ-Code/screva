@@ -23,6 +23,7 @@ import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTeamSheet } from '../teams/create-team-sheet'
+import { CreateAthleteSheet } from './create-athlete-sheet'
 
 type Event = {
 	id: string
@@ -206,7 +207,7 @@ export function RegistrationsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<CreateTeamSheet>
+				<CreateAthleteSheet>
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
@@ -216,7 +217,7 @@ export function RegistrationsTable() {
 							Fazer inscrição
 						</Button>
 					</Sheet.Trigger>
-				</CreateTeamSheet>
+				</CreateAthleteSheet>
 			</div>
 
 			<Table.Filters>

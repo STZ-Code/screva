@@ -11,6 +11,7 @@ import {
 } from '@phosphor-icons/react'
 import {
 	Avatar,
+	Sheet,
 	type STZColumnDef,
 	type STZRow,
 	Table,
@@ -18,7 +19,9 @@ import {
 } from '@stz-code/ui'
 import { Accordion } from '@stz-code/ui/layout'
 import exampleImg from '@/assets/examples/picos.jpg'
+import { Button } from '@/components/button'
 import { Tag } from '@/components/tag'
+import { ConfirmEventSheet } from '../events/confirm-event-sheet'
 
 type Payment = {
 	id: string
@@ -400,12 +403,16 @@ export function EventRequestTable() {
 																Rejeitar solicitação
 															</button>
 
-															<button
-																type="button"
-																className="h-12 w-52 font-semibold px-8 cursor-pointer bg-cyan-600"
-															>
-																Confirmar evento
-															</button>
+															<ConfirmEventSheet>
+																<Sheet.Trigger asChild>
+																	<Button
+																		type="submit"
+																		className="h-12 w-52 font-semibold px-8 rounded-none cursor-pointer bg-cyan-600 outline-none lg:w-56 normal-case"
+																	>
+																		Confirmar evento
+																	</Button>
+																</Sheet.Trigger>
+															</ConfirmEventSheet>
 														</div>
 													</div>
 												</Accordion.Content>

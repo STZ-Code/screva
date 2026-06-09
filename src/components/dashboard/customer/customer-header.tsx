@@ -2,17 +2,14 @@
 import {
 	CalendarBlankIcon,
 	MapPinIcon,
-	ShareNetworkIcon,
+	// ShareNetworkIcon,
 	UsersIcon,
 } from '@phosphor-icons/react'
 import { Avatar } from '@stz-code/ui'
 import Image from 'next/image'
 import exampleImg from '@/assets/examples/banner-example.jpg'
-import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 export function CustomerHeader() {
-	const desktop = useBreakpoint('lg')
-
 	return (
 		<section className="flex flex-col w-full h-fit lg:border-l lg:border-r border-zinc-700 items-center">
 			<div className="w-full h-48 relative">
@@ -24,14 +21,14 @@ export function CustomerHeader() {
 					className="w-full h-full object-cover"
 				/>
 
-				<button
+				{/* <button
 					type="button"
 					className="text-zinc-100 bg-cyan-600 rounded-md py-2 lg:px-4 px-2 font-bold h-fit absolute top-2 right-2 flex items-center gap-2 cursor-pointer hover:bg-cyan-700 transition-colors"
 				>
 					{desktop && 'Compartilhar'}
 
 					<ShareNetworkIcon size={16} />
-				</button>
+				</button> */}
 			</div>
 
 			<div className="relative w-full border-b border-zinc-700 flex lg:px-16 px-6">

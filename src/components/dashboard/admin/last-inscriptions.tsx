@@ -1,5 +1,6 @@
 'use client'
 import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
+import Link from 'next/link'
 import { CaretRight, CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
@@ -92,7 +93,7 @@ export function LastInscriptions() {
 
 	return (
 		<div className="flex-1 h-full flex flex-col">
-			<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1">
+			<Box className="border-zinc-800 gap-3 p-6 flex-1">
 				<h2 className="text-2xl text-zinc-100 font-semibold">
 					Últimas inscrições
 				</h2>
@@ -111,15 +112,6 @@ export function LastInscriptions() {
 					</Table.Container>
 				</Table.Root>
 			</Box>
-			<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-				<button
-					type="button"
-					className="text-cyan-600 text-sm flex-1  flex justify-between"
-				>
-					Ver mais detalhes
-					<CaretRight className="size-5" />
-				</button>
-			</div>
 		</div>
 	)
 }

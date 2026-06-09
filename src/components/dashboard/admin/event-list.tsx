@@ -1,5 +1,6 @@
 'use client'
 import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
+import Link from 'next/link'
 import { CaretRight, CheckCircle } from 'phosphor-react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
@@ -94,13 +95,13 @@ export function EventList() {
 				</Table.Root>
 			</Box>
 			<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-				<button
-					type="button"
-					className="text-cyan-600 text-sm flex-1 flex justify-between"
+				<Link
+					href={'/dashboard/eventos'}
+					className="text-cyan-600 text-sm flex-1 flex justify-between cursor-pointer hover:opacity-80 transition-opacity"
 				>
 					Ver mais detalhes
 					<CaretRight className="size-5" />
-				</button>
+				</Link>
 			</div>
 		</div>
 	)

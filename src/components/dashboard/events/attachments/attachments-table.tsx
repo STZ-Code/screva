@@ -17,6 +17,7 @@ import {
 import { Button } from '@/components/button'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { CreateTeamSheet } from '../../teams/create-team-sheet'
+import { AddDocumentSheet } from './add-document-sheet'
 
 type Event = {
 	id: string
@@ -114,7 +115,7 @@ export function AttachmentsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<CreateTeamSheet>
+				<AddDocumentSheet>
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
@@ -124,7 +125,7 @@ export function AttachmentsTable() {
 							Adicionar documento
 						</Button>
 					</Sheet.Trigger>
-				</CreateTeamSheet>
+				</AddDocumentSheet>
 			</div>
 
 			<Table.Filters>

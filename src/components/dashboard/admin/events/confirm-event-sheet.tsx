@@ -1,5 +1,3 @@
-'use client'
-
 import { PlusIcon } from '@phosphor-icons/react'
 import {
 	Avatar,
@@ -11,8 +9,8 @@ import {
 	Sheet,
 	Textarea,
 } from '@stz-code/ui'
+import type React from 'react'
 import { useForm } from 'react-hook-form'
-import { Button } from '@/components/button'
 import { FormSection } from '@/components/form-section'
 
 type Organizer = {
@@ -21,55 +19,48 @@ type Organizer = {
 	email: string
 }
 
-export function CreateEventSheet() {
-	const { control } = useForm()
+const organizers: Organizer[] = [
+	{
+		id: 'gab-gar',
+		name: 'Gabriel Garcez',
+		email: 'ggarcez613@gmail.com',
+	},
+	{
+		id: 'vini-lem',
+		name: 'Vinicius Lemos',
+		email: 'viniciuslemos@gmail.com',
+	},
+	{
+		id: 'alexandre-nasc',
+		name: 'Alexandre Nascimento',
+		email: 'alexandremn7728@gmail.com',
+	},
+	{
+		id: 'joel-oliv',
+		name: 'Joel Oliveira',
+		email: 'joeloliveira@gmail.com',
+	},
+	{
+		id: 'lucas-alb',
+		name: 'Lucas Alberto',
+		email: 'lucasalberto@gmail.com',
+	},
+]
 
-	const organizers: Organizer[] = [
-		{
-			id: 'gab-gar',
-			name: 'Gabriel Garcez',
-			email: 'ggarcez613@gmail.com',
-		},
-		{
-			id: 'vini-lem',
-			name: 'Vinicius Lemos',
-			email: 'viniciuslemos@gmail.com',
-		},
-		{
-			id: 'alexandre-nasc',
-			name: 'Alexandre Nascimento',
-			email: 'alexandremn7728@gmail.com',
-		},
-		{
-			id: 'joel-oliv',
-			name: 'Joel Oliveira',
-			email: 'joeloliveira@gmail.com',
-		},
-		{
-			id: 'lucas-alb',
-			name: 'Lucas Alberto',
-			email: 'lucasalberto@gmail.com',
-		},
-	]
+export function ConfirmEventSheet({ children }: { children: React.ReactNode }) {
+	const { control } = useForm()
 
 	return (
 		<Sheet.Root>
-			<Sheet.Trigger asChild>
-				<Button
-					type="submit"
-					className="py-2 outline-none h-fit lg:w-56 w-full px-6 normal-case font-semibold flex gap-2"
-				>
-					<PlusIcon size={20} weight="bold" />
-					Criar evento
-				</Button>
-			</Sheet.Trigger>
-			<Sheet.Content className="lg:w-2/5 w-full bg-neutral-900 lg:border border-none border-cyan-600 gap-0">
+			{children}
+
+			<Sheet.Content className="w-2/5 bg-neutral-900 border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
-					<Sheet.Title>Criar novo evento</Sheet.Title>
+					<Sheet.Title>Confirmar Evento - Picos Pro Race</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root>
 						<FormSection.Header>
 							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
 							<FormSection.Description>
@@ -144,7 +135,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root>
 						<FormSection.Header>
 							<FormSection.Title>Organização do evento</FormSection.Title>
 							<FormSection.Description>
@@ -283,7 +274,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root>
 						<FormSection.Header>
 							<FormSection.Title>Configuração Financeira</FormSection.Title>
 							<FormSection.Description>
@@ -328,7 +319,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root>
 						<FormSection.Header>
 							<FormSection.Title>Endereço do evento</FormSection.Title>
 							<FormSection.Description>
