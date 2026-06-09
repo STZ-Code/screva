@@ -95,7 +95,7 @@ const EVENT_ITEMS = (slug: string): NavItem[] => [
 	},
 	{
 		label: 'Configurações',
-		href: `/dashboard/ev/${slug}/configuracoes`,
+		href: `/dashboard/ev/${slug}/configuracoes/basico`,
 	},
 ]
 
@@ -135,6 +135,15 @@ export function Header({ user }: HeaderProps) {
 
 		if (isEventPage && pathname === `/dashboard/ev/${slug}/entrega-kit`) {
 			if (href === `/dashboard/ev/${slug}/kits`) return true
+		}
+
+		if (
+			href === `/dashboard/ev/${slug}/configuracoes/basico` ||
+			href === `/dashboard/ev/${slug}/configuracoes/eq-org` ||
+			href === `/dashboard/ev/${slug}/configuracoes/localizacao` ||
+			href === `/dashboard/ev/${slug}/configuracoes/premiacao`
+		) {
+			return pathname.startsWith(`/dashboard/ev/${slug}/configuracoes/`)
 		}
 
 		return pathname.startsWith(href)
