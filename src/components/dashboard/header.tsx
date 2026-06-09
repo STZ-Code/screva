@@ -133,6 +133,10 @@ export function Header({ user }: HeaderProps) {
 			return pathname === href
 		}
 
+		if (isEventPage && pathname === `/dashboard/ev/${slug}/entrega-kit`) {
+			if (href === `/dashboard/ev/${slug}/kits`) return true
+		}
+
 		return pathname.startsWith(href)
 	}
 
