@@ -6,8 +6,6 @@ export async function contextMiddleware(
 ) {
 	const { pathname } = req.nextUrl
 
-	console.log('pathname =>', pathname)
-
 	if (pathname.startsWith('/dashboard/eq/')) {
 		const [, , , slug] = pathname.split('/')
 

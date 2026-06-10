@@ -179,7 +179,11 @@ export function TeamsTable() {
 		>
 			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
 				<div className="flex gap-2 w-full">
-					<Table.FilterInput id="name" className="flex-1">
+					<Table.FilterInput
+						id="name"
+						className="flex-1"
+						fieldClassName="w-full bg-zinc-900"
+					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
 							className="text-zinc-600 group-focus-within:text-cyan-500"
