@@ -10,7 +10,7 @@ import {
 	SignOutIcon,
 	UserIcon,
 } from '@phosphor-icons/react'
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'

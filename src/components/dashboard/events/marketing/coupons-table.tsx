@@ -3,25 +3,23 @@
 import {
 	CheckCircleIcon,
 	DotsThreeIcon,
-	DownloadSimpleIcon,
 	FunnelIcon,
 	MagnifyingGlassIcon,
 	PlusIcon,
 } from '@phosphor-icons/react'
 import {
-	Dropdown,
 	Field,
 	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
-import { CreateTeamSheet } from '../../teams/create-team-sheet'
 import { CreateCouponSheet } from './create-coupon-sheet'
 
 type Event = {

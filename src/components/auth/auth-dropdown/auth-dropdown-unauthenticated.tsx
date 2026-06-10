@@ -1,6 +1,6 @@
 'use client'
 
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { Logo } from '@/assets/images/logo'

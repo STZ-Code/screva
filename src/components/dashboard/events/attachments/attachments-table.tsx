@@ -7,13 +7,13 @@ import {
 	PlusIcon,
 } from '@phosphor-icons/react'
 import {
-	Dropdown,
 	Field,
 	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { Button } from '@/components/button'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { CreateTeamSheet } from '../../teams/create-team-sheet'

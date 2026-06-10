@@ -1,12 +1,8 @@
 'use client'
 
 import { DotsThreeIcon, InstagramLogoIcon } from '@phosphor-icons/react'
-import {
-	Dropdown,
-	type STZColumnDef,
-	Table,
-	TablePagination,
-} from '@stz-code/ui'
+import { type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Event = {

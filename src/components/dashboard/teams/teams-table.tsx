@@ -8,13 +8,13 @@ import {
 } from '@phosphor-icons/react'
 import {
 	Avatar,
-	Dropdown,
 	Field,
 	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'

@@ -1,12 +1,7 @@
 'use client'
 import { CheckCircleIcon, DotsThreeIcon } from '@phosphor-icons/react'
-import {
-	Avatar,
-	Dropdown,
-	type STZColumnDef,
-	Table,
-	TablePagination,
-} from '@stz-code/ui'
+import { Avatar, type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'

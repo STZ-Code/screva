@@ -1,5 +1,5 @@
 'use client'
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import type { ReactNode } from 'react'
 
 type AuthDropdownRootProps = {

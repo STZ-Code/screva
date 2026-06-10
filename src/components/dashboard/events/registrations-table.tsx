@@ -9,13 +9,13 @@ import {
 } from '@phosphor-icons/react'
 import {
 	Avatar,
-	Dropdown,
 	Field,
 	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/dropdown'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Button } from '@/components/button'

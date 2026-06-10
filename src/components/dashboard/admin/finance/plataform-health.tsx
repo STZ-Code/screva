@@ -1,6 +1,7 @@
 'use client'
 import { DotsThreeVerticalIcon } from '@phosphor-icons/react'
-import { Dropdown, type STZColumnDef, Table } from '@stz-code/ui'
+import { type STZColumnDef, Table } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'

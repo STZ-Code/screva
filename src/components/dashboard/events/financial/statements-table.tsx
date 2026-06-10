@@ -9,13 +9,13 @@ import {
 	PlusIcon,
 } from '@phosphor-icons/react'
 import {
-	Dropdown,
 	Field,
 	Sheet,
 	type STZColumnDef,
 	Table,
 	TablePagination,
 } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/dropdown'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'

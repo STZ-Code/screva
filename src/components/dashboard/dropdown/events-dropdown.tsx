@@ -1,21 +1,73 @@
-'use client'
-import { CaretUpDownIcon, PlusCircleIcon } from '@phosphor-icons/react'
-import { Avatar, Dropdown, Sheet } from '@stz-code/ui'
-import exampleImg from '@/assets/examples/picos.jpg'
+import { Dropdown } from '@stz-code/ui/dropdown'
+import { cookies } from 'next/headers'
+import Link from 'next/link'
+import sescImg from '@/assets/examples/jaboatao.png'
+import cronosImg from '@/assets/examples/organizer.png'
+import picosImg from '@/assets/examples/picos.jpg'
+import { CaretUpDown } from '@/components/icons/caret-up-down'
+import { cn } from '@/utils/utils'
 import { CreateEventRequestSheet } from '../admin/events/create-event-request-sheet'
-import { CreateTeamSheet } from '../teams/create-team-sheet'
+import { CreateEventRequest } from './create-event-request-button'
+import { ProvAvatar } from './prov-avatar'
 
-export function EventsDropdown() {
+const events = [
+	{
+		id: 'event-1',
+		name: 'Picos Pro Race',
+		slug: 'picos-pro-race',
+		url: picosImg.src,
+	},
+	{
+		id: 'event-2',
+		name: 'SESC Jaboatão',
+		slug: 'sesc-jaboatao',
+		url: sescImg.src,
+	},
+	{
+		id: 'event-3',
+		name: 'Corrida da Cronosvale',
+		slug: 'corrida-da-cronosvale',
+		url: cronosImg.src,
+	},
+]
+
+export async function EventsDropdown() {
+	const cookie = await cookies()
+
+	const currentEventSlug = cookie.get('ev')?.value
+	const currentTeamSlug = cookie.get('eq')?.value
+
+	const currentEvent = events.find((event) => event.slug === currentEventSlug)
+
 	return (
 		<Dropdown.Root>
 			<Dropdown.Trigger className="cursor-pointer">
 				<div className="flex w-fit max-w-60 items-center gap-2 rounded p-1 text-sm font-medium outline-none focus-visible:ring-2 focus-visible:ring-cyan-600">
-					<span className="text-zinc-200 truncate">Visão Geral</span>
+					{currentEvent ? (
+						<>
+							<ProvAvatar
+								data={{ name: currentEvent.name, url: currentEvent.url }}
+								className={cn('size-6 rounded')}
+							/>
+							<span className="text-zinc-200 truncate">
+								{currentEvent.name}
+							</span>
 
-					<CaretUpDownIcon
-						className="ml-auto size-4 text-zinc-200"
-						weight="bold"
-					/>
+							<CaretUpDown
+								className="ml-auto size-4 text-zinc-200"
+								weight="bold"
+							/>
+						</>
+					) : (
+						<>
+							<span className="text-zinc-200 truncate">Geral</span>
+
+							<CaretUpDown
+								className="ml-auto size-4 text-zinc-200"
+								weight="bold"
+							/>
+						</>
+					)}
 				</div>
 			</Dropdown.Trigger>
 
@@ -27,13 +79,46 @@ export function EventsDropdown() {
 				<Dropdown.Group>
 					<Dropdown.Label>Eventos</Dropdown.Label>
 
-					<Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
-						<Avatar.Root className="size-6 rounded">
-							<Avatar.Image src={exampleImg.src} />
-							<Avatar.Fallback>Pro Race</Avatar.Fallback>
-						</Avatar.Root>
-						<span className="line-clamp-1">Picos Pro Race</span>
+					<Dropdown.Separator className="text-zinc-300 bg-zinc-700" />
+
+					<Dropdown.Item asChild>
+						<Link
+							href={
+								currentTeamSlug
+									? `/dashboard/eq/${currentTeamSlug}`
+									: '/dashboard'
+							}
+							className="cursor-pointer hover:bg-zinc-600 transition-colors outline-none rounded"
+						>
+							<span className="line-clamp-1">Geral</span>
+						</Link>
 					</Dropdown.Item>
+
+					{events.map((event) => (
+						<Dropdown.Item key={event.id} asChild>
+							<Link
+								href={`/dashboard/ev/${event.slug}`}
+								className="cursor-pointer hover:bg-zinc-600 transition-colors outline-none rounded"
+							>
+								<ProvAvatar
+									className="size-6 rounded"
+									data={{ name: 'Gabriel Garcez', url: event.url }}
+								/>
+								{/* <Avatar.Root className="size-6 rounded">
+									<Avatar.Image src={exampleImg.src} />
+									<Avatar.Fallback>Pro Race</Avatar.Fallback>
+								</Avatar.Root> */}
+								<span className="line-clamp-1">{event.name}</span>
+							</Link>
+						</Dropdown.Item>
+					))}
+					{/* <Dropdown.Item className="hover:bg-zinc-600 transition-colors outline-none rounded">
+						<ProvAvatar
+							data={{ name: 'Pìcos PRO RACE' }}
+							className={cn('size-6 rounded')}
+						/>
+						<span className="line-clamp-1">Picos Pro Race</span>
+					</Dropdown.Item> */}
 				</Dropdown.Group>
 
 				<Dropdown.Separator className="text-zinc-300 bg-zinc-700" />
@@ -43,10 +128,7 @@ export function EventsDropdown() {
 					asChild
 				>
 					<CreateEventRequestSheet>
-						<Sheet.Trigger className="outline-none cursor-pointer px-2 py-2 w-full text-sm hover:bg-zinc-600 transition-colors normal-case font-semibold flex gap-2 line-clamp-1">
-							<PlusCircleIcon className="size-5 mr-2" />
-							Anunciar novo evento
-						</Sheet.Trigger>
+						<CreateEventRequest />
 					</CreateEventRequestSheet>
 				</Dropdown.Item>
 			</Dropdown.Content>

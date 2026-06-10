@@ -1,4 +1,4 @@
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import { cn } from '@/utils/utils'
 

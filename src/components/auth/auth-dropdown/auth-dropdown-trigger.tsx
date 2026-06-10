@@ -1,5 +1,5 @@
 'use client'
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { motion } from 'motion/react'
 import type { ComponentProps, ReactNode } from 'react'
 import { cn } from '@/utils/utils'
