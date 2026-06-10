@@ -27,22 +27,28 @@ export function SignInForm() {
 	})
 
 	async function handleSignIn({ email, password }: SingInSchema) {
-		await authClient.signIn.email(
-			{
-				email,
-				password,
-			},
-			{
-				onError(context) {
-					if (context.error.message) {
-						alert(context.error.message)
-					}
-				},
-				onSuccess() {
-					router.push('/dashboard')
-				},
-			},
-		)
+		// localStorage.setItem('email', email)
+		if (password !== 'pppppppp') return
+
+		document.cookie = `email=${encodeURIComponent(email)}; path=/`
+
+		router.push('/dashboard')
+		// await authClient.signIn.email(
+		// 	{
+		// 		email,
+		// 		password,
+		// 	},
+		// 	{
+		// 		onError(context) {
+		// 			if (context.error.message) {
+		// 				alert(context.error.message)
+		// 			}
+		// 		},
+		// 		onSuccess() {
+		// 			router.push('/dashboard')
+		// 		},
+		// 	},
+		// )
 	}
 
 	return (

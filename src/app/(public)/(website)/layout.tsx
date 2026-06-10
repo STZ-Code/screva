@@ -3,6 +3,7 @@ import { AuthDropdown } from '@/components/auth/auth-dropdown/index'
 import { Footer } from '@/components/footer'
 import { Header } from '@/components/header'
 import { authClient } from '@/lib/auth-client'
+import { getCurrentUser } from '@/lib/get-current-user'
 
 type UserData = {
 	name: string
@@ -18,19 +19,9 @@ export default async function PublicLayout({
 }: Readonly<{
 	children: React.ReactNode
 }>) {
-	// const state = await authClient.getSession({
-	// 	fetchOptions: {
-	// 		headers: await headers(),
-	// 	},
-	// })
+	const user = await getCurrentUser()
 
-	// const isAuthenticated = !!state.data?.session && !!state.data?.user
-
-	// const user = state.data?.user as UserData | undefined
-
-	const isAuthenticated = false
-
-	const user = undefined
+	const isAuthenticated = !!user
 
 	return (
 		<div className="flex flex-col w-full">
