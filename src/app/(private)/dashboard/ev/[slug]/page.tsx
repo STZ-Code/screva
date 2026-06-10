@@ -1,4 +1,7 @@
+import { EventLocation } from '@/components/dashboard/events/event-location'
 import { EventMetrics } from '@/components/dashboard/events/event-metrics'
+import { EventSummary } from '@/components/dashboard/events/event-summary'
+import { EventTeams } from '@/components/dashboard/events/event-teams'
 import { Heading } from '@/components/dashboard/heading'
 import { Main } from '@/components/dashboard/main'
 
@@ -16,6 +19,12 @@ export default function EventOverview() {
 			</Heading.Root>
 
 			<EventMetrics />
+
+			<div className="flex gap-6">
+				<EventSummary />
+				<EventTeams />
+				<EventLocation />
+			</div>
 		</Main>
 	)
 }

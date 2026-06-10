@@ -1,9 +1,11 @@
 'use client'
 import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
+import Link from 'next/link'
 import { CaretRight, CheckCircle } from 'phosphor-react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 
 type Inscription = {
 	id: string
@@ -13,11 +15,13 @@ type Inscription = {
 }
 
 export function EventList() {
+	const desktop = useBreakpoint('lg')
+
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
-			size: 48,
+			size: desktop ? 48 : 28,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full">
@@ -25,9 +29,9 @@ export function EventList() {
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 						</Avatar.Root>
-						<div>
-							<p className="text-zinc-200">{info.row.original.name}</p>
-							<p className="text-zinc-500 text-sm line-clamp-1">
+						<div className="min-w-0">
+							<p className="text-zinc-200 truncate">{info.row.original.name}</p>
+							<p className="text-zinc-500 text-sm truncate">
 								{info.row.original.city}
 							</p>
 						</div>
@@ -70,32 +74,34 @@ export function EventList() {
 	]
 
 	return (
-		<div className="w-1/4 h-full flex flex-col">
+		<div className="lg:w-1/4 h-full flex flex-col">
 			<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1">
 				<h2 className="text-2xl text-zinc-100 font-semibold">
 					Próximos eventos
 				</h2>
 
-				<Table.Root columns={columns} data={data} className="border-none">
-					<Table.Container>
-						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
+				<Table.Root columns={columns} data={data}>
+					<Table.Container className="border-none">
+						<Table.Content>
+							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
-						<Table.Body>
-							<Table.Row className="border-zinc-800">
-								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-							</Table.Row>
-						</Table.Body>
+							<Table.Body>
+								<Table.Row className="border-zinc-800">
+									<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+								</Table.Row>
+							</Table.Body>
+						</Table.Content>
 					</Table.Container>
 				</Table.Root>
 			</Box>
 			<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-				<button
-					type="button"
-					className="text-cyan-600 text-sm flex-1 flex justify-between"
+				<Link
+					href={'/dashboard/eventos'}
+					className="text-cyan-600 text-sm flex-1 flex justify-between cursor-pointer hover:opacity-80 transition-opacity"
 				>
 					Ver mais detalhes
 					<CaretRight className="size-5" />
-				</button>
+				</Link>
 			</div>
 		</div>
 	)

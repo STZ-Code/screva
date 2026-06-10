@@ -9,13 +9,13 @@ import { Kpi } from '../../kpi'
 
 export function KitDeliveryMetrics() {
 	return (
-		<div className="grid grid-cols-3 gap-3">
-			<Kpi.Root className="flex-row gap-8">
-				<HandbagIcon size={64} />
+		<div className="flex gap-4 flex-wrap">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none flex-row">
+				<HandbagIcon className="lg:size-16 size-12" />
 				<div className="flex flex-col justify-between">
 					<Kpi.Label>Kits entregues</Kpi.Label>
 
-					<div className="flex flex-col gap-1 mt-4">
+					<div className="flex flex-col gap-1 lg:mt-4 mt-3">
 						<Kpi.Value>312</Kpi.Value>
 						<span className="text-zinc-400 text-sm font-medium">
 							do total de 440
@@ -24,12 +24,12 @@ export function KitDeliveryMetrics() {
 				</div>
 			</Kpi.Root>
 
-			<Kpi.Root className="flex-row gap-8">
-				<ClockIcon size={64} />
-				<div className="flex flex-col justify-between">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none flex-row">
+				<ClockIcon className="lg:size-16 size-12" />
+				<div className="flex flex-col lg:justify-between">
 					<Kpi.Label>Pendentes</Kpi.Label>
 
-					<div className="flex flex-col gap-1 mt-4">
+					<div className="flex flex-col gap-1 lg:mt-4 mt-3">
 						<Kpi.Value>128</Kpi.Value>
 						<span className="text-zinc-400 text-sm font-medium">
 							ainda não retirados
@@ -38,12 +38,12 @@ export function KitDeliveryMetrics() {
 				</div>
 			</Kpi.Root>
 
-			<Kpi.Root className="flex-row gap-8">
-				<ChartPieSliceIcon size={64} />
+			<Kpi.Root className="w-full lg:flex-1 rounded bg-neutral-900 shadow-none flex-row">
+				<ChartPieSliceIcon className="lg:size-16 size-12" />
 				<div className="flex flex-col justify-between">
 					<Kpi.Label>Porcentagem de retirada</Kpi.Label>
 
-					<div className="flex flex-col gap-1 mt-4">
+					<div className="flex flex-col gap-1 lg:mt-4 mt-3">
 						<Kpi.Value>71%</Kpi.Value>
 						<span className="text-zinc-400 text-sm font-medium">
 							dos inscritos

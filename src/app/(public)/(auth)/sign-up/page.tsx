@@ -3,7 +3,7 @@ import { SignUpContainer } from '@/components/auth/sign-up-container'
 
 export default function SignInPage() {
 	return (
-		<div className="items-center flex h-full w-full gap-6">
+		<div className="items-center flex w-full gap-6 h-screen">
 			<Presenter type="sign-up" />
 
 			<SignUpContainer />

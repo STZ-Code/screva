@@ -1,11 +1,17 @@
 'use client'
+
 import { TicketIcon } from '@phosphor-icons/react'
+import { usePathname } from 'next/navigation'
 import { ActionDivider } from '@/components/action-divider'
-import { Button } from '@/components/button'
+import { AdvanceButton } from './advance-button'
 
 export function OrderSummary() {
+	const pathname = usePathname()
+
+	const isSummaryPage = pathname.endsWith('/resumo')
+
 	return (
-		<section className="flex-1 px-14 py-10 flex flex-col gap-8">
+		<section className="hidden flex-1 px-28 py-10 lg:flex flex-col gap-8">
 			<h3 className="text-zinc-100 font-semibold text-4xl">Pedido</h3>
 
 			<div>
@@ -63,13 +69,15 @@ export function OrderSummary() {
 
 				<ActionDivider />
 
-				<button
-					type="button"
-					className="my-8 flex gap-3 items-center justify-center border border-zinc-700 w-full rounded py-5 text-zinc-100 font-semibold hover:bg-neutral-800 transition-colors"
-				>
-					<TicketIcon size={24} />
-					Aplicar cupom
-				</button>
+				{!isSummaryPage && (
+					<button
+						type="button"
+						className="my-8 flex gap-3 items-center justify-center border border-zinc-700 w-full rounded py-5 text-zinc-100 font-semibold hover:bg-neutral-800 transition-colors"
+					>
+						<TicketIcon size={24} />
+						Aplicar cupom
+					</button>
+				)}
 
 				<div className="flex flex-col gap-2">
 					<div className="flex items-center justify-between">
@@ -94,7 +102,7 @@ export function OrderSummary() {
 				</div>
 			</div>
 
-			<Button>Avançar</Button>
+			{!isSummaryPage && <AdvanceButton />}
 		</section>
 	)
 }

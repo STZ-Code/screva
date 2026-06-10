@@ -20,7 +20,7 @@ export function SettingsHelpForm() {
 					</FormSection.Description>
 				</FormSection.Header>
 
-				<div className="flex gap-3 w-full">
+				<div className="flex gap-3 w-full lg:flex-row flex-col">
 					<Field.Root control={control} name="instagram" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Instagram

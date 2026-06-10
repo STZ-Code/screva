@@ -19,8 +19,11 @@ type ProfileButtonProps = {
 export function ProfileButton({ user, isAuthenticated }: ProfileButtonProps) {
 	return (
 		<AuthDropdown.Root>
-			<AuthDropdown.Trigger type="button">
-				<div className="flex items-center gap-3 outline-none">
+			<AuthDropdown.Trigger
+				type="button"
+				className="cursor-pointer group hover:opacity-80 transition-opacity"
+			>
+				<div className="lg:flex hidden items-center gap-3 outline-none">
 					<div className="flex flex-col items-end">
 						<span className="text-sm font-medium">Gabriel Garcez</span>
 						<span className="text-xs text-zinc-400">ggarcez613@gmail.com</span>
@@ -29,7 +32,7 @@ export function ProfileButton({ user, isAuthenticated }: ProfileButtonProps) {
 						<Avatar.Image src="https://github.com/garcez17.png" />
 						<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 					</Avatar.Root>
-					<CaretDownIcon className="size-4 text-zinc-400" />
+					<CaretDownIcon className="size-4 text-zinc-400 transition-transform group-data-[state=open]:rotate-180" />
 				</div>
 			</AuthDropdown.Trigger>
 

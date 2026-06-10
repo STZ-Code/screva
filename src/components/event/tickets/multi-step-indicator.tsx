@@ -1,41 +1,83 @@
 'use client'
 
 import { MoneyWavyIcon, TicketIcon, UsersIcon } from '@phosphor-icons/react'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
+import { useMultiStepForm } from '@/hooks/use-multistep-form'
+
+const steps = [
+	{
+		label: 'Ingressos',
+		icon: TicketIcon,
+		id: 'tickets',
+	},
+	{
+		id: 'athlete-profiles',
+		label: 'Perfil',
+		icon: UsersIcon,
+	},
+	{
+		id: 'payment-methods',
+		label: 'Pagamento',
+		icon: MoneyWavyIcon,
+	},
+]
 
 export function MultiStepIndicator() {
+	const { currentStepIndex, goTo, isLastStep } = useMultiStepForm()
+	const desktop = useBreakpoint('md')
+
+	const progress = (currentStepIndex / (steps.length - 1)) * 100
+
+	const progressWidth = isLastStep ? '14' : desktop ? '8' : '20'
+
 	return (
-		<div className="flex items-center justify-between px-24 py-7 bg-neutral-900 rounded border border-zinc-700 relative">
-			{/* Barra base */}
-			<div className="absolute left-[18%] right-[18%] top-[62%] -translate-y-1/2 h-[2px] bg-zinc-700" />
+		<div className="relative rounded-md border border-zinc-700 bg-neutral-900 px-4 py-6">
+			<div className="absolute left-[calc(16.666%-4px)] right-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] md:right-[calc(8.666%-4px)] top-11 h-0.5 bg-zinc-700" />
 
-			{/* Barra ativa */}
-			<div className="absolute left-[18%] w-[32%] top-[62%] -translate-y-1/2 h-[2px] bg-cyan-600" />
+			<div
+				className="absolute left-[calc(16.666%-4px)] md:left-[calc(8.666%-4px)] top-11 h-0.5 bg-cyan-600 transition-all duration-300"
+				style={{
+					width: `calc(${progress}% - ${progressWidth}.666%)`,
+				}}
+			/>
 
-			{/* STEP 1 */}
-			<div className="flex flex-col items-center justify-center gap-2 relative z-10 bg-neutral-900 px-2">
-				<span className="text-sm text-cyan-600">Ingressos e Extras</span>
+			<div className="relative z-10 flex items-start justify-between">
+				{steps.map((step, index) => {
+					const Icon = step.icon
 
-				<div className="border border-cyan-600 rounded-full p-2 w-fit text-cyan-600 bg-neutral-900">
-					<TicketIcon size={14} />
-				</div>
-			</div>
+					const completed = index <= currentStepIndex
 
-			{/* STEP 2 */}
-			<div className="flex flex-col items-center justify-center gap-2 relative z-10 bg-neutral-900 px-2">
-				<span className="text-sm text-cyan-600">Perfil do Atleta</span>
+					return (
+						<button
+							key={step.label}
+							onClick={() => goTo(step.id)}
+							type="button"
+							className="flex w-20 flex-col items-center gap-2 cursor-pointer"
+						>
+							<div
+								className={`
+									flex h-10 w-10 items-center justify-center rounded-full border bg-neutral-900
+									${
+										completed
+											? 'border-cyan-600 text-cyan-600'
+											: 'border-zinc-700 text-zinc-500'
+									}
+								`}
+							>
+								<Icon size={18} weight="bold" />
+							</div>
 
-				<div className="border border-cyan-600 rounded-full p-2 w-fit text-cyan-600 bg-neutral-900">
-					<UsersIcon size={14} />
-				</div>
-			</div>
-
-			{/* STEP 3 */}
-			<div className="flex flex-col items-center justify-center gap-2 relative z-10 bg-neutral-900 px-2">
-				<span className="text-sm text-zinc-500">Pagamento</span>
-
-				<div className="border border-zinc-700 rounded-full p-2 w-fit text-zinc-500 bg-neutral-900">
-					<MoneyWavyIcon size={14} />
-				</div>
+							<span
+								className={`
+									text-center text-[11px] leading-tight sm:text-xs
+									${completed ? 'text-cyan-600' : 'text-zinc-500'}
+								`}
+							>
+								{step.label}
+							</span>
+						</button>
+					)
+				})}
 			</div>
 		</div>
 	)

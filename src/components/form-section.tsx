@@ -18,7 +18,7 @@ export function FormSectionRoot({ children, className }: FormSectionProps) {
 
 export function FormSectionHeader({ children, className }: FormSectionProps) {
 	return (
-		<div className={cn('flex flex-col gap-1 w-5/12', className)}>
+		<div className={cn('flex flex-col gap-1 lg:w-5/12 w-full', className)}>
 			{children}
 		</div>
 	)

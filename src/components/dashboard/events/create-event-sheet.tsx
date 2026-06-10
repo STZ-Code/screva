@@ -57,19 +57,19 @@ export function CreateEventSheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit px-6 w-fit normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit lg:w-56 w-full px-6 normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Criar evento
 				</Button>
 			</Sheet.Trigger>
-			<Sheet.Content className="w-2/5 bg-neutral-900 border-cyan-600 gap-0">
+			<Sheet.Content className="lg:w-2/5 w-full bg-neutral-900 lg:border-l border-l-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar novo evento</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root>
+					<FormSection.Root className="lg:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
 							<FormSection.Description>
@@ -144,17 +144,17 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root>
+					<FormSection.Root className="lg:flex-row flex-col">
 						<FormSection.Header>
-							<FormSection.Title>Responsável pelo Evento</FormSection.Title>
+							<FormSection.Title>Organização do evento</FormSection.Title>
 							<FormSection.Description>
-								Selecione um usuário já cadastrado ou registre um novo
-								responsável para administrar este evento.
+								Selecione a equipe já cadastrada ou registre uma nova equipe
+								para administrar esse evento.
 							</FormSection.Description>
 						</FormSection.Header>
 
 						<FormSection.Content>
-							<Field.Root control={control} name="email">
+							<Field.Root control={control} name="organizer">
 								<Field.Label className="text-xs text-zinc-300">
 									Organizador do evento
 								</Field.Label>
@@ -165,7 +165,7 @@ export function CreateEventSheet() {
 									getLabel={(item) => item.name}
 								>
 									<Combobox.Control
-										placeholder="Busque por e-mail"
+										placeholder="Busque por nome ou e-mail"
 										className="focus-within:ring-cyan-500 border-neutral-700 pt-0 h-fit focus-within:ring-2"
 										inputClassName="placeholder:text-zinc-500 mt-1 mb-1 py-0"
 									/>
@@ -204,14 +204,77 @@ export function CreateEventSheet() {
 											)}
 										</Combobox.List>
 
-										<Combobox.Action className="hover:bg-neutral-800 transtion-colors">
+										<Combobox.Action className="hover:bg-neutral-800 transtion-colors cursor-pointer">
 											<PlusIcon
 												size={20}
 												weight="bold"
 												className="text-cyan-500"
 											/>
 											<span className="font-semibold text-sm">
-												Adicionar novo usuário
+												Adicionar nova equipe
+											</span>
+										</Combobox.Action>
+									</Combobox.Portal>
+								</Combobox.Root>
+							</Field.Root>
+							<Field.Root control={control} name="cronos">
+								<Field.Label className="text-xs text-zinc-300">
+									Cronometragem do evento
+								</Field.Label>
+
+								<Combobox.Root
+									options={organizers}
+									getValue={(item) => item.id}
+									getLabel={(item) => item.name}
+								>
+									<Combobox.Control
+										placeholder="Busque por nome ou e-mail"
+										className="focus-within:ring-cyan-500 border-neutral-700 pt-0 h-fit focus-within:ring-2"
+										inputClassName="placeholder:text-zinc-500 mt-1 mb-1 py-0"
+									/>
+
+									<Combobox.Portal
+										className="bg-neutral-900 border border-neutral-700 rounded-md"
+										sideOffset={8}
+									>
+										<Combobox.Fallback>
+											Nenhum usuário encontrado
+										</Combobox.Fallback>
+
+										<Combobox.List>
+											{(item: Organizer) => (
+												<Combobox.Item
+													key={item.id}
+													value={item}
+													className="flex gap-3 pr-2 border-b border-b-neutral-700 py-2 hover:bg-neutral-800 transtion-colors"
+												>
+													<Avatar.Root className="bg-zinc-800 size-10 rounded-md">
+														<Avatar.Image src="https://github.com/garcez17.png" />
+														<Avatar.Fallback className="text-zinc-100">
+															Teste Fallback
+														</Avatar.Fallback>
+													</Avatar.Root>
+
+													<div className="flex flex-col">
+														<span className="text-zinc-100 text-lg line-clamp-1">
+															{item.name}
+														</span>
+														<span className="text-xs font-semibold text-zinc-400">
+															{item.email}
+														</span>
+													</div>
+												</Combobox.Item>
+											)}
+										</Combobox.List>
+
+										<Combobox.Action className="hover:bg-neutral-800 transtion-colors cursor-pointer">
+											<PlusIcon
+												size={20}
+												weight="bold"
+												className="text-cyan-500"
+											/>
+											<span className="font-semibold text-sm">
+												Adicionar nova equipe
 											</span>
 										</Combobox.Action>
 									</Combobox.Portal>
@@ -220,7 +283,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root>
+					<FormSection.Root className="lg:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Configuração Financeira</FormSection.Title>
 							<FormSection.Description>
@@ -265,7 +328,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root>
+					<FormSection.Root className="lg:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Endereço do evento</FormSection.Title>
 							<FormSection.Description>

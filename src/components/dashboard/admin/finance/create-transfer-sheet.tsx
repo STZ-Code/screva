@@ -1,9 +1,45 @@
 'use client'
 
 import { PlusIcon } from '@phosphor-icons/react'
-import { Sheet } from '@stz-code/ui'
+import { Avatar, Combobox, Field, Input, Sheet, Textarea } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
+import { FormSection } from '@/components/form-section'
+import { maskProvider } from '@/utils/mask'
+
+type Organizer = {
+	id: string
+	name: string
+	email: string
+}
+
+const organizers: Organizer[] = [
+	{
+		id: 'gab-gar',
+		name: 'Gabriel Garcez',
+		email: 'ggarcez613@gmail.com',
+	},
+	{
+		id: 'vini-lem',
+		name: 'Vinicius Lemos',
+		email: 'viniciuslemos@gmail.com',
+	},
+	{
+		id: 'alexandre-nasc',
+		name: 'Alexandre Nascimento',
+		email: 'alexandremn7728@gmail.com',
+	},
+	{
+		id: 'joel-oliv',
+		name: 'Joel Oliveira',
+		email: 'joeloliveira@gmail.com',
+	},
+	{
+		id: 'lucas-alb',
+		name: 'Lucas Alberto',
+		email: 'lucasalberto@gmail.com',
+	},
+]
 
 export function CreateTransferSheet() {
 	const { control } = useForm()
@@ -24,95 +60,42 @@ export function CreateTransferSheet() {
 					<Sheet.Title>Registrar novo repasse</Sheet.Title>
 				</Sheet.Header>
 
-				{/* <div className="flex flex-col overflow-auto">
+				<div className="flex flex-col overflow-auto">
 					<FormSection.Root>
 						<FormSection.Header>
-							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
-							<FormSection.Description>
-								Defina as informações essenciais que identificam e estruturam o
-								seu evento.
-							</FormSection.Description>
+							<FormSection.Title>Repasses aos organizadores</FormSection.Title>
+
+							<div className="flex flex-col gap-3">
+								<FormSection.Description>
+									Registre seus repasses de valores ao organizador responsável
+									pelo evento.
+								</FormSection.Description>
+
+								<div className="flex flex-col gap-4">
+									<div className="flex flex-col gap-1">
+										<span className="text-sm text-zinc-400">
+											Total de vendas
+										</span>
+										<span className="text-sm text-zinc-200">R$ 6.400,98</span>
+									</div>
+									<div className="flex flex-col gap-1">
+										<span className="text-sm text-zinc-400">Já repassado</span>
+										<span className="text-sm text-zinc-200">R$ 1.400,98</span>
+									</div>
+									<div className="flex flex-col gap-1">
+										<span className="text-sm text-zinc-400">
+											Saldo restante
+										</span>
+										<span className="text-sm text-zinc-200">R$ 5.000,00</span>
+									</div>
+								</div>
+							</div>
 						</FormSection.Header>
 
 						<FormSection.Content>
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300" required>
-									Nome
-								</Field.Label>
-								<Input.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-									<Input.Control
-										placeholder="Nome do evento"
-										type="text"
-										className="placeholder:text-zinc-600 text-zinc-400"
-									/>
-								</Input.Root>
-							</Field.Root>
-
-							<Field.Root control={control} name="email">
+							<Field.Root control={control} name="cronos">
 								<Field.Label className="text-xs text-zinc-300">
-									Descrição
-								</Field.Label>
-								<Textarea.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-									<Textarea.Control
-										placeholder="Descrição geral do evento"
-										className="placeholder:text-zinc-600 text-zinc-400 h-48"
-									/>
-								</Textarea.Root>
-							</Field.Root>
-
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300">
-									Data do evento
-								</Field.Label>
-								<Input.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-									<Input.Control
-										placeholder="01/01/2026"
-										type="date"
-										className="placeholder:text-zinc-600 text-zinc-400"
-									/>
-								</Input.Root>
-							</Field.Root>
-
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300">
-									Data de encerramento das inscrições
-								</Field.Label>
-								<Input.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-									<Input.Control
-										placeholder="01/01/2026"
-										type="date"
-										className="placeholder:text-zinc-600 text-zinc-400"
-									/>
-								</Input.Root>
-							</Field.Root>
-
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300">
-									Quantidade máxima de inscrições
-								</Field.Label>
-								<Input.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-									<Input.Control
-										placeholder="999"
-										className="placeholder:text-zinc-600 text-zinc-400"
-									/>
-								</Input.Root>
-							</Field.Root>
-						</FormSection.Content>
-					</FormSection.Root>
-
-					<FormSection.Root>
-						<FormSection.Header>
-							<FormSection.Title>Responsável pelo Evento</FormSection.Title>
-							<FormSection.Description>
-								Selecione um usuário já cadastrado ou registre um novo
-								responsável para administrar este evento.
-							</FormSection.Description>
-						</FormSection.Header>
-
-						<FormSection.Content>
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300">
-									Organizador do evento
+									Organizador
 								</Field.Label>
 
 								<Combobox.Root
@@ -121,7 +104,7 @@ export function CreateTransferSheet() {
 									getLabel={(item) => item.name}
 								>
 									<Combobox.Control
-										placeholder="Busque por e-mail"
+										placeholder="Busque por nome ou e-mail"
 										className="focus-within:ring-cyan-500 border-neutral-700 pt-0 h-fit focus-within:ring-2"
 										inputClassName="placeholder:text-zinc-500 mt-1 mb-1 py-0"
 									/>
@@ -160,147 +143,49 @@ export function CreateTransferSheet() {
 											)}
 										</Combobox.List>
 
-										<Combobox.Action className="hover:bg-neutral-800 transtion-colors">
+										<Combobox.Action className="hover:bg-neutral-800 transtion-colors cursor-pointer">
 											<PlusIcon
 												size={20}
 												weight="bold"
 												className="text-cyan-500"
 											/>
 											<span className="font-semibold text-sm">
-												Adicionar novo usuário
+												Adicionar nova equipe
 											</span>
 										</Combobox.Action>
 									</Combobox.Portal>
 								</Combobox.Root>
 							</Field.Root>
-						</FormSection.Content>
-					</FormSection.Root>
 
-					<FormSection.Root>
-						<FormSection.Header>
-							<FormSection.Title>Configuração Financeira</FormSection.Title>
-							<FormSection.Description>
-								Configure a taxa aplicada às inscrições e defina o modelo de
-								cobrança.
-							</FormSection.Description>
-						</FormSection.Header>
-
-						<FormSection.Content>
-							<Field.Root control={control} name="taxes">
-								<Field.Label className="text-xs text-zinc-300">
-									Taxa por inscrição
+							<Field.Root control={control} name="name">
+								<Field.Label className="text-xs text-zinc-300" required>
+									Valor do repasse
 								</Field.Label>
-								<Radio.Root>
-									<Radio.Control className="flex w-full mt-1">
-										<Radio.Item
-											value="percentage"
-											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-r-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center justify-center"
-										>
-											Percentual (%)
-										</Radio.Item>
-										<Radio.Item
-											value="fixed"
-											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-l-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center justify-center"
-										>
-											Valor fixo (R$)
-										</Radio.Item>
-									</Radio.Control>
-								</Radio.Root>
-							</Field.Root>
-							<Field.Root control={control} name="email">
-								<Field.Label className="text-xs text-zinc-300">
-									Taxa por inscrição
-								</Field.Label>
-								<Input.Root className="py-2 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
+								<Input.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
 									<Input.Control
-										placeholder="Busque por nome ou e-mail"
+										placeholder="Valor em R$ a ser repassado"
+										maskProvider={maskProvider}
+										mask="CURRENCY"
+										type="text"
 										className="placeholder:text-zinc-600 text-zinc-400"
 									/>
 								</Input.Root>
 							</Field.Root>
-						</FormSection.Content>
-					</FormSection.Root>
 
-					<FormSection.Root>
-						<FormSection.Header>
-							<FormSection.Title>Endereço do evento</FormSection.Title>
-							<FormSection.Description>
-								Informe o local da realização do evento.
-							</FormSection.Description>
-						</FormSection.Header>
-
-						<FormSection.Content>
-							<div className="flex gap-2">
-								<Field.Root control={control} name="email">
-									<Field.Label className="text-xs text-zinc-300">
-										Rua
-									</Field.Label>
-									<Input.Root className="py-2 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-										<Input.Control
-											placeholder="Rua do evento"
-											className="placeholder:text-zinc-600 text-zinc-400"
-										/>
-									</Input.Root>
-								</Field.Root>
-								<Field.Root control={control} name="email" className="w-1/3">
-									<Field.Label className="text-xs text-zinc-300">
-										Nª
-									</Field.Label>
-									<Input.Root className="py-2 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-										<Input.Control
-											placeholder="1234"
-											className="placeholder:text-zinc-600 text-zinc-400"
-										/>
-									</Input.Root>
-								</Field.Root>
-							</div>
-
-							<div className="flex gap-2">
-								<Field.Root control={control} name="email">
-									<Field.Label className="text-xs text-zinc-300">
-										Cidade
-									</Field.Label>
-									<Input.Root className="py-2 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-										<Input.Control
-											placeholder="Cidade do evento"
-											className="placeholder:text-zinc-600 text-zinc-400"
-										/>
-									</Input.Root>
-								</Field.Root>
-								<Field.Root control={control} name="email" className="w-1/5">
-									<Field.Label className="text-xs text-zinc-300">
-										UF
-									</Field.Label>
-									<Input.Root className="py-2 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
-										<Input.Control
-											placeholder="PE"
-											className="placeholder:text-zinc-600 text-zinc-400"
-										/>
-									</Input.Root>
-								</Field.Root>
-							</div>
-
-							<Field.Root control={control} name="event-location">
+							<Field.Root control={control} name="description">
 								<Field.Label className="text-xs text-zinc-300">
-									Mapa
+									Descrição
 								</Field.Label>
-
-								<MapPicker.Root className="h-72 rounded-md border-neutral-700 border-2">
-									<MapPicker.Control>
-										<MapPicker.Marker />
-									</MapPicker.Control>
-									<MapPicker.Tools
-										position="bottom-right"
-										showZoom
-										showCompass
-										showLocate
-										showFullscreen
+								<Textarea.Root className="py-2 mt-1 border-neutral-700 focus-within:ring-2 focus-within:ring-cyan-500">
+									<Textarea.Control
+										placeholder="Observação extra"
+										className="placeholder:text-zinc-600 text-zinc-400 h-48"
 									/>
-								</MapPicker.Root>
+								</Textarea.Root>
 							</Field.Root>
 						</FormSection.Content>
 					</FormSection.Root>
-				</div> */}
+				</div>
 
 				<Sheet.Footer className="border-t border-t-neutral-700 flex-row justify-end">
 					<Sheet.Trigger asChild>

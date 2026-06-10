@@ -1,156 +1,46 @@
-'use client'
-import { LineVerticalIcon } from '@phosphor-icons/react'
-import { TabNavigator } from '@stz-code/ui/layout'
+import { cookies } from 'next/headers'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { MiniLogo } from '@/assets/images/mini-logo'
-import type { Role, User } from '@/lib/get-current-user'
-import { cn } from '@/utils/utils'
+import { getCurrentUser } from '@/lib/get-current-user'
+import { LineVertical } from '../icons/line-vertical'
 import { EventsDropdown } from './dropdown/events-dropdown'
 import { ProfileDropdown } from './dropdown/profile-dropdown'
+import { HeaderTabNavigator } from './header-tab-navigator'
 import { ProfileButton } from './profile-button'
 
-type HeaderProps = {
-	user: User
-}
+export async function Header() {
+	const user = await getCurrentUser()
 
-type NavItem = {
-	label: string
-	href: string
-	roles?: Role[]
-}
+	if (!user) return <p>Loading..</p>
 
-const NAVIGATOR_ITEMS: NavItem[] = [
-	{
-		label: 'Visão Geral',
-		href: '/dashboard',
-		roles: ['ADMIN', 'CUSTOMER'],
-	},
-	{
-		label: 'Eventos',
-		href: '/dashboard/eventos',
-		roles: ['ADMIN'],
-	},
-	{
-		label: 'Equipes',
-		href: '/dashboard/equipes',
-		roles: ['ADMIN'],
-	},
-	{
-		label: 'Financeiro',
-		href: '/dashboard/financeiro',
-		roles: ['ADMIN'],
-	},
-	{
-		label: 'Solicitações',
-		href: '/dashboard/solicitacoes',
-		roles: ['ADMIN'],
-	},
-	{
-		label: 'Inscrições',
-		href: '/dashboard/inscricoes',
-		roles: ['CUSTOMER'],
-	},
-	{
-		label: 'Histórico',
-		href: '/dashboard/historico',
-		roles: ['CUSTOMER'],
-	},
-	{
-		label: 'Configurações',
-		href: '/dashboard/configuracoes/perfil',
-		roles: ['ADMIN', 'CUSTOMER'],
-	},
-]
+	const cookie = await cookies()
 
-const EVENT_ITEMS = (slug: string): NavItem[] => [
-	{
-		label: 'Visão Geral',
-		href: `/dashboard/ev/${slug}`,
-	},
-	{
-		label: 'Inscrições',
-		href: `/dashboard/ev/${slug}/inscricoes`,
-	},
-	{
-		label: 'Categorias',
-		href: `/dashboard/ev/${slug}/categorias`,
-	},
-	{
-		label: 'Kits',
-		href: `/dashboard/ev/${slug}/kits`,
-	},
-	{
-		label: 'Financeiro',
-		href: `/dashboard/ev/${slug}/financeiro`,
-	},
-	{
-		label: 'Marketing',
-		href: `/dashboard/ev/${slug}/marketing`,
-	},
-	{
-		label: 'Anexos',
-		href: `/dashboard/ev/${slug}/anexos`,
-	},
-	{
-		label: 'Configurações',
-		href: `/dashboard/ev/${slug}/configuracoes`,
-	},
-]
+	const currentTeamSlug = cookie.get('eq')?.value
+	const currentEventSlug = cookie.get('ev')?.value
 
-export function Header({ user }: HeaderProps) {
-	const pathname = usePathname()
+	const isContextSlug = currentTeamSlug || currentEventSlug
 
-	const role = user.role
-
-	const slug = pathname.split('/')[3]
-
-	const isEventPage = pathname.startsWith('/dashboard/ev/')
-	const isTeamPage = pathname.startsWith('/dashboard/eq/')
-
-	const items = isEventPage ? EVENT_ITEMS(slug) : NAVIGATOR_ITEMS
-
-	const navItems = items.filter((item) => {
-		if (!item.roles) return true
-
-		return item.roles.includes(role)
-	})
-
-	const showEventsDropdown = isEventPage || isTeamPage || role === 'ADMIN'
+	const showEventsDropdown = user.role === 'ADMIN' || isContextSlug
 
 	return (
-		<header className="px-12 pt-8 bg-dashboard-header flex justify-between items-start">
-			<div className="flex flex-col gap-8">
+		<header className="lg:px-12 px-6 lg:pt-8 pt-6 bg-dashboard-header flex justify-between lg:items-start items-center">
+			<div className="flex flex-col gap-8 w-full">
 				<div className="flex">
-					<MiniLogo className="size-8 mr-4" />
+					<Link href={'/'} className="cursor-pointer">
+						<MiniLogo className="size-8 mr-4" />
+					</Link>
 
 					<div className="flex gap-2">
-						<LineVerticalIcon className="size-8 rotate-24 text-zinc-600" />
+						<LineVertical className="size-8 rotate-24 text-zinc-600" />
 
-						<ProfileDropdown user={user} />
-						{showEventsDropdown && <EventsDropdown />}
+						<div className="flex gap-2 lg:flex-row flex-col items-center">
+							<ProfileDropdown user={user} />
+							{showEventsDropdown && <EventsDropdown />}
+						</div>
 					</div>
 				</div>
 
-				<div className="flex relative flex-1">
-					<TabNavigator.Root active={pathname} className="h-9">
-						<TabNavigator.Control className="gap-4">
-							{navItems.map((item) => (
-								<TabNavigator.Item
-									key={item.href}
-									href={item.href}
-									as={Link}
-									className={cn('font-semibold text-zinc-400 text-sm', {
-										'text-zinc-50': pathname === item.href,
-									})}
-								>
-									{item.label}
-								</TabNavigator.Item>
-							))}
-						</TabNavigator.Control>
-						<TabNavigator.Bar className="bg-cyan-500 h-[3px]" />
-					</TabNavigator.Root>
-				</div>
+				<HeaderTabNavigator role={user.role} />
 			</div>
 
 			<ProfileButton user={user} isAuthenticated={!!user} />

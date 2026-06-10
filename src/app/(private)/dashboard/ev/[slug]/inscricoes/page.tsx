@@ -4,7 +4,7 @@ import { Main } from '@/components/dashboard/main'
 
 export default function RegistrationsPage() {
 	return (
-		<Main className="gap-8">
+		<Main className="gap-8 h-full">
 			<Heading.Root>
 				<Heading.Title>Inscrições</Heading.Title>
 				<Heading.Description>

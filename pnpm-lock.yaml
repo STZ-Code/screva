@@ -22,8 +22,8 @@ importers:
         specifier: ^0.0.47
         version: 0.0.47(immer@11.1.8)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@stz-code/ui':
-        specifier: ^1.12.0
-        version: 1.12.0(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)
+        specifier: ^1.13.2
+        version: 1.13.2(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)
       '@stz-code/utils':
         specifier: 1.2.7
         version: 1.2.7
@@ -91,6 +91,9 @@ importers:
       tailwindcss:
         specifier: ^4.3.0
         version: 4.3.0
+      tw-animate-css:
+        specifier: ^1.4.0
+        version: 1.4.0
       typescript:
         specifier: ^5
         version: 5.9.3
@@ -1604,8 +1607,8 @@ packages:
   '@stz-code/tsconfig@0.0.7':
     resolution: {integrity: sha512-7Syh879NZEn1L3MWbSJ9hhznP7swRnZR4khWR/pxDmQKJ5rpMV0SGmNuAUChuIRJybcjYeRVh5WqcoZ9fbNDkg==, tarball: https://npm.pkg.github.com/download/@stz-code/tsconfig/0.0.7/6449622fab5497ecf7858c3c69a0ef4b8aa0e3c5}
 
-  '@stz-code/ui@1.12.0':
-    resolution: {integrity: sha512-KrHYYyJYD7QATj6i7z9KWrH1gF3Ygn7V9xFH+nQkg6CKeRKxnFLCd1cmOmZ1hyrP6C/mR4B1ot+VyXSFeB3QXQ==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.12.0/1549c63077d1f3f4f392da5363b13ed73219e506}
+  '@stz-code/ui@1.13.2':
+    resolution: {integrity: sha512-W7FG2FyWM2P4o+IvrB81bz8ZFQv9vvWbTCZMgT4A2t47RGYCGVlW55XBS0kscrI1uL1bdeaCSWONaIniP9vXHA==, tarball: https://npm.pkg.github.com/download/@stz-code/ui/1.13.2/477a8c7734999b9702e55bc523f9d6ee3b6b264c}
     peerDependencies:
       clsx: ^2.1.1
       react: 19.0.0
@@ -2688,6 +2691,12 @@ packages:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
     peerDependencies:
       react: 19.0.0
+
+  vaul@1.1.2:
+    resolution: {integrity: sha512-ZFkClGpWyI2WUQjdLJ/BaGuV6AVQiJ3uELGk3OYtP+B6yCO7Cmn9vPFXVJkRaGkOJu3m8bQMgtyzNHixULceQA==}
+    peerDependencies:
+      react: 19.0.0
+      react-dom: 19.0.0
 
   victory-vendor@37.3.6:
     resolution: {integrity: sha512-SbPDPdDBYp+5MJHhBCAyI7wKM3d5ivekigc2Dk2s7pgbZ9wIgIBYGVw4zGHBml/qTFbexrofXW6Gu4noGxrOwQ==}
@@ -4167,7 +4176,7 @@ snapshots:
 
   '@stz-code/tsconfig@0.0.7': {}
 
-  '@stz-code/ui@1.12.0(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)':
+  '@stz-code/ui@1.13.2(@date-fns/tz@1.4.1)(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(clsx@2.1.1)(react-dom@19.0.0(react@19.0.0))(react-hook-form@7.75.0(react@19.0.0))(react-is@16.13.1)(react@19.0.0)(redux@5.0.1)':
     dependencies:
       '@base-ui/react': 1.4.1(@date-fns/tz@1.4.1)(@types/react@19.2.14)(date-fns@4.1.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@headlessui/react': 2.2.10(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -4194,6 +4203,7 @@ snapshots:
       sonner: 2.0.7(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       tailwind-merge: 3.6.0
       tw-animate-css: 1.4.0
+      vaul: 1.1.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
     transitivePeerDependencies:
       - '@date-fns/tz'
       - '@types/react'
@@ -5268,6 +5278,15 @@ snapshots:
   use-sync-external-store@1.6.0(react@19.0.0):
     dependencies:
       react: 19.0.0
+
+  vaul@1.1.2(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
+    dependencies:
+      '@radix-ui/react-dialog': 1.1.15(@types/react-dom@19.2.3(@types/react@19.2.14))(@types/react@19.2.14)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
+    transitivePeerDependencies:
+      - '@types/react'
+      - '@types/react-dom'
 
   victory-vendor@37.3.6:
     dependencies:

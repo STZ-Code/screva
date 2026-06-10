@@ -10,7 +10,7 @@ import {
 	SignOutIcon,
 	UserIcon,
 } from '@phosphor-icons/react'
-import { Dropdown } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
 import { motion } from 'motion/react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -45,14 +45,17 @@ export function AuthDropdownContent({
 	const router = useRouter()
 
 	async function signOut() {
-		await authClient.signOut(
-			{},
-			{
-				onSuccess() {
-					router.push('/sign-in')
-				},
-			},
-		)
+		document.cookie = 'email=; Max-Age=0; path=/'
+
+		router.push('/sign-in')
+		// await authClient.signOut(
+		// 	{},
+		// 	{
+		// 		onSuccess() {
+		// 			router.push('/sign-in')
+		// 		},
+		// 	},
+		// )
 	}
 
 	const isDesktop = useBreakpoint('lg')

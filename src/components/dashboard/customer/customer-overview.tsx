@@ -1,64 +1,203 @@
 'use client'
-import { PersonSimpleRunIcon } from '@phosphor-icons/react'
-import { Kpi } from '../kpi'
+import {
+	CalendarBlankIcon,
+	MedalIcon,
+	PersonSimpleRunIcon,
+} from '@phosphor-icons/react'
+import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { Main } from '../main'
-import { CustomerEventCard } from './customer-event-card'
 import { CustomerHeader } from './customer-header'
-import { CustomerLatestEvents } from './customer-latest-events'
+import { CustomerHighlights } from './customer-highlights'
+import { CustomerInfo } from './customer-info'
+import { CustomerSummary } from './customer-summary'
 
 export function CustomerOverview() {
+	const desktop = useBreakpoint('lg')
+
 	return (
-		<Main className="gap-10 flex-row">
+		<Main className="flex-col py-0 lg:px-40 px-0">
 			<CustomerHeader />
 
-			<div className="flex flex-1 flex-col gap-6">
-				<section className="flex flex-col gap-4">
-					<h2 className="text-2xl text-zinc-100 font-semibold">Métricas</h2>
+			<CustomerSummary />
 
-					<div className="flex w-full gap-4">
-						<Kpi.Root className="shadow-none flex-1 rounded items-center bg-neutral-900">
-							<Kpi.Label className="text-sm normal-case flex gap-2 items-center text-zinc-300">
-								<PersonSimpleRunIcon size={24} className="text-cyan-600" />
-								Eventos concluídos
-							</Kpi.Label>
-							<Kpi.Value>30</Kpi.Value>
-						</Kpi.Root>
-						<Kpi.Root className="shadow-none flex-1 rounded items-center bg-neutral-900">
-							<Kpi.Label className="text-sm normal-case flex gap-2 items-center text-zinc-300">
-								<PersonSimpleRunIcon size={24} className="text-cyan-600" />
-								Eventos concluídos
-							</Kpi.Label>
-							<Kpi.Value>30</Kpi.Value>
-						</Kpi.Root>
-						<Kpi.Root className="shadow-none flex-1 rounded items-center bg-neutral-900">
-							<Kpi.Label className="text-sm normal-case flex gap-2 items-center text-zinc-300">
-								<PersonSimpleRunIcon size={24} className="text-cyan-600" />
-								Eventos concluídos
-							</Kpi.Label>
-							<Kpi.Value>30</Kpi.Value>
-						</Kpi.Root>
-						<Kpi.Root className="shadow-none flex-1 rounded items-center bg-neutral-900">
-							<Kpi.Label className="text-sm normal-case flex gap-2 items-center text-zinc-300">
-								<PersonSimpleRunIcon size={24} className="text-cyan-600" />
-								Eventos concluídos
-							</Kpi.Label>
-							<Kpi.Value>30</Kpi.Value>
-						</Kpi.Root>
-					</div>
-				</section>
+			<div className="flex flex-col gap-6 lg:px-16 px-6 lg:border-l lg:border-r border-zinc-700">
+				<div className="flex gap-6 flex-1 lg:flex-row flex-col">
+					<CustomerInfo.Root>
+						<CustomerInfo.Header>
+							<CustomerInfo.Title>Atividades recentes</CustomerInfo.Title>
+							<CustomerInfo.CTA href="#">Ver todas</CustomerInfo.CTA>
+						</CustomerInfo.Header>
+						<CustomerInfo.Content>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<PersonSimpleRunIcon size={40} className="text-cyan-600" />
 
-				<section className="flex flex-col flex-1 gap-4">
-					<h2 className="text-2xl text-zinc-100 font-semibold">Sua Jornada</h2>
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>Capivara Run 2026</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
 
-					<div className="flex w-full gap-4">
-						<CustomerEventCard />
-						<CustomerEventCard />
-						<CustomerEventCard />
-					</div>
-				</section>
+									<div className="w-20">
+										<span className="font-medium text-zinc-300">32:46</span>
+									</div>
 
-				<CustomerLatestEvents />
+									<div className="w-8">
+										<span className="font-medium text-zinc-400">17º</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<PersonSimpleRunIcon size={40} className="text-cyan-600" />
+
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>Picos Pro Race 2026</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
+
+									<div className="w-20">
+										<span className="font-medium text-zinc-300">41:46</span>
+									</div>
+
+									<div className="w-8">
+										<span className="font-medium text-zinc-400">28º</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<PersonSimpleRunIcon size={40} className="text-cyan-600" />
+
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>SESC Recife</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
+
+									<div className="w-20">
+										<span className="font-medium text-zinc-300">28:12</span>
+									</div>
+
+									<div className="w-8">
+										<span className="font-medium text-zinc-400">7º</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+						</CustomerInfo.Content>
+					</CustomerInfo.Root>
+					<CustomerInfo.Root>
+						<CustomerInfo.Header>
+							<CustomerInfo.Title>Melhores desempenhos</CustomerInfo.Title>
+							<CustomerInfo.CTA href="#">Ver todas</CustomerInfo.CTA>
+						</CustomerInfo.Header>
+						<CustomerInfo.Content>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<MedalIcon size={40} className="text-cyan-600" />
+
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>Capivara Run 2026</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
+
+									<div className="w-20 flex flex-col gap-1">
+										<span className="font-medium text-zinc-400">28:12</span>
+										<span className="font-medium text-zinc-400 text-xs">
+											Extra-oficial
+										</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<MedalIcon size={40} className="text-cyan-600" />
+
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>Picos Pro Race 2026</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
+
+									<div className="w-20 flex flex-col gap-1">
+										<span className="font-medium text-zinc-400">28:12</span>
+										<span className="font-medium text-zinc-400 text-xs">
+											Tempo oficial
+										</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+							<CustomerInfo.Item className="px-6 flex gap-4">
+								<MedalIcon size={40} className="text-cyan-600" />
+
+								<div className="flex items-center gap-4 flex-1">
+									<div className="flex flex-col gap-1 mr-auto">
+										<strong>SESC Recife</strong>
+										<span className="text-zinc-400 text-sm">10/06/2026</span>
+									</div>
+
+									<div className="w-20 flex flex-col gap-1">
+										<span className="font-medium text-zinc-400">28:12</span>
+										<span className="font-medium text-zinc-400 text-xs">
+											Tempo oficial
+										</span>
+									</div>
+								</div>
+							</CustomerInfo.Item>
+						</CustomerInfo.Content>
+					</CustomerInfo.Root>
+				</div>
+
+				<CustomerInfo.Root>
+					<CustomerInfo.Header>
+						<CustomerInfo.Title>Próximos eventos</CustomerInfo.Title>
+						<CustomerInfo.CTA href="#">Ver todas</CustomerInfo.CTA>
+					</CustomerInfo.Header>
+					<CustomerInfo.Content>
+						<CustomerInfo.Item className="px-6 flex gap-4">
+							<CalendarBlankIcon size={40} className="text-cyan-600" />
+
+							<div className="flex items-center gap-4 flex-1">
+								<div className="flex flex-col gap-1 mr-auto">
+									<strong>Capivara Run 2026</strong>
+									<span className="text-zinc-400 text-sm">10/06/2026</span>
+								</div>
+
+								<div>
+									<span className="font-medium text-zinc-400">Inscrito</span>
+								</div>
+							</div>
+						</CustomerInfo.Item>
+						<CustomerInfo.Item className="px-6 flex gap-4">
+							<CalendarBlankIcon size={40} className="text-cyan-600" />
+
+							<div className="flex items-center gap-4 flex-1">
+								<div className="flex flex-col gap-1 mr-auto">
+									<strong>Picos Pro Race 2026</strong>
+									<span className="text-zinc-400 text-sm">10/06/2026</span>
+								</div>
+
+								<div>
+									<span className="font-medium text-zinc-400">Inscrito</span>
+								</div>
+							</div>
+						</CustomerInfo.Item>
+						<CustomerInfo.Item className="px-6 flex gap-4">
+							<CalendarBlankIcon size={40} className="text-cyan-600" />
+
+							<div className="flex items-center gap-4 flex-1">
+								<div className="flex flex-col gap-1 mr-auto">
+									<strong>SESC Recife</strong>
+									<span className="text-zinc-400 text-sm">10/06/2026</span>
+								</div>
+
+								<div>
+									<span className="font-medium text-zinc-400">Inscrito</span>
+								</div>
+							</div>
+						</CustomerInfo.Item>
+					</CustomerInfo.Content>
+				</CustomerInfo.Root>
 			</div>
+
+			<CustomerHighlights />
 		</Main>
 	)
 }

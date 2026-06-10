@@ -1,7 +1,8 @@
 'use client'
 import { DotsThreeVerticalIcon } from '@phosphor-icons/react'
-import { Dropdown, type STZColumnDef, Table } from '@stz-code/ui'
-import { CaretRight, CheckCircle } from 'phosphor-react'
+import { type STZColumnDef, Table } from '@stz-code/ui'
+import { Dropdown } from '@stz-code/ui/layout'
+import { CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
 
@@ -19,7 +20,7 @@ export function PlataformHealth() {
 			cell: (info) => {
 				return (
 					<div>
-						<p className="text-zinc-400 font-semibold text-xl">
+						<p className="text-zinc-400 font-semibold lg:text-xl text-base">
 							{info.row.original.name}
 						</p>
 					</div>
@@ -74,9 +75,9 @@ export function PlataformHealth() {
 
 	return (
 		<div className="h-full flex flex-col flex-1">
-			<Box className="border-zinc-800 gap-3 p-6 flex-1">
+			<Box className="border-zinc-800 gap-3 lg:p-6 p-4 flex-1">
 				<div className="flex items-center justify-between">
-					<h2 className="text-2xl text-zinc-100 font-semibold">
+					<h2 className="lg:text-2xl text-lg text-zinc-100 font-semibold">
 						Saúde Financeira da Plataforma
 					</h2>
 
@@ -92,15 +93,15 @@ export function PlataformHealth() {
 					</Dropdown.Root>
 				</div>
 
-				<Table.Root columns={columns} data={data} className="border-none">
-					<Table.Container>
-						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
-
-						<Table.Body>
-							<Table.Row className="border-zinc-800">
-								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-							</Table.Row>
-						</Table.Body>
+				<Table.Root columns={columns} data={data}>
+					<Table.Container className="border-none">
+						<Table.Content>
+							<Table.Body>
+								<Table.Row className="border-zinc-800">
+									<Table.Fallback>Sem resultados encontrados</Table.Fallback>
+								</Table.Row>
+							</Table.Body>
+						</Table.Content>
 					</Table.Container>
 				</Table.Root>
 			</Box>

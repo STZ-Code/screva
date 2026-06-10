@@ -3,14 +3,11 @@
 import {
 	ArrowDownLeftIcon,
 	ArrowUpRightIcon,
-	CaretRightIcon,
+	CaretDownIcon,
 	CheckCircleIcon,
-	CheckSquareIcon,
-	EyesIcon,
-	MouseLeftClickIcon,
-	TipJarIcon,
+	PersonSimpleRunIcon,
 } from '@phosphor-icons/react'
-import { Avatar, Field, Select, type STZColumnDef, Table } from '@stz-code/ui'
+import { Avatar, Field, Select, type STZColumnDef } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
@@ -95,9 +92,12 @@ export function EventMetrics() {
 				>
 					<Select.Root>
 						<Select.Control>
-							<Select.Trigger className="border-none p-0 pr-9">
+							<Select.Trigger className="border-none p-0">
 								<Select.Placeholder className="font-medium text-xs text-zinc-400">
-									Últimas 24 horas
+									<div className="flex gap-2 items-center">
+										Últimas 24 horas
+										<CaretDownIcon size={16} />
+									</div>
 								</Select.Placeholder>
 
 								<Select.Portal>
@@ -112,8 +112,8 @@ export function EventMetrics() {
 				</Field.Root>
 			</div>
 
-			<div className="grid grid-cols-4 gap-4">
-				<Kpi.Root>
+			<div className="flex gap-4 flex-wrap">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita Bruta</Kpi.Label>
 
@@ -127,10 +127,16 @@ export function EventMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">R$ 456.200,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 456.200,00</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -143,11 +149,16 @@ export function EventMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">R$ 40.200,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 40.200,00</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Disponível para Repasse</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -160,11 +171,16 @@ export function EventMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">R$ 4.200,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 4.200,00</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
-
-				<Kpi.Root>
+				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Saldo</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -177,15 +193,21 @@ export function EventMetrics() {
 							</StatusTag.Label>
 						</StatusTag.Root>
 					</div>
+					<div className="flex items-center justify-between">
+						<div className="flex flex-col gap-1">
+							<Kpi.Value className="text-5xl">R$ 420,00</Kpi.Value>
+							<span className="text-sm text-zinc-400">Este ano</span>
+						</div>
 
-					<Kpi.Value>R$ 420,00</Kpi.Value>
+						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
+					</div>
 				</Kpi.Root>
 			</div>
 
 			<div className="flex gap-8">
 				<div className="flex-1">
 					<div>
-						<Box className="h-[420px] bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
+						<Box className="h-105 bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
 							<EventOverviewChart />
 						</Box>
 
@@ -198,82 +220,6 @@ export function EventMetrics() {
 								Ver mais detalhes
 							</button>
 						</div>
-					</div>
-
-					<div className="flex gap-6 w-full mt-8">
-						<Box className="flex-1 shadow-none gap-3">
-							<h3 className="text-zinc-400 font-semibold text-lg flex gap-2">
-								<EyesIcon size={24} className="text-zinc-100" />
-								Vistantes
-							</h3>
-
-							<strong className="text-4xl text-zinc-100">4.210</strong>
-						</Box>
-						<Box className="flex-1 shadow-none gap-3">
-							<h3 className="text-zinc-400 font-semibold text-lg flex gap-2">
-								<MouseLeftClickIcon size={24} className="text-slate-600" />
-								Iniciaram inscrição
-							</h3>
-
-							<strong className="text-4xl text-zinc-100">812</strong>
-						</Box>
-						<Box className="flex-1 shadow-none gap-3">
-							<h3 className="text-zinc-400 font-semibold text-lg flex gap-2">
-								<CheckSquareIcon size={24} className="text-green-600" />
-								Pagamentos concluídos
-							</h3>
-
-							<strong className="text-4xl text-zinc-100">536</strong>
-						</Box>
-						<Box className="flex-1 shadow-none gap-3">
-							<h3 className="text-zinc-400 font-semibold text-lg flex gap-2">
-								<TipJarIcon size={24} className="text-yellow-300" />
-								Taxa de conversão
-							</h3>
-
-							<strong className="text-4xl text-zinc-100">13%</strong>
-						</Box>
-					</div>
-				</div>
-
-				<div className="w-1/4 h-full flex flex-col">
-					<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1 shadow-none">
-						<h2 className="text-2xl text-zinc-100 font-semibold">
-							Atividade recente
-						</h2>
-
-						<Table.Root columns={columns} data={data} className="border-none">
-							<Table.Container>
-								<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
-
-								<Table.Body>
-									<Table.Row className="border-zinc-800">
-										<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-									</Table.Row>
-								</Table.Body>
-							</Table.Container>
-						</Table.Root>
-
-						<Table.Root columns={columns} data={data} className="border-none">
-							<Table.Container>
-								<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
-
-								<Table.Body>
-									<Table.Row className="border-zinc-800">
-										<Table.Fallback>Sem resultados encontrados</Table.Fallback>
-									</Table.Row>
-								</Table.Body>
-							</Table.Container>
-						</Table.Root>
-					</Box>
-					<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-						<button
-							type="button"
-							className="text-cyan-600 text-sm flex-1 flex justify-between"
-						>
-							Ver mais detalhes
-							<CaretRightIcon className="size-5" />
-						</button>
 					</div>
 				</div>
 			</div>
