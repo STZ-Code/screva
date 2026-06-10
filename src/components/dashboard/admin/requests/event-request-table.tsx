@@ -427,10 +427,13 @@ export function EventRequestTable() {
 					</tbody>
 				</Table.Content>
 
-				<TablePagination.Root className="border-t-zinc-800">
-					<TablePagination.Prev />
-					<TablePagination.Items />
-					<TablePagination.Next />
+				<TablePagination.Root className="border-zinc-800">
+					<TablePagination.Prev className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
+					<TablePagination.Items
+						itemClassName="bg-zinc-600 hover:bg-zinc-700 cursor-pointer"
+						activeClassName="bg-cyan-600 text-zinc-200 hover:bg-cyan-700 cursor-pointer"
+					/>
+					<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 				</TablePagination.Root>
 			</Table.Container>
 		</Table.Root>

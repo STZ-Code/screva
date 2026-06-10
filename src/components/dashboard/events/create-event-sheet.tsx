@@ -63,7 +63,7 @@ export function CreateEventSheet() {
 					Criar evento
 				</Button>
 			</Sheet.Trigger>
-			<Sheet.Content className="lg:w-2/5 w-full bg-neutral-900 lg:border border-none border-cyan-600 gap-0">
+			<Sheet.Content className="lg:w-2/5 w-full bg-neutral-900 lg:border-l border-l-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar novo evento</Sheet.Title>
 				</Sheet.Header>
