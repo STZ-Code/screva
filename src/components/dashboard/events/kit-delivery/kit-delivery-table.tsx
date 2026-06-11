@@ -164,11 +164,11 @@ export function KitDeliveryTable() {
 			}}
 		>
 			<div className="flex flex-col flex-1">
-				<div className="flex items-center justify-between mb-2 2xl:gap-0 gap-4">
+				<div className="flex items-center justify-between mb-2 gap-4">
 					<Table.FilterInput
 						id="name"
-						className="flex-1 w-full bg-neutral-900"
-						controlClassName="w-full"
+						className="bg-neutral-900"
+						fieldClassName="w-full"
 					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
@@ -177,7 +177,7 @@ export function KitDeliveryTable() {
 					</Table.FilterInput>
 
 					<Table.FilterDropdown>
-						<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800 flex items-center text-zinc-500 font-semibold">
+						<Table.FilterDropdownTrigger className="bg-neutral-900 w-48 border border-zinc-800 flex items-center text-zinc-500 font-semibold">
 							<FunnelIcon size={24} className="text-zinc-500" />
 							{desktop && 'Mais filtros'}
 						</Table.FilterDropdownTrigger>

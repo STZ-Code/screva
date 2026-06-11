@@ -26,8 +26,8 @@ export function UserOriginsTable() {
 			header: 'Nome',
 			cell: (info) => {
 				return (
-					<div className="flex gap-4 items-center w-full pl-3 2xl:py-0 py-2">
-						<Avatar.Root className="size-9 rounded-full hidden 2xl:block">
+					<div className="flex gap-4 items-center w-full pl-3 xl:py-0 py-2">
+						<Avatar.Root className="size-9 rounded-full hidden xl:block">
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
 						</Avatar.Root>
@@ -84,9 +84,13 @@ export function UserOriginsTable() {
 				columnVisibility: {},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 2xl:flex-row flex-col-reverse 2xl:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse gap-4">
 				<div className="flex gap-2 w-full">
-					<Table.FilterInput id="name" className="flex-1">
+					<Table.FilterInput
+						id="name"
+						fieldClassName="xl:w-1/2 w-full"
+						className="bg-neutral-900"
+					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
 							className="text-zinc-600 group-focus-within:text-cyan-500"
@@ -94,7 +98,7 @@ export function UserOriginsTable() {
 					</Table.FilterInput>
 
 					<Table.FilterDropdown>
-						<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+						<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 							<FunnelIcon size={24} className="text-zinc-500" />
 						</Table.FilterDropdownTrigger>
 						<Table.FilterDropdownContent>

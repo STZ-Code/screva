@@ -201,8 +201,8 @@ export function EventsTable() {
 					<div className="flex gap-2 w-full">
 						<Table.FilterInput
 							id="name"
-							className="bg-zinc-900"
-							fieldClassName="w-1/2"
+							className="bg-neutral-900"
+							fieldClassName="xl:w-1/2 w-full"
 						>
 							<Field.Icon
 								icon={MagnifyingGlassIcon}
@@ -211,7 +211,7 @@ export function EventsTable() {
 						</Table.FilterInput>
 
 						<Table.FilterDropdown>
-							<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+							<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 								<FunnelIcon size={24} className="text-zinc-500" />
 							</Table.FilterDropdownTrigger>
 							<Table.FilterDropdownContent>

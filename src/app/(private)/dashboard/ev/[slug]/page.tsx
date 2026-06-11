@@ -1,5 +1,6 @@
 import { EventLocation } from '@/components/dashboard/events/event-location'
 import { EventMetrics } from '@/components/dashboard/events/event-metrics'
+import { EventStatusDropdown } from '@/components/dashboard/events/event-status-dropdown'
 import { EventSummary } from '@/components/dashboard/events/event-summary'
 import { EventTeams } from '@/components/dashboard/events/event-teams'
 import { Heading } from '@/components/dashboard/heading'
@@ -15,15 +16,19 @@ export default function EventOverview() {
 						Confira as métricas e a performance do evento em tempo real.
 					</Heading.Description>
 				</div>
-				<p>status do evento</p>
+
+				<EventStatusDropdown />
 			</Heading.Root>
 
 			<EventMetrics />
 
-			<div className="flex gap-6">
+			<div className="flex gap-6 w-full xl:flex-col 2xl:flex-row flex-col">
 				<EventSummary />
-				<EventTeams />
-				<EventLocation />
+
+				<div className="flex gap-6 xl:flex-row flex-col">
+					<EventTeams />
+					<EventLocation />
+				</div>
 			</div>
 		</Main>
 	)

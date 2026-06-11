@@ -179,7 +179,11 @@ export function TeamsTable() {
 		>
 			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse gap-4">
 				<div className="flex gap-2 w-full">
-					<Table.FilterInput id="name" fieldClassName="w-1/2 bg-zinc-900">
+					<Table.FilterInput
+						id="name"
+						fieldClassName="xl:w-1/2 w-full"
+						className="bg-neutral-900"
+					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
 							className="text-zinc-600 group-focus-within:text-cyan-500"
@@ -187,7 +191,7 @@ export function TeamsTable() {
 					</Table.FilterInput>
 
 					<Table.FilterDropdown>
-						<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+						<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 							<FunnelIcon size={24} className="text-zinc-500" />
 						</Table.FilterDropdownTrigger>
 						<Table.FilterDropdownContent>

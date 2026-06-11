@@ -19,33 +19,33 @@ export function KitNavigator({ slug }: KitNavigatorProps) {
 	const isConfigPage = pathname === `/dashboard/ev/${slug}/kits`
 
 	return (
-		<div className="flex h-fit 2xl:flex-row flex-col 2xl:gap-0 gap-6 relative 2xl:border-b border-zinc-700 justify-between">
+		<div className="flex h-fit xl:flex-row flex-col gap-6 relative xl:border-b border-zinc-700 justify-between">
 			<TabNavigator.Root active={pathname} className="self-end">
 				<TabNavigator.Control className="gap-4">
 					<TabNavigator.Item
 						href={`/dashboard/ev/${slug}/kits`}
 						as={Link}
 						className={cn(
-							'font-medium text-zinc-400 2xl:text-xl text-sm px-4 flex items-center gap-3 pb-4',
+							'font-medium text-zinc-400 xl:text-lg text-sm px-4 flex items-center gap-3 pb-4',
 							{
 								'text-zinc-50': isConfigPage,
 							},
 						)}
 					>
-						<GearIcon className="2xl:size-6 size-8" />
+						<GearIcon className="xl:size-6 size-8" />
 						Configurações de Entrega
 					</TabNavigator.Item>
 					<TabNavigator.Item
 						href={`/dashboard/ev/${slug}/entrega-kit`}
 						as={Link}
 						className={cn(
-							'font-medium text-zinc-400 flex-1 2xl:text-xl text-sm px-4 flex items-center gap-3 pb-4',
+							'font-medium text-zinc-400 flex-1 xl:text-lg text-sm px-4 flex items-center gap-3 pb-4',
 							{
 								'text-zinc-50': !isConfigPage,
 							},
 						)}
 					>
-						<PackageIcon className="2xl:size-6 size-8" />
+						<PackageIcon className="xl:size-6 size-8" />
 						Entrega de kits
 						<Tag className="bg-cyan-600 text-zinc-100 text-base">440</Tag>
 					</TabNavigator.Item>
@@ -58,7 +58,7 @@ export function KitNavigator({ slug }: KitNavigatorProps) {
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
-							className="bg-cyan-600 h-fit mb-2 flex items-center gap-2 px-4 py-2 rounded font-semibold w-fit capitalize"
+							className="bg-cyan-600 h-fit mb-2 flex items-center gap-2 px-4 py-2 rounded font-semibold xl:w-fit w-full capitalize"
 						>
 							<PencilSimpleIcon size={20} weight="bold" />
 							Editar informações

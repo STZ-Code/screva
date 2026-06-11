@@ -13,7 +13,7 @@ export function CreatePriceSheet() {
 					className="py-2 outline-none h-fit rounded px-6 w-full normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
-					Criar Kit
+					Criar Categoria
 				</Button>
 			</Sheet.Trigger>
 

@@ -7,7 +7,7 @@ import { Box } from '@/components/box'
 
 export function EventLocation() {
 	return (
-		<Box className="bg-neutral-900 py-4 gap-4 w-96">
+		<Box className="bg-neutral-900 py-4 gap-4 min-w-96 flex-1">
 			<div className="flex items-center justify-between">
 				<span className="text-lg font-semibold text-zinc-200">Localização</span>
 
