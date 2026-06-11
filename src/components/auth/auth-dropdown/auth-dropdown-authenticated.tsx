@@ -34,7 +34,7 @@ export function AuthDropdownAuthenticated({
 			variants={container}
 			initial="hidden"
 			animate="visible"
-			className="bg-zinc-800 flex flex-col 22xl:py-10 2xl:py-0 py-12 px-12 gap-6 2xl:rounded-b-2xl"
+			className="bg-zinc-800 flex flex-col 2xl:py-10 xl:py-6 py-12 px-12 gap-6 2xl:rounded-b-2xl"
 		>
 			<div className="flex flex-col gap-3 items-center">
 				<motion.div

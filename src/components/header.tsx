@@ -17,9 +17,9 @@ export function Header({ children }: HeaderProps) {
 		<header className="flex w-full h-28 fixed bg-neutral-900 z-40 items-center justify-start">
 			<div className="flex-1 flex after:triangle">
 				{children}
-				<div className="flex-1 px-16 bg-zinc-800/50 2xl:flex relative justify-center hidden">
+				<div className="flex-1 px-16 bg-zinc-800/50 xl:flex relative justify-center hidden">
 					<TabNavigator.Root active={pathname} className="h-full w-fit">
-						<TabNavigator.Control className="flex justify-evenly h-full 22xl:justify-normal gap-16">
+						<TabNavigator.Control className="flex justify-evenly h-full xl:justify-normal gap-16">
 							<TabNavigator.Item
 								href="/"
 								as={Link}
@@ -64,8 +64,8 @@ export function Header({ children }: HeaderProps) {
 					</TabNavigator.Root>
 				</div>
 			</div>
-			<Link href={'/'} className="w-full 2xl:w-72">
-				<Logo className="w-36 h-fit 2xl:w-44 text-zinc-100 ml-4" />
+			<Link href={'/'} className="w-full xl:w-72">
+				<Logo className="w-36 h-fit xl:w-44 text-zinc-100 ml-4" />
 			</Link>
 		</header>
 	)
