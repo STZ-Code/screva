@@ -143,11 +143,11 @@ export function TicketsStep2() {
 			className="flex flex-col gap-6 h-fit"
 		>
 			<div className="flex flex-col gap-3">
-				<h2 className="text-zinc-100 font-semibold text-2xl lg:text-xl">
+				<h2 className="text-zinc-100 font-semibold text-2xl xl:text-xl">
 					Seus Dados para a Corrida
 				</h2>
 
-				<span className="text-base lg:text-sm text-zinc-400">
+				<span className="text-base xl:text-sm text-zinc-400">
 					Preencha as informações de cada atleta para garantir que a sua
 					inscrição esteja completa.
 				</span>
@@ -345,7 +345,7 @@ export function TicketsStep2() {
 
 			<button
 				type="submit"
-				className="lg:hidden block bg-cyan-600 rounded-md font-bold h-12 px-3 cursor-pointer text-sm hover:bg-cyan-700 transition-colors"
+				className="xl:hidden block bg-cyan-600 rounded-md font-bold h-12 px-3 cursor-pointer text-sm hover:bg-cyan-700 transition-colors"
 			>
 				Continuar
 			</button>

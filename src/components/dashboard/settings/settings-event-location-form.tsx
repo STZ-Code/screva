@@ -21,7 +21,7 @@ export function SettingsEventLocationForm() {
 					</FormSection.Description>
 				</FormSection.Header>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="name" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Logradouro
@@ -35,7 +35,7 @@ export function SettingsEventLocationForm() {
 						</Input.Root>
 					</Field.Root>
 				</div>
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="name" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Número
@@ -62,7 +62,7 @@ export function SettingsEventLocationForm() {
 						</Input.Root>
 					</Field.Root>
 				</div>
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="city" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Cidade
@@ -103,7 +103,7 @@ export function SettingsEventLocationForm() {
 					</Field.Root>
 				</div>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="map_location" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Mapa
@@ -123,7 +123,7 @@ export function SettingsEventLocationForm() {
 					</Field.Root>
 				</div>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="extra_info" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300">
 							Informação extra

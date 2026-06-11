@@ -23,7 +23,7 @@ export function ProfileButton({ user, isAuthenticated }: ProfileButtonProps) {
 				type="button"
 				className="cursor-pointer group hover:opacity-80 transition-opacity"
 			>
-				<div className="lg:flex hidden items-center gap-3 outline-none">
+				<div className="xl:flex hidden items-center gap-3 outline-none">
 					<div className="flex flex-col items-end">
 						<span className="text-sm font-medium">Gabriel Garcez</span>
 						<span className="text-xs text-zinc-400">ggarcez613@gmail.com</span>

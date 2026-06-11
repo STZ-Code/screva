@@ -13,11 +13,11 @@ import { Tag } from '@/components/tag'
 
 export function KitPickupDetails() {
 	return (
-		<Box className="shadow-none gap-6 lg:p-8 p-4">
+		<Box className="shadow-none gap-6 xl:p-8 p-4">
 			<BoxHeading>Informações de retirada</BoxHeading>
 
-			<div className="flex lg:flex-row flex-col pb-6 border-b border-zinc-800 lg:divide-x lg:divide-zinc-600 lg:gap-0 gap-8">
-				<div className="flex flex-col lg:w-fit gap-8 lg:pr-8 w-full">
+			<div className="flex xl:flex-row flex-col pb-6 border-b border-zinc-800 xl:divide-x xl:divide-zinc-600 xl:gap-0 gap-8">
+				<div className="flex flex-col xl:w-fit gap-8 xl:pr-8 w-full">
 					<div className="flex gap-4">
 						<MapPinIcon size={24} weight="bold" />
 
@@ -34,17 +34,17 @@ export function KitPickupDetails() {
 						</div>
 					</div>
 
-					<div className="lg:w-fit flex gap-4 justify-between w-full">
+					<div className="xl:w-fit flex gap-4 justify-between w-full">
 						<button
 							type="button"
-							className="flex gap-2 lg:text-base text-sm items-center border border-zinc-700 rounded lg:px-4 px-5 py-2 bg-neutral-900"
+							className="flex gap-2 xl:text-base text-sm items-center border border-zinc-700 rounded xl:px-4 px-5 py-2 bg-neutral-900"
 						>
 							Abrir no Maps
 							<ArrowSquareOutIcon size={16} weight="bold" />
 						</button>
 						<button
 							type="button"
-							className="flex gap-2 lg:text-base text-sm items-center border border-zinc-700 rounded lg:px-4 px-5 py-2 bg-neutral-900"
+							className="flex gap-2 xl:text-base text-sm items-center border border-zinc-700 rounded xl:px-4 px-5 py-2 bg-neutral-900"
 						>
 							Copiar endereço
 							<CopyIcon size={16} weight="bold" />
@@ -52,7 +52,7 @@ export function KitPickupDetails() {
 					</div>
 				</div>
 
-				<div className="lg:ml-8 flex gap-4 lg:pr-8">
+				<div className="xl:ml-8 flex gap-4 xl:pr-8">
 					<CalendarBlankIcon size={24} weight="bold" />
 
 					<div className="flex flex-col gap-4">
@@ -86,8 +86,8 @@ export function KitPickupDetails() {
 			</div>
 
 			<div className="flex items-center gap-2.5 text-zinc-400">
-				<InfoIcon className="lg:size-6 size-8" />
-				<p className="lg:text-base text-sm">
+				<InfoIcon className="xl:size-6 size-8" />
+				<p className="xl:text-base text-sm">
 					Solicite um documento com foto para retirar ao atleta para retirar o
 					kit
 				</p>

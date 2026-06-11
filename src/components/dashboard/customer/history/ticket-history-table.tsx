@@ -223,8 +223,8 @@ export function TicketHistoryTable() {
 												className="overflow-hidden"
 											>
 												<Accordion.Trigger className="w-full rounded-none px-6 hover:no-underline cursor-pointer data-[state=open]:bg-neutral-800 hover:bg-neutral-800 transition-colors">
-													<div className="flex w-full lg:flex-row flex-col lg:gap-0 gap-8">
-														<div className="flex lg:gap-10 gap-6 lg:w-1/2 w-full">
+													<div className="flex w-full xl:flex-row flex-col xl:gap-0 gap-8">
+														<div className="flex xl:gap-10 gap-6 xl:w-1/2 w-full">
 															<div className="flex flex-col gap-4">
 																<time className="text-base font-medium text-zinc-200">
 																	5 de março
@@ -300,7 +300,7 @@ export function TicketHistoryTable() {
 														</div>
 													</div>
 												</Accordion.Trigger>
-												<Accordion.Content className="border-t px-4 py-4 text-sm text-zinc-700 bg-neutral-800/40 flex lg:flex-row flex-col gap-8">
+												<Accordion.Content className="border-t px-4 py-4 text-sm text-zinc-700 bg-neutral-800/40 flex xl:flex-row flex-col gap-8">
 													<div className="flex flex-col gap-8 flex-1">
 														<div className="flex flex-col gap-2">
 															<div className="flex items-center justify-between">
@@ -368,7 +368,7 @@ export function TicketHistoryTable() {
 																Pagamento
 															</span>
 
-															<div className="flex lg:gap-16 gap-4">
+															<div className="flex xl:gap-16 gap-4">
 																<div className="flex">
 																	<Image
 																		src={creditCardImg}

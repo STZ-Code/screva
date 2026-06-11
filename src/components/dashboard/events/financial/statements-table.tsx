@@ -121,12 +121,12 @@ export function StatementsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
+				<div className="xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -217,7 +217,7 @@ export function StatementsTable() {
 				},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse xl:gap-0 gap-4">
 				<div className="flex gap-2 w-full">
 					<Table.FilterInput id="name" className="flex-1">
 						<Field.Icon
@@ -241,12 +241,12 @@ export function StatementsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<div className="flex items-center gap-2 lg:w-fit w-full lg:flex-row flex-row-reverse">
+				<div className="flex items-center gap-2 xl:w-fit w-full xl:flex-row flex-row-reverse">
 					<Dropdown.Root>
 						<Dropdown.Trigger className="px-3.5 border border-zinc-300 rounded">
 							<Dropdown.Label className="flex items-center gap-3 cursor-pointer hover:bg-zinc-300/10 transition-colors">
 								<DownloadSimpleIcon size={26} />
-								<p className="hidden lg:block">Exportar</p>
+								<p className="hidden xl:block">Exportar</p>
 							</Dropdown.Label>
 						</Dropdown.Trigger>
 						<Dropdown.Content align="end">
@@ -259,7 +259,7 @@ export function StatementsTable() {
 						<Sheet.Trigger asChild>
 							<Button
 								type="submit"
-								className="py-2 outline-none h-fit px-6 lg:w-56 flex-1 w-full normal-case font-semibold flex gap-2"
+								className="py-2 outline-none h-fit px-6 xl:w-56 flex-1 w-full normal-case font-semibold flex gap-2"
 							>
 								<PlusIcon size={20} weight="bold" />
 								Novo lançamento

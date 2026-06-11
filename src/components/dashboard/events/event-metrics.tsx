@@ -113,7 +113,7 @@ export function EventMetrics() {
 			</div>
 
 			<div className="flex gap-4 flex-wrap">
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita Bruta</Kpi.Label>
 
@@ -136,7 +136,7 @@ export function EventMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -158,7 +158,7 @@ export function EventMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Disponível para Repasse</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -180,7 +180,7 @@ export function EventMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Saldo</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">

@@ -74,7 +74,7 @@ export function EventList() {
 	]
 
 	return (
-		<div className="lg:w-1/4 h-full flex flex-col">
+		<div className="xl:w-1/4 h-full flex flex-col">
 			<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1">
 				<h2 className="text-2xl text-zinc-100 font-semibold">
 					Próximos eventos

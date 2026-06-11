@@ -11,7 +11,7 @@ export function OrderSummary() {
 	const isSummaryPage = pathname.endsWith('/resumo')
 
 	return (
-		<section className="hidden flex-1 px-28 py-10 lg:flex flex-col gap-8">
+		<section className="hidden flex-1 px-28 py-10 xl:flex flex-col gap-8">
 			<h3 className="text-zinc-100 font-semibold text-4xl">Pedido</h3>
 
 			<div>

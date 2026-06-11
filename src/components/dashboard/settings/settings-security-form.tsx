@@ -36,7 +36,7 @@ export function SettingsSecurityForm() {
 						/>
 					</Input.Root>
 				</Field.Root>
-				<div className="flex gap-3 w-full lg:flex-row flex-col">
+				<div className="flex gap-3 w-full xl:flex-row flex-col">
 					<Field.Root control={control} name="password" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Nova senha

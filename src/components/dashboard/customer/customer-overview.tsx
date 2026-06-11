@@ -15,13 +15,13 @@ export function CustomerOverview() {
 	const desktop = useBreakpoint('lg')
 
 	return (
-		<Main className="flex-col py-0 lg:px-40 px-0">
+		<Main className="flex-col py-0 xl:px-40 px-0">
 			<CustomerHeader />
 
 			<CustomerSummary />
 
-			<div className="flex flex-col gap-6 lg:px-16 px-6 lg:border-l lg:border-r border-zinc-700">
-				<div className="flex gap-6 flex-1 lg:flex-row flex-col">
+			<div className="flex flex-col gap-6 xl:px-16 px-6 xl:border-l xl:border-r border-zinc-700">
+				<div className="flex gap-6 flex-1 xl:flex-row flex-col">
 					<CustomerInfo.Root>
 						<CustomerInfo.Header>
 							<CustomerInfo.Title>Atividades recentes</CustomerInfo.Title>

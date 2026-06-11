@@ -227,11 +227,11 @@ export function EventRequestTable() {
 												className="overflow-hidden border-b border-b-zinc-600 last:border-b"
 											>
 												<Accordion.Trigger className="w-full px-4 py-6 hover:no-underline rounded-none cursor-pointer data-[state=open]:bg-neutral-800 hover:bg-neutral-800 transition-colors">
-													<div className="flex gap-8 lg:flex-row flex-col justify-between w-full lg:pr-16">
-														<div className="flex gap-8 lg:flex-row flex-col">
+													<div className="flex gap-8 xl:flex-row flex-col justify-between w-full xl:pr-16">
+														<div className="flex gap-8 xl:flex-row flex-col">
 															<div className="flex gap-8">
 																<div className="flex flex-col gap-4">
-																	<Tag className="bg-emerald-800 text-emerald-300 lg:text-sm text-xs">
+																	<Tag className="bg-emerald-800 text-emerald-300 xl:text-sm text-xs">
 																		Novo evento
 																	</Tag>
 
@@ -245,7 +245,7 @@ export function EventRequestTable() {
 
 																<div className="flex gap-16">
 																	<div className="flex flex-col gap-4">
-																		<h2 className="font-bold lg:text-2xl text-xl text-zinc-50">
+																		<h2 className="font-bold xl:text-2xl text-xl text-zinc-50">
 																			1ª Evento ITAIM RUN
 																		</h2>
 
@@ -269,7 +269,7 @@ export function EventRequestTable() {
 																</div>
 															</div>
 
-															<div className="flex gap-8 lg:flex-row flex-col">
+															<div className="flex gap-8 xl:flex-row flex-col">
 																<div className="flex flex-col gap-8">
 																	<div className="flex gap-4">
 																		<CalendarDotsIcon size={32} />
@@ -336,7 +336,7 @@ export function EventRequestTable() {
 													</div>
 												</Accordion.Trigger>
 												<Accordion.Content className="border-t px-4 py-6 text-sm border-zinc-700 bg-dashboard-header flex flex-col gap-5">
-													<div className="flex w-full gap-6 flex-col lg:flex-row">
+													<div className="flex w-full gap-6 flex-col xl:flex-row">
 														<div className="flex-1 border border-zinc-700 p-6 flex flex-col gap-2.5">
 															<span className="font-bold text-zinc-50 text-xl">
 																Detalhes do evento
@@ -386,7 +386,7 @@ export function EventRequestTable() {
 														</div>
 													</div>
 
-													<div className="flex justify-between flex-col lg:flex-row gap-6 lg:gap-0">
+													<div className="flex justify-between flex-col xl:flex-row gap-6 xl:gap-0">
 														<button
 															type="button"
 															className="h-12 border-2 font-semibold border-sky-500 text-sky-500 hover:bg-sky-900/30 cursor-pointer transition-colors px-4 flex items-center gap-3"
@@ -407,7 +407,7 @@ export function EventRequestTable() {
 																<Sheet.Trigger asChild>
 																	<Button
 																		type="submit"
-																		className="h-12 w-52 font-semibold px-8 rounded-none cursor-pointer bg-cyan-600 outline-none lg:w-56 normal-case"
+																		className="h-12 w-52 font-semibold px-8 rounded-none cursor-pointer bg-cyan-600 outline-none xl:w-56 normal-case"
 																	>
 																		Confirmar evento
 																	</Button>

@@ -42,7 +42,7 @@ export function CategoryBadge({ type }: { type: CategoryAvailability }) {
 	return (
 		<span
 			className={cn(
-				'lg:ml-3 px-2 py-1 text-[10px] font-bold uppercase tracking-wider border rounded-md flex items-center gap-1.5',
+				'xl:ml-3 px-2 py-1 text-[10px] font-bold uppercase tracking-wider border rounded-md flex items-center gap-1.5',
 				config.className,
 			)}
 		>

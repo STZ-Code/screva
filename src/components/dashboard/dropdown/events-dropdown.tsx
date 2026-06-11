@@ -74,7 +74,7 @@ export async function EventsDropdown() {
 			<Dropdown.Content
 				align="start"
 				sideOffset={12}
-				className="bg-zinc-900 w-64 border-zinc-700 -translate-x-1/3 lg:translate-0"
+				className="bg-zinc-900 w-64 border-zinc-700 -translate-x-1/3 xl:translate-0"
 			>
 				<Dropdown.Group>
 					<Dropdown.Label>Eventos</Dropdown.Label>

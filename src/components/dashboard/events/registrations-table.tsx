@@ -45,8 +45,8 @@ export function RegistrationsTable() {
 			size: desktop ? 140 : 48,
 			cell: (info) => {
 				return (
-					<div className="flex gap-4 items-center w-full pl-3 lg:py-0 py-2">
-						<Avatar.Root className="size-9 rounded-full hidden lg:block">
+					<div className="flex gap-4 items-center w-full pl-3 xl:py-0 py-2">
+						<Avatar.Root className="size-9 rounded-full hidden xl:block">
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
 						</Avatar.Root>
@@ -105,12 +105,12 @@ export function RegistrationsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
+				<div className="xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -183,7 +183,7 @@ export function RegistrationsTable() {
 				},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse xl:gap-0 gap-4">
 				<div className="flex gap-2 w-full">
 					<Table.FilterInput id="name" className="flex-1">
 						<Field.Icon
@@ -211,7 +211,7 @@ export function RegistrationsTable() {
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
-							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+							className="py-2 outline-none h-fit px-6 xl:w-56 w-full normal-case font-semibold flex gap-2"
 						>
 							<PlusIcon size={20} weight="bold" />
 							Fazer inscrição

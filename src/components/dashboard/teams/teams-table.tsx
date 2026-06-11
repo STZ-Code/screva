@@ -61,13 +61,13 @@ export function TeamsTable() {
 		{
 			accessorKey: 'eventsCount',
 			header: () => (
-				<div className="lg:text-left text-center w-full">
+				<div className="xl:text-left text-center w-full">
 					{desktop ? 'Eventos realizados' : 'Eventos'}
 				</div>
 			),
 			size: 24,
 			cell: (info) => (
-				<div className="lg:text-left text-center w-full">
+				<div className="xl:text-left text-center w-full">
 					{info.row.original.eventsCount}
 				</div>
 			),
@@ -108,12 +108,12 @@ export function TeamsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
+				<div className="xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -177,7 +177,7 @@ export function TeamsTable() {
 				},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse xl:gap-0 gap-4">
 				<div className="flex gap-2 w-full">
 					<Table.FilterInput
 						id="name"
@@ -209,7 +209,7 @@ export function TeamsTable() {
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
-							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+							className="py-2 outline-none h-fit px-6 xl:w-56 w-full normal-case font-semibold flex gap-2"
 						>
 							<PlusIcon size={20} weight="bold" />
 							Criar equipe

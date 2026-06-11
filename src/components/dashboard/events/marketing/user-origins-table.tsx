@@ -26,8 +26,8 @@ export function UserOriginsTable() {
 			header: 'Nome',
 			cell: (info) => {
 				return (
-					<div className="flex gap-4 items-center w-full pl-3 lg:py-0 py-2">
-						<Avatar.Root className="size-9 rounded-full hidden lg:block">
+					<div className="flex gap-4 items-center w-full pl-3 xl:py-0 py-2">
+						<Avatar.Root className="size-9 rounded-full hidden xl:block">
 							<Avatar.Image src={exampleImg.src} />
 							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
 						</Avatar.Root>
@@ -84,7 +84,7 @@ export function UserOriginsTable() {
 				columnVisibility: {},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse xl:gap-0 gap-4">
 				<div className="flex gap-2 w-full">
 					<Table.FilterInput id="name" className="flex-1">
 						<Field.Icon

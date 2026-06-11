@@ -57,19 +57,19 @@ export function CreateEventSheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit lg:w-56 w-full px-6 normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit xl:w-56 w-full px-6 normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Criar evento
 				</Button>
 			</Sheet.Trigger>
-			<Sheet.Content className="lg:w-2/5 w-full bg-neutral-900 lg:border-l border-l-none border-cyan-600 gap-0">
+			<Sheet.Content className="xl:w-2/5 w-full bg-neutral-900 xl:border-l border-l-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar novo evento</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root className="xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
 							<FormSection.Description>
@@ -144,7 +144,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root className="xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Organização do evento</FormSection.Title>
 							<FormSection.Description>
@@ -283,7 +283,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root className="xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Configuração Financeira</FormSection.Title>
 							<FormSection.Description>
@@ -328,7 +328,7 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="lg:flex-row flex-col">
+					<FormSection.Root className="xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Endereço do evento</FormSection.Title>
 							<FormSection.Description>

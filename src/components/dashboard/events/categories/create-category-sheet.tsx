@@ -13,7 +13,7 @@ export function CreateCategorySheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit px-6 lg:w-72 w-full normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit px-6 xl:w-72 w-full normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Adicionar categoria

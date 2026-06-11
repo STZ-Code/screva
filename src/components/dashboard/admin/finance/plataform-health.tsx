@@ -20,7 +20,7 @@ export function PlataformHealth() {
 			cell: (info) => {
 				return (
 					<div>
-						<p className="text-zinc-400 font-semibold lg:text-xl text-base">
+						<p className="text-zinc-400 font-semibold xl:text-xl text-base">
 							{info.row.original.name}
 						</p>
 					</div>
@@ -75,9 +75,9 @@ export function PlataformHealth() {
 
 	return (
 		<div className="h-full flex flex-col flex-1">
-			<Box className="border-zinc-800 gap-3 lg:p-6 p-4 flex-1">
+			<Box className="border-zinc-800 gap-3 xl:p-6 p-4 flex-1">
 				<div className="flex items-center justify-between">
-					<h2 className="lg:text-2xl text-lg text-zinc-100 font-semibold">
+					<h2 className="xl:text-2xl text-lg text-zinc-100 font-semibold">
 						Saúde Financeira da Plataforma
 					</h2>
 

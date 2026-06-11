@@ -58,7 +58,7 @@ export function SettigsMenuDrawer({ user }: SettigsMenuDrawerProps) {
 
 	return (
 		<Drawer.Root>
-			<Drawer.Trigger className="bg-zinc-800 flex gap-6 items-center lg:hidden rounded-md font-semibold h-12 px-6 cursor-pointer text-sm hover:bg-zinc-900 transition-colors">
+			<Drawer.Trigger className="bg-zinc-800 flex gap-6 items-center xl:hidden rounded-md font-semibold h-12 px-6 cursor-pointer text-sm hover:bg-zinc-900 transition-colors">
 				{currentItem.label}
 				<EqualsIcon size={24} className="text-zinc-200" />
 			</Drawer.Trigger>

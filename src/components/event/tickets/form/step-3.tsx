@@ -17,7 +17,7 @@ export function TicketsStep3() {
 				Escolha a forma de pagamento
 			</h2>
 
-			<div className="flex flex-col lg:flex-row gap-2 w-full">
+			<div className="flex flex-col xl:flex-row gap-2 w-full">
 				<div className="flex gap-2 flex-1">
 					<button
 						type="button"
