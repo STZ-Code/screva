@@ -3,7 +3,7 @@ import { BoxHeading } from '../box-heading'
 
 export function EventDescription() {
 	return (
-		<Box className="gap-4 rounded-none 2xl:rounded-2xl">
+		<Box className="gap-4 rounded-none xl:rounded-2xl">
 			<BoxHeading>Descrição</BoxHeading>
 			<p className="text-sm text-zinc-300">
 				A edição 2025 do Circuito Sesc de Corridas chegou com tudo em

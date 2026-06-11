@@ -22,7 +22,7 @@ const listVariants = {
 
 export function TimingTeam() {
 	return (
-		<Box className="gap-4 rounded-none 2xl:rounded-2xl">
+		<Box className="gap-4 rounded-none xl:rounded-2xl">
 			<BoxHeading>Cronometragem</BoxHeading>
 
 			<div className="flex gap-2 items-center">

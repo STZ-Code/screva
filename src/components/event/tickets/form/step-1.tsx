@@ -165,11 +165,11 @@ export function TicketsStep1() {
 			className="flex flex-col gap-6 h-fit"
 		>
 			<div className="flex flex-col gap-3">
-				<h2 className="text-zinc-100 font-semibold text-2xl 2xl:text-xl">
+				<h2 className="text-zinc-100 font-semibold text-2xl xl:text-xl">
 					Suas categorias
 				</h2>
 
-				<span className="text-base 2xl:text-sm text-zinc-400">
+				<span className="text-base xl:text-sm text-zinc-400">
 					Adicione a quantidade de ingressos por categoria.
 				</span>
 			</div>
@@ -184,7 +184,7 @@ export function TicketsStep1() {
 						value={category.id}
 						className="border rounded border-zinc-600 last:border-b"
 					>
-						<Accordion.Trigger className="px-6 text-zinc-300 font-semibold text-lg 2xl:text-xl cursor-pointer">
+						<Accordion.Trigger className="px-6 text-zinc-300 font-semibold text-lg xl:text-xl cursor-pointer">
 							{category.title}
 						</Accordion.Trigger>
 
@@ -200,10 +200,10 @@ export function TicketsStep1() {
 								return (
 									<div
 										key={item.id}
-										className="flex items-center justify-between gap-1 2xl:gap-4"
+										className="flex items-center justify-between gap-1 xl:gap-4"
 									>
-										<div className="flex flex-col w-24 2xl:w-36">
-											<span className="text-base 2xl:text-lg text-zinc-300 line-clamp-2 leading-tight">
+										<div className="flex flex-col w-24 xl:w-36">
+											<span className="text-base xl:text-lg text-zinc-300 line-clamp-2 leading-tight">
 												{item.title}
 											</span>
 										</div>
@@ -240,7 +240,7 @@ export function TicketsStep1() {
 										</Field.Root>
 
 										<div className="flex flex-col gap-0.5 text-right w-24">
-											<strong className="text-zinc-200 font-bold text-sm 2xl:text-base">
+											<strong className="text-zinc-200 font-bold text-sm xl:text-base">
 												R$ {item.price.toFixed(2)}
 											</strong>
 
@@ -259,7 +259,7 @@ export function TicketsStep1() {
 			<button
 				type="submit"
 				// onClick={handleAdvance}
-				className="block 2xl:hidden bg-cyan-600 rounded-md font-bold h-12 px-3 cursor-pointer text-sm hover:bg-cyan-700 transition-colors"
+				className="block xl:hidden bg-cyan-600 rounded-md font-bold h-12 px-3 cursor-pointer text-sm hover:bg-cyan-700 transition-colors"
 			>
 				Continuar
 			</button>

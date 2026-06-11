@@ -29,7 +29,7 @@ export function CheckoutContent() {
 	return (
 		<MultiStepProvider steps={steps}>
 			<div className="flex h-fit">
-				<div className="flex-1 bg-zinc-800/40 w-fit px-6 2xl:pl-28 py-6 2xl:py-10 2xl:pr-28">
+				<div className="flex-1 bg-zinc-800/40 w-fit px-6 xl:pl-28 py-6 xl:py-10 xl:pr-14">
 					<MultiStepIndicator />
 
 					<div className="py-6 h-fit">

@@ -5,7 +5,7 @@ import { BoxHeading } from '../box-heading'
 
 export function LocationInfo() {
 	return (
-		<Box className="gap-5 rounded-none 2xl:rounded-2xl">
+		<Box className="gap-5 rounded-none xl:rounded-2xl">
 			<BoxHeading>Localização</BoxHeading>
 
 			<div className="w-full h-52 relative">

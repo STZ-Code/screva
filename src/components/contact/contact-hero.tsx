@@ -5,7 +5,7 @@ import contactImg from '@/assets/images/contact-img.png'
 
 export function ContactHero() {
 	return (
-		<div className="w-3/5 relative overflow-hidden hidden 2xl:block">
+		<div className="w-3/5 relative overflow-hidden hidden xl:block">
 			<motion.div
 				initial={{ scale: 1.1, opacity: 0 }}
 				animate={{ scale: 1, opacity: 1 }}

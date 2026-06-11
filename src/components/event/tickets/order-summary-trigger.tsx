@@ -6,7 +6,7 @@ import { OrderSummaryDrawer } from './order-summary-drawer'
 
 export function OrderSummaryTrigger() {
 	return (
-		<div className="fixed bottom-0 left-0 right-0 bg-500-900 2xl:hidden flex justify-between z-60 bg-zinc-800 py-3 px-6 items-center">
+		<div className="fixed bottom-0 left-0 right-0 bg-500-900 xl:hidden flex justify-between z-60 bg-zinc-800 py-3 px-6 items-center">
 			<div className="flex gap-4">
 				<Avatar.Root className="size-12 rounded-md">
 					<Avatar.Image src={exampleImg.src} />
