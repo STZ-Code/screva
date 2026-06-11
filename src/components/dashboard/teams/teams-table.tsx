@@ -199,6 +199,7 @@ export function TeamsTable() {
 						id="name"
 						fieldClassName="xl:w-1/2 w-full"
 						className="bg-neutral-900"
+						placeholder="Buscar equipe por nome"
 					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
