@@ -45,17 +45,17 @@ export function AuthDropdownContent({
 	const router = useRouter()
 
 	async function signOut() {
-		document.cookie = 'email=; Max-Age=0; path=/'
+		// document.cookie = 'email=; Max-Age=0; path=/'
 
-		router.push('/sign-in')
-		// await authClient.signOut(
-		// 	{},
-		// 	{
-		// 		onSuccess() {
-		// 			router.push('/sign-in')
-		// 		},
-		// 	},
-		// )
+		// router.push('/sign-in')
+		await authClient.signOut(
+			{},
+			{
+				onSuccess() {
+					router.push('/sign-in')
+				},
+			},
+		)
 	}
 
 	const isDesktop = useBreakpoint('lg')

@@ -1,8 +1,8 @@
 import {
-	cookies,
-	// headers,
+	// cookies,
+	headers,
 } from 'next/headers'
-// import { authClient } from './auth-client'
+import { authClient } from './auth-client'
 
 export type Role = 'ADMIN' | 'CUSTOMER'
 
@@ -59,16 +59,16 @@ async function getUser(email: string) {
 }
 
 export async function getCurrentUser() {
-	const cookie = (await cookies()).get('email')
+	// const cookie = (await cookies()).get('email')
 
-	if (!cookie) return null
-	// const state = await authClient.getSession({
-	// 	fetchOptions: {
-	// 		headers: await headers(),
-	// 	},
-	// })
+	// if (!cookie) return null
+	// const state = await getUser(cookie.value)
 
-	const state = await getUser(cookie.value)
+	const state = await authClient.getSession({
+		fetchOptions: {
+			headers: await headers(),
+		},
+	})
 
 	return state.data?.user as User | undefined
 }

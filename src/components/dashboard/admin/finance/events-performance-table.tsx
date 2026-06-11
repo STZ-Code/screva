@@ -1,10 +1,12 @@
 'use client'
 import { Avatar, type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
+import { EventPerformanceDetailsSheet } from './events-performance-details-sheet'
 
-type Event = {
+type EventPerformance = {
 	id: string
 	name: string
 	city: string
@@ -17,8 +19,10 @@ type Event = {
 export function EventsPerformanceTable() {
 	const desktop = useBreakpoint('lg')
 	const { control } = useForm()
+	const [eventPerformanceDetailsOpen, setEventPerformanceDetailsOpen] =
+		useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<EventPerformance>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
@@ -64,7 +68,7 @@ export function EventsPerformanceTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: EventPerformance[] = [
 		{
 			id: '728ed52f',
 			name: 'Evento 1',
@@ -103,6 +107,10 @@ export function EventsPerformanceTable() {
 		},
 	]
 
+	function handleOpenEventPerformanceDetails() {
+		setEventPerformanceDetailsOpen(true)
+	}
+
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="flex justify-between items-center">
@@ -127,7 +135,10 @@ export function EventsPerformanceTable() {
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 						<Table.Body>
-							<Table.Row className="border-zinc-800">
+							<Table.Row
+								onRowClick={handleOpenEventPerformanceDetails}
+								className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+							>
 								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 							</Table.Row>
 						</Table.Body>
@@ -141,6 +152,11 @@ export function EventsPerformanceTable() {
 						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
+
+				<EventPerformanceDetailsSheet
+					onOpenChange={setEventPerformanceDetailsOpen}
+					open={eventPerformanceDetailsOpen}
+				/>
 			</Table.Root>
 		</div>
 	)

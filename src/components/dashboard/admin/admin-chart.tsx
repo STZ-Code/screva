@@ -57,11 +57,12 @@ export function AdminChart() {
 
 				<Chart.Tooltip
 					inverse
+					className="bg-neutral-800 border-zinc-600"
 					formatter={(value, name) => {
 						return (
 							<div className="flex justify-between w-full">
-								<span className="text-amber-500">{name}</span>
-								<span className="text-emerald-500">{value}</span>
+								<span className="text-zinc-300">{name}</span>
+								<span className="text-zinc-200">{value}</span>
 							</div>
 						)
 					}}

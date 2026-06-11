@@ -2,13 +2,15 @@
 import { CheckCircleIcon, DotsThreeIcon } from '@phosphor-icons/react'
 import { Avatar, type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/layout'
+import { useState } from 'react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTransferSheet } from './create-transfer-sheet'
+import { TransfersDetailsSheet } from './transfers-details-sheet'
 
-type Event = {
+type Transfers = {
 	id: string
 	name: string
 	city: string
@@ -20,8 +22,9 @@ type Event = {
 
 export function TransfersTable() {
 	const desktop = useBreakpoint('lg')
+	const [transfersDetailsOpen, setTransfersDetailsOpen] = useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<Transfers>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
@@ -107,14 +110,20 @@ export function TransfersTable() {
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="end">
-								<Dropdown.Item>
-									<p>Editar</p>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
 								</Dropdown.Item>
 							</Dropdown.Content>
 						</Dropdown.Root>
@@ -124,7 +133,7 @@ export function TransfersTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: Transfers[] = [
 		{
 			id: '728ed52f',
 			name: 'Evento 1',
@@ -163,6 +172,10 @@ export function TransfersTable() {
 		},
 	]
 
+	function handleOpenTransfersDetails(_: Transfers) {
+		setTransfersDetailsOpen(true)
+	}
+
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="flex justify-between items-center">
@@ -187,7 +200,10 @@ export function TransfersTable() {
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 						<Table.Body>
-							<Table.Row className="border-zinc-800">
+							<Table.Row
+								onRowClick={handleOpenTransfersDetails}
+								className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+							>
 								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 							</Table.Row>
 						</Table.Body>
@@ -202,6 +218,11 @@ export function TransfersTable() {
 						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
+
+				<TransfersDetailsSheet
+					onOpenChange={setTransfersDetailsOpen}
+					open={transfersDetailsOpen}
+				/>
 			</Table.Root>
 		</div>
 	)

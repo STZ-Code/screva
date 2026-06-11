@@ -13,6 +13,7 @@ import {
 	TablePagination,
 } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/dropdown'
+import { useRouter } from 'next/navigation'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
@@ -23,6 +24,7 @@ type Event = {
 	id: string
 	name: string
 	city: string
+	slug: string
 	status: 'pending' | 'processing' | 'success' | 'failed'
 	date: Date
 	subscribers: string
@@ -31,6 +33,8 @@ type Event = {
 
 export function EventsTable() {
 	const desktop = useBreakpoint('lg')
+	const router = useRouter()
+
 	const columns: STZColumnDef<Event>[] = [
 		{
 			accessorKey: 'name',
@@ -76,6 +80,9 @@ export function EventsTable() {
 			header: () => (
 				<div className="xl:text-left text-center w-full">Inscritos</div>
 			),
+			meta: {
+				label: 'Inscritos',
+			},
 			size: 24,
 			cell: (info) => (
 				<div className="xl:text-left text-center w-full">
@@ -129,12 +136,18 @@ export function EventsTable() {
 				return (
 					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
-								<Dropdown.Item>
-									<p>Editar</p>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
 								</Dropdown.Item>
 							</Dropdown.Content>
 						</Dropdown.Root>
@@ -153,6 +166,7 @@ export function EventsTable() {
 			date: new Date(2026, 3, 10),
 			subscribers: '100',
 			organizer: 'Organizador 1',
+			slug: 'evento-1',
 		},
 		{
 			id: '728e322f',
@@ -162,6 +176,7 @@ export function EventsTable() {
 			date: new Date(2026, 5, 20),
 			subscribers: '100',
 			organizer: 'Organizador 1',
+			slug: 'evento-2',
 		},
 		{
 			id: '7285452f',
@@ -171,6 +186,7 @@ export function EventsTable() {
 			date: new Date(2026, 8, 15),
 			subscribers: '100',
 			organizer: 'Organizador 1',
+			slug: 'evento-3',
 		},
 		{
 			id: '728egrew2f',
@@ -180,8 +196,13 @@ export function EventsTable() {
 			date: new Date(2026, 11, 31),
 			subscribers: '100',
 			organizer: 'Organizador 1',
+			slug: 'evento-4',
 		},
 	]
+
+	function goToEvent(data: Event) {
+		router.push(`/dashboard/ev/${data.slug}`)
+	}
 
 	return (
 		<div className="flex flex-col">
@@ -237,7 +258,10 @@ export function EventsTable() {
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 						<Table.Body>
-							<Table.Row className="border-zinc-800">
+							<Table.Row
+								className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+								onRowClick={goToEvent}
+							>
 								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 							</Table.Row>
 						</Table.Body>
