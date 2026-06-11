@@ -15,14 +15,16 @@ import {
 	TablePagination,
 } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/layout'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
+import { CouponDetailsSheet } from './coupon-details-sheet'
 import { CreateCouponSheet } from './create-coupon-sheet'
 
-type Event = {
+type Coupon = {
 	id: string
 	name: string
 	type: string
@@ -35,8 +37,9 @@ type Event = {
 export function CouponsTable() {
 	const { control } = useForm()
 	const desktop = useBreakpoint('lg')
+	const [couponDetailsOpen, setCouponDetailsOpen] = useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<Coupon>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Nome',
@@ -106,14 +109,20 @@ export function CouponsTable() {
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
-								<Dropdown.Item>
-									<p>Editar</p>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
 								</Dropdown.Item>
 							</Dropdown.Content>
 						</Dropdown.Root>
@@ -123,7 +132,7 @@ export function CouponsTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: Coupon[] = [
 		{
 			id: '728ed52f',
 			name: 'PICOS1O',
@@ -170,6 +179,10 @@ export function CouponsTable() {
 			value: 'R$ 20,00',
 		},
 	]
+
+	function handleOpenCouponDetails(_: Coupon) {
+		setCouponDetailsOpen(true)
+	}
 
 	return (
 		<Table.Root
@@ -234,7 +247,10 @@ export function CouponsTable() {
 					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 					<Table.Body>
-						<Table.Row className="border-zinc-800">
+						<Table.Row
+							onRowClick={handleOpenCouponDetails}
+							className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+						>
 							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 						</Table.Row>
 					</Table.Body>
@@ -249,6 +265,11 @@ export function CouponsTable() {
 					<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 				</TablePagination.Root>
 			</Table.Container>
+
+			<CouponDetailsSheet
+				open={couponDetailsOpen}
+				onOpenChange={setCouponDetailsOpen}
+			/>
 		</Table.Root>
 	)
 }

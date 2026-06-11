@@ -40,9 +40,9 @@ export function EventOverviewChart() {
 				/>
 
 				<Chart.Tooltip
-					className="w-[150px]"
 					nameKey="views"
 					cursor
+					className="w-37.5 bg-neutral-800 border-zinc-600"
 					labelFormatter={(value) => {
 						return new Date(value).toLocaleDateString('en-US', {
 							month: 'short',
@@ -52,7 +52,7 @@ export function EventOverviewChart() {
 					}}
 					formatter={(value) => (
 						<div className="flex justify-between w-full">
-							<span className="text-emerald-500">{value}</span>
+							<span className="text-zinc-200">{value}</span>
 						</div>
 					)}
 				/>

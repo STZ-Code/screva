@@ -19,7 +19,7 @@ export function CreatePriceSheet() {
 
 			<Sheet.Content className="w-2/5 bg-neutral-900 border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
-					<Sheet.Title>Criar Kit</Sheet.Title>
+					<Sheet.Title>Criar Categoria</Sheet.Title>
 				</Sheet.Header>
 
 				<Sheet.Footer className="border-t border-t-neutral-700 flex-row justify-end">

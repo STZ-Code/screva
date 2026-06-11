@@ -15,14 +15,16 @@ import {
 	TablePagination,
 } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/layout'
+import { useState } from 'react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateTeamSheet } from './create-team-sheet'
+import { TeamDetailsSheet } from './team-details-sheet'
 
-type Event = {
+type Team = {
 	id: string
 	name: string
 	description: string
@@ -33,8 +35,9 @@ type Event = {
 
 export function TeamsTable() {
 	const desktop = useBreakpoint('lg')
+	const [teamDetailsOpen, setTeamDetailsOpen] = useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<Team>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
@@ -65,6 +68,9 @@ export function TeamsTable() {
 					{desktop ? 'Eventos realizados' : 'Eventos'}
 				</div>
 			),
+			meta: {
+				label: 'Qtd. eventos',
+			},
 			size: 24,
 			cell: (info) => (
 				<div className="text-center w-full">
@@ -113,14 +119,20 @@ export function TeamsTable() {
 			size: 8,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center 2xl:justify-start justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="end">
-								<Dropdown.Item>
-									<p>Editar</p>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
 								</Dropdown.Item>
 							</Dropdown.Content>
 						</Dropdown.Root>
@@ -130,7 +142,7 @@ export function TeamsTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: Team[] = [
 		{
 			id: '728ed52f',
 			name: 'Equipe 1',
@@ -165,6 +177,10 @@ export function TeamsTable() {
 		},
 	]
 
+	function handleOpenTeamDetails(data: Team) {
+		setTeamDetailsOpen(true)
+	}
+
 	return (
 		<Table.Root
 			columns={columns}
@@ -183,6 +199,7 @@ export function TeamsTable() {
 						id="name"
 						fieldClassName="xl:w-1/2 w-full"
 						className="bg-neutral-900"
+						placeholder="Buscar equipe por nome"
 					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
@@ -195,8 +212,8 @@ export function TeamsTable() {
 							<FunnelIcon size={24} className="text-zinc-500" />
 						</Table.FilterDropdownTrigger>
 						<Table.FilterDropdownContent>
-							<Table.FilterDropdownItem id="subscribers">
-								Inscritos
+							<Table.FilterDropdownItem id="eventsCount">
+								Qtd Eventos
 							</Table.FilterDropdownItem>
 							<Table.FilterDropdownItem id="status">
 								Status
@@ -227,7 +244,10 @@ export function TeamsTable() {
 					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 					<Table.Body>
-						<Table.Row className="border-zinc-800">
+						<Table.Row
+							onRowClick={handleOpenTeamDetails}
+							className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+						>
 							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 						</Table.Row>
 					</Table.Body>
@@ -241,6 +261,11 @@ export function TeamsTable() {
 					<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 				</TablePagination.Root>
 			</Table.Container>
+
+			<TeamDetailsSheet
+				open={teamDetailsOpen}
+				onOpenChange={setTeamDetailsOpen}
+			/>
 		</Table.Root>
 	)
 }

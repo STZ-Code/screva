@@ -23,18 +23,39 @@ export function EventFinancialMetrics() {
 				>
 					<Select.Root>
 						<Select.Control>
-							<Select.Trigger className="border-none p-0 pr-9">
-								<Select.Placeholder className="font-medium text-xs text-zinc-400">
+							<Select.Trigger className="border-none p-0 data-[state=open]:ring-0 focus:ring-0">
+								<Select.Placeholder className="font-medium text-xs text-zinc-400 cursor-pointer">
 									<div className="flex gap-2 items-center">
 										Últimas 24 horas
 										<CaretDownIcon size={16} />
 									</div>
 								</Select.Placeholder>
 
-								<Select.Portal>
-									<Select.Item value="select-1">Select 1</Select.Item>
-									<Select.Item value="select-2">Select 2</Select.Item>
-									<Select.Item value="select-3">Select 3</Select.Item>
+								<Select.Portal className="bg-neutral-800 border border-zinc-600 ring-0">
+									<Select.Item
+										value="select-1"
+										className="text-zinc-300 hover:bg-neutral-900 cursor-pointer pl-4 pr-2"
+									>
+										Últimas 24h
+									</Select.Item>
+									<Select.Item
+										value="select-2"
+										className="text-zinc-300 hover:bg-neutral-900 cursor-pointer pl-4 pr-2"
+									>
+										Essa semana
+									</Select.Item>
+									<Select.Item
+										value="select-3"
+										className="text-zinc-300 hover:bg-neutral-900 cursor-pointer pl-4 pr-2"
+									>
+										Último mês
+									</Select.Item>
+									<Select.Item
+										value="select-4"
+										className="text-zinc-300 hover:bg-neutral-900 cursor-pointer pl-4 pr-2"
+									>
+										Completo
+									</Select.Item>
 								</Select.Portal>
 							</Select.Trigger>
 						</Select.Control>

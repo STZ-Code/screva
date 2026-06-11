@@ -4,6 +4,8 @@ import {
 	CheckCircleIcon,
 	DotsThreeIcon,
 	DownloadSimpleIcon,
+	FileCsvIcon,
+	FilePdfIcon,
 	FunnelIcon,
 	MagnifyingGlassIcon,
 	PlusIcon,
@@ -16,14 +18,16 @@ import {
 	TablePagination,
 } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/dropdown'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { CreateFinancialReleaseSheet } from './create-financial-release-sheet'
+import { StatementDetailsSheet } from './statement-details-sheet'
 
-type Event = {
+type Statement = {
 	id: string
 	name: string
 	coupon: string
@@ -38,8 +42,9 @@ type Event = {
 export function StatementsTable() {
 	const { control } = useForm()
 	const desktop = useBreakpoint('lg')
+	const [statementDetailsOpen, setStatementDetailsOpen] = useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<Statement>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Nome',
@@ -124,14 +129,20 @@ export function StatementsTable() {
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
-							<Dropdown.Trigger className="self-center">
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
-								<Dropdown.Item>
-									<p>Editar</p>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
 								</Dropdown.Item>
 							</Dropdown.Content>
 						</Dropdown.Root>
@@ -141,7 +152,7 @@ export function StatementsTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: Statement[] = [
 		{
 			id: '728ed52f',
 			name: 'Gabriel Santos Garcez',
@@ -199,6 +210,10 @@ export function StatementsTable() {
 		},
 	]
 
+	function handleOpenStatementDetails(_: Statement) {
+		setStatementDetailsOpen(true)
+	}
+
 	return (
 		<Table.Root
 			columns={columns}
@@ -251,9 +266,18 @@ export function StatementsTable() {
 								<p className="hidden xl:block">Exportar</p>
 							</Dropdown.Label>
 						</Dropdown.Trigger>
-						<Dropdown.Content align="end">
-							<Dropdown.Item>PDF</Dropdown.Item>
-							<Dropdown.Item>CSV</Dropdown.Item>
+						<Dropdown.Content
+							align="end"
+							className="bg-neutral-800 border-zinc-600"
+						>
+							<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+								<FilePdfIcon className="size-5" />
+								PDF
+							</Dropdown.Item>
+							<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+								<FileCsvIcon className="size-5" />
+								CSV
+							</Dropdown.Item>
 						</Dropdown.Content>
 					</Dropdown.Root>
 
@@ -280,7 +304,10 @@ export function StatementsTable() {
 					<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 					<Table.Body>
-						<Table.Row className="border-zinc-800">
+						<Table.Row
+							onRowClick={handleOpenStatementDetails}
+							className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+						>
 							<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 						</Table.Row>
 					</Table.Body>
@@ -295,6 +322,11 @@ export function StatementsTable() {
 					<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 				</TablePagination.Root>
 			</Table.Container>
+
+			<StatementDetailsSheet
+				open={statementDetailsOpen}
+				onOpenChange={setStatementDetailsOpen}
+			/>
 		</Table.Root>
 	)
 }
