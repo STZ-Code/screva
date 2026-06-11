@@ -79,7 +79,7 @@ export function Footer() {
 					whileInView={{ opacity: 0.4, scale: 1, rotate: 12 }}
 					transition={{ duration: 1.5, ease: 'easeOut' }}
 					viewport={{ once: true }}
-					className="pointer-events-none absolute -top-28 right-16 z-10 xl:right-56"
+					className="pointer-events-none absolute -top-28 right-16 z-10 2xl:right-56"
 				>
 					<Image src={S} alt="S do Screva" className="opacity-40" />
 				</motion.div>
@@ -95,12 +95,12 @@ export function Footer() {
 						gap-12
 						px-6 py-12
 						md:flex-row md:gap-0
-						xl:px-28
+						2xl:px-28
 					"
 				>
 					<motion.div
 						variants={itemVariants}
-						className="flex w-full flex-col gap-8 xl:w-1/4"
+						className="flex w-full flex-col gap-8 2xl:w-1/4"
 					>
 						<div className="flex flex-col gap-6">
 							<Logo className="w-36" />
@@ -136,7 +136,7 @@ export function Footer() {
 						</motion.button>
 					</motion.div>
 
-					<div className="hidden flex-col gap-16 md:w-1/2 sm:flex-row md:justify-end xl:flex">
+					<div className="hidden flex-col gap-16 md:w-1/2 sm:flex-row md:justify-end 2xl:flex">
 						<motion.nav variants={itemVariants}>
 							<span className="text-xs font-bold uppercase tracking-widest text-zinc-100">
 								Navegação

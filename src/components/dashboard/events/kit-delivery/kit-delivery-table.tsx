@@ -164,7 +164,7 @@ export function KitDeliveryTable() {
 			}}
 		>
 			<div className="flex flex-col flex-1">
-				<div className="flex items-center justify-between mb-2 xl:gap-0 gap-4">
+				<div className="flex items-center justify-between mb-2 2xl:gap-0 gap-4">
 					<Table.FilterInput
 						id="name"
 						className="flex-1 w-full bg-neutral-900"

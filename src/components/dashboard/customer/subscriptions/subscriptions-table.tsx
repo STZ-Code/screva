@@ -61,7 +61,7 @@ export function SubscriptionsTable() {
 			header: desktop ? 'Eventos atendidos' : 'Eventos',
 			size: 24,
 			cell: (info) => (
-				<div className="xl:w-fit w-full">
+				<div className="2xl:w-fit w-full">
 					<p className="text-center">{info.row.original.eventsCount}</p>
 				</div>
 			),

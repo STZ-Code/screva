@@ -21,7 +21,7 @@ export function SettingsEventAwardForm() {
 					</FormSection.Description>
 				</FormSection.Header>
 
-				<div className="flex xl:flex-row flex-col gap-3 w-full">
+				<div className="flex 2xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="description" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Descrição da premiação
@@ -35,7 +35,7 @@ export function SettingsEventAwardForm() {
 					</Field.Root>
 				</div>
 
-				<div className="flex xl:flex-row flex-col gap-3 w-full">
+				<div className="flex 2xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="award_image" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Foto da premiação

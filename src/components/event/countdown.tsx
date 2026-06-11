@@ -7,7 +7,7 @@ import { CountdownTimeUnit } from './countdown-time-unit'
 
 export function Countdown() {
 	return (
-		<Box className="items-center justify-center gap-4 cursor-default rounded-none xl:rounded-2xl">
+		<Box className="items-center justify-center gap-4 cursor-default rounded-none 2xl:rounded-2xl">
 			<strong className="text-zinc-400 font-bebas uppercase tracking-wide">
 				Esse evento começa em
 			</strong>
@@ -30,7 +30,7 @@ export function Countdown() {
 					className="text-zinc-500 group-hover:text-cyan-500 transition-colors"
 				/>
 
-				<span className="xl:text-sm text-xs font-medium uppercase tracking-wider">
+				<span className="2xl:text-sm text-xs font-medium uppercase tracking-wider">
 					Adicionar ao calendário
 				</span>
 			</motion.button>

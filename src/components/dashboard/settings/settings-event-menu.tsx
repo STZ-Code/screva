@@ -45,7 +45,7 @@ export function SettingsEventMenu({ user, slug }: SettingsMenuProps) {
 	})
 
 	return (
-		<NavSettings.Root className="hidden xl:flex">
+		<NavSettings.Root className="hidden 2xl:flex">
 			{navItems.map((item) => (
 				<NavSettings.Item
 					key={item.href}

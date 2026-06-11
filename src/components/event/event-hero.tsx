@@ -19,11 +19,11 @@ export function EventHero() {
 					alt="Background Evento"
 					fill
 					priority
-					className="object-cover z-0 hidden xl:block"
+					className="object-cover z-0 hidden 2xl:block"
 				/>
 			</motion.div>
 
-			<div className="z-10 xl:px-28 flex flex-col-reverse xl:flex-row items-center justify-between flex-1">
+			<div className="z-10 2xl:px-28 flex flex-col-reverse 2xl:flex-row items-center justify-between flex-1">
 				<motion.div
 					initial={{ opacity: 0, x: -50 }}
 					animate={{ opacity: 1, x: 0 }}
@@ -60,7 +60,7 @@ export function EventHero() {
 					initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
 					animate={{ opacity: 1, scale: 1, rotate: 0 }}
 					transition={{ type: 'spring', stiffness: 100, delay: 0.8 }}
-					className="relative w-full aspect-square xl:w-64 rounded-lg overflow-hidden"
+					className="relative w-full aspect-square 2xl:w-64 rounded-lg overflow-hidden"
 				>
 					<Image src={eventImgExample} alt="Corrida de Jaboatão" fill />
 				</motion.div>

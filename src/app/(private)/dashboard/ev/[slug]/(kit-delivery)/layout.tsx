@@ -14,7 +14,7 @@ export default async function KitDeliveryLayout({
 	const { slug } = await params
 
 	return (
-		<Main className="xl:gap-8 gap-4 h-full">
+		<Main className="2xl:gap-8 gap-4 h-full">
 			<Heading.Root className="flex-row justify-between">
 				<Heading.Title>Gerenciamento de kits</Heading.Title>
 			</Heading.Root>

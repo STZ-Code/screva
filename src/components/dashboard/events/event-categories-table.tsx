@@ -250,7 +250,7 @@ export function EventCategoriesTable() {
 															className="flex flex-col gap-5 pb-6 last:pb-0"
 														>
 															<div className="flex items-center justify-between">
-																<span className="xl:text-2xl text-xl font-semibold text-zinc-100">
+																<span className="2xl:text-2xl text-xl font-semibold text-zinc-100">
 																	KIT BASICO
 																</span>
 
@@ -263,7 +263,7 @@ export function EventCategoriesTable() {
 																</button>
 															</div>
 															<div className="flex flex-col gap-4">
-																<div className="flex xl:gap-20 gap-6">
+																<div className="flex 2xl:gap-20 gap-6">
 																	<div className="flex flex-col pl-3 border-l-4 border-emerald-600">
 																		<strong className="font-semibold text-lg text-zinc-200">
 																			80
@@ -303,14 +303,14 @@ export function EventCategoriesTable() {
 																</div>
 															</div>
 															<div className="flex flex-col gap-2">
-																<span className="xl:text-lg text-base font-semibold">
+																<span className="2xl:text-lg text-base font-semibold">
 																	Detalhes do kit
 																</span>
 
 																<div className="flex gap-20">
 																	<div className="flex flex-col pl-3 border-l-4 border-zinc-700">
 																		<span className="text-zinc-400">Valor</span>
-																		<strong className="font-semibold xl:text-lg text-base text-zinc-200">
+																		<strong className="font-semibold 2xl:text-lg text-base text-zinc-200">
 																			R$ 80,00
 																		</strong>
 																	</div>
@@ -318,7 +318,7 @@ export function EventCategoriesTable() {
 																		<span className="text-zinc-400">
 																			Vendas até
 																		</span>
-																		<strong className="font-semibold xl:text-lg text-base text-zinc-200">
+																		<strong className="font-semibold 2xl:text-lg text-base text-zinc-200">
 																			13/04/2026
 																		</strong>
 																	</div>
@@ -329,7 +329,7 @@ export function EventCategoriesTable() {
 																		<span className="text-zinc-400">
 																			Descrição
 																		</span>
-																		<strong className="font-semibold xl:text-base text-sm text-zinc-200">
+																		<strong className="font-semibold 2xl:text-base text-sm text-zinc-200">
 																			Medalha de participação (ao concluir a
 																			prova), Número de peito, Chip de
 																			cronometragem, Alfinetes, Pulseira de

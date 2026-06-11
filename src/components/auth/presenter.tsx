@@ -11,7 +11,7 @@ type PresenterProps = {
 
 export function Presenter({ type }: PresenterProps) {
 	return (
-		<div className="flex-1 w-full h-full relative overflow-hidden hidden xl:block rounded-r-[40px]">
+		<div className="flex-1 w-full h-full relative overflow-hidden hidden 2xl:block rounded-r-[40px]">
 			<motion.div
 				initial={{ scale: 1.15, opacity: 0 }}
 				animate={{ scale: 1, opacity: 1 }}

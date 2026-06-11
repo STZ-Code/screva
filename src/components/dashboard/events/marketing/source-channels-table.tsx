@@ -58,12 +58,12 @@ export function SourcesChannelsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="xl:text-left text-center w-full">Ações</div>
+				<div className="2xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center xl:justify-start justify-center">
+					<div className="w-full flex items-center 2xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />

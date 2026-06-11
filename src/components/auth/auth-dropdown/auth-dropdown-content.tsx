@@ -63,7 +63,7 @@ export function AuthDropdownContent({
 	return (
 		<Dropdown.Content
 			asChild
-			className="p-0 border-none outline-none rounded-none xl:rounded-md w-screen xl:w-fit h-[calc(100vh-6rem)] xl:h-fit"
+			className="p-0 border-none outline-none rounded-none 2xl:rounded-md w-screen 2xl:w-fit h-[calc(100vh-6rem)] 2xl:h-fit"
 			sideOffset={isDesktop ? 0 : -8}
 		>
 			<motion.div
@@ -86,7 +86,7 @@ export function AuthDropdownContent({
 							<motion.div variants={item}>
 								<Link href={'/dashboard'}>
 									<DropdownButton className="cursor-pointer">
-										<UserIcon className="size-8 xl:size-7 mr-2" />
+										<UserIcon className="size-8 2xl:size-7 mr-2" />
 										Perfil
 									</DropdownButton>
 								</Link>
@@ -96,7 +96,7 @@ export function AuthDropdownContent({
 						<motion.div variants={item}>
 							<Link href={'/eventos'}>
 								<DropdownButton className="cursor-pointer">
-									<PersonSimpleRunIcon className="size-8 xl:size-7 mr-2" />
+									<PersonSimpleRunIcon className="size-8 2xl:size-7 mr-2" />
 									Eventos
 								</DropdownButton>
 							</Link>
@@ -105,7 +105,7 @@ export function AuthDropdownContent({
 						<motion.div variants={item}>
 							<Link href={'/resultados'}>
 								<DropdownButton className="cursor-pointer">
-									<RankingIcon className="size-8 xl:size-7 mr-2" />
+									<RankingIcon className="size-8 2xl:size-7 mr-2" />
 									Resultados
 								</DropdownButton>
 							</Link>
@@ -113,7 +113,7 @@ export function AuthDropdownContent({
 
 						<motion.div variants={item}>
 							<DropdownButton className="cursor-pointer">
-								<MegaphoneSimpleIcon className="size-8 xl:size-7 mr-2" />
+								<MegaphoneSimpleIcon className="size-8 2xl:size-7 mr-2" />
 								Anunciar Eventos
 							</DropdownButton>
 						</motion.div>
@@ -121,7 +121,7 @@ export function AuthDropdownContent({
 						{isAuthenticated && (
 							<motion.div variants={item}>
 								<DropdownButton onClick={signOut} className="cursor-pointer">
-									<SignOutIcon className="size-8 xl:size-7 mr-2" />
+									<SignOutIcon className="size-8 2xl:size-7 mr-2" />
 									Sair
 								</DropdownButton>
 							</motion.div>
@@ -140,7 +140,7 @@ export function AuthDropdownContent({
 						<Link href={'/contato'}>
 							<motion.div variants={item}>
 								<DropdownButton>
-									<HeadsetIcon className="size-8 xl:size-7 mr-2" />
+									<HeadsetIcon className="size-8 2xl:size-7 mr-2" />
 									Contato
 								</DropdownButton>
 							</motion.div>
@@ -148,14 +148,14 @@ export function AuthDropdownContent({
 
 						<motion.div variants={item}>
 							<DropdownButton>
-								<ListBulletsIcon className="size-8 xl:size-7 mr-2" />
+								<ListBulletsIcon className="size-8 2xl:size-7 mr-2" />
 								Termos de Uso
 							</DropdownButton>
 						</motion.div>
 
 						<motion.div variants={item}>
 							<DropdownButton>
-								<LockIcon className="size-8 xl:size-7 mr-2" />
+								<LockIcon className="size-8 2xl:size-7 mr-2" />
 								Política de Privacidade
 							</DropdownButton>
 						</motion.div>

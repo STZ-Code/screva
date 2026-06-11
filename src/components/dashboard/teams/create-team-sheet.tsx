@@ -16,13 +16,13 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 		<Sheet.Root>
 			{children}
 
-			<Sheet.Content className="xl:w-2/5 w-full bg-neutral-900 xl:border border-none border-cyan-600 gap-0">
+			<Sheet.Content className="2xl:w-2/5 w-full bg-neutral-900 2xl:border border-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar nova equipe</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root className="xl:flex-row flex-col">
+					<FormSection.Root className="2xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Dados Principais da equipe</FormSection.Title>
 							<FormSection.Description>
@@ -58,7 +58,7 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="xl:flex-row flex-col">
+					<FormSection.Root className="2xl:flex-row flex-col">
 						<FormSection.Header>
 							<FormSection.Title>Tipo de equipe</FormSection.Title>
 							<FormSection.Description>

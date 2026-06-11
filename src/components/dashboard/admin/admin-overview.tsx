@@ -16,7 +16,7 @@ export function AdminOverview() {
 
 			<AdminMetrics />
 
-			<section className="flex gap-8 h-full xl:flex-row flex-col">
+			<section className="flex gap-8 h-full 2xl:flex-row flex-col">
 				<LastInscriptions />
 
 				<EventList />

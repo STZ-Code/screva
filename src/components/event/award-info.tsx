@@ -5,7 +5,7 @@ import { BoxHeading } from '../box-heading'
 
 export function AwardInfo() {
 	return (
-		<Box className="gap-5 rounded-none xl:rounded-2xl">
+		<Box className="gap-5 rounded-none 2xl:rounded-2xl">
 			<BoxHeading>Premiação</BoxHeading>
 
 			<div className="flex justify-center">

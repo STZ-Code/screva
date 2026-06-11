@@ -25,12 +25,12 @@ export function EventList({
 	title,
 }: EventListProps) {
 	return (
-		<div className="px-8 xl:px-28 py-10 flex flex-col gap-8 xl:gap-5">
+		<div className="px-8 2xl:px-28 py-10 flex flex-col gap-8 2xl:gap-5">
 			<motion.h3
 				initial={{ opacity: 0, x: -20 }}
 				whileInView={{ opacity: 1, x: 0 }}
 				viewport={{ once: true }}
-				className="text-zinc-50 font-bebas text-4xl text-center xl:text-left"
+				className="text-zinc-50 font-bebas text-4xl text-center 2xl:text-left"
 			>
 				{title}
 			</motion.h3>

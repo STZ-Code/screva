@@ -6,7 +6,7 @@ import { BoxHeading } from '../box-heading'
 
 export function DocumentsInfo() {
 	return (
-		<Box className="gap-5 rounded-none xl:rounded-2xl">
+		<Box className="gap-5 rounded-none 2xl:rounded-2xl">
 			<BoxHeading>Documentos</BoxHeading>
 
 			<div className="flex flex-col gap-3">

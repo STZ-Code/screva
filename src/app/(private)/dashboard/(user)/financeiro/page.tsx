@@ -30,7 +30,7 @@ export default function FinancePage() {
 					Monitoramento de Risco
 				</h2>
 
-				<div className="flex gap-4 xl:flex-row flex-col-reverse">
+				<div className="flex gap-4 2xl:flex-row flex-col-reverse">
 					<RiskIndicators />
 					<PlataformHealth />
 				</div>
@@ -40,7 +40,7 @@ export default function FinancePage() {
 				<EventsPerformanceTable />
 			</section>
 
-			<section className="flex gap-8 h-full xl:flex-row flex-col">
+			<section className="flex gap-8 h-full 2xl:flex-row flex-col">
 				<OperationalExpenses />
 
 				<PaymentGateway />

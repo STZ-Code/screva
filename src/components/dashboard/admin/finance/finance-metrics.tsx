@@ -45,7 +45,7 @@ export function FinanceMetrics() {
 			</div>
 
 			<div className="flex gap-4 flex-wrap">
-				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita Bruta</Kpi.Label>
 
@@ -61,7 +61,7 @@ export function FinanceMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="xl:text-5xl text-xl">
+							<Kpi.Value className="2xl:text-5xl text-xl">
 								R$ 456.200,00
 							</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
@@ -73,7 +73,7 @@ export function FinanceMetrics() {
 						/>
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -85,7 +85,7 @@ export function FinanceMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="xl:text-5xl text-xl">
+							<Kpi.Value className="2xl:text-5xl text-xl">
 								R$ 40.200,00
 							</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
@@ -97,7 +97,7 @@ export function FinanceMetrics() {
 						/>
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Disponível para Repasse</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -112,7 +112,7 @@ export function FinanceMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="xl:text-5xl text-xl">30</Kpi.Value>
+							<Kpi.Value className="2xl:text-5xl text-xl">30</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
@@ -122,7 +122,7 @@ export function FinanceMetrics() {
 						/>
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Saldo</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -134,7 +134,7 @@ export function FinanceMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="xl:text-5xl text-xl">R$ 420,00</Kpi.Value>
+							<Kpi.Value className="2xl:text-5xl text-xl">R$ 420,00</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
@@ -146,7 +146,7 @@ export function FinanceMetrics() {
 				</Kpi.Root>
 			</div>
 
-			<Box className="xl:h-105 bg-neutral-900 rounded-b-none p-4 border-zinc-800">
+			<Box className="2xl:h-105 bg-neutral-900 rounded-b-none p-4 border-zinc-800">
 				<AdminChart />
 			</Box>
 		</section>

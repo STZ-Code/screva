@@ -74,11 +74,11 @@ export function EventsTable() {
 		{
 			accessorKey: 'subscribers',
 			header: () => (
-				<div className="xl:text-left text-center w-full">Inscritos</div>
+				<div className="2xl:text-left text-center w-full">Inscritos</div>
 			),
 			size: 24,
 			cell: (info) => (
-				<div className="xl:text-left text-center w-full">
+				<div className="2xl:text-left text-center w-full">
 					{info.row.original.subscribers}
 				</div>
 			),
@@ -122,12 +122,12 @@ export function EventsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="xl:text-left text-center w-full">Ações</div>
+				<div className="2xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center xl:justify-start justify-center">
+					<div className="w-full flex items-center 2xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -197,7 +197,7 @@ export function EventsTable() {
 					},
 				}}
 			>
-				<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse xl:gap-0 gap-4">
+				<div className="flex items-center justify-between mb-2 2xl:flex-row flex-col-reverse 2xl:gap-0 gap-4">
 					<div className="flex gap-2 w-full">
 						<Table.FilterInput
 							id="name"
