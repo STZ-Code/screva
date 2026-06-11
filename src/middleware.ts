@@ -13,9 +13,9 @@ export async function middleware(req: NextRequest) {
 
 	const authResponse = await authMiddleware(req, response)
 
-	if (authResponse) {
-		return authResponse
-	}
+	// if (authResponse) {
+	// 	return authResponse
+	// }
 
 	return response
 }

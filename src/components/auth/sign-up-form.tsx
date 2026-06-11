@@ -53,7 +53,7 @@ export function SignUpForm() {
 	return (
 		<form
 			onSubmit={handleSubmit(handlesignUp)}
-			className="flex flex-col w-full gap-4"
+			className="flex flex-col w-full 2xl:gap-4 gap-2"
 		>
 			<Field.Root control={control} name="name">
 				<Field.Label>Nome</Field.Label>
@@ -87,41 +87,43 @@ export function SignUpForm() {
 				<Field.Error />
 			</Field.Root>
 
-			<Field.Root control={control} name="password">
-				<Field.Label>Senha</Field.Label>
+			<div className="flex 2xl:flex-col gap-4 flex-row">
+				<Field.Root control={control} name="password">
+					<Field.Label>Senha</Field.Label>
 
-				<Input.Root className="border-zinc-600 py-3 focus-within:ring-2 focus-within:ring-cyan-500">
-					<Field.Icon
-						icon={LockIcon}
-						className="text-zinc-600 group-focus-within:text-cyan-500"
-					/>
-					<Input.Control
-						placeholder="Senha"
-						type="password"
-						className="placeholder:text-zinc-600 text-zinc-400"
-					/>
-				</Input.Root>
+					<Input.Root className="border-zinc-600 py-3 focus-within:ring-2 focus-within:ring-cyan-500">
+						<Field.Icon
+							icon={LockIcon}
+							className="text-zinc-600 group-focus-within:text-cyan-500"
+						/>
+						<Input.Control
+							placeholder="Senha"
+							type="password"
+							className="placeholder:text-zinc-600 text-zinc-400"
+						/>
+					</Input.Root>
 
-				<Field.Error />
-			</Field.Root>
+					<Field.Error />
+				</Field.Root>
 
-			<Field.Root control={control} name="password_confirmation">
-				<Field.Label>Confirme sua senha</Field.Label>
+				<Field.Root control={control} name="password_confirmation">
+					<Field.Label>Confirme sua senha</Field.Label>
 
-				<Input.Root className="border-zinc-600 py-3 focus-within:ring-2 focus-within:ring-cyan-500">
-					<Field.Icon
-						icon={LockIcon}
-						className="text-zinc-600 group-focus-within:text-cyan-500"
-					/>
-					<Input.Control
-						placeholder="Confirme sua senha"
-						type="password"
-						className="placeholder:text-zinc-600 text-zinc-400"
-					/>
-				</Input.Root>
+					<Input.Root className="border-zinc-600 py-3 focus-within:ring-2 focus-within:ring-cyan-500">
+						<Field.Icon
+							icon={LockIcon}
+							className="text-zinc-600 group-focus-within:text-cyan-500"
+						/>
+						<Input.Control
+							placeholder="Confirme sua senha"
+							type="password"
+							className="placeholder:text-zinc-600 text-zinc-400"
+						/>
+					</Input.Root>
 
-				<Field.Error />
-			</Field.Root>
+					<Field.Error />
+				</Field.Root>
+			</div>
 
 			<Button type="submit" className="mt-2 py-3">
 				Cadastrar

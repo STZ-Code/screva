@@ -12,7 +12,7 @@ export function SignUpContainer() {
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="2xl:w-2/5 flex flex-col gap-12 justify-center items-center px-6"
+			className="2xl:w-2/5 flex flex-col 2xl:gap-12 gap-4 justify-center items-center px-6"
 		>
 			<div className="flex flex-col w-96 gap-4">
 				<motion.div

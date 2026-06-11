@@ -42,7 +42,7 @@ export default function RootLayout({
 		>
 			<body
 				suppressHydrationWarning
-				className="bg-zinc-900 min-h-screen text-zinc-100 flex antialiased"
+				className="bg-zinc-900 xl:min-h-screen text-zinc-100 flex antialiased"
 			>
 				<Toaster richColors />
 				{children}
