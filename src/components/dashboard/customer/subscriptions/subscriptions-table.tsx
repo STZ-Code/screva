@@ -13,12 +13,14 @@ import {
 	TablePagination,
 } from '@stz-code/ui'
 import { Dropdown } from '@stz-code/ui/layout'
+import { useState } from 'react'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
+import { SubscriptionDetailsSheet } from './subscription-details-sheet'
 
-type Event = {
+type Subscription = {
 	id: string
 	name: string
 	description: string
@@ -29,8 +31,9 @@ type Event = {
 
 export function SubscriptionsTable() {
 	const desktop = useBreakpoint('lg')
+	const [subscriptionDetailsOpen, setSubscriptionDetailsOpen] = useState(false)
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<Subscription>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Evento',
@@ -104,22 +107,30 @@ export function SubscriptionsTable() {
 			size: 24,
 			cell: () => {
 				return (
-					<Dropdown.Root>
-						<Dropdown.Trigger>
-							<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
-						</Dropdown.Trigger>
-						<Dropdown.Content align="start">
-							<Dropdown.Item>
-								<p>Editar</p>
-							</Dropdown.Item>
-						</Dropdown.Content>
-					</Dropdown.Root>
+					<div className="w-full flex items-center xl:justify-start justify-center">
+						<Dropdown.Root>
+							<Dropdown.Trigger className="self-center hover:bg-zinc-900 rounded w-8 transition-colors">
+								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
+							</Dropdown.Trigger>
+							<Dropdown.Content
+								align="end"
+								className="bg-neutral-800 border-zinc-600"
+							>
+								<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Editar
+								</Dropdown.Item>
+								<Dropdown.Item className="text-red-400 cursor-pointer hover:bg-zinc-700 transition-colors">
+									Apagar
+								</Dropdown.Item>
+							</Dropdown.Content>
+						</Dropdown.Root>
+					</div>
 				)
 			},
 		},
 	]
 
-	const data: Event[] = [
+	const data: Subscription[] = [
 		{
 			id: '728ed52f',
 			name: 'Equipe 1',
@@ -154,6 +165,10 @@ export function SubscriptionsTable() {
 		},
 	]
 
+	function handleOpenSubscriptionDetails(_: Subscription) {
+		setSubscriptionDetailsOpen(true)
+	}
+
 	return (
 		<div className="flex flex-col">
 			<Table.Root
@@ -168,7 +183,11 @@ export function SubscriptionsTable() {
 				}}
 			>
 				<div className="flex gap-2 mb-4">
-					<Table.FilterInput id="name">
+					<Table.FilterInput
+						id="name"
+						fieldClassName="xl:w-1/2 w-full"
+						className="bg-neutral-900"
+					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
 							className="text-zinc-600 group-focus-within:text-cyan-500"
@@ -194,12 +213,15 @@ export function SubscriptionsTable() {
 					<Table.ClearFilters>Limpar Filtros</Table.ClearFilters>
 				</Table.Filters>
 
-				<Table.Container className="border-zinc-800">
+				<Table.Container className="border-zinc-800 bg-neutral-900">
 					<Table.Content>
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 						<Table.Body>
-							<Table.Row className="border-zinc-800">
+							<Table.Row
+								onRowClick={handleOpenSubscriptionDetails}
+								className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+							>
 								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 							</Table.Row>
 						</Table.Body>
@@ -214,6 +236,11 @@ export function SubscriptionsTable() {
 						<TablePagination.Next className="border-zinc-500 text-zinc-300 disabled:border-zinc-600 hover:bg-zinc-100/10 disabled:text-zinc-600 cursor-pointer" />
 					</TablePagination.Root>
 				</Table.Container>
+
+				<SubscriptionDetailsSheet
+					open={subscriptionDetailsOpen}
+					onOpenChange={setSubscriptionDetailsOpen}
+				/>
 			</Table.Root>
 		</div>
 	)
