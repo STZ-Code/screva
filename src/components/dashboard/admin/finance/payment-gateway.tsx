@@ -73,9 +73,9 @@ export function PaymentGateway() {
 	]
 
 	return (
-		<div className="lg:w-1/4 h-full flex flex-col">
-			<Box className="border-zinc-800 lg:p-6 p-4 gap-3 flex-1">
-				<h2 className="lg:text-2xl text-lg text-zinc-100 font-semibold">
+		<div className="2xl:w-1/4 h-full flex flex-col">
+			<Box className="border-zinc-800 2xl:p-6 p-4 gap-3 flex-1">
+				<h2 className="2xl:text-2xl text-lg text-zinc-100 font-semibold">
 					Gateway de pagamento
 				</h2>
 

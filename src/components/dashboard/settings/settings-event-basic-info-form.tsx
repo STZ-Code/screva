@@ -21,7 +21,7 @@ export function SettingsEventBasicInfoForm() {
 					</FormSection.Description>
 				</FormSection.Header>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="name" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Nome do evento
@@ -36,7 +36,7 @@ export function SettingsEventBasicInfoForm() {
 					</Field.Root>
 				</div>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="description" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Descrição do evento
@@ -50,7 +50,7 @@ export function SettingsEventBasicInfoForm() {
 					</Field.Root>
 				</div>
 
-				<div className="flex lg:flex-row flex-col gap-3 w-full">
+				<div className="flex xl:flex-row flex-col gap-3 w-full">
 					<Field.Root control={control} name="date" className="flex-1">
 						<Field.Label className="text-xs text-zinc-300" required>
 							Data do evento

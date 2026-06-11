@@ -9,7 +9,10 @@ type FormSectionProps = {
 export function FormSectionRoot({ children, className }: FormSectionProps) {
 	return (
 		<section
-			className={cn('border-b border-b-neutral-700 flex p-8 gap-4', className)}
+			className={cn(
+				'border-b border-b-neutral-700 flex py-8 px-6 gap-2',
+				className,
+			)}
 		>
 			{children}
 		</section>
@@ -18,7 +21,7 @@ export function FormSectionRoot({ children, className }: FormSectionProps) {
 
 export function FormSectionHeader({ children, className }: FormSectionProps) {
 	return (
-		<div className={cn('flex flex-col gap-1 lg:w-5/12 w-full', className)}>
+		<div className={cn('flex flex-col gap-1 2xl:w-5/12 w-full', className)}>
 			{children}
 		</div>
 	)

@@ -102,13 +102,11 @@ export function CouponsTable() {
 		},
 		{
 			id: 'actions',
-			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
-			),
+			header: () => <div className="text-center w-full">Ações</div>,
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -186,9 +184,13 @@ export function CouponsTable() {
 				},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse gap-4">
 				<div className="flex gap-2 w-full">
-					<Table.FilterInput id="name" className="flex-1">
+					<Table.FilterInput
+						id="name"
+						className="bg-neutral-900"
+						fieldClassName="xl:w-1/2 w-full"
+					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
 							className="text-zinc-600 group-focus-within:text-cyan-500"
@@ -196,7 +198,7 @@ export function CouponsTable() {
 					</Table.FilterInput>
 
 					<Table.FilterDropdown>
-						<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+						<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 							<FunnelIcon size={24} className="text-zinc-500" />
 						</Table.FilterDropdownTrigger>
 						<Table.FilterDropdownContent>
@@ -214,7 +216,7 @@ export function CouponsTable() {
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
-							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+							className="py-2 outline-none h-fit px-6 xl:w-56 w-full normal-case font-semibold flex gap-2"
 						>
 							<PlusIcon size={20} weight="bold" />
 							Criar cupom

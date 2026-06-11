@@ -63,7 +63,7 @@ export function AuthDropdownContent({
 	return (
 		<Dropdown.Content
 			asChild
-			className="p-0 border-none outline-none rounded-none lg:rounded-md w-screen lg:w-fit h-[calc(100vh-6rem)] lg:h-fit"
+			className="p-0 border-none outline-none rounded-none xl:rounded-md w-screen xl:w-fit h-[calc(100vh-6rem)] xl:h-fit"
 			sideOffset={isDesktop ? 0 : -8}
 		>
 			<motion.div
@@ -81,12 +81,12 @@ export function AuthDropdownContent({
 					animate="visible"
 					className="py-6 px-4 flex flex-col gap-3"
 				>
-					<Dropdown.Group className="gap-3 flex flex-col">
+					<Dropdown.Group className="xl:gap-1 gap-3 flex flex-col">
 						{isAuthenticated && (
 							<motion.div variants={item}>
 								<Link href={'/dashboard'}>
-									<DropdownButton className="cursor-pointer">
-										<UserIcon className="size-8 lg:size-7 mr-2" />
+									<DropdownButton className="cursor-pointer xl:text-base">
+										<UserIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 										Perfil
 									</DropdownButton>
 								</Link>
@@ -95,8 +95,8 @@ export function AuthDropdownContent({
 
 						<motion.div variants={item}>
 							<Link href={'/eventos'}>
-								<DropdownButton className="cursor-pointer">
-									<PersonSimpleRunIcon className="size-8 lg:size-7 mr-2" />
+								<DropdownButton className="cursor-pointer xl:text-base">
+									<PersonSimpleRunIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 									Eventos
 								</DropdownButton>
 							</Link>
@@ -104,24 +104,27 @@ export function AuthDropdownContent({
 
 						<motion.div variants={item}>
 							<Link href={'/resultados'}>
-								<DropdownButton className="cursor-pointer">
-									<RankingIcon className="size-8 lg:size-7 mr-2" />
+								<DropdownButton className="cursor-pointer xl:text-base">
+									<RankingIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 									Resultados
 								</DropdownButton>
 							</Link>
 						</motion.div>
 
 						<motion.div variants={item}>
-							<DropdownButton className="cursor-pointer">
-								<MegaphoneSimpleIcon className="size-8 lg:size-7 mr-2" />
+							<DropdownButton className="cursor-pointer xl:text-base">
+								<MegaphoneSimpleIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 								Anunciar Eventos
 							</DropdownButton>
 						</motion.div>
 
 						{isAuthenticated && (
 							<motion.div variants={item}>
-								<DropdownButton onClick={signOut} className="cursor-pointer">
-									<SignOutIcon className="size-8 lg:size-7 mr-2" />
+								<DropdownButton
+									onClick={signOut}
+									className="cursor-pointer xl:text-base"
+								>
+									<SignOutIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 									Sair
 								</DropdownButton>
 							</motion.div>
@@ -136,26 +139,26 @@ export function AuthDropdownContent({
 						<Dropdown.Separator className="bg-zinc-800" />
 					</motion.div>
 
-					<Dropdown.Group className="gap-3 flex flex-col">
+					<Dropdown.Group className="xl:gap-1 gap-3 flex flex-col">
 						<Link href={'/contato'}>
 							<motion.div variants={item}>
-								<DropdownButton>
-									<HeadsetIcon className="size-8 lg:size-7 mr-2" />
+								<DropdownButton className="cursor-pointer xl:text-base">
+									<HeadsetIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 									Contato
 								</DropdownButton>
 							</motion.div>
 						</Link>
 
 						<motion.div variants={item}>
-							<DropdownButton>
-								<ListBulletsIcon className="size-8 lg:size-7 mr-2" />
+							<DropdownButton className="cursor-pointer xl:text-base">
+								<ListBulletsIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 								Termos de Uso
 							</DropdownButton>
 						</motion.div>
 
 						<motion.div variants={item}>
-							<DropdownButton>
-								<LockIcon className="size-8 lg:size-7 mr-2" />
+							<DropdownButton className="cursor-pointer xl:text-base">
+								<LockIcon className="size-8 2xl:size-7 xl:size-6 mr-2" />
 								Política de Privacidade
 							</DropdownButton>
 						</motion.div>

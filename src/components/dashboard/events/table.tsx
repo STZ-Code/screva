@@ -58,7 +58,7 @@ export function EventsTable() {
 		{
 			accessorKey: 'date',
 			header: 'Data',
-			size: desktop ? 48 : 36,
+			size: 36,
 			cell: (info) => {
 				const rawDate = info.row.original.date
 
@@ -74,11 +74,11 @@ export function EventsTable() {
 		{
 			accessorKey: 'subscribers',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Inscritos</div>
+				<div className="xl:text-left text-center w-full">Inscritos</div>
 			),
 			size: 24,
 			cell: (info) => (
-				<div className="lg:text-left text-center w-full">
+				<div className="xl:text-left text-center w-full">
 					{info.row.original.subscribers}
 				</div>
 			),
@@ -122,12 +122,12 @@ export function EventsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
+				<div className="xl:text-left text-center w-full">Ações</div>
 			),
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
@@ -197,12 +197,12 @@ export function EventsTable() {
 					},
 				}}
 			>
-				<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+				<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse gap-4">
 					<div className="flex gap-2 w-full">
 						<Table.FilterInput
 							id="name"
-							className="flex-1 bg-zinc-900"
-							fieldClassName="w-full"
+							className="bg-neutral-900"
+							fieldClassName="xl:w-1/2 w-full"
 						>
 							<Field.Icon
 								icon={MagnifyingGlassIcon}
@@ -211,7 +211,7 @@ export function EventsTable() {
 						</Table.FilterInput>
 
 						<Table.FilterDropdown>
-							<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+							<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 								<FunnelIcon size={24} className="text-zinc-500" />
 							</Table.FilterDropdownTrigger>
 							<Table.FilterDropdownContent>

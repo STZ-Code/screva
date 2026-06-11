@@ -4,7 +4,7 @@ import { EventPricingTable } from './event-pricing'
 
 export function EventCategories() {
 	return (
-		<Box className="gap-5 rounded-none lg:rounded-2xl">
+		<Box className="gap-5 rounded-none xl:rounded-2xl">
 			<BoxHeading>Categorias</BoxHeading>
 
 			<EventPricingTable

@@ -78,8 +78,8 @@ export function OperationalExpenses() {
 
 	return (
 		<div className="flex-1 h-full flex flex-col">
-			<Box className="border-zinc-800 gap-3 lg:p-6 p-4 flex-1">
-				<h2 className="lg:text-2xl text-xl text-zinc-100 font-semibold">
+			<Box className="border-zinc-800 gap-3 2xl:p-6 p-4 flex-1">
+				<h2 className="2xl:text-2xl text-xl text-zinc-100 font-semibold">
 					Despesas Operacionais
 				</h2>
 

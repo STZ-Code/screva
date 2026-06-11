@@ -16,17 +16,17 @@ export function EventContent() {
 	const isDesktop = useBreakpoint('lg')
 
 	return (
-		<div className="lg:px-28 lg:py-10 flex flex-col lg:gap-10">
+		<div className="xl:px-28 xl:py-10 flex flex-col xl:gap-10">
 			<Countdown />
 
-			<div className="flex lg:gap-10 flex-col lg:flex-row">
-				<div className="lg:w-2/3 w-full flex flex-col lg:gap-10">
+			<div className="flex xl:gap-10 flex-col xl:flex-row">
+				<div className="xl:w-2/3 w-full flex flex-col xl:gap-10">
 					{!isDesktop && <TicketsAction />}
 					<EventDescription />
 					<EventCategories />
 					<AwardInfo />
 				</div>
-				<div className="flex-1 flex flex-col lg:gap-10">
+				<div className="flex-1 flex flex-col xl:gap-10">
 					{isDesktop && <TicketsAction />}
 					<OrganizerInfo />
 					<TimingTeam />

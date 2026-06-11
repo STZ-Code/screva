@@ -1,4 +1,8 @@
-import { cookies } from 'next/headers'
+import {
+	cookies,
+	// headers,
+} from 'next/headers'
+// import { authClient } from './auth-client'
 
 export type Role = 'ADMIN' | 'CUSTOMER'
 

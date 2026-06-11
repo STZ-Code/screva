@@ -23,7 +23,7 @@ export async function Header() {
 	const showEventsDropdown = user.role === 'ADMIN' || isContextSlug
 
 	return (
-		<header className="lg:px-12 px-6 lg:pt-8 pt-6 bg-dashboard-header flex justify-between lg:items-start items-center">
+		<header className="xl:px-12 px-6 xl:pt-8 pt-6 bg-dashboard-header flex justify-between xl:items-start items-center">
 			<div className="flex flex-col gap-8 w-full">
 				<div className="flex">
 					<Link href={'/'} className="cursor-pointer">
@@ -33,7 +33,7 @@ export async function Header() {
 					<div className="flex gap-2">
 						<LineVertical className="size-8 rotate-24 text-zinc-600" />
 
-						<div className="flex gap-2 lg:flex-row flex-col items-center">
+						<div className="flex gap-2 xl:flex-row flex-col items-center">
 							<ProfileDropdown user={user} />
 							{showEventsDropdown && <EventsDropdown />}
 						</div>

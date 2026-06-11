@@ -8,6 +8,7 @@ import {
 	PersonSimpleRunIcon,
 } from '@phosphor-icons/react'
 import { Avatar, Field, Select, type STZColumnDef } from '@stz-code/ui'
+import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { Box } from '@/components/box'
@@ -113,7 +114,7 @@ export function EventMetrics() {
 			</div>
 
 			<div className="flex gap-4 flex-wrap">
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita Bruta</Kpi.Label>
 
@@ -129,14 +130,16 @@ export function EventMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="text-5xl">R$ 456.200,00</Kpi.Value>
+							<Kpi.Value className="xl:text-5xl text-xl">
+								R$ 456.200,00
+							</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -151,14 +154,16 @@ export function EventMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="text-5xl">R$ 40.200,00</Kpi.Value>
+							<Kpi.Value className="xl:text-5xl text-xl">
+								R$ 40.200,00
+							</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Disponível para Repasse</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -173,14 +178,14 @@ export function EventMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="text-5xl">R$ 4.200,00</Kpi.Value>
+							<Kpi.Value className="xl:text-5xl text-xl">R$ 4.200,00</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] lg:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Saldo</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -195,7 +200,7 @@ export function EventMetrics() {
 					</div>
 					<div className="flex items-center justify-between">
 						<div className="flex flex-col gap-1">
-							<Kpi.Value className="text-5xl">R$ 420,00</Kpi.Value>
+							<Kpi.Value className="xl:text-5xl text-xl">R$ 420,00</Kpi.Value>
 							<span className="text-sm text-zinc-400">Este ano</span>
 						</div>
 
@@ -204,23 +209,22 @@ export function EventMetrics() {
 				</Kpi.Root>
 			</div>
 
-			<div className="flex gap-8">
-				<div className="flex-1">
-					<div>
-						<Box className="h-105 bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
-							<EventOverviewChart />
-						</Box>
+			<div className="flex w-full flex-col">
+				<Box className="h-fit xl:h-105 w-full bg-neutral-900 rounded-b-none shadow-none border-zinc-800">
+					<EventOverviewChart />
+				</Box>
 
-						<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
-							<span className="text-zinc-300 text-sm">
-								Acompanhe a quantidade de inscritos nas últimas 24 horas.
-							</span>
+				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between">
+					<span className="text-zinc-300 text-sm">
+						Acompanhe a quantidade de inscritos nas últimas 24 horas.
+					</span>
 
-							<button type="button" className="text-cyan-600 text-sm">
-								Ver mais detalhes
-							</button>
-						</div>
-					</div>
+					<Link
+						href={'/dashboard/ev/picos-pro-race'}
+						className="text-cyan-600 text-sm hover:text-cyan-700 transition-colors"
+					>
+						Ver mais detalhes
+					</Link>
 				</div>
 			</div>
 		</section>

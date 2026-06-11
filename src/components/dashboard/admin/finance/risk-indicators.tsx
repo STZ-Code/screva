@@ -5,7 +5,7 @@ import { Kpi } from '../../kpi'
 
 export function RiskIndicators() {
 	return (
-		<div className="flex flex-col lg:w-2/5 gap-3">
+		<div className="flex flex-col 2xl:w-2/5 gap-3">
 			<div className="grid grid-cols-2 gap-4">
 				<Kpi.Root className="rounded">
 					<div className="flex justify-between items-center">

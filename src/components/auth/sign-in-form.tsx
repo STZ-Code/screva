@@ -27,7 +27,6 @@ export function SignInForm() {
 	})
 
 	async function handleSignIn({ email, password }: SingInSchema) {
-		// localStorage.setItem('email', email)
 		if (password !== 'pppppppp') return
 
 		document.cookie = `email=${encodeURIComponent(email)}; path=/`

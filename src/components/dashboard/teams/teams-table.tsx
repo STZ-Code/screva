@@ -38,7 +38,7 @@ export function TeamsTable() {
 		{
 			accessorKey: 'name',
 			header: 'Evento',
-			size: desktop ? 140 : 48,
+			size: desktop ? 114 : 48,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full pl-3">
@@ -61,13 +61,13 @@ export function TeamsTable() {
 		{
 			accessorKey: 'eventsCount',
 			header: () => (
-				<div className="lg:text-left text-center w-full">
+				<div className="text-center w-full">
 					{desktop ? 'Eventos realizados' : 'Eventos'}
 				</div>
 			),
 			size: 24,
 			cell: (info) => (
-				<div className="lg:text-left text-center w-full">
+				<div className="text-center w-full">
 					{info.row.original.eventsCount}
 				</div>
 			),
@@ -91,7 +91,7 @@ export function TeamsTable() {
 		{
 			accessorKey: 'status',
 			header: 'Status',
-			size: 32,
+			size: 16,
 			cell: (info) => (
 				<StatusTag.Root>
 					<StatusTag.Icon
@@ -108,17 +108,17 @@ export function TeamsTable() {
 		{
 			id: 'actions',
 			header: () => (
-				<div className="lg:text-left text-center w-full">Ações</div>
+				<div className="2xl:text-left text-center w-full">Ações</div>
 			),
-			size: 24,
+			size: 8,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center lg:justify-start justify-center">
+					<div className="w-full flex items-center 2xl:justify-start justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
+							<Dropdown.Content align="end">
 								<Dropdown.Item>
 									<p>Editar</p>
 								</Dropdown.Item>
@@ -177,12 +177,12 @@ export function TeamsTable() {
 				},
 			}}
 		>
-			<div className="flex items-center justify-between mb-2 lg:flex-row flex-col-reverse lg:gap-0 gap-4">
+			<div className="flex items-center justify-between mb-2 xl:flex-row flex-col-reverse gap-4">
 				<div className="flex gap-2 w-full">
 					<Table.FilterInput
 						id="name"
-						className="flex-1"
-						fieldClassName="w-full bg-zinc-900"
+						fieldClassName="xl:w-1/2 w-full"
+						className="bg-neutral-900"
 					>
 						<Field.Icon
 							icon={MagnifyingGlassIcon}
@@ -191,7 +191,7 @@ export function TeamsTable() {
 					</Table.FilterInput>
 
 					<Table.FilterDropdown>
-						<Table.FilterDropdownTrigger className="bg-zinc-900 border border-zinc-800">
+						<Table.FilterDropdownTrigger className="bg-neutral-900 border border-zinc-800">
 							<FunnelIcon size={24} className="text-zinc-500" />
 						</Table.FilterDropdownTrigger>
 						<Table.FilterDropdownContent>
@@ -209,7 +209,7 @@ export function TeamsTable() {
 					<Sheet.Trigger asChild>
 						<Button
 							type="submit"
-							className="py-2 outline-none h-fit px-6 lg:w-56 w-full normal-case font-semibold flex gap-2"
+							className="py-2 outline-none h-fit px-6 xl:w-56 w-full normal-case font-semibold flex gap-2"
 						>
 							<PlusIcon size={20} weight="bold" />
 							Criar equipe

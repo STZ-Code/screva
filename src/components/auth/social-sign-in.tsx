@@ -9,7 +9,7 @@ const buttonVariant = {
 
 export function SocialSignIn() {
 	return (
-		<div className="w-full gap-2 flex mt-6">
+		<div className="w-full gap-2 flex 2xl:mt-6 mt-4">
 			<motion.button
 				type="button"
 				variants={buttonVariant}

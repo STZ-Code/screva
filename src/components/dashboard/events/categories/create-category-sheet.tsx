@@ -13,7 +13,7 @@ export function CreateCategorySheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit px-6 lg:w-72 w-full normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit px-6 xl:w-72 w-full normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Adicionar categoria
@@ -27,7 +27,7 @@ export function CreateCategorySheet() {
 
 				<div className="flex flex-col overflow-auto">
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Dados da categoria</FormSection.Title>
 						</FormSection.Header>
 

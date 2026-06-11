@@ -13,7 +13,7 @@ import { Box } from '@/components/box'
 
 export function EventSummary() {
 	return (
-		<Box className="bg-neutral-900 py-4 gap-4 flex-1">
+		<Box className="bg-neutral-900 py-4 gap-4 w-fit">
 			<div className="flex items-center justify-between">
 				<span className="text-lg font-semibold text-zinc-200">
 					Visão geral do evento
@@ -28,18 +28,18 @@ export function EventSummary() {
 				</Link>
 			</div>
 
-			<div className="flex gap-8">
+			<div className="flex xl:gap-8 gap-4 xl:flex-row flex-col">
 				<Image
 					src={exampleImg}
 					alt="Event Image"
-					className="w-64 object-cover rounded"
+					className="xl:w-64 w-full object-cover rounded"
 				/>
 
-				<div className="space-y-16">
+				<div className="xl:space-y-16 space-y-4">
 					<div className="flex flex-col gap-2">
 						<h2 className="font-semibold text-2xl">Picos Pro Race</h2>
 
-						<p className="text-sm w-1/2 capitalize">
+						<p className="text-sm xl:w-1/2 capitalize">
 							A edição 2026 da Corrida Sesc de Corridas chega com tudo em
 							Pernambuco! De outubro a novembro, correremos por Recife, Serra
 							Talhada, Petrolina, Jaboatão dos Guararapes e Garanhuns, serão
@@ -48,7 +48,7 @@ export function EventSummary() {
 						</p>
 					</div>
 
-					<div className="flex gap-16">
+					<div className="flex xl:gap-16 gap-4 flex-col xl:flex-row">
 						<div className="flex gap-3">
 							<div className="bg-zinc-700 rounded-md w-fit h-fit p-2">
 								<CalendarBlankIcon className="size-6 text-cyan-600" />

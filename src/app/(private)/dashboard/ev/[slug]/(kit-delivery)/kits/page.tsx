@@ -7,7 +7,7 @@ export default async function KitPage() {
 		<>
 			<KitDeliveryMetrics />
 
-			<div className="flex w-full gap-4 lg:flex-row flex-col">
+			<div className="flex w-full gap-4 xl:flex-row flex-col">
 				<KitPickupDetails />
 
 				<KitDeliveryMapLocation />

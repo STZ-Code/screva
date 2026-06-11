@@ -11,18 +11,18 @@ export function Hero() {
 	const isDesktop = useBreakpoint('lg')
 
 	return (
-		<section className="flex w-full relative h-[720px] lg:h-fit">
-			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-10 lg:gap-6 z-20">
+		<section className="flex w-full relative xl:h-160 h-180 2xl:h-fit">
+			<div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col gap-10 xl:gap-6 z-20">
 				<motion.div
 					initial={{ opacity: 0, y: 40 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
 					className="flex items-center justify-center flex-col"
 				>
-					<h1 className="text-center cursor-default text-4xl lg:text-7xl font-bold text-zinc-200/90 leading-tight">
+					<h1 className="text-center cursor-default text-4xl xl:text-7xl font-bold text-zinc-200/90 leading-tight">
 						Seu Tempo, {!isDesktop && <br />} Sua Meta
 					</h1>
-					<h1 className="text-center text-4xl lg:text-7xl cursor-default font-bold text-zinc-200/90 leading-tight">
+					<h1 className="text-center text-4xl xl:text-7xl cursor-default font-bold text-zinc-200/90 leading-tight">
 						Nossa <span className="italic text-cyan-400">Precisão</span>
 					</h1>
 				</motion.div>
@@ -31,7 +31,7 @@ export function Hero() {
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					transition={{ delay: 0.5, duration: 0.5 }}
-					className="flex flex-col lg:flex-row gap-4 items-center justify-center"
+					className="flex flex-col xl:flex-row gap-4 items-center justify-center"
 				>
 					<Link href={'/eventos'}>
 						<RunnerButton>Eventos</RunnerButton>
@@ -52,12 +52,12 @@ export function Hero() {
 						<Image
 							src={HeroImg1}
 							alt="Bike"
-							className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700"
+							className="w-full h-full object-fill grayscale-20 hover:grayscale-0 transition-all duration-700"
 						/>
 					</motion.div>
 				</div>
 
-				<div className="hidden lg:block flex-1 overflow-hidden relative border-l border-zinc-800">
+				<div className="hidden xl:block flex-1 overflow-hidden relative border-l border-zinc-800">
 					<motion.div
 						initial={{ scale: 1.2, opacity: 0 }}
 						animate={{ scale: 1, opacity: 1 }}
@@ -67,7 +67,7 @@ export function Hero() {
 						<Image
 							src={HeroImg2}
 							alt="Runner"
-							className="w-full h-full object-cover grayscale-20 hover:grayscale-0 transition-all duration-700"
+							className="w-full h-full object-fill grayscale-20 hover:grayscale-0 transition-all duration-700"
 						/>
 					</motion.div>
 				</div>

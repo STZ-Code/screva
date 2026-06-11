@@ -55,7 +55,7 @@ function AthleteDetails() {
 								João da Silva
 							</strong>
 
-							<StatusTag.Root className="flex lg:hidden">
+							<StatusTag.Root className="flex xl:hidden">
 								<StatusTag.Icon
 									icon={CheckCircleIcon}
 									weight="fill"
@@ -94,7 +94,7 @@ function AthleteDetails() {
 					</div>
 				</div>
 
-				<StatusTag.Root className="hidden lg:flex">
+				<StatusTag.Root className="hidden xl:flex">
 					<StatusTag.Icon
 						icon={CheckCircleIcon}
 						weight="fill"
@@ -204,7 +204,7 @@ function AthleteDetails() {
 				</div>
 
 				<div className="flex items-center gap-2.5 text-zinc-400">
-					<InfoIcon className="lg:size-6 size-8" />
+					<InfoIcon className="xl:size-6 size-8" />
 					<p className="text-sm">
 						Cerifique-se de pedir ao atleta para confirmar os dados.
 					</p>
@@ -216,7 +216,7 @@ function AthleteDetails() {
 
 export function KitDeliveryAthleteDetails() {
 	return (
-		<div className="bg-neutral-900 min-h-200 lg:w-114 w-full rounded border border-zinc-800 h-full">
+		<div className="bg-neutral-900 min-h-200 xl:w-114 w-full rounded border border-zinc-800 h-full">
 			{/* <AthleteDetailsEmpty /> */}
 			<AthleteDetails />
 		</div>

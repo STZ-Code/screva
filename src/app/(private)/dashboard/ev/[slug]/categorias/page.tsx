@@ -7,10 +7,10 @@ export default function CategoriesPage() {
 	return (
 		<Main className="gap-8 h-full px-0">
 			<div className="flex items-end justify-between">
-				<Heading.Root className="lg:px-0 px-6">
-					<Heading.Title>Categorias</Heading.Title>
+				<Heading.Root className="xl:px-0 px-6">
+					<Heading.Title>Modalidades</Heading.Title>
 					<Heading.Description>
-						Crie e edite as categorias do seu evento.
+						Crie e edite as modalidades do seu evento.
 					</Heading.Description>
 				</Heading.Root>
 

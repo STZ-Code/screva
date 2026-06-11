@@ -240,7 +240,7 @@ export function EventCategoriesTable() {
 												value={row.id}
 												className="overflow-hidden border-b border-b-zinc-600 last:border-b"
 											>
-												<Accordion.Trigger className="w-full px-4 py-6 hover:no-underline rounded-none cursor-pointer hover:bg-neutral-800 data-[state=open]:bg-neutral-800 transition-colors font-bebas text-2xl">
+												<Accordion.Trigger className="w-full px-4 py-6 hover:no-underline rounded-none cursor-pointer hover:bg-neutral-800 data-[state=open]:bg-neutral-800 bg-neutral-800/30 transition-colors font-bebas text-2xl">
 													03 Km - PASSEIO/INICIANTES
 												</Accordion.Trigger>
 												<Accordion.Content className="border-t p-6 text-sm border-zinc-700 bg-dashboard-header divide-y divide-zinc-600 gap-6 flex flex-col">
@@ -250,7 +250,7 @@ export function EventCategoriesTable() {
 															className="flex flex-col gap-5 pb-6 last:pb-0"
 														>
 															<div className="flex items-center justify-between">
-																<span className="lg:text-2xl text-xl font-semibold text-zinc-100">
+																<span className="xl:text-2xl text-xl font-semibold text-zinc-100">
 																	KIT BASICO
 																</span>
 
@@ -263,7 +263,7 @@ export function EventCategoriesTable() {
 																</button>
 															</div>
 															<div className="flex flex-col gap-4">
-																<div className="flex lg:gap-20 gap-6">
+																<div className="flex xl:gap-20 gap-6">
 																	<div className="flex flex-col pl-3 border-l-4 border-emerald-600">
 																		<strong className="font-semibold text-lg text-zinc-200">
 																			80
@@ -303,14 +303,14 @@ export function EventCategoriesTable() {
 																</div>
 															</div>
 															<div className="flex flex-col gap-2">
-																<span className="lg:text-lg text-base font-semibold">
+																<span className="xl:text-lg text-base font-semibold">
 																	Detalhes do kit
 																</span>
 
 																<div className="flex gap-20">
 																	<div className="flex flex-col pl-3 border-l-4 border-zinc-700">
 																		<span className="text-zinc-400">Valor</span>
-																		<strong className="font-semibold lg:text-lg text-base text-zinc-200">
+																		<strong className="font-semibold xl:text-lg text-base text-zinc-200">
 																			R$ 80,00
 																		</strong>
 																	</div>
@@ -318,7 +318,7 @@ export function EventCategoriesTable() {
 																		<span className="text-zinc-400">
 																			Vendas até
 																		</span>
-																		<strong className="font-semibold lg:text-lg text-base text-zinc-200">
+																		<strong className="font-semibold xl:text-lg text-base text-zinc-200">
 																			13/04/2026
 																		</strong>
 																	</div>
@@ -329,7 +329,7 @@ export function EventCategoriesTable() {
 																		<span className="text-zinc-400">
 																			Descrição
 																		</span>
-																		<strong className="font-semibold lg:text-base text-sm text-zinc-200">
+																		<strong className="font-semibold xl:text-base text-sm text-zinc-200">
 																			Medalha de participação (ao concluir a
 																			prova), Número de peito, Chip de
 																			cronometragem, Alfinetes, Pulseira de

@@ -11,7 +11,7 @@ import exampleImg from '@/assets/examples/banner-example.jpg'
 
 export function CustomerHeader() {
 	return (
-		<section className="flex flex-col w-full h-fit lg:border-l lg:border-r border-zinc-700 items-center">
+		<section className="flex flex-col w-full h-fit 2xl:border-l 2xl:border-r border-zinc-700 items-center">
 			<div className="w-full h-48 relative">
 				<Image
 					src={exampleImg.src}
@@ -23,7 +23,7 @@ export function CustomerHeader() {
 
 				{/* <button
 					type="button"
-					className="text-zinc-100 bg-cyan-600 rounded-md py-2 lg:px-4 px-2 font-bold h-fit absolute top-2 right-2 flex items-center gap-2 cursor-pointer hover:bg-cyan-700 transition-colors"
+					className="text-zinc-100 bg-cyan-600 rounded-md py-2 2xl:px-4 px-2 font-bold h-fit absolute top-2 right-2 flex items-center gap-2 cursor-pointer hover:bg-cyan-700 transition-colors"
 				>
 					{desktop && 'Compartilhar'}
 
@@ -31,35 +31,35 @@ export function CustomerHeader() {
 				</button> */}
 			</div>
 
-			<div className="relative w-full border-b border-zinc-700 flex lg:px-16 px-6">
-				<Avatar.Root className="lg:size-40 size-32 rounded-full border-4 text-zinc-200 absolute lg:bottom-14 bottom-52">
+			<div className="relative w-full border-b border-zinc-700 flex 2xl:px-16 px-6">
+				<Avatar.Root className="2xl:size-40 size-32 rounded-full border-4 text-zinc-200 absolute 2xl:bottom-14 bottom-52">
 					<Avatar.Image src="https://github.com/garcez17.png" />
 					<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
 				</Avatar.Root>
 
-				<div className="lg:ml-48 lg:mt-0 mt-12 py-6 flex flex-col gap-4">
+				<div className="2xl:ml-48 2xl:mt-0 mt-12 py-6 flex flex-col gap-4">
 					<h1 className="text-3xl font-bold text-zinc-200">Lucas Martins</h1>
 
 					<span className="text-zinc-400">
 						Corredor de rua apaixonado por evolução e superação
 					</span>
 
-					<div className="flex lg:gap-6 gap-2 text-zinc-300 divide-x divide-zinc-700">
-						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-row lg:flex-none flex-1 flex-col">
+					<div className="flex 2xl:gap-6 gap-2 text-zinc-300 divide-x divide-zinc-700">
+						<div className="flex items-center gap-2 2xl:pr-6 pr-2 2xl:flex-row 2xl:flex-none flex-1 flex-col">
 							<MapPinIcon size={20} />
-							<span className="text-zinc-400 text-sm text-center lg:text-left">
+							<span className="text-zinc-400 text-sm text-center 2xl:text-left">
 								São Paulo - SP
 							</span>
 						</div>
-						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-none flex-1 lg:flex-row flex-col">
+						<div className="flex items-center gap-2 2xl:pr-6 pr-2 2xl:flex-none flex-1 2xl:flex-row flex-col">
 							<UsersIcon size={20} />
-							<span className="text-zinc-400 text-sm text-center lg:text-left">
+							<span className="text-zinc-400 text-sm text-center 2xl:text-left">
 								28 anos
 							</span>
 						</div>
-						<div className="flex items-center gap-2 lg:pr-6 pr-2 lg:flex-none flex-1 lg:flex-row flex-col">
+						<div className="flex items-center gap-2 2xl:pr-6 pr-2 2xl:flex-none flex-1 2xl:flex-row flex-col">
 							<CalendarBlankIcon size={20} />
-							<span className="text-zinc-400 text-sm text-center lg:text-left">
+							<span className="text-zinc-400 text-sm text-center 2xl:text-left">
 								Membro desde Jan/2026
 							</span>
 						</div>

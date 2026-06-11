@@ -19,7 +19,7 @@ export function EventCard() {
 			}}
 			transition={{ type: 'spring', stiffness: 400, damping: 17 }}
 			className={cn(
-				'p-5 border border-white/8 rounded-2xl w-full lg:w-[300px]',
+				'p-5 border border-white/8 rounded-2xl w-full xl:w-75',
 				'bg-zinc-900/40 backdrop-blur-md group will-change-transform shadow-2xl shadow-black/40',
 			)}
 		>
@@ -42,7 +42,7 @@ export function EventCard() {
 									<CalendarDotsIcon size={24} className="text-zinc-100 mr-1" />
 									<time className="text-zinc-200 text-xs">10 de Dezembro</time>
 								</div>
-								<span className="h-3 w-[2px] bg-cyan-500" />
+								<span className="h-3 w-0.5 bg-cyan-500" />
 								<span className="text-zinc-200 text-xs">06:00h</span>
 							</div>
 

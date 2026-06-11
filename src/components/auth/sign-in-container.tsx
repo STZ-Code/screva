@@ -12,9 +12,9 @@ export function SignInContainer() {
 			initial={{ opacity: 0, x: 20 }}
 			animate={{ opacity: 1, x: 0 }}
 			transition={{ duration: 0.6, ease: 'easeOut' }}
-			className="lg:w-2/5 flex flex-col gap-24 justify-center items-center px-6"
+			className="xl:w-2/5 w-full flex flex-col xl:gap-16 gap-24 justify-center items-center px-6"
 		>
-			<div className="flex flex-col w-96 gap-4">
+			<div className="flex flex-col xl:w-96 gap-4 w-full">
 				<motion.div
 					initial={{ opacity: 0, y: -10 }}
 					animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function SignInContainer() {
 			</div>
 
 			<Link href={'/'}>
-				<Logo className="w-36 h-fit lg:w-44 text-zinc-100 ml-4" />
+				<Logo className="w-36 h-fit xl:w-44 text-zinc-100 ml-4" />
 			</Link>
 		</motion.div>
 	)
