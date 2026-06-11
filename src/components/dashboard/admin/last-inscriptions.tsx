@@ -1,7 +1,6 @@
 'use client'
 import { Avatar, type STZColumnDef, Table } from '@stz-code/ui'
-import Link from 'next/link'
-import { CaretRight, CheckCircle } from 'phosphor-react'
+import { CheckCircle } from 'phosphor-react'
 import { Box } from '@/components/box'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
@@ -14,13 +13,13 @@ type Inscription = {
 }
 
 export function LastInscriptions() {
-	const desktop = useBreakpoint('lg')
+	const desktop = useBreakpoint('xl')
 
 	const columns: STZColumnDef<Inscription>[] = [
 		{
 			accessorKey: 'name',
 			header: 'Atleta',
-			size: desktop ? 140 : 28,
+			size: desktop ? 114 : 28,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full">
@@ -41,19 +40,25 @@ export function LastInscriptions() {
 		},
 		{
 			accessorKey: 'status',
-			header: 'Status do pagamento',
+			header: () => (
+				<div className="flex w-full justify-center">
+					<span>Status do pagamento</span>
+				</div>
+			),
 			size: 24,
 			cell: (info) => (
-				<StatusTag.Root>
-					<StatusTag.Icon
-						icon={CheckCircle}
-						weight="fill"
-						className="text-emerald-500"
-					/>
-					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
-					</StatusTag.Label>
-				</StatusTag.Root>
+				<div className="flex w-full justify-center">
+					<StatusTag.Root>
+						<StatusTag.Icon
+							icon={CheckCircle}
+							weight="fill"
+							className="text-emerald-500"
+						/>
+						<StatusTag.Label className="text-zinc-200 text-xs">
+							Confirmado
+						</StatusTag.Label>
+					</StatusTag.Root>
+				</div>
 			),
 		},
 	]
@@ -99,7 +104,7 @@ export function LastInscriptions() {
 				</h2>
 
 				<Table.Root columns={columns} data={data}>
-					<Table.Container className="border-none">
+					<Table.Container className="border-none hover:shadow-none">
 						<Table.Content>
 							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800 px-0" />
 

@@ -16,14 +16,14 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 		<Sheet.Root>
 			{children}
 
-			<Sheet.Content className="2xl:w-2/5 w-full bg-neutral-900 2xl:border border-none border-cyan-600 gap-0">
+			<Sheet.Content className="xl:w-2/5 w-full bg-neutral-900 xl:border-l border-l-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar nova equipe</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col gap-6">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Dados Principais da equipe</FormSection.Title>
 							<FormSection.Description>
 								Informações essenciais para cadastrar a equipe.
@@ -58,8 +58,8 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/4">
 							<FormSection.Title>Tipo de equipe</FormSection.Title>
 							<FormSection.Description>
 								É possivel cadastrar equipes para organização do evento
@@ -68,7 +68,7 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 							</FormSection.Description>
 						</FormSection.Header>
 
-						<FormSection.Content>
+						<FormSection.Content className="w-full">
 							<Field.Root control={control} name="team_type">
 								<Field.Label className="text-xs text-zinc-300">
 									Tipo de equipe
@@ -77,19 +77,19 @@ export function CreateTeamSheet({ children }: CreateTeamSheetProps) {
 									<Radio.Control className="flex w-full mt-1">
 										<Radio.Item
 											value="organizer"
-											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-r-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center justify-center"
+											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-r-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center px-2 justify-center"
 										>
 											Organização
 										</Radio.Item>
 										<Radio.Item
 											value="runner"
-											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-l-none rounded-r-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center justify-center"
+											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-l-none rounded-r-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm px-2 items-center justify-center"
 										>
 											Corrida
 										</Radio.Item>
 										<Radio.Item
 											value="crono"
-											className="has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-l-none bg-zinc-800 border-neutral-700 text-zinc-400 text-sm items-center justify-center"
+											className="text-sm has-[input:checked]:border-cyan-600 has-[input:checked]:text-cyan-200 has-[input:checked]:bg-cyan-800 flex-1 py-2 rounded-l-none bg-zinc-800 border-neutral-700 text-zinc-400 items-center justify-center"
 										>
 											Cronometragem
 										</Radio.Item>

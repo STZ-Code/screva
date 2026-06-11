@@ -9,7 +9,10 @@ type FormSectionProps = {
 export function FormSectionRoot({ children, className }: FormSectionProps) {
 	return (
 		<section
-			className={cn('border-b border-b-neutral-700 flex p-8 gap-4', className)}
+			className={cn(
+				'border-b border-b-neutral-700 flex py-8 px-6 gap-2',
+				className,
+			)}
 		>
 			{children}
 		</section>

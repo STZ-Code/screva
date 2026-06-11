@@ -62,7 +62,7 @@ export function CreateTransferSheet() {
 
 				<div className="flex flex-col overflow-auto">
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Repasses aos organizadores</FormSection.Title>
 
 							<div className="flex flex-col gap-3">

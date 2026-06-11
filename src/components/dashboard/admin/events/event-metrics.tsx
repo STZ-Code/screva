@@ -10,7 +10,7 @@ import { Kpi } from '../../kpi'
 export function EventMetrics() {
 	return (
 		<div className="flex gap-4 flex-wrap">
-			<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 				<div className="flex justify-between items-center">
 					<Kpi.Label>Em andamento</Kpi.Label>
 				</div>
@@ -23,7 +23,7 @@ export function EventMetrics() {
 					<TicketIcon size={64} className="text-cyan-600" />
 				</div>
 			</Kpi.Root>
-			<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 				<div className="flex justify-between items-center">
 					<Kpi.Label>Eventos finalizados</Kpi.Label>
 				</div>
@@ -36,7 +36,7 @@ export function EventMetrics() {
 					<FlagCheckeredIcon size={64} className="text-cyan-600" />
 				</div>
 			</Kpi.Root>
-			<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 				<div className="flex justify-between items-center">
 					<Kpi.Label>Em preparação</Kpi.Label>
 				</div>
@@ -49,7 +49,7 @@ export function EventMetrics() {
 					<NotePencilIcon size={64} className="text-cyan-600" />
 				</div>
 			</Kpi.Root>
-			<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+			<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 				<div className="flex justify-between items-center">
 					<Kpi.Label>Eventos cancelados</Kpi.Label>
 				</div>

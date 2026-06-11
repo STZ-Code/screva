@@ -57,20 +57,20 @@ export function CreateEventSheet() {
 			<Sheet.Trigger asChild>
 				<Button
 					type="submit"
-					className="py-2 outline-none h-fit 2xl:w-56 w-full px-6 normal-case font-semibold flex gap-2"
+					className="py-2 outline-none h-fit xl:w-56 w-full px-6 normal-case font-semibold flex gap-2"
 				>
 					<PlusIcon size={20} weight="bold" />
 					Criar evento
 				</Button>
 			</Sheet.Trigger>
-			<Sheet.Content className="2xl:w-2/5 w-full bg-neutral-900 2xl:border-l border-l-none border-cyan-600 gap-0">
+			<Sheet.Content className="xl:w-2/5 w-full bg-neutral-900 xl:border-l border-l-none border-cyan-600 gap-0">
 				<Sheet.Header className="border-b border-b-neutral-700">
 					<Sheet.Title>Criar novo evento</Sheet.Title>
 				</Sheet.Header>
 
 				<div className="flex flex-col overflow-auto">
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
 							<FormSection.Description>
 								Defina as informações essenciais que identificam e estruturam o
@@ -78,7 +78,7 @@ export function CreateEventSheet() {
 							</FormSection.Description>
 						</FormSection.Header>
 
-						<FormSection.Content>
+						<FormSection.Content className="w-full">
 							<Field.Root control={control} name="email">
 								<Field.Label className="text-xs text-zinc-300" required>
 									Nome
@@ -144,8 +144,8 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Organização do evento</FormSection.Title>
 							<FormSection.Description>
 								Selecione a equipe já cadastrada ou registre uma nova equipe
@@ -153,7 +153,7 @@ export function CreateEventSheet() {
 							</FormSection.Description>
 						</FormSection.Header>
 
-						<FormSection.Content>
+						<FormSection.Content className="w-full">
 							<Field.Root control={control} name="organizer">
 								<Field.Label className="text-xs text-zinc-300">
 									Organizador do evento
@@ -283,8 +283,8 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Configuração Financeira</FormSection.Title>
 							<FormSection.Description>
 								Configure a taxa aplicada às inscrições e defina o modelo de
@@ -292,7 +292,7 @@ export function CreateEventSheet() {
 							</FormSection.Description>
 						</FormSection.Header>
 
-						<FormSection.Content>
+						<FormSection.Content className="w-full">
 							<Field.Root control={control} name="taxes">
 								<Field.Label className="text-xs text-zinc-300">
 									Taxa por inscrição
@@ -328,15 +328,15 @@ export function CreateEventSheet() {
 						</FormSection.Content>
 					</FormSection.Root>
 
-					<FormSection.Root className="2xl:flex-row flex-col">
-						<FormSection.Header>
+					<FormSection.Root className="xl:flex-row flex-col">
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Endereço do evento</FormSection.Title>
 							<FormSection.Description>
 								Informe o local da realização do evento.
 							</FormSection.Description>
 						</FormSection.Header>
 
-						<FormSection.Content>
+						<FormSection.Content className="w-full">
 							<div className="flex gap-2">
 								<Field.Root control={control} name="email">
 									<Field.Label className="text-xs text-zinc-300">

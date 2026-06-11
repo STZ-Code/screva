@@ -15,7 +15,6 @@ export default async function PrivateLayout({
 
 	return (
 		<div className="flex flex-col w-full min-h-screen bg-dashboard overflow-auto">
-			{/* <Header /> */}
 			{children}
 			<Footer />
 		</div>

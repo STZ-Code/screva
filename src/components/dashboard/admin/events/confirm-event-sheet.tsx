@@ -61,7 +61,7 @@ export function ConfirmEventSheet({ children }: { children: React.ReactNode }) {
 
 				<div className="flex flex-col overflow-auto">
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Dados Principais do Evento</FormSection.Title>
 							<FormSection.Description>
 								Defina as informações essenciais que identificam e estruturam o
@@ -136,7 +136,7 @@ export function ConfirmEventSheet({ children }: { children: React.ReactNode }) {
 					</FormSection.Root>
 
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Organização do evento</FormSection.Title>
 							<FormSection.Description>
 								Selecione a equipe já cadastrada ou registre uma nova equipe
@@ -275,7 +275,7 @@ export function ConfirmEventSheet({ children }: { children: React.ReactNode }) {
 					</FormSection.Root>
 
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Configuração Financeira</FormSection.Title>
 							<FormSection.Description>
 								Configure a taxa aplicada às inscrições e defina o modelo de
@@ -320,7 +320,7 @@ export function ConfirmEventSheet({ children }: { children: React.ReactNode }) {
 					</FormSection.Root>
 
 					<FormSection.Root>
-						<FormSection.Header>
+						<FormSection.Header className="2xl:w-1/2 xl:w-2/5">
 							<FormSection.Title>Endereço do evento</FormSection.Title>
 							<FormSection.Description>
 								Informe o local da realização do evento.

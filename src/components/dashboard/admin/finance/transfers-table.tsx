@@ -103,18 +103,16 @@ export function TransfersTable() {
 		},
 		{
 			id: 'actions',
-			header: () => (
-				<div className="2xl:text-left text-center w-full">Ações</div>
-			),
+			header: () => <div className="text-center w-full">Ações</div>,
 			size: 24,
 			cell: () => {
 				return (
-					<div className="w-full flex items-center 2xl:justify-start justify-center">
+					<div className="w-full flex items-center justify-center">
 						<Dropdown.Root>
 							<Dropdown.Trigger className="self-center">
 								<DotsThreeIcon className="size-4 text-zinc-400 cursor-pointer" />
 							</Dropdown.Trigger>
-							<Dropdown.Content align="start">
+							<Dropdown.Content align="end">
 								<Dropdown.Item>
 									<p>Editar</p>
 								</Dropdown.Item>

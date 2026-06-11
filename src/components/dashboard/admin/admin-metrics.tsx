@@ -44,7 +44,7 @@ export function AdminMetrics() {
 			</div>
 
 			<div className="flex gap-4 flex-wrap">
-				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Volume Transacionado</Kpi.Label>
 
@@ -67,7 +67,7 @@ export function AdminMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Eventos Ativos</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -86,7 +86,7 @@ export function AdminMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Receita da Plataforma</Kpi.Label>
 						<StatusTag.Root className="bg-emerald-800/30 border-none gap-2">
@@ -108,7 +108,7 @@ export function AdminMetrics() {
 						<PersonSimpleRunIcon size={64} className="text-cyan-600" />
 					</div>
 				</Kpi.Root>
-				<Kpi.Root className="w-[calc(50%-0.5rem)] 2xl:flex-1 rounded bg-neutral-900 shadow-none">
+				<Kpi.Root className="w-[calc(50%-0.5rem)] xl:flex-1 rounded bg-neutral-900 shadow-none">
 					<div className="flex justify-between items-center">
 						<Kpi.Label>Taxa de Conversão</Kpi.Label>
 						<StatusTag.Root className="bg-red-800/30 border-none gap-2">
@@ -130,12 +130,12 @@ export function AdminMetrics() {
 			</div>
 
 			<div>
-				<Box className="2xl:h-105 p-4 bg-neutral-900 rounded rounded-b-none border-zinc-800">
+				<Box className="xl:h-105 p-4 bg-neutral-900 rounded rounded-b-none border-zinc-800">
 					<AdminChart />
 				</Box>
 
-				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between 2xl:gap-0 gap-8">
-					<span className="text-zinc-300 2xl:text-sm text-xs flex-1">
+				<div className="bg-zinc-800 py-2 px-4 rounded-b-md flex justify-between xl:gap-0 gap-8">
+					<span className="text-zinc-300 xl:text-sm text-xs flex-1">
 						Acompanhe o crescimento da base de usuários e o valor médio de cada
 						inscrição ao longo do tempo.
 					</span>

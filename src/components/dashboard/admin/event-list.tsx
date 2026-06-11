@@ -21,7 +21,7 @@ export function EventList() {
 		{
 			accessorKey: 'name',
 			header: 'Evento',
-			size: desktop ? 48 : 28,
+			size: desktop ? 32 : 28,
 			cell: (info) => {
 				return (
 					<div className="flex gap-4 items-center w-full">
@@ -44,16 +44,18 @@ export function EventList() {
 			header: '',
 			size: 16,
 			cell: (info) => (
-				<StatusTag.Root>
-					<StatusTag.Icon
-						icon={CheckCircle}
-						weight="fill"
-						className="text-emerald-500 size-4"
-					/>
-					<StatusTag.Label className="text-zinc-200 text-xs">
-						Confirmado
-					</StatusTag.Label>
-				</StatusTag.Root>
+				<div className="flex w-full justify-center">
+					<StatusTag.Root>
+						<StatusTag.Icon
+							icon={CheckCircle}
+							weight="fill"
+							className="text-emerald-500 size-4"
+						/>
+						<StatusTag.Label className="text-zinc-200 text-xs">
+							Confirmado
+						</StatusTag.Label>
+					</StatusTag.Root>
+				</div>
 			),
 		},
 	]
@@ -74,14 +76,14 @@ export function EventList() {
 	]
 
 	return (
-		<div className="2xl:w-1/4 h-full flex flex-col">
+		<div className="xl:w-1/4 h-full flex flex-col">
 			<Box className="rounded-b-none border-zinc-800 gap-3 p-6 flex-1">
 				<h2 className="text-2xl text-zinc-100 font-semibold">
 					Próximos eventos
 				</h2>
 
 				<Table.Root columns={columns} data={data}>
-					<Table.Container className="border-none">
+					<Table.Container className="border-none hover:shadow-none">
 						<Table.Content>
 							<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
