@@ -6,26 +6,28 @@ import {
 	MagnifyingGlassIcon,
 	SpinnerIcon,
 } from '@phosphor-icons/react'
-import { Field, type STZColumnDef, Table, TablePagination } from '@stz-code/ui'
+import {
+	Avatar,
+	Field,
+	type STZColumnDef,
+	Table,
+	TablePagination,
+} from '@stz-code/ui'
+import type { Dispatch, SetStateAction } from 'react'
 import { StatusTag } from '@/components/status-tag'
 import { useBreakpoint } from '@/hooks/use-breakpoint'
 import { formatDate } from '@/utils/format-date'
 import { cn } from '@/utils/utils'
+import type { AthleteKit } from './kit-delivery-content'
 
-type Event = {
-	id: string
-	chest_number: string
-	name: string
-	cpf: string
-	category: string
-	status: 'pending' | 'processing' | 'success' | 'failed'
-	birthday: Date
-}
-
-export function KitDeliveryTable() {
+export function KitDeliveryTable({
+	setAthleteSelected,
+}: {
+	setAthleteSelected: Dispatch<SetStateAction<AthleteKit | null>>
+}) {
 	const desktop = useBreakpoint('lg')
 
-	const columns: STZColumnDef<Event>[] = [
+	const columns: STZColumnDef<AthleteKit>[] = [
 		{
 			accessorKey: 'chest_number',
 			header: () => <p className="w-full text-center">Nº</p>,
@@ -39,13 +41,19 @@ export function KitDeliveryTable() {
 		{
 			accessorKey: 'name',
 			header: 'Nome',
-			size: desktop ? 96 : 40,
+			size: desktop ? 112 : 40,
 			cell: (info) => {
 				return (
-					<div className="min-w-0 py-2">
-						<p className="text-zinc-200 font-medium truncate">
-							{info.row.original.name}
-						</p>
+					<div className="flex gap-4 items-center w-full pl-3 xl:py-0 py-2">
+						<Avatar.Root className="size-9 rounded-full hidden xl:block">
+							<Avatar.Image src="https://github.com/garcez17.png" />
+							<Avatar.Fallback>Picos Pro Race</Avatar.Fallback>
+						</Avatar.Root>
+						<div className="min-w-0">
+							<p className="text-zinc-200 font-medium truncate">
+								{info.row.original.name}
+							</p>
+						</div>
 					</div>
 				)
 			},
@@ -88,9 +96,11 @@ export function KitDeliveryTable() {
 								? SpinnerIcon
 								: CheckCircleIcon
 						}
-						weight={info.row.original.status === 'success' ? 'fill' : 'regular'}
+						weight={
+							info.row.original.status === 'delivered' ? 'fill' : 'regular'
+						}
 						className={cn('size-4', {
-							'text-emerald-500': info.row.original.status === 'success',
+							'text-emerald-500': info.row.original.status === 'delivered',
 							'text-orange-400': info.row.original.status === 'pending',
 						})}
 					/>
@@ -102,53 +112,82 @@ export function KitDeliveryTable() {
 		},
 	]
 
-	const data: Event[] = [
+	const data: AthleteKit[] = [
 		{
 			id: '728ed52f',
+			sub_cod: 'AB154C',
 			chest_number: '1',
 			name: 'Vinicius Lemos de Carvalho',
-			status: 'success',
-			birthday: new Date(2026, 3, 10),
+			status: 'delivered',
+			birthday: new Date(2000, 4, 19),
 			cpf: '930.426.030-24',
-			category: '5KM',
+			category: 'ELITE',
+			modality: 'LIGHT',
+			kit_type: 'Premium',
+			gender: 'Masculino',
+			team: 'Gil Bala',
 		},
 		{
 			id: '728e322f',
+			sub_cod: 'AB142452C',
 			chest_number: '2',
 			name: 'Lucas Alberto Silva dos Anjos',
 			status: 'pending',
-			birthday: new Date(2026, 5, 20),
+			birthday: new Date(2002, 4, 16),
 			cpf: '622.999.970-67',
-			category: '10KM',
+			category: 'MASTER A',
+			modality: 'PRO',
+			kit_type: 'Básico',
+			gender: 'Feminino',
+			team: 'Salvatore Team',
 		},
 		{
 			id: '7285452f',
+			sub_cod: 'A12B154f',
 			chest_number: '3',
 			name: 'Alexandre Macedo Nascimento',
-			status: 'success',
-			birthday: new Date(2026, 8, 15),
+			status: 'pending',
+			birthday: new Date(1996, 8, 15),
 			cpf: '071.168.670-07',
-			category: '5KM',
+			category: 'ELITE',
+			modality: 'PRO',
+			kit_type: 'Premium',
+			gender: 'Feminino',
+			team: 'Canelas Run',
 		},
 		{
 			id: '728egrew2f',
+			sub_cod: 'Afb154x',
 			chest_number: '4',
 			name: 'Joel de Oliveira Sá',
-			status: 'success',
-			birthday: new Date(2026, 11, 31),
+			status: 'delivered',
+			birthday: new Date(2006, 11, 31),
 			cpf: '487.204.690-04',
-			category: '5KM',
+			category: 'ELITE',
+			modality: 'SPORT',
+			kit_type: 'Premium',
+			gender: 'Masculino',
+			team: 'ADRENALINA BIKE',
 		},
 		{
 			id: '728egrew24134f',
+			sub_cod: 'GBS541f',
 			chest_number: '5',
 			name: 'Gabriel Santos Garcez',
 			status: 'pending',
-			birthday: new Date(2026, 11, 31),
+			birthday: new Date(1991, 11, 31),
 			cpf: '722.055.710-87',
-			category: '10KM',
+			category: 'MASTER A',
+			modality: 'LIGHT',
+			kit_type: 'Premium',
+			gender: 'Feminino',
+			team: 'EMTHOS',
 		},
 	]
+
+	function handleSelectAthlete(data: AthleteKit) {
+		setAthleteSelected(data)
+	}
 
 	return (
 		<Table.Root
@@ -201,7 +240,10 @@ export function KitDeliveryTable() {
 						<Table.Header className="text-zinc-400 [&_tr]:border-zinc-800" />
 
 						<Table.Body>
-							<Table.Row className="border-zinc-800 hover:bg-zinc-700">
+							<Table.Row
+								onRowClick={handleSelectAthlete}
+								className="border-zinc-800 hover:bg-zinc-700/50 transition-colors cursor-pointer"
+							>
 								<Table.Fallback>Sem resultados encontrados</Table.Fallback>
 							</Table.Row>
 						</Table.Body>

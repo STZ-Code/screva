@@ -3,6 +3,9 @@
 import {
 	CheckCircleIcon,
 	DotsThreeIcon,
+	DownloadSimpleIcon,
+	FileCsvIcon,
+	FilePdfIcon,
 	FunnelIcon,
 	MagnifyingGlassIcon,
 	PlusIcon,
@@ -221,17 +224,40 @@ export function RegistrationsTable() {
 					</Table.FilterDropdown>
 				</div>
 
-				<CreateAthleteSheet>
-					<Sheet.Trigger asChild>
-						<Button
-							type="submit"
-							className="py-2 outline-none h-fit px-6 2xl:w-56 xl:w-60 w-full normal-case font-semibold flex gap-2"
+				<div className="flex items-center gap-2 xl:w-fit w-full xl:flex-row flex-row-reverse">
+					<Dropdown.Root>
+						<Dropdown.Trigger className="px-3.5 border border-zinc-300 rounded">
+							<Dropdown.Label className="flex items-center gap-3 cursor-pointer hover:bg-zinc-300/10 transition-colors">
+								<DownloadSimpleIcon size={26} />
+								<p className="hidden xl:block">Exportar</p>
+							</Dropdown.Label>
+						</Dropdown.Trigger>
+						<Dropdown.Content
+							align="end"
+							className="bg-neutral-800 border-zinc-600"
 						>
-							<PlusIcon size={20} weight="bold" />
-							Fazer inscrição
-						</Button>
-					</Sheet.Trigger>
-				</CreateAthleteSheet>
+							<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+								<FilePdfIcon className="size-5" />
+								PDF
+							</Dropdown.Item>
+							<Dropdown.Item className="text-zinc-300 cursor-pointer hover:bg-zinc-700 transition-colors">
+								<FileCsvIcon className="size-5" />
+								CSV
+							</Dropdown.Item>
+						</Dropdown.Content>
+					</Dropdown.Root>
+					<CreateAthleteSheet>
+						<Sheet.Trigger asChild>
+							<Button
+								type="submit"
+								className="py-2 outline-none h-fit px-6 2xl:w-56 xl:w-60 w-full normal-case font-semibold flex gap-2"
+							>
+								<PlusIcon size={20} weight="bold" />
+								Fazer inscrição
+							</Button>
+						</Sheet.Trigger>
+					</CreateAthleteSheet>
+				</div>
 			</div>
 
 			<Table.Filters>

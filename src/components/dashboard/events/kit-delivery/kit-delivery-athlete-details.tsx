@@ -2,10 +2,10 @@
 
 import {
 	CheckCircleIcon,
-	EnvelopeIcon,
 	HashIcon,
 	InfoIcon,
 	PencilSimpleIcon,
+	SpinnerIcon,
 	TShirtIcon,
 	UserIcon,
 } from '@phosphor-icons/react'
@@ -13,6 +13,9 @@ import { Avatar, Field, Input, Sheet } from '@stz-code/ui'
 import { useForm } from 'react-hook-form'
 import { Button } from '@/components/button'
 import { StatusTag } from '@/components/status-tag'
+import { getAge } from '@/utils/get-age'
+import { cn } from '@/utils/utils'
+import type { AthleteKit } from './kit-delivery-content'
 import { UpdateAthleteDetailsSheet } from './update-athlete-details-sheet'
 
 function AthleteDetailsEmpty() {
@@ -35,8 +38,10 @@ function AthleteDetailsEmpty() {
 	)
 }
 
-function AthleteDetails() {
+function AthleteDetails({ currentAthlete }: { currentAthlete: AthleteKit }) {
 	const { control } = useForm()
+
+	const age = getAge(currentAthlete.birthday)
 
 	return (
 		<div className="flex-1 flex flex-col p-6 gap-6">
@@ -46,23 +51,34 @@ function AthleteDetails() {
 				<div className="flex gap-4">
 					<Avatar.Root className="size-24 rounded-full">
 						<Avatar.Image src="https://github.com/garcez17.png" />
-						<Avatar.Fallback>Gabriel Garcez</Avatar.Fallback>
+						<Avatar.Fallback>{currentAthlete.name}</Avatar.Fallback>
 					</Avatar.Root>
 
 					<div className="flex flex-col gap-4">
 						<div className="flex gap-2 items-center">
 							<strong className="font-semibold text-zinc-200">
-								João da Silva
+								{currentAthlete.name}
 							</strong>
 
 							<StatusTag.Root className="flex xl:hidden">
 								<StatusTag.Icon
-									icon={CheckCircleIcon}
-									weight="fill"
-									className="text-emerald-500 size-4"
+									icon={
+										currentAthlete.status === 'pending'
+											? SpinnerIcon
+											: CheckCircleIcon
+									}
+									weight={
+										currentAthlete.status === 'delivered' ? 'fill' : 'regular'
+									}
+									className={cn('size-4', {
+										'text-emerald-500': currentAthlete.status === 'delivered',
+										'text-orange-400': currentAthlete.status === 'pending',
+									})}
 								/>
 								<StatusTag.Label className="text-zinc-200 text-xs">
-									Entregue
+									{currentAthlete.status === 'pending'
+										? 'Pendente'
+										: 'Entregue'}
 								</StatusTag.Label>
 							</StatusTag.Root>
 						</div>
@@ -70,25 +86,29 @@ function AthleteDetails() {
 						<div className="flex flex-col gap-2">
 							<div className="flex gap-2">
 								<span className="text-zinc-500 text-sm font-medium">
-									Nº de inscrições
+									Cód inscrição:
 								</span>
-								<p className="text-zinc-300 text-sm font-medium">123456</p>
+								<p className="text-zinc-300 text-sm font-medium">
+									{currentAthlete.sub_cod}
+								</p>
 							</div>
 							<div className="flex gap-2">
-								<span className="text-zinc-500 text-sm font-medium">CPF</span>
+								<span className="text-zinc-500 text-sm font-medium">CPF:</span>
 								<p className="text-zinc-300 text-sm font-medium">
-									000.000.000-00
+									{currentAthlete.cpf}
+								</p>
+							</div>
+							<div className="flex gap-2">
+								<span className="text-zinc-500 text-sm font-medium">Sexo:</span>
+								<p className="text-zinc-300 text-sm font-medium">
+									{currentAthlete.gender}
 								</p>
 							</div>
 							<div className="flex gap-2">
 								<span className="text-zinc-500 text-sm font-medium">
-									Categoria
+									Idade:
 								</span>
-								<p className="text-zinc-300 text-sm font-medium">ELITE</p>
-							</div>
-							<div className="flex gap-2">
-								<span className="text-zinc-500 text-sm font-medium">Idade</span>
-								<p className="text-zinc-300 text-sm font-medium">33 anos</p>
+								<p className="text-zinc-300 text-sm font-medium">{age} anos</p>
 							</div>
 						</div>
 					</div>
@@ -96,12 +116,19 @@ function AthleteDetails() {
 
 				<StatusTag.Root className="hidden xl:flex">
 					<StatusTag.Icon
-						icon={CheckCircleIcon}
-						weight="fill"
-						className="text-emerald-500 size-4"
+						icon={
+							currentAthlete.status === 'pending'
+								? SpinnerIcon
+								: CheckCircleIcon
+						}
+						weight={currentAthlete.status === 'delivered' ? 'fill' : 'regular'}
+						className={cn('size-4', {
+							'text-emerald-500': currentAthlete.status === 'delivered',
+							'text-orange-400': currentAthlete.status === 'pending',
+						})}
 					/>
 					<StatusTag.Label className="text-zinc-200 text-xs">
-						Entregue
+						{currentAthlete.status === 'pending' ? 'Pendente' : 'Entregue'}
 					</StatusTag.Label>
 				</StatusTag.Root>
 			</div>
@@ -114,7 +141,9 @@ function AthleteDetails() {
 						<span className="font-semibold text-xs text-zinc-400">
 							Tipo de kit
 						</span>
-						<p className="text-zinc-300 font-bold text-sm">Premium</p>
+						<p className="text-zinc-300 font-bold text-sm">
+							{currentAthlete.kit_type}
+						</p>
 					</div>
 				</div>
 				<div className="border rounded border-zinc-800 flex-1 flex p-4 gap-2">
@@ -124,7 +153,9 @@ function AthleteDetails() {
 						<span className="font-semibold text-xs text-zinc-400">
 							Número de peito
 						</span>
-						<p className="text-zinc-300 font-bold text-sm">32</p>
+						<p className="text-zinc-300 font-bold text-sm">
+							{currentAthlete.chest_number}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -138,23 +169,31 @@ function AthleteDetails() {
 					<div className="space-y-2">
 						<div className="space-y-1">
 							<span className="text-zinc-500 text-sm font-medium">
+								Modalidade
+							</span>
+							<p className="text-zinc-300 text-sm font-medium">
+								{currentAthlete.modality}
+							</p>
+						</div>
+						<div className="space-y-1">
+							<span className="text-zinc-500 text-sm font-medium">
+								Categoria
+							</span>
+							<p className="text-zinc-300 text-sm font-medium">
+								{currentAthlete.category}
+							</p>
+						</div>
+						<div className="space-y-1">
+							<span className="text-zinc-500 text-sm font-medium">
 								Faixa etária
 							</span>
 							<p className="text-zinc-300 text-sm font-medium">30 à 39 anos</p>
 						</div>
 						<div className="space-y-1">
-							<span className="text-zinc-500 text-sm font-medium">Sexo</span>
-							<p className="text-zinc-300 text-sm font-medium">Masculino</p>
-						</div>
-						<div className="space-y-1">
-							<span className="text-zinc-500 text-sm font-medium">
-								Modalidade
-							</span>
-							<p className="text-zinc-300 text-sm font-medium">PRO</p>
-						</div>
-						<div className="space-y-1">
 							<span className="text-zinc-500 text-sm font-medium">Equipe</span>
-							<p className="text-zinc-300 text-sm font-medium">Gil Bala</p>
+							<p className="text-zinc-300 text-sm font-medium">
+								{currentAthlete.team}
+							</p>
 						</div>
 					</div>
 				</div>
@@ -214,11 +253,18 @@ function AthleteDetails() {
 	)
 }
 
-export function KitDeliveryAthleteDetails() {
+export function KitDeliveryAthleteDetails({
+	currentAthlete,
+}: {
+	currentAthlete: AthleteKit | null
+}) {
 	return (
 		<div className="bg-neutral-900 min-h-200 xl:w-114 w-full rounded border border-zinc-800 h-full">
-			{/* <AthleteDetailsEmpty /> */}
-			<AthleteDetails />
+			{currentAthlete ? (
+				<AthleteDetails currentAthlete={currentAthlete} />
+			) : (
+				<AthleteDetailsEmpty />
+			)}
 		</div>
 	)
 }
