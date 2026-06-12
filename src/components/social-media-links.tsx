@@ -1,8 +1,8 @@
 'use client'
 
-import { cn } from '@/utils/utils'
 import { InstagramLogoIcon, LinkedinLogoIcon } from '@phosphor-icons/react'
 import { motion } from 'motion/react'
+import { cn } from '@/utils/utils'
 
 type SocialMediaLinksProps = {
 	className?: string
@@ -14,16 +14,16 @@ export function SocialMediaLinks({ className }: SocialMediaLinksProps) {
 			{[
 				{
 					Icon: InstagramLogoIcon,
-					href: 'https://www.instagram.com/screva',
+					href: 'https://www.instagram.com/screvabr',
 				},
 				{
 					Icon: LinkedinLogoIcon,
 					href: 'https://www.linkedin.com/company/screva/',
 					weight: 'fill' as const,
 				},
-			].map((social, index) => (
+			].map((social) => (
 				<motion.a
-					key={index}
+					key={social.href}
 					href={social.href}
 					target="_blank"
 					rel="noopener"
