@@ -4,6 +4,8 @@ import type { FieldValues } from 'react-hook-form'
 
 export type MultiStepId = string
 
+export type PaymentMethod = 'pix' | 'card' | 'bank_slip'
+
 export type MultiStepDefinition<TValues extends FieldValues = FieldValues> = {
 	id: MultiStepId
 
@@ -23,7 +25,11 @@ export type MultiStepContextValue<TValues extends FieldValues = FieldValues> = {
 
 	isLastStep: boolean
 
+	isFormFInished: boolean
+
 	accumulatedValues: Partial<TValues>
+
+	finishForm(): void
 
 	next(values?: Partial<TValues>): void
 

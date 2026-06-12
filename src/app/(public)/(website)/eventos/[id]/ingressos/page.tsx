@@ -1,4 +1,4 @@
-import { CheckoutContent } from '@/components/event/tickets/form/checkout-content'
+import { CheckoutContainer } from '@/components/event/tickets/form/checkout-container'
 import { OrderHeader } from '@/components/event/tickets/order-header'
 
 export default function TicketsPage() {
@@ -6,7 +6,7 @@ export default function TicketsPage() {
 		<div className="flex flex-col relative">
 			<OrderHeader />
 
-			<CheckoutContent />
+			<CheckoutContainer />
 		</div>
 	)
 }

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 @import "tw-animate-css";
+@import 'react-credit-cards-2/dist/es/styles-compiled.css';
 
 html {
   -webkit-font-smoothing: antialiased;
@@ -35,4 +36,14 @@ html {
 * {
   scrollbar-width: thin;
   scrollbar-color: #27272a #09090b;
+}
+
+.credit-card-preview .rccs__card {
+  width: 100%;
+  height: 220px;
+}
+
+.credit-card-preview .rccs {
+  margin: 0;
+  width: 100%;
 }

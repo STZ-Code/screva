@@ -34,6 +34,8 @@ export function MultiStepProvider<TValues extends FieldValues>({
 	const [accumulatedValues, setAccumulatedValues] = useState<Partial<TValues>>(
 		{},
 	)
+	const [formFinished, setFormFinished] = useState(false)
+	const [paymentData, setPaymentData] = useState()
 
 	const stepSubmitFnsRef = useRef<Map<string, () => void | Promise<void>>>(
 		new Map(),
@@ -83,6 +85,10 @@ export function MultiStepProvider<TValues extends FieldValues>({
 		}
 	}, [])
 
+	const handleFinishForm = useCallback(() => {
+		setFormFinished(true)
+	}, [])
+
 	const value = useMemo<MultiStepContextValue<TValues>>(
 		() => ({
 			steps,
@@ -96,6 +102,8 @@ export function MultiStepProvider<TValues extends FieldValues>({
 			goTo,
 			registerStepSubmitFn,
 			executeStepSubmitFn,
+			finishForm: handleFinishForm,
+			isFormFInished: formFinished,
 		}),
 		[
 			currentStep,
@@ -107,6 +115,8 @@ export function MultiStepProvider<TValues extends FieldValues>({
 			registerStepSubmitFn,
 			executeStepSubmitFn,
 			prev,
+			formFinished,
+			handleFinishForm,
 		],
 	)
 
