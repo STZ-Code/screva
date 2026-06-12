@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import z from 'zod'
 import exampleImg from '@/assets/examples/picos.jpg'
 import { useMultiStepForm } from '@/hooks/use-multistep-form'
+import { maskProvider } from '@/utils/mask'
 import type { CheckoutFormValues } from './checkout-form.schema'
 
 const athleteSchema = z.object({
@@ -233,6 +234,8 @@ export function TicketsStep2() {
 									<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
 										<Input.Control
 											placeholder="000.000.000-00"
+											maskProvider={maskProvider}
+											mask="TAX_ID"
 											className="placeholder:text-zinc-500 text-zinc-200"
 										/>
 									</Input.Root>
@@ -250,6 +253,8 @@ export function TicketsStep2() {
 									<Input.Root className="border-zinc-600 bg-neutral-900 focus-within:ring-cyan-600">
 										<Input.Control
 											placeholder="00/00/0000"
+											maskProvider={maskProvider}
+											mask="DATE"
 											className="placeholder:text-zinc-500 text-zinc-200"
 										/>
 									</Input.Root>

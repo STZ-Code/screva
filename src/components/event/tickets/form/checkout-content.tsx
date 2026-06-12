@@ -10,7 +10,7 @@ import { TicketsStep1 } from './step-1'
 import { TicketsStep2 } from './step-2'
 import { TicketsStep3 } from './step-3'
 
-const steps: MultiStepDefinition[] = [
+export const steps: MultiStepDefinition[] = [
 	{
 		id: 'tickets',
 		component: TicketsStep1,
@@ -27,20 +27,18 @@ const steps: MultiStepDefinition[] = [
 
 export function CheckoutContent() {
 	return (
-		<MultiStepProvider steps={steps}>
-			<div className="flex h-fit">
-				<div className="flex-1 bg-zinc-800/40 w-fit px-6 xl:pl-28 py-6 xl:py-10 xl:pr-14">
-					<MultiStepIndicator />
+		<div className="flex h-fit">
+			<div className="flex-1 bg-zinc-800/40 w-fit px-6 xl:pl-28 py-6 xl:py-10 xl:pr-14">
+				<MultiStepIndicator />
 
-					<div className="py-6 h-fit">
-						<CheckoutRenderer />
-					</div>
+				<div className="py-6 h-fit">
+					<CheckoutRenderer />
 				</div>
-
-				<OrderSummary />
 			</div>
 
+			<OrderSummary />
+
 			<OrderSummaryTrigger />
-		</MultiStepProvider>
+		</div>
 	)
 }
