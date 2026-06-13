@@ -29,6 +29,10 @@ html {
   border: 2px solid #09090b;
 }
 
+@theme {
+  --breakpoint-2xl: 97rem;
+}
+
 ::-webkit-scrollbar-thumb:hover {
   background: #22d3ee;
 }
